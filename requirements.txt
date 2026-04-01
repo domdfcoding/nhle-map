@@ -1,0 +1,5 @@
+fiona==1.9.6
+folium
+geopandas
+pandas
+shapely

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map</title>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA==" crossorigin=""></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		#map {
+	width: 800px; 
+	height: 600px; 
+	border: 1px solid #ccc;
+}
+
+#progress {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    left: 400px;
+    top: 300px;
+    width: 200px;
+    height: 20px;
+    margin-top: -20px;
+    margin-left: -100px;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+#progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #76A6FC;
+    border-radius: 4px;
+}
+
+	</style>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+	
+
+
+	
+
+</head>
+<body>
+
+    <div id="progress"><div id="progress-bar"></div></div>
+	<div id="map"></div>
+
+
+	<script type="text/javascript">
+		var id_lookup = {
+  "49": {
+    "-7": 3115455186,
+    "-6": 1823735210,
+    "-5": 400980587,
+    "-4": 2165861770,
+    "-3": 2868999231,
+    "-2": 3817174073,
+    "-1": 4228471844,
+    "0": 3395720056,
+    "1": 2665497898,
+    "2": 633332358
+  },
+  "50": {
+    "-7": 1862279745,
+    "-6": 1785452904,
+    "-5": 185270852,
+    "-4": 2784490156,
+    "-3": 32815386,
+    "-2": 3060236891,
+    "-1": 2317628205,
+    "0": 307795845,
+    "1": 120964137,
+    "2": 1336483256
+  },
+  "51": {
+    "-7": 3785984960,
+    "-6": 953405554,
+    "-5": 114607204,
+    "-4": 1389770266,
+    "-3": 828253910,
+    "-2": 3067267924,
+    "-1": 3820998799,
+    "0": 546175163,
+    "1": 2603421497,
+    "2": 3496182034
+  },
+  "52": {
+    "-7": 1230385036,
+    "-6": 3402385155,
+    "-5": 2247108127,
+    "-4": 3524924329,
+    "-3": 3922140260,
+    "-2": 715690407,
+    "-1": 3632567315,
+    "0": 441311815,
+    "1": 849415599,
+    "2": 2018610261
+  },
+  "53": {
+    "-7": 2606292287,
+    "-6": 3875428932,
+    "-5": 1471749265,
+    "-4": 1433100313,
+    "-3": 366697925,
+    "-2": 3211818894,
+    "-1": 1355059502,
+    "0": 4292521833,
+    "1": 3388854078,
+    "2": 1860195030
+  },
+  "54": {
+    "-7": 3086504372,
+    "-6": 1666175688,
+    "-5": 1023084665,
+    "-4": 2268460373,
+    "-3": 3590499840,
+    "-2": 941008092,
+    "-1": 1283952549,
+    "0": 3975032160,
+    "1": 3143708557,
+    "2": 2098111520
+  }
+}
+		var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Data © Historic England 2026 (OGL)'
+			}),
+			latlng = L.latLng(52.561928, -1.464854);
+
+		var map = L.map('map', { center: latlng, zoom: 13, layers: [tiles] });
+
+		var progress = document.getElementById('progress');
+		var progressBar = document.getElementById('progress-bar');
+
+		function updateProgressBar(processed, total, elapsed, layersArray) {
+			if (elapsed > 1000) {
+				// if it takes more than a second to load, display the progress bar:
+				progress.style.display = 'block';
+				progressBar.style.width = Math.round(processed/total*100) + '%';
+			}
+
+			if (processed === total) {
+				// all markers processed - hide the progress bar:
+				progress.style.display = 'none';
+			}
+		}
+
+		var markers = L.markerClusterGroup({ chunkedLoading: true, chunkProgress: updateProgressBar });
+
+		var markerList = [];
+
+		console.log('start creating markers: ' + window.performance.now());
+
+		function addMarkers(points, markerList) {
+			for (var i = 0; i < points.length; i++) {
+			var a = points[i];
+			var title = "<a href='"+a[6]+"' target='_blank'>"+a[3]+"</a>";
+			// var title = a[2].toString();
+			var marker = L.marker(L.latLng(a[0], a[1]), { title: title });
+			marker.bindPopup(title);
+			markerList.push(marker);
+		}	
+		}
+
+		function loadMarkers(latitude, longitide){
+			var id = id_lookup[latitude][longitide];
+			var script = document.createElement('script');
+		script.onload = function () {
+			var markerList = [];
+
+			console.log('start creating markers: ' + window.performance.now());
+			console.log(window);
+			console.log("addressPoints" + id);
+			console.log(window["addressPoints" + id]);
+			addMarkers(window["addressPoints" + id], markerList);
+
+			console.log('start clustering: ' + window.performance.now());
+
+			markers.addLayers(markerList);
+
+			console.log('end clustering: ' + window.performance.now());
+
+		};
+
+		script.src = `points_${id}.js`;
+		document.head.appendChild(script);
+
+		}
+
+		// addMarkers(addressPoints35, markerList);
+
+
+
+		// console.log('start clustering: ' + window.performance.now());
+
+		// markers.addLayers(markerList);
+		map.addLayer(markers);
+
+		// console.log('end clustering: ' + window.performance.now());
+	</script>
+	
+	<script>
+		loadMarkers(49,-7)
+		loadMarkers(52,-1)
+		loadMarkers(51,-5)
+	</script>
+</body>
+</html>
