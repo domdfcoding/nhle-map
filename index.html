@@ -129,17 +129,24 @@
         "2": 2098111520
       }
     }
-    var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Data © Historic England 2026 (OGL)'
-    }),
-      latlng = L.latLng(52.561928, -1.464854);
+    
+    // const MAX_ZOOM = 19;
+    const MAX_ZOOM = 18;
 
-    var map = L.map('map', { center: latlng, zoom: 13, layers: [tiles] });
+    var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: MAX_ZOOM,
+      maxNativeZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Data © Historic England 2026 (OGL)',
+    })
+
+    latlng = L.latLng(52.561928, -1.464854);
+
+    var map = L.map('map', { center: latlng, zoom: 13, maxZoom: MAX_ZOOM, minZoom: 10, wheelPxPerZoomLevel: 80 });
+
+    tiles.addTo(map);
 
     var progress = document.getElementById('progress');
     var progressBar = document.getElementById('progress-bar');
-
 
     var markers = L.markerClusterGroup({ chunkedLoading: true, chunkProgress: updateProgressBar, maxClusterRadius: getClusterRadius });
 
