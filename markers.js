@@ -1,3 +1,4 @@
+
 function load_new_markers() {
 	// const centre = map.getCenter();
 	// console.log("lat", Math.floor(centre.lat))
@@ -6,20 +7,20 @@ function load_new_markers() {
 	console.log("bounds", bounds)
 	console.log("SW", Math.floor(bounds.getSouth()), Math.floor(bounds.getWest()))
 	console.log("NE", Math.floor(bounds.getNorth()), Math.floor(bounds.getEast()))
-	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth())+1, 1)
-	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast())+1, 1)
+	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1)
+	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1)
 	console.log(latitudes)
 	console.log(longitides)
 	latitudes.forEach(function (latitude) {
 		longitides.forEach(function (longitide) {
-	// for (latitude in latitudes) {
-	// 	for (longitide in longitides) {
-			console.log(latitude, 				longitide)
+			console.log(latitude, longitide)
 			loadMarkers(latitude, longitide)
 		});
-    });
+	});
 	// loadMarkers(Math.floor(centre.lat),Math.floor(centre.lng))
 }
+
+
 
 function addMarkers(points, markerList) {
 	for (var i = 0; i < points.length; i++) {
@@ -56,20 +57,21 @@ function loadMarkers(latitude, longitide) {
 
 	var script = document.createElement('script');
 	script.onload = function () {
-		loaded_ids.push(id);
+		if (loaded_ids.includes(id)) {
+			console.log(`Markers already loaded for ${latitude}N ${longitide}E`);
+			return
+		}
+
 		var markerList = [];
 
 		console.log('start creating markers: ' + window.performance.now());
-		console.log(window);
-		console.log("addressPoints" + id);
-		console.log(window["addressPoints" + id]);
 		addMarkers(window["addressPoints" + id], markerList);
 
 		console.log('start clustering: ' + window.performance.now());
-
 		markers.addLayers(markerList);
-
 		console.log('end clustering: ' + window.performance.now());
+
+		loaded_ids.push(id);
 
 	};
 
@@ -102,3 +104,28 @@ function range(start, stop, step) {
 
 	return range;
 }
+
+function getClusterRadius(zoom) {
+	if (zoom > 15) {
+		return 30
+	}
+	// TODO: intermediate
+	else {
+		return 80
+	}
+}
+
+
+function updateProgressBar(processed, total, elapsed, layersArray) {
+	if (elapsed > 1000) {
+		// if it takes more than a second to load, display the progress bar:
+		progress.style.display = 'block';
+		progressBar.style.width = Math.round(processed / total * 100) + '%';
+	}
+
+	if (processed === total) {
+		// all markers processed - hide the progress bar:
+		progress.style.display = 'none';
+	}
+}
+
