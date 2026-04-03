@@ -80,7 +80,7 @@ function loadMarkers(latitude, longitide) {
 
 
 		console.log('start creating markers: ' + window.performance.now());
-		addMarkers(window["addressPoints" + id], markerList);
+		addMarkers(window["listedBuildings" + id], markerList);
 
 		console.log('start clustering: ' + window.performance.now());
 		// disable_interaction();
@@ -89,7 +89,7 @@ function loadMarkers(latitude, longitide) {
 
 	};
 
-	script.src = `points_${id}.js`;
+	script.src = `output/data/listed_buildings_${id}.js`;
 	document.head.appendChild(script);
 
 }
