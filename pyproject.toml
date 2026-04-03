@@ -56,3 +56,10 @@ reformat = true
 [tool.snippet-fmt.languages.ini]
 
 [tool.snippet-fmt.languages.json]
+
+[tool.djlint]
+profile = "jinja"
+extension = "jinja2"
+preserve_blank_lines = true
+ignore = "H029,H031,H006,H030,H025,H013,J018,T028"
+max_attribute_length = 80

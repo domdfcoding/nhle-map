@@ -1,75 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head>
-  <title>Map</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>England Listed Buildings Map</title>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
-    integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
-    crossorigin="" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css" />
-  <link rel="stylesheet" href="style.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-</head>
-
-<body>
-
-  <!-- Loading Bar Modal -->
-  <div class="modal fade" id="progress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="progressLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="progressLabel">Loading markers for area...</h1>
-        </div>
-        <div class="modal-body">
-          <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0"
-            aria-valuemax="100">
-            <div class="progress-bar  progress-bar-striped progress-bar-animated" id="progress-bar"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="map-container p-2">
-    <div id="map"></div>
-    <p>Zoom level: <span id="zoom"></span></p>
-  </div>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
 
-  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"
-    integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA=="
-    crossorigin=""></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-  <script src="markers.js"></script>
-  <script src="output/data/listed_buildings_id_lookup.js"></script>
-  <script>
-    // const MAX_ZOOM = 19;
-    const MAX_ZOOM = 18;
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 
-    var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: MAX_ZOOM,
-      maxNativeZoom: 18,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Data © Historic England 2026 (OGL)',
-    })
 
-    latlng = L.latLng(52.561928, -1.464854);
 
-    var map = L.map('map', { center: latlng, zoom: 13, maxZoom: MAX_ZOOM, minZoom: 10, wheelPxPerZoomLevel: 80 });
 
-    tiles.addTo(map);
+
+    </head>
+
+    <body>
+
+            <!-- Loading Bar Modal -->
+            <div class="modal fade"
+                 id="progress"
+                 data-bs-backdrop="static"
+                 data-bs-keyboard="false"
+                 tabindex="-1"
+                 aria-labelledby="progressLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="progressLabel">Loading markers for area...</h1>
+                        </div>
+                        <div class="modal-body">
+                            <div class="progress"
+                                 role="progressbar"
+                                 aria-label="Example with label"
+                                 aria-valuenow="0"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+                                <div class="progress-bar  progress-bar-striped progress-bar-animated"
+                                     id="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <main class="map-container p-2 min-vh-100 min-vw-100">
+
+
+
+            <div class="folium-map" id="map" ></div>
+
+                    <p>
+                        Zoom level: <span id="zoom"></span>
+                    </p>
+
+
+            </main>
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                    crossorigin="anonymous"></script>
+
+            <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+<script src="markers.js"></script>
+<script src="output/data/listed_buildings_id_lookup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+            <script>
+
+            var map = L.map(
+                "map",
+                {
+                    center: [52.561928, -1.464854],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+  "minZoom": 10,
+  "maxZoom": 18,
+  "wheelPxPerZoomLevel": 80,
+}
+
+                }
+            );
+
+
+
+
+
+            var tile_layer_osm_carto = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+
+
+            tile_layer_osm_carto.addTo(map);
+
+
+const MAX_ZOOM = 18;
+
 
     const progress = document.getElementById('progress')
     var modal = bootstrap.Modal.getOrCreateInstance(progress)
@@ -89,8 +148,16 @@
     // map.on('zoomend', load_new_markers);
     map.on('moveend', load_new_markers);
 
-  </script>
 
-</body>
+    map.on('zoomend', showZoomLevel);
+    showZoomLevel();
 
+    function showZoomLevel() {
+      document.getElementById('zoom').innerHTML = map.getZoom();
+    }
+
+    map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)
+            </script>
+
+    </body>
 </html>
