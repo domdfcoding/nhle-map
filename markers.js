@@ -34,7 +34,7 @@ function addMarkers(points, markerList) {
 }
 
 function lookup_id(latitude, longitide) {
-	var lat_lookup = id_lookup[latitude]
+	var lat_lookup = listedBuildingsIDLookup[latitude]
 	if (lat_lookup === undefined) {
 		return null
 	}
@@ -64,7 +64,7 @@ function loadMarkers(latitude, longitide) {
 			console.log(`Markers already loaded for ${latitude}N ${longitide}E`);
 			return
 		}
-		
+
 		markers.addLayers(markerList);
 		console.log('end clustering: ' + window.performance.now());
 
@@ -145,4 +145,3 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 		// enable_interaction();
 	}
 }
-

@@ -26,15 +26,26 @@ Data preparation.
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-
+# stdlib
 import json
+from collections import defaultdict
+
+# 3rd party
+import geopandas
+from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
+from domdf_python_tools.typing import PathLike
+
+# this package
+from nhle_map.utils import get_id
+
+__all__ = ["chunk_data", "get_chunk_js"]
 
 
-def get_chunk_js(features: list, id: int) -> str:
+def get_chunk_js(features: list, id: int, variable_prefix: str = "listedBuildings") -> str:
 	"""
 	Returns the javascript array for the given features chunk.
-	
+
 	:param features:
 	:param id:
 	"""
@@ -42,7 +53,7 @@ def get_chunk_js(features: list, id: int) -> str:
 	output = StringList()
 
 	output.append("// Lat,Lng,Number,Name,Grade,ListDate,Link")
-	output.append(f"var listedBuildings{id} = [")
+	output.append(f"var {variable_prefix}{id} = [")
 
 	for item in features:
 		number = item["ListEntry"]
@@ -51,9 +62,41 @@ def get_chunk_js(features: list, id: int) -> str:
 		list_date = item["ListDate"]
 		link = item["hyperlink"]
 		coord = item["geometry"].bounds[:2]
-		output.append(json.dumps([coord[1], coord[0], number, name, grade, list_date, link]) + ",")
+		output.append(json.dumps([coord[1], coord[0], number, name, grade, list_date, link]) + ',')
 
-	output.append("]")
+	output.append(']')
 	output.blankline()
 
 	return str(output)
+
+
+# TODO: camel to snake for default value
+# TODO: optional tqdm progress bar
+# TODO: split generation and writing, and use iterator for generation?
+def chunk_data(
+		data: geopandas.GeoDataFrame,
+		lat_range: range,
+		lng_range: range,
+		output_directory: PathLike,
+		variable_prefix: str = "listedBuildings",
+		filename_prefix: str = "listed_buildings",
+		):
+
+	output_dir = PathPlus(output_directory)
+	output_dir.maybe_make(parents=True)
+
+	id_lookup = defaultdict(dict)
+
+	for latitude in lat_range:
+		for longitide in lng_range:
+			id = get_id()
+			id_lookup[latitude][longitide] = id
+			subset = data.cx[longitide:longitide + 1, latitude:latitude + 1]
+			if not len(subset):
+				continue
+
+			chunk_js = get_chunk_js(subset.to_dict("records"), id, variable_prefix=variable_prefix)
+			output_dir.joinpath(f"{filename_prefix}_{id}.js").write_clean(chunk_js)
+
+	id_lookup_js = f"{variable_prefix}IDLookup = {json.dumps(id_lookup, indent=4)}"
+	output_dir.joinpath(f"{filename_prefix}_id_lookup.js").write_clean(id_lookup_js)
