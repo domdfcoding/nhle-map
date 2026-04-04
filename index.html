@@ -11,10 +11,9 @@
               integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
               crossorigin="anonymous">
         <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
@@ -58,7 +57,7 @@
 
 
 
-            <main class="map-container p-2 min-vh-100 min-vw-100">
+            <main class="map-container p-2">
 
 
 
@@ -77,13 +76,11 @@
                     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
                     crossorigin="anonymous"></script>
 
-            <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-<script src="markers.js"></script>
-<script src="output/data/listed_buildings_id_lookup.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <script src="markers.js"></script>
+    <script src="output/data/listed_buildings_id_lookup.js"></script>
             <script>
 
             var map = L.map(
@@ -127,36 +124,44 @@
             tile_layer_osm_carto.addTo(map);
 
 
-const MAX_ZOOM = 18;
+            var markers = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            markers.options.chunkProgress =
+                updateProgressBar;
+            markers.options.maxClusterRadius =
+                getClusterRadius;
 
 
-    const progress = document.getElementById('progress')
-    var modal = bootstrap.Modal.getOrCreateInstance(progress)
-    var progressBar = document.getElementById('progress-bar');
+            const MAX_ZOOM = 18;
 
-    var markers = L.markerClusterGroup({ chunkedLoading: true, chunkProgress: updateProgressBar, maxClusterRadius: getClusterRadius });
+            const progress = document.getElementById('progress')
+            var modal = bootstrap.Modal.getOrCreateInstance(progress)
+            var progressBar = document.getElementById('progress-bar');
 
-    var markerList = [];
+            console.log('start creating markers: ' + window.performance.now());
+            map.addLayer(markers);
 
-    console.log('start creating markers: ' + window.performance.now());
-    map.addLayer(markers);
+            var loaded_ids = [];
 
-    var loaded_ids = [];
+            load_new_markers()
 
-    load_new_markers()
-
-    // map.on('zoomend', load_new_markers);
-    map.on('moveend', load_new_markers);
+            // map.on('zoomend', load_new_markers);
+            map.on('moveend', load_new_markers);
 
 
-    map.on('zoomend', showZoomLevel);
-    showZoomLevel();
 
-    function showZoomLevel() {
-      document.getElementById('zoom').innerHTML = map.getZoom();
-    }
+            map.on('zoomend', showZoomLevel);
+            showZoomLevel();
 
-    map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)
+            function showZoomLevel() {
+                document.getElementById('zoom').innerHTML = map.getZoom();
+            }
+
+
+            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)
             </script>
 
     </body>
