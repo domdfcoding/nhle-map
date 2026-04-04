@@ -1,0 +1,12 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": ["**/*.min.css", "node_modules/", "scss/bootstrap/"],
+  "rules": {
+    "indentation": ["tab", {}],
+    "max-empty-lines": [2, {}],
+    "selector-list-comma-newline-after": null,
+    "media-feature-name-no-unknown": null,
+    "shorthand-property-no-redundant-values": [true, {}],
+    "at-rule-no-unknown": [true, {"ignoreAtRules": ["function", "for", "if", "return", "mixin", "include"]}]},
+    "string-quotes": null
+}

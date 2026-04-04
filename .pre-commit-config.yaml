@@ -105,6 +105,17 @@ repos:
 
 # Custom hooks can be added below this comment
 
+ - repo: https://github.com/awebdeveloper/pre-commit-stylelint
+   rev: 8f63da497580898a7e0ceef6bf9e72cc0af07828
+   hooks:
+    - id: stylelint
+      additional_dependencies:
+       - stylelint@14.16.1
+       - stylelint-config-standard@29.0.0
+      args:
+       - --fix
+      exclude: (\.min.css|main.css|scss/bootstrap/)
+
  - repo: https://github.com/djlint/djLint
    rev: v1.35.2
    hooks:
