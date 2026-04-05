@@ -27,16 +27,18 @@ Map generation.
 #
 
 # stdlib
-from typing import Any, NamedTuple, OrderedDict
+from collections import OrderedDict
+from typing import Any, NamedTuple
 
 # 3rd party
 import branca.element
 import folium
 import folium.elements
+from domdf_folium_tools.elements import set_id
 from folium.plugins import MarkerCluster as FoliumMarkerCluster
 from folium.template import Template
 
-__all__ = ["Components", "Map", "MarkerCluster", "MarkerLoadingJS", "render_figure"]
+__all__ = ["Components", "Map", "MarkerCluster", "MarkerLoadingJS", "make_map", "render_figure"]
 
 
 class Map(folium.Map):
@@ -233,3 +235,42 @@ def render_figure(figure: branca.element.Figure) -> Components:
 			script=figure.script.render(),
 			scripts=js_libs.render(),
 			)
+
+
+def make_map() -> folium.Map:
+	"""
+	Make the listed buildings folium map.
+	"""
+
+	MAX_ZOOM = 18
+
+	osm_tiles = set_id(
+			folium.TileLayer(
+					tiles="OpenStreetMap",
+					name="OpenStreetMap",
+					# show=False,
+					max_zoom=MAX_ZOOM,
+					max_native_zoom=18,
+					),
+			"osm_carto",
+			)
+
+	m = Map(
+			location=(52.561928, -1.464854),
+			minZoom=10,
+			maxZoom=MAX_ZOOM,
+			zoom_start=13,
+			wheelPxPerZoomLevel=80,
+			tiles=osm_tiles,
+			)
+
+	MarkerCluster(
+			chunkedLoading=True,
+			chunk_progress_function="updateProgressBar",
+			max_cluster_radius_function="getClusterRadius",
+			show=False,
+			).add_to(m)
+
+	MarkerLoadingJS(max_zoom=MAX_ZOOM).add_to(m)
+
+	return m
