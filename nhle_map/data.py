@@ -29,9 +29,10 @@ Data preparation.
 # stdlib
 import json
 from collections import defaultdict
+from collections.abc import Iterable
 
 # 3rd party
-import geopandas
+import geopandas  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.typing import PathLike
@@ -42,18 +43,19 @@ from nhle_map.utils import get_id
 __all__ = ["chunk_data", "get_chunk_js"]
 
 
-def get_chunk_js(features: list, id: int, variable_prefix: str = "listedBuildings") -> str:
+def get_chunk_js(features: list, chunk_id: int, variable_prefix: str = "listedBuildings") -> str:
 	"""
 	Returns the javascript array for the given features chunk.
 
 	:param features:
-	:param id:
+	:param chunk_id:
+	:param variable_prefix: String to prefix javascript variables with.
 	"""
 
 	output = StringList()
 
 	output.append("// Lat,Lng,Number,Name,Grade,ListDate,Link")
-	output.append(f"var {variable_prefix}{id} = [")
+	output.append(f"var {variable_prefix}{chunk_id} = [")
 
 	for item in features:
 		number = item["ListEntry"]
@@ -75,28 +77,38 @@ def get_chunk_js(features: list, id: int, variable_prefix: str = "listedBuilding
 # TODO: split generation and writing, and use iterator for generation?
 def chunk_data(
 		data: geopandas.GeoDataFrame,
-		lat_range: range,
-		lng_range: range,
+		lat_range: Iterable[float],
+		lng_range: Iterable[float],
 		output_directory: PathLike,
 		variable_prefix: str = "listedBuildings",
 		filename_prefix: str = "listed_buildings",
-		):
+		) -> None:
+	"""
+	Split the data into chunks for the given latitudes and longitudes.
+
+	:param data:
+	:param lat_range: Range of latitude values (southern edge of square)
+	:param lng_range: Range of longitude values (western edge of square)
+	:param output_directory: Directory to write files to.
+	:param variable_prefix: String to prefix javascript variables with.
+	:param filename_prefix: String to prefix javascript filenames with.
+	"""
 
 	output_dir = PathPlus(output_directory)
 	output_dir.maybe_make(parents=True)
 
-	id_lookup = defaultdict(dict)
+	id_lookup: dict[float, dict[float, int]] = defaultdict(dict)
 
 	for latitude in lat_range:
 		for longitide in lng_range:
-			id = get_id()
-			id_lookup[latitude][longitide] = id
-			subset = data.cx[longitide:longitide + 1, latitude:latitude + 1]
+			chunk_id = get_id()
+			id_lookup[latitude][longitide] = chunk_id
+			subset = data.cx[longitide:longitide + 1, latitude:latitude + 1]  # type: ignore[misc]  # TODO
 			if not len(subset):
 				continue
 
-			chunk_js = get_chunk_js(subset.to_dict("records"), id, variable_prefix=variable_prefix)
-			output_dir.joinpath(f"{filename_prefix}_{id}.js").write_clean(chunk_js)
+			chunk_js = get_chunk_js(subset.to_dict("records"), chunk_id, variable_prefix=variable_prefix)
+			output_dir.joinpath(f"{filename_prefix}_{chunk_id}.js").write_clean(chunk_js)
 
 	id_lookup_js = f"{variable_prefix}IDLookup = {json.dumps(id_lookup, indent=4)}"
 	output_dir.joinpath(f"{filename_prefix}_id_lookup.js").write_clean(id_lookup_js)

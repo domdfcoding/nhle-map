@@ -244,7 +244,7 @@ def make_map() -> folium.Map:
 
 	ZoomStateJS(setup_basemap_state=True).add_to(m, embed_script=True)  # TODO: copy external script
 
-	LocateControl().add_to(map)
+	LocateControl().add_to(m)
 
 	return m
 
