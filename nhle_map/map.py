@@ -35,13 +35,16 @@ import branca.element
 import folium
 import folium.elements
 from domdf_folium_tools.elements import set_id
+from domdf_folium_tools.template import SubclassingTemplate
+from folium.plugins import LocateControl as FoliumLocateControl
 from folium.plugins import MarkerCluster as FoliumMarkerCluster
 from folium.template import Template
+from folium_zoom_state import ZoomStateJS, ZoomStateMap
 
 __all__ = ["Components", "Map", "MarkerCluster", "MarkerLoadingJS", "make_map", "render_figure"]
 
 
-class Map(folium.Map):
+class Map(ZoomStateMap):
 
 	# Remove outdated bootstrap and unused glyphicons and awesome markers
 
@@ -53,46 +56,12 @@ class Map(folium.Map):
 			("leaflet_css", "https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"),
 			]
 
-	_template = Template(
+	_template = SubclassingTemplate(
 			"""
         {% macro header(this, kwargs) %}
         {% endmacro %}
-
-        {% macro html(this, kwargs) %}
-            <div class="folium-map" id={{ this.get_name()|tojson }} ></div>
-        {% endmacro %}
-
-        {% macro script(this, kwargs) %}
-            var {{ this.get_name() }} = L.map(
-                {{ this.get_name()|tojson }},
-                {
-                    center: {{ this.location|tojson }},
-                    crs: L.CRS.{{ this.crs }},
-                    ...{{this.options|tojavascript}}
-
-                }
-            );
-
-            {%- if this.control_scale %}
-            L.control.scale().addTo({{ this.get_name() }});
-            {%- endif %}
-
-            {%- if this.zoom_control_position %}
-            L.control.zoom( { position: {{ this.zoom_control|tojson }} } ).addTo({{ this.get_name() }});
-            {%- endif %}
-
-            {% if this.objects_to_stay_in_front %}
-            function objects_in_front() {
-                {%- for obj in this.objects_to_stay_in_front %}
-                    {{ obj.get_name() }}.bringToFront();
-                {%- endfor %}
-            };
-            {{ this.get_name() }}.on("overlayadd", objects_in_front);
-            $(document).ready(objects_in_front);
-            {%- endif %}
-
-        {% endmacro %}
         """,
+			base_template=ZoomStateMap._template,
 			)
 
 	def get_name(self) -> str:
@@ -273,4 +242,23 @@ def make_map() -> folium.Map:
 
 	MarkerLoadingJS(max_zoom=MAX_ZOOM).add_to(m)
 
+	ZoomStateJS(setup_basemap_state=True).add_to(m, embed_script=True)  # TODO: copy external script
+
+	LocateControl().add_to(map)
+
 	return m
+
+
+class LocateControl(FoliumLocateControl):
+	default_css = [
+			(
+					"fontawesome_css",
+					"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css",
+					),
+			] + FoliumLocateControl.default_css
+
+	def __init__(self):
+		super().__init__(icon="fas fa-location-crosshairs")
+
+	def get_name(self) -> str:
+		return "locate_control"

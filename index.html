@@ -18,8 +18,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
-
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
 
 
 
@@ -81,21 +81,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
     <script src="markers.js"></script>
     <script src="output/data/listed_buildings_id_lookup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
             <script>
 
-            var map = L.map(
-                "map",
-                {
-                    center: [52.561928, -1.464854],
-                    crs: L.CRS.EPSG3857,
-                    ...{
+            var mapOptions = {
   "zoom": 13,
   "zoomControl": true,
   "preferCanvas": false,
   "minZoom": 10,
   "maxZoom": 18,
   "wheelPxPerZoomLevel": 80,
-}
+};
+            var defaultZoom = mapOptions["zoom"] ?? 0;
+            var urlZoomState = zoomStateFromURL(defaultZoom, L.latLng([52.561928, -1.464854]));
+            mapOptions["zoom"] = urlZoomState["zoomLvl"]
+
+            var map = L.map(
+                "map",
+                {
+                    center: urlZoomState["centre"],
+                    crs: L.CRS.EPSG3857,
+                    ...mapOptions
 
                 }
             );
@@ -150,6 +156,73 @@
 
             // map.on('zoomend', load_new_markers);
             map.on('moveend', load_new_markers);
+
+
+
+			/*
+Preserve zoom level and map position when reloading or sharing URLs
+*/
+function updateQueryStringParam (key, value) {
+	const url = new URL(window.location.href);
+	url.searchParams.set(key, value.toString()); // Add or update the parameter
+	// window.history.pushState({}, null, url);
+	window.history.replaceState({}, '', url);
+}
+function setupZoomState (map) {
+	map.on('zoomend', function () {
+		const zoomLvl = map.getZoom();
+		updateQueryStringParam('zoom', zoomLvl);
+	});
+	map.on('moveend', function () {
+		const centre = map.getCenter();
+		updateQueryStringParam('lat', centre.lat);
+		updateQueryStringParam('lng', centre.lng);
+	});
+}
+function zoomStateFromURL (defaultZoom, defaultCentre) {
+	const url = new URL(window.location.href);
+	// let zoomLvl = map.getZoom();
+	let zoomLvl = defaultZoom;
+	if (url.searchParams.has('zoom')) {
+		zoomLvl = parseInt(url.searchParams.get('zoom'));
+	}
+	// const centre = map.getCenter();
+	const centre = defaultCentre;
+	if (url.searchParams.has('lat')) {
+		centre.lat = parseFloat(url.searchParams.get('lat'));
+	}
+	if (url.searchParams.has('lng')) {
+		centre.lng = parseFloat(url.searchParams.get('lng'));
+	}
+	return { centre, zoomLvl };
+}
+function basemapFromURL (defaultBasemap, layerControl) {
+	let _a;
+	const url = new URL(window.location.href);
+	const basemapLayers = Object.fromEntries(
+		/* @ts-expect-error _layers does exist but is private */
+		layerControl._layers.map((element) => [element.name, element.layer]));
+	if (url.searchParams.has('basemap')) {
+		const basemapName = (_a = url.searchParams.get('basemap')) !== null && _a !== void 0 ? _a : defaultBasemap;
+		console.log(basemapName);
+		if (basemapName in basemapLayers) {
+			return basemapLayers[basemapName];
+		}
+	}
+	return basemapLayers[defaultBasemap];
+}
+function setupBasemapState (map) {
+	map.on('baselayerchange', (e) => updateQueryStringParam('basemap', e.name));
+}
+			setupZoomState(map);
+
+			setupBasemapState(map);
+
+
+
+            var locate_control = L.control.locate(
+                {"icon": "fas fa-location-crosshairs"}
+            ).addTo(map);
 
 
 

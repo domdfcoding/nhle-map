@@ -3,6 +3,7 @@ domdf-folium-tools>=0.1.0b2
 domdf-python-tools>=3.10.0
 fiona<=1.9.6
 folium>=0.20.0
+folium-zoom-state @ git+https://github.com/domdfcoding/folium-zoom-state
 geopandas>=1.1.3
 jinja2>=3.1.6
 pandas>=2.3.3
