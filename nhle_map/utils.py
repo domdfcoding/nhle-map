@@ -29,7 +29,12 @@ General utilities.
 # stdlib
 import random
 
-__all__ = ["get_id"]
+# 3rd party
+import folium_zoom_state
+from domdf_python_tools.compat import importlib_resources
+from domdf_python_tools.paths import PathPlus
+
+__all__ = ["copy_static_files", "get_id"]
 
 rng = random.Random("NHLE")
 
@@ -40,3 +45,25 @@ def get_id() -> int:
 	"""
 
 	return rng.getrandbits(32)
+
+
+def _copy_file(module: str, filename: str, target_dir: PathPlus) -> None:
+	(target_dir / filename).write_text(importlib_resources.read_text(module, filename))
+
+
+def copy_static_files(static_dir: PathPlus) -> None:
+	"""
+	Copy CSS and JS files into the given directory.
+
+	:param static_dir:
+	"""
+
+	js_dir = static_dir / "js"
+	css_dir = static_dir / "css"
+	js_dir.maybe_make(parents=True)
+	css_dir.maybe_make()
+
+	_copy_file("nhle_map.static", "markers.js", js_dir)
+	_copy_file("nhle_map.static", "style.css", css_dir)
+
+	(js_dir / "zoom_state.js").write_clean(folium_zoom_state.get_js_script())

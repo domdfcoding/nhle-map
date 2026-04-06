@@ -10,7 +10,7 @@
               rel="stylesheet"
               integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="output/static/css/style.css" />
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/control.layers.minimap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/control.layers.minimap.min.css"/>
 
 
 
@@ -79,17 +81,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <script src="markers.js"></script>
+    <script src="output/static/js/markers.js"></script>
     <script src="output/data/listed_buildings_id_lookup.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/L.Control.Layers.Minimap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/L.Control.Layers.Minimap.Toggle.min.js"></script>
             <script>
 
             var mapOptions = {
   "zoom": 13,
   "zoomControl": true,
-  "preferCanvas": false,
+  "preferCanvas": true,
   "minZoom": 10,
-  "maxZoom": 18,
+  "maxZoom": 20,
   "wheelPxPerZoomLevel": 80,
 };
             var defaultZoom = mapOptions["zoom"] ?? 0;
@@ -105,6 +109,7 @@
 
                 }
             );
+            L.control.scale().addTo(map);
 
 
 
@@ -114,10 +119,28 @@
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
-  "maxZoom": 18,
-  "maxNativeZoom": 18,
+  "maxZoom": 20,
+  "maxNativeZoom": 19,
   "noWrap": false,
   "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+  "referrerPolicy": "strict-origin-when-cross-origin",
+}
+
+            );
+
+
+            var tile_layer_os10k = L.tileLayer(
+                "https://geo.nls.uk/mapdata3/os/britain10knationalgridnew/{z}/{x}/{y}.png",
+                {
+  "minZoom": 1,
+  "maxZoom": 20,
+  "maxNativeZoom": 16,
+  "noWrap": false,
+  "attribution": "OS 1:10,000 1949-1972 | \u003ca href=\u0027https://maps.nls.uk\u0027\u003emaps.nls.uk\u003c/a\u003e | CC-BY",
   "subdomains": "abc",
   "detectRetina": false,
   "tms": false,
@@ -127,7 +150,38 @@
             );
 
 
-            tile_layer_osm_carto.addTo(map);
+            var tile_layer_os1250 = L.tileLayer(
+                "https://geo.nls.uk/maps/os/1250_B_2eng/{z}/{x}/{y}.png",
+                {
+  "minZoom": 1,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "OS 1:1,250 1949-1975 | \u003ca href=\u0027https://maps.nls.uk\u0027\u003emaps.nls.uk\u003c/a\u003e | CC-BY",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+
+
+            var tile_layer_os2500 = L.tileLayer(
+                "https://geo.nls.uk/maps/os/2500_A_1S/{z}/{x}/{y}.png",
+                {
+  "minZoom": 1,
+  "maxZoom": 20,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "OS 1:2,500 1948-1975 | \u003ca href=\u0027https://maps.nls.uk\u0027\u003emaps.nls.uk\u003c/a\u003e | CC-BY",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
 
 
             var markers = L.markerClusterGroup(
@@ -141,7 +195,7 @@
                 getClusterRadius;
 
 
-            const MAX_ZOOM = 18;
+            const MAX_ZOOM = 20;
 
             const progress = document.getElementById('progress')
             var modal = bootstrap.Modal.getOrCreateInstance(progress)
@@ -224,6 +278,31 @@ function setupBasemapState (map) {
                 {"icon": "fas fa-location-crosshairs"}
             ).addTo(map);
 
+
+
+            var layer_control_basemap_layers = {
+                base_layers : {
+                    "OpenStreetMap" : tile_layer_osm_carto,
+                    "OS 1:10,000 1949-1972" : tile_layer_os10k,
+                    "OS 1:1,250 1949-1975" : tile_layer_os1250,
+                    "OS 1:2,500 1948-1975" : tile_layer_os2500,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_basemap = L.control.layers.minimap.toggle(
+                layer_control_basemap_layers.base_layers,
+                layer_control_basemap_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map);
+
+
+
+			basemapFromURL("OpenStreetMap", layer_control_basemap).addTo(map);
 
 
             map.on('zoomend', showZoomLevel);

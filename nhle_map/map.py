@@ -27,21 +27,20 @@ Map generation.
 #
 
 # stdlib
-from collections import OrderedDict
-from typing import Any, NamedTuple
 
 # 3rd party
 import branca.element
 import folium
 import folium.elements
-from domdf_folium_tools.elements import set_id
+from domdf_folium_tools import markercluster
+from domdf_folium_tools.elements import NLSTileLayer, add_to, set_id
 from domdf_folium_tools.template import SubclassingTemplate
 from folium.plugins import LocateControl as FoliumLocateControl
-from folium.plugins import MarkerCluster as FoliumMarkerCluster
 from folium.template import Template
-from folium_zoom_state import ZoomStateJS, ZoomStateMap
+from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
+from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
-__all__ = ["Components", "Map", "MarkerCluster", "MarkerLoadingJS", "make_map", "render_figure"]
+__all__ = ["LocateControl", "Map", "MarkerCluster", "MarkerLoadingJS", "make_map"]
 
 
 class Map(ZoomStateMap):
@@ -68,59 +67,7 @@ class Map(ZoomStateMap):
 		return "map"
 
 
-class MarkerCluster(FoliumMarkerCluster):
-	"""
-	Customised MarkerCluster plugin with support for ``chunkProgress`` and ``maxClusterRadius`` functions.
-	"""
-
-	# TODO: params in docstring
-
-	_template = Template(
-			"""
-        {% macro script(this, kwargs) %}
-            var {{ this.get_name() }} = L.markerClusterGroup(
-                {{ this.options|tojavascript }}
-            );
-            {%- if this.icon_create_function is not none %}
-            {{ this.get_name() }}.options.iconCreateFunction =
-                {{ this.icon_create_function.strip() }};
-            {%- endif %}
-			{%- if this.chunk_progress_function is not none %}
-            {{ this.get_name() }}.options.chunkProgress =
-                {{ this.chunk_progress_function.strip() }};
-            {%- endif %}
-			{%- if this.max_cluster_radius_function is not none %}
-            {{ this.get_name() }}.options.maxClusterRadius =
-                {{ this.max_cluster_radius_function.strip() }};
-            {%- endif %}
-        {% endmacro %}
-        """,
-			)
-
-	def __init__(
-			self,
-			name: str | None = None,
-			overlay: bool = True,
-			control: bool = True,
-			show: bool = True,
-			icon_create_function: str | None = None,
-			chunk_progress_function: str | None = None,
-			max_cluster_radius_function: str | None = None,
-			options: dict[str, Any] | None = None,
-			**kwargs: Any,
-			):
-		super().__init__(
-				name=name,
-				overlay=overlay,
-				control=control,
-				show=show,
-				icon_create_function=icon_create_function,
-				options=options,
-				**kwargs,
-				)
-
-		self.chunk_progress_function = chunk_progress_function
-		self.max_cluster_radius_function = max_cluster_radius_function
+class MarkerCluster(markercluster.MarkerCluster):
 
 	def get_name(self) -> str:
 		return "markers"
@@ -133,7 +80,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 		self.max_zoom = max_zoom
 
 	default_js = [
-			("nhle_markers_js", "markers.js"),
+			("nhle_markers_js", "output/static/js/markers.js"),
 			("listed_buildings_id_lookup", "output/data/listed_buildings_id_lookup.js"),
 			]
 
@@ -161,65 +108,21 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 			)
 
 
-class Components(NamedTuple):
-	"""
-	Figure elements produced by :func:`~.render_figure`.
-	"""
-
-	#: Header tags
-	header: str
-	#: Page body tags
-	body: str
-	#: Javascript code to insert within `<script>` tags.
-	script: str
-	#: Script tags to load external javascript
-	scripts: str
-
-
-def render_figure(figure: branca.element.Figure) -> Components:
-	"""
-	Render a figure for insertion into another template (flask, jinja2 etc.).
-
-	:param figure:
-	"""
-
-	for child in figure._children.values():
-		child.render()
-
-	header_elems = OrderedDict()
-	js_libs = branca.element.Element()
-	js_libs._parent = figure
-
-	for name, elem in figure.header._children.items():
-		if isinstance(elem, branca.element.JavascriptLink):
-			js_libs.add_child(elem, name)
-		else:
-			header_elems[name] = elem
-
-	figure.header._children = header_elems
-
-	return Components(
-			header=figure.header.render(),
-			body=figure.html.render(),
-			script=figure.script.render(),
-			scripts=js_libs.render(),
-			)
-
-
 def make_map() -> folium.Map:
 	"""
 	Make the listed buildings folium map.
 	"""
 
-	MAX_ZOOM = 18
+	MAX_ZOOM = 20
 
 	osm_tiles = set_id(
 			folium.TileLayer(
 					tiles="OpenStreetMap",
 					name="OpenStreetMap",
-					# show=False,
+					show=False,
 					max_zoom=MAX_ZOOM,
-					max_native_zoom=18,
+					max_native_zoom=19,
+					referrerPolicy="strict-origin-when-cross-origin",
 					),
 			"osm_carto",
 			)
@@ -231,20 +134,58 @@ def make_map() -> folium.Map:
 			zoom_start=13,
 			wheelPxPerZoomLevel=80,
 			tiles=osm_tiles,
+			control_scale=True,
+			prefer_canvas=True,
 			)
+
+	os10k = NLSTileLayer(
+			"OS 1:10,000 1949-1972",
+			"https://geo.nls.uk/mapdata3/os/britain10knationalgridnew/{z}/{x}/{y}.png",
+			max_native_zoom=16,
+			show=False,
+			)
+
+	os1250 = NLSTileLayer(
+			"OS 1:1,250 1949-1975",
+			"https://geo.nls.uk/maps/os/1250_B_2eng/{z}/{x}/{y}.png",
+			max_native_zoom=20,
+			show=False,
+			)
+
+	os2500 = NLSTileLayer(
+			"OS 1:2,500 1948-1975",
+			"https://geo.nls.uk/maps/os/2500_A_1S/{z}/{x}/{y}.png",
+			max_native_zoom=18,
+			show=False,
+			)
+
+	# TODO: fallback URLs so the whole country is covered
+	# os25inch = NLSTileLayer(
+	# 		"OS 25 Inch, 1892-1914",
+	# 		"https://mapseries-tilesets.s3.amazonaws.com/25_inch/stafford/{z}/{x}/{y}.png",
+	# 		max_native_zoom=18,
+	# 		show=False,
+	# 		)
+
+	set_id(os10k, "os10k").add_to(m)
+	set_id(os1250, "os1250").add_to(m)
+	set_id(os2500, "os2500").add_to(m)
+	# set_id(os25inch, "os25inch").add_to(m)
 
 	MarkerCluster(
 			chunkedLoading=True,
 			chunk_progress_function="updateProgressBar",
 			max_cluster_radius_function="getClusterRadius",
 			show=False,
+			control=False,
 			).add_to(m)
 
 	MarkerLoadingJS(max_zoom=MAX_ZOOM).add_to(m)
-
 	ZoomStateJS(setup_basemap_state=True).add_to(m, embed_script=True)  # TODO: copy external script
-
 	LocateControl().add_to(m)
+
+	layer_control = add_to(ToggleMinimapLayerControl(), m, "basemap")
+	BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)
 
 	return m
 

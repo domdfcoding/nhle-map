@@ -1,19 +1,10 @@
 
 function load_new_markers() {
-	// const centre = map.getCenter();
-	// console.log("lat", Math.floor(centre.lat))
-	// console.log("lng", Math.floor(centre.lng))
 	const bounds = map.getBounds();
-	console.log("bounds", bounds)
-	console.log("SW", Math.floor(bounds.getSouth()), Math.floor(bounds.getWest()))
-	console.log("NE", Math.floor(bounds.getNorth()), Math.floor(bounds.getEast()))
 	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1)
 	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1)
-	console.log(latitudes)
-	console.log(longitides)
 	latitudes.forEach(function (latitude) {
 		longitides.forEach(function (longitide) {
-			console.log(latitude, longitide)
 			loadMarkers(latitude, longitide)
 		});
 	});
@@ -27,7 +18,7 @@ function addMarkers(points, markerList) {
 		var a = points[i];
 		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + "</a>";
 		// var title = a[2].toString();
-		var marker = L.marker(L.latLng(a[0], a[1]), { title: title });
+		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3] });
 		marker.bindPopup(title);
 		markerList.push(marker);
 	}
@@ -120,16 +111,38 @@ function range(start, stop, step) {
 }
 
 function getClusterRadius(zoom) {
+	if (zoom == MAX_ZOOM) {
+		return 5
+	}
+
 	if (zoom > 15) {
-		return 30
+		return 40
 	}
-	// TODO: intermediate
-	else {
-		return 80
-	}
+
+	return 80
 }
 
+function disable_interaction() {
+	map.dragging.disable();
+	map.touchZoom.disable();
+	map.doubleClickZoom.disable();
+	map.scrollWheelZoom.disable();
+	map.boxZoom.disable();
+	map.keyboard.disable();
+	if (map.tap) map.tap.disable();
+	document.getElementById('map').style.cursor = 'default';
+}
 
+function enable_interaction() {
+	map.dragging.enable();
+	map.touchZoom.enable();
+	map.doubleClickZoom.enable();
+	map.scrollWheelZoom.enable();
+	map.boxZoom.enable();
+	map.keyboard.enable();
+	if (map.tap) map.tap.enable();
+	document.getElementById('map').style.cursor = 'grab';
+}
 function updateProgressBar(processed, total, elapsed, layersArray) {
 	// if (elapsed > 1000) {
 	// if it takes more than a second to load, display the progress bar:
