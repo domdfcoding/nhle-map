@@ -31,7 +31,7 @@ import branca.element
 import folium
 import folium.elements
 from domdf_folium_tools import markercluster
-from domdf_folium_tools.elements import NLSTileLayer, add_to, set_id
+from domdf_folium_tools.elements import add_to, set_id
 from domdf_folium_tools.template import SubclassingTemplate
 from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
@@ -150,7 +150,7 @@ def make_map() -> folium.Map:
 			)
 
 	MarkerLoadingJS(max_zoom=MAX_ZOOM).add_to(m)
-	ZoomStateJS(setup_basemap_state=True).add_to(m, embed_script=True)  # TODO: copy external script
+	ZoomStateJS(setup_basemap_state=True).add_to(m)
 	LocateControl().add_to(m)
 
 	layer_control = add_to(ToggleMinimapLayerControl(), m, "basemap")

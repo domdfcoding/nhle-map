@@ -30,9 +30,9 @@ General utilities.
 import random
 
 # 3rd party
-import folium_zoom_state
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.paths import PathPlus
+import domdf_folium_tools.static_files
 
 __all__ = ["copy_static_files", "get_id"]
 
@@ -58,12 +58,9 @@ def copy_static_files(static_dir: PathPlus) -> None:
 	:param static_dir:
 	"""
 
-	js_dir = static_dir / "js"
-	css_dir = static_dir / "css"
-	js_dir.maybe_make(parents=True)
-	css_dir.maybe_make()
+	domdf_folium_tools.static_files.copy_static_files(
+		static_dir=static_dir,
+js_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "markers.js")],
+css_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "style.css")],
+	)
 
-	_copy_file("nhle_map.static", "markers.js", js_dir)
-	_copy_file("nhle_map.static", "style.css", css_dir)
-
-	(js_dir / "zoom_state.js").write_clean(folium_zoom_state.get_js_script())
