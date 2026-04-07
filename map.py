@@ -8,12 +8,15 @@ from nhle_map.map import make_map
 from nhle_map.templates import render_template
 from nhle_map.utils import copy_static_files
 
+output_dir = PathPlus("output")
+output_dir.maybe_make()
+
 map = make_map()
-copy_static_files(PathPlus("output/static"))
+copy_static_files(output_dir / "static")
 
 root: branca.element.Figure = map.get_root()  # type: ignore[assignment]
 
-PathPlus("index.html").write_clean(render_template(
+output_dir.joinpath("index.html").write_clean(render_template(
 		"map.jinja2",
 		**render_figure(root)._asdict(),
 		))

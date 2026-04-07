@@ -80,7 +80,7 @@ function loadMarkers(latitude, longitide) {
 
 	};
 
-	script.src = `output/data/listed_buildings_${id}.js`;
+	script.src = `data/listed_buildings_${id}.js`;
 	document.head.appendChild(script);
 
 }

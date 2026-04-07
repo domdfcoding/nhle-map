@@ -75,8 +75,8 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 		self.max_zoom = max_zoom
 
 	default_js = [
-			("nhle_markers_js", "output/static/js/markers.js"),
-			("listed_buildings_id_lookup", "output/data/listed_buildings_id_lookup.js"),
+			("nhle_markers_js", "static/js/markers.js"),
+			("listed_buildings_id_lookup", "data/listed_buildings_id_lookup.js"),
 			]
 
 	_template = Template(
