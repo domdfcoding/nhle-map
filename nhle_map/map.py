@@ -26,8 +26,6 @@ Map generation.
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-# stdlib
-
 # 3rd party
 import branca.element
 import folium
@@ -40,7 +38,10 @@ from folium.template import Template
 from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
-__all__ = ["LocateControl", "Map", "MarkerCluster", "MarkerLoadingJS", "make_map"]
+# this package
+from nhle_map.nls_basemaps import os10k, os1250, os2500
+
+__all__ = ["LocateControl", "Map", "MarkerLoadingJS", "make_map"]
 
 
 class Map(ZoomStateMap):
@@ -67,12 +68,6 @@ class Map(ZoomStateMap):
 		return "map"
 
 
-class MarkerCluster(markercluster.MarkerCluster):
-
-	def get_name(self) -> str:
-		return "markers"
-
-
 class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
 	def __init__(self, max_zoom: int):
@@ -94,7 +89,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
             var progressBar = document.getElementById('progress-bar');
 
             console.log('start creating markers: ' + window.performance.now());
-            map.addLayer(markers);
+            map.addLayer(marker_cluster_listed_buildings);
 
             var loaded_ids = [];
 
@@ -134,51 +129,25 @@ def make_map() -> folium.Map:
 			zoom_start=13,
 			wheelPxPerZoomLevel=80,
 			tiles=osm_tiles,
-			control_scale=True,
-			prefer_canvas=True,
+			control_scale=True,  # prefer_canvas=True,
 			)
-
-	os10k = NLSTileLayer(
-			"OS 1:10,000 1949-1972",
-			"https://geo.nls.uk/mapdata3/os/britain10knationalgridnew/{z}/{x}/{y}.png",
-			max_native_zoom=16,
-			show=False,
-			)
-
-	os1250 = NLSTileLayer(
-			"OS 1:1,250 1949-1975",
-			"https://geo.nls.uk/maps/os/1250_B_2eng/{z}/{x}/{y}.png",
-			max_native_zoom=20,
-			show=False,
-			)
-
-	os2500 = NLSTileLayer(
-			"OS 1:2,500 1948-1975",
-			"https://geo.nls.uk/maps/os/2500_A_1S/{z}/{x}/{y}.png",
-			max_native_zoom=18,
-			show=False,
-			)
-
-	# TODO: fallback URLs so the whole country is covered
-	# os25inch = NLSTileLayer(
-	# 		"OS 25 Inch, 1892-1914",
-	# 		"https://mapseries-tilesets.s3.amazonaws.com/25_inch/stafford/{z}/{x}/{y}.png",
-	# 		max_native_zoom=18,
-	# 		show=False,
-	# 		)
 
 	set_id(os10k, "os10k").add_to(m)
 	set_id(os1250, "os1250").add_to(m)
 	set_id(os2500, "os2500").add_to(m)
 	# set_id(os25inch, "os25inch").add_to(m)
 
-	MarkerCluster(
-			chunkedLoading=True,
-			chunk_progress_function="updateProgressBar",
-			max_cluster_radius_function="getClusterRadius",
-			show=False,
-			control=False,
-			).add_to(m)
+	add_to(
+			markercluster.MarkerCluster(
+					chunkedLoading=True,
+					chunk_progress_function="updateProgressBar",
+					max_cluster_radius_function="getClusterRadius",
+					show=False,
+					control=False,
+					),
+			m,
+			"listed_buildings",
+			)
 
 	MarkerLoadingJS(max_zoom=MAX_ZOOM).add_to(m)
 	ZoomStateJS(setup_basemap_state=True).add_to(m, embed_script=True)  # TODO: copy external script

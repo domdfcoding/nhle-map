@@ -12,27 +12,3 @@
 
 /* .leaflet-container { font-size: 16px !important; } */
 .leaflet-control-layers-minimap { font-size: 16px !important; }
-
-
-.leaflet-minimap-label {
-	box-sizing: content-box;
-}
-
-.leaflet-minimap-container .leaflet-minimap-label .leaflet-control-layers-selector {
-	top: unset !important;
-}
-
-.leaflet-control-layers-toggle {
-	margin-left: auto;
-	display: block !important;
-}
-
-.leaflet-control-layers.leaflet-control-layers-minimap.leaflet-control {
-	border-width: 2px;
-	padding: 2px;
-
-	.leaflet-control-layers-expanded {
-		border-width: 4px;
-		padding: 0;
-	}
-}

@@ -56,7 +56,7 @@ function loadMarkers(latitude, longitide) {
 			return
 		}
 
-		markers.addLayers(markerList);
+		marker_cluster_listed_buildings.addLayers(markerList);
 		console.log('end clustering: ' + window.performance.now());
 
 		loaded_ids.push(id);
