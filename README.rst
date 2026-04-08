@@ -8,6 +8,13 @@ nhle-map
 
 .. end short_desc
 
+Dataset downloaded from the `Historic England Open Data Hub`_.  Licenced under the `Open Government Licence v3 (OGL)`_.
+
+© Historic England 2026  Contains Ordnance Survey data © Crown copyright and database right 2026.
+
+.. _Historic England Open Data Hub: https://opendata-historicengland.hub.arcgis.com/
+.. _Open Government Licence v3 (OGL): https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+
 
 .. start shields
 
