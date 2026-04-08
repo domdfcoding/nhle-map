@@ -27,9 +27,11 @@ Data preparation.
 #
 
 # stdlib
+import datetime
 import json
 from collections import defaultdict
 from collections.abc import Iterable
+from operator import itemgetter
 
 # 3rd party
 import geopandas  # type: ignore[import-untyped]
@@ -41,6 +43,8 @@ from domdf_python_tools.typing import PathLike
 from nhle_map.utils import get_id
 
 __all__ = ["chunk_data", "get_chunk_js"]
+
+DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
 
 
 def get_chunk_js(features: list, chunk_id: int, variable_prefix: str = "listedBuildings") -> str:
@@ -57,11 +61,17 @@ def get_chunk_js(features: list, chunk_id: int, variable_prefix: str = "listedBu
 	output.append("// Lat,Lng,Number,Name,Grade,ListDate,Link")
 	output.append(f"var {variable_prefix}{chunk_id} = [")
 
-	for item in features:
+	for item in sorted(features, key=itemgetter("ListEntry")):
 		number = item["ListEntry"]
 		name = item["Name"]
 		grade = item["Grade"]
 		list_date = item["ListDate"]
+		if isinstance(list_date, int):
+			# Timestamp in milliseconds
+			list_date = datetime.datetime.fromtimestamp(
+					list_date / 1000,
+					tz=datetime.timezone.utc,
+					).strftime(DATE_FORMAT)
 		link = item["hyperlink"]
 		coord = item["geometry"].bounds[:2]
 		output.append(json.dumps([coord[1], coord[0], number, name, grade, list_date, link]) + ',')
