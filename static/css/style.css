@@ -1,0 +1,45 @@
+.map-container {
+	width: 100vw;
+	height: 100vh;
+}
+
+#map {
+	width: 100%;
+	height: 90%;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+}
+
+/* .leaflet-container { font-size: 16px !important; } */
+.leaflet-control-layers-minimap { font-size: 16px !important; }
+
+/* === Styles for custom layer control when not showing a minimap === */
+.leaflet-lc-overlay-container {
+	margin-bottom: 2px;
+	position: relative;
+	display: block;
+	height: 25px;
+}
+
+.leaflet-lc-overlay-container .leaflet-minimap-label {
+	position: absolute;
+	display: block;
+	height: 22px;
+	bottom: 0;
+	left: 0;
+	padding: 2px 6px 2px 2px;
+	background-color: rgb(0 0 0 / 70%);
+	color: white;
+	white-space: nowrap;
+	z-index: 1000;
+}
+
+.leaflet-lc-overlay-container .leaflet-minimap-label .leaflet-control-layers-selector {
+	top: unset;
+}
+
+.leaflet-lc-overlay-container.leaflet-minimap-hidden {
+	display: none;
+}
+
+/* === End styles for custom layer control when not showing a minimap === */
