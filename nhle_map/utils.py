@@ -30,9 +30,12 @@ General utilities.
 import random
 
 # 3rd party
+import domdf_folium_tools.static_files
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.paths import PathPlus
-import domdf_folium_tools.static_files
+
+# this package
+from nhle_map.icons import write_icons_js
 
 __all__ = ["copy_static_files", "get_id"]
 
@@ -58,9 +61,25 @@ def copy_static_files(static_dir: PathPlus) -> None:
 	:param static_dir:
 	"""
 
+	# TODO: add img to domdf_folium_tools
 	domdf_folium_tools.static_files.copy_static_files(
-		static_dir=static_dir,
-js_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "markers.js")],
-css_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "style.css")],
-	)
+			static_dir=static_dir,
+			js_files=[
+					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "markers.js"),
+					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "custom_layer_control.js"),
+					],
+			css_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "style.css")],
+			)
 
+	img_dir = static_dir / "img"
+
+	img_dir.maybe_make(parents=True)
+
+	domdf_folium_tools.static_files._copy_files(
+			[
+					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "Challenge_Icon.svg"),
+					],
+			img_dir,
+			)
+
+	write_icons_js(static_dir / "js")

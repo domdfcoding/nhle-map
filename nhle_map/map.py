@@ -39,9 +39,10 @@ from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
 # this package
+from nhle_map.icons import get_layer_label_text
 from nhle_map.nls_basemaps import os10k, os1250, os2500
 
-__all__ = ["LocateControl", "Map", "MarkerLoadingJS", "make_map"]
+__all__ = ["LayerControl", "LocateControl", "Map", "MarkerLoadingJS", "make_map"]
 
 
 class Map(ZoomStateMap):
@@ -75,8 +76,20 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 		self.max_zoom = max_zoom
 
 	default_js = [
+			(
+					"awesome_markers_js",
+					"https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js",
+					),
+			("icons_js", "static/js/icons.js"),
 			("nhle_markers_js", "static/js/markers.js"),
 			("listed_buildings_id_lookup", "data/listed_buildings_id_lookup.js"),
+			]
+
+	default_css = [
+			(
+					"awesome_markers_css",
+					"https://unpkg.com/leaflet-extra-markers@1.2.2/dist/css/leaflet.extra-markers.min.css",
+					),
 			]
 
 	_template = Template(
@@ -101,6 +114,15 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
         {% endmacro %}
 """,
 			)
+
+
+class LayerControl(ToggleMinimapLayerControl):
+	control_class_name = "customlayercontrol"
+
+	default_js = ToggleMinimapLayerControl.default_js + [(
+			"custom_layer_control.js",
+			"static/js/custom_layer_control.js",
+			)]
 
 
 def make_map() -> folium.Map:
@@ -137,23 +159,38 @@ def make_map() -> folium.Map:
 	set_id(os2500, "os2500").add_to(m)
 	# set_id(os25inch, "os25inch").add_to(m)
 
-	add_to(
-			markercluster.MarkerCluster(
-					chunkedLoading=True,
-					chunk_progress_function="updateProgressBar",
-					max_cluster_radius_function="getClusterRadius",
-					show=False,
-					control=False,
-					),
-			m,
-			"listed_buildings",
-			)
+	# TODO: layer selection background colours to match pins/polygons
+	# TODO: handle polygons
+
+	for layer_name, layer_id in [
+		("Battlefields", "battlefields"),
+		# ("Building Preservation Notices", "building_preservation_notices"),
+		# ("Certificates of Immunity", "certificates_of_immunity"),
+		("Listed Buildings", "listed_buildings"),
+		("Parks and Gardens", "parks_and_gardens"),
+		("Protected Wreck Sites", "protected_wreck_sites"),
+		("Scheduled Monuments", "scheduled_monuments"),
+		# ("World Heritage Sites", "world_heritage_sites"),
+		("De-designated", "de_designated"),
+	]:
+
+		add_to(
+				markercluster.MarkerCluster(
+						chunkedLoading=True,
+						chunk_progress_function="updateProgressBar",
+						max_cluster_radius_function="getClusterRadius",
+						show=False,
+						name=get_layer_label_text(layer_name),
+						),
+				m,
+				layer_id,
+				)
 
 	MarkerLoadingJS(max_zoom=MAX_ZOOM).add_to(m)
 	ZoomStateJS(setup_basemap_state=True).add_to(m)
 	LocateControl().add_to(m)
 
-	layer_control = add_to(ToggleMinimapLayerControl(), m, "basemap")
+	layer_control = add_to(LayerControl(), m, "basemap")
 	BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)
 
 	return m

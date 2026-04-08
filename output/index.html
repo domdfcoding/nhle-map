@@ -13,12 +13,20 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="static/css/style.css" />
 
+        <link rel="preload"
+              href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_default.png"
+              as="image" />
+        <link rel="preload"
+              href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png"
+              as="image" />
+
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/css/leaflet.extra-markers.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/control.layers.minimap.min.css"/>
@@ -82,12 +90,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
+    <script src="static/js/icons.js"></script>
     <script src="static/js/markers.js"></script>
     <script src="data/listed_buildings_id_lookup.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/L.Control.Layers.Minimap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/L.Control.Layers.Minimap.Toggle.min.js"></script>
+    <script src="static/js/custom_layer_control.js"></script>
             <script>
 
             var mapOptions = {
@@ -186,6 +197,17 @@
             );
 
 
+            var marker_cluster_battlefields = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            marker_cluster_battlefields.options.chunkProgress =
+                updateProgressBar;
+            marker_cluster_battlefields.options.maxClusterRadius =
+                getClusterRadius;
+
+
             var marker_cluster_listed_buildings = L.markerClusterGroup(
                 {
   "chunkedLoading": true,
@@ -194,6 +216,50 @@
             marker_cluster_listed_buildings.options.chunkProgress =
                 updateProgressBar;
             marker_cluster_listed_buildings.options.maxClusterRadius =
+                getClusterRadius;
+
+
+            var marker_cluster_parks_and_gardens = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            marker_cluster_parks_and_gardens.options.chunkProgress =
+                updateProgressBar;
+            marker_cluster_parks_and_gardens.options.maxClusterRadius =
+                getClusterRadius;
+
+
+            var marker_cluster_protected_wreck_sites = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            marker_cluster_protected_wreck_sites.options.chunkProgress =
+                updateProgressBar;
+            marker_cluster_protected_wreck_sites.options.maxClusterRadius =
+                getClusterRadius;
+
+
+            var marker_cluster_scheduled_monuments = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            marker_cluster_scheduled_monuments.options.chunkProgress =
+                updateProgressBar;
+            marker_cluster_scheduled_monuments.options.maxClusterRadius =
+                getClusterRadius;
+
+
+            var marker_cluster_de_designated = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            marker_cluster_de_designated.options.chunkProgress =
+                updateProgressBar;
+            marker_cluster_de_designated.options.maxClusterRadius =
                 getClusterRadius;
 
 
@@ -236,9 +302,15 @@
                     "OS 1:2,500 1948-1975" : tile_layer_os2500,
                 },
                 overlays :  {
+                    "Battlefields \u003cimg src=\u0027static/img/Challenge_Icon.svg\u0027 width=\u002720px\u0027\u003e" : marker_cluster_battlefields,
+                    "Listed Buildings \u003ci class=\u0027fa-solid fa-building\u0027\u003e\u003c/i\u003e" : marker_cluster_listed_buildings,
+                    "Parks and Gardens \u003ci class=\u0027fa-solid fa-tree\u0027\u003e\u003c/i\u003e" : marker_cluster_parks_and_gardens,
+                    "Protected Wreck Sites \u003ci class=\u0027fa-solid fa-anchor\u0027\u003e\u003c/i\u003e" : marker_cluster_protected_wreck_sites,
+                    "Scheduled Monuments \u003ci class=\u0027fa-solid fa-monument\u0027\u003e\u003c/i\u003e" : marker_cluster_scheduled_monuments,
+                    "De-designated \u003ci class=\u0027fa-solid fa-ban\u0027\u003e\u003c/i\u003e" : marker_cluster_de_designated,
                 },
             };
-            let layer_control_basemap = L.control.layers.minimap.toggle(
+            let layer_control_basemap = customlayercontrol(
                 layer_control_basemap_layers.base_layers,
                 layer_control_basemap_layers.overlays,
                 {

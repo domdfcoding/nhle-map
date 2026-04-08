@@ -18,7 +18,7 @@ function addMarkers(points, markerList) {
 		var a = points[i];
 		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + "</a>";
 		// var title = a[2].toString();
-		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3] });
+		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3], icon: listedBuildingsIcon });
 		marker.bindPopup(title);
 		markerList.push(marker);
 	}

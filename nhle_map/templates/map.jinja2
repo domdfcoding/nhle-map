@@ -13,6 +13,12 @@
               integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
               crossorigin="anonymous">
         <link rel="stylesheet" href="static/css/style.css" />
+        <link rel="preload"
+              href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_default.png"
+              as="image" />
+        <link rel="preload"
+              href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png"
+              as="image" />
         {{ header|safe }}
 
         {% block extrahead %}
