@@ -1786,7 +1786,7 @@ var listedBuildings32815386 = [
 [50.8151547663977, -2.27856671394782, 1118591, "THE OLD BAKERY", "II", "Thu, 14 Jul 1955 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1118591"],
 [50.8152535127866, -2.2780119029832, 1118592, "9, MILTON ABBAS", "II", "Thu, 14 Jul 1955 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1118592"],
 [50.8153097122585, -2.27770175425257, 1118593, "BEECHDALE", "II", "Thu, 14 Jul 1955 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1118593"],
-[50.815606766951, -2.27638555121179, 1118594, "1 TO 4, TREGONWELL COTTAGES AND THE READING ROOM, MILTON ABBAS", "II*", "Thu, 14 Jul 1955 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1118594"],
+[50.815606766951, -2.27638555121179, 1118594, "1 to 4, Tregonwell Cottages and The Reading Room", "II*", "Thu, 14 Jul 1955 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1118594"],
 [50.8158327904451, -2.27567313623001, 1118595, "23 AND 24, MILTON ABBAS", "II", "Thu, 14 Jul 1955 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1118595"],
 [50.8161339581853, -2.27492781200234, 1118596, "27 AND 28, MILTON ABBAS", "II", "Thu, 14 Jul 1955 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1118596"],
 [50.7774746831989, -2.17150700275751, 1118597, "ENTRANCE PIERS AND WALLS TO GARDEN OF ANDERSON MANOR, ON WEST SIDE", "II", "Thu, 10 Oct 1985 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1118597"],

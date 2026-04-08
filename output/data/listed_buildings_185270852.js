@@ -10470,4 +10470,5 @@ var listedBuildings185270852 = [
 [50.3415229137883, -4.23735639256457, 1493114, "Casemate barracks", "II", "Thu, 27 Mar 2025 12:14:27 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1493114"],
 [50.81576057846, -4.18399533521525, 1493191, "Beara Court including attached service wing, stable block, garage, gate piers, garden walls and steps", "II", "Fri, 19 Sep 2025 14:15:33 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1493191"],
 [50.6224286753717, -4.181688274513, 1493216, "The Homestead", "II", "Thu, 06 Nov 2003 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1493216"],
+[50.3958191270358, -4.86865211899017, 1496200, "Enniscaven War Memorial", "II", "Wed, 01 Apr 2026 09:26:07 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1496200"],
 ]

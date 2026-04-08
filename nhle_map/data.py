@@ -32,17 +32,21 @@ import json
 from collections import defaultdict
 from collections.abc import Iterable
 from operator import itemgetter
+from typing import Any
 
 # 3rd party
 import geopandas  # type: ignore[import-untyped]
+from arcgis.features import FeatureLayer, FeatureSet  # type: ignore[import-untyped]
+from arcgis.gis import GIS, ContentManager  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.typing import PathLike
 
 # this package
+from nhle_map._arcgis_fix import to_geojson
 from nhle_map.utils import get_id
 
-__all__ = ["chunk_data", "get_chunk_js"]
+__all__ = ["chunk_data", "download_data", "get_chunk_js"]
 
 DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
 
@@ -122,3 +126,53 @@ def chunk_data(
 
 	id_lookup_js = f"{variable_prefix}IDLookup = {json.dumps(id_lookup, indent=4)}"
 	output_dir.joinpath(f"{filename_prefix}_id_lookup.js").write_clean(id_lookup_js)
+
+
+def download_data(output_directory: PathLike) -> dict[str, Any]:
+	"""
+	Download data from the Historic England Open Data Hub on ArcGIS.
+
+	:param output_directory: Directory to write files to.
+	"""
+
+	# TODO: De-designated sites 8836370be44f4916b9ba7d350df24902_0
+
+	output_dir = PathPlus(output_directory)
+	output_dir.maybe_make(parents=True)
+
+	meta: dict[str, Any] = {
+			"start_time": datetime.datetime.now(tz=datetime.timezone.utc).isoformat(),
+			"layers": [],
+			}
+
+	# TODO: check last edit date against meta.json to see if update needed
+
+	gis = GIS()
+
+	data_item_id = "767f279327a24845bf47dfe5eae9862b"
+
+	content: ContentManager = gis.content
+	data_item = content.get(data_item_id)
+
+	layer: FeatureLayer
+
+	for layer in data_item.layers:
+		# print(layer)
+		# print("  ", layer.properties.id)
+		# print("  ", layer.properties.name)
+		# print("  ", layer.properties.type)
+		# print("  ", str(layer.properties.geometryType))
+		meta["layers"] = dict(layer.properties)
+
+		query: FeatureSet = layer.query(out_sr=4326)
+
+		# if query.geometry_type == "esriGeometryMultipoint":
+		# 	query._geometry_type = "esriGeometryMultiPoint"
+
+		print(repr(query))
+
+		if query.features:  # If no features (e.g. no preservation notices at this time) dont proceed
+			(output_dir / f"{layer.properties.name}.geojson").write_clean(to_geojson(query))
+
+	output_dir.joinpath("meta.json").dump_json(meta, indent=2)
+	return meta

@@ -28,7 +28,7 @@ Map showing places on the National Heritage List for England.
 
 # 3rd party
 from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
-from consolekit.options import auto_default_option
+from consolekit.options import auto_default_option, flag_option
 
 __all__ = ["main", "make_map", "prepare_data"]
 
@@ -40,11 +40,9 @@ def main() -> None:
 	"""
 
 
-# @flag_option("-d/-D", "--download/--no-download", default=True)
+@flag_option("-d/-D", "--download/--no-download", default=True)
 @main.command()
-def prepare_data(
-		# download: bool = True  # TODO
-) -> None:
+def prepare_data(download: bool = True) -> None:
 	"""
 	Prepare data for the map.
 	"""
@@ -54,9 +52,14 @@ def prepare_data(
 	from domdf_python_tools.paths import PathPlus
 
 	# this package
-	from nhle_map.data import chunk_data
+	from nhle_map.data import chunk_data, download_data
 
-	gdf = pyogrio.read_dataframe("data/Listed Building points.geojson")
+	data_directory = PathPlus("data")
+
+	if download:
+		download_data(data_directory)  # Local data folder, not the processed data within the output folder
+
+	gdf = pyogrio.read_dataframe(data_directory / "Listed Building points.geojson")
 
 	output_dir = PathPlus("output")
 	output_dir.maybe_make()
