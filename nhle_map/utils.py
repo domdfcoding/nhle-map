@@ -30,9 +30,9 @@ General utilities.
 import random
 
 # 3rd party
+import domdf_folium_tools.static_files
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.paths import PathPlus
-import domdf_folium_tools.static_files
 
 __all__ = ["copy_static_files", "get_id"]
 
@@ -59,8 +59,7 @@ def copy_static_files(static_dir: PathPlus) -> None:
 	"""
 
 	domdf_folium_tools.static_files.copy_static_files(
-		static_dir=static_dir,
-js_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "markers.js")],
-css_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "style.css")],
-	)
-
+			static_dir=static_dir,
+			js_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "markers.js")],
+			css_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "style.css")],
+			)
