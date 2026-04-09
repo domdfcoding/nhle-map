@@ -7,6 +7,40 @@ ellipsis-reformat = 70
 squish_stubs = 80
 newline_after_equals = 90
 
+[hooks.format_js]
+priority = 10
+
+[hooks.format_js.kwargs]
+use_tabs = true
+line_width = 115
+quote_style = "preferSingle"
+jsx_quote_style = "preferSingle"
+arguments_prefer_hanging = "always"
+array_expression_prefer_hanging = "always"
+array_pattern_prefer_hanging = true
+do_while_statement_prefer_hanging = true
+export_declaration_prefer_hanging = true
+extends_clause_prefer_hanging = true
+for_statement_prefer_hanging = true
+for_in_statement_prefer_hanging = true
+for_of_statement_prefer_hanging = true
+if_statement_prefer_hanging = true
+implements_clause_prefer_hanging = true
+import_declaration_prefer_hanging = true
+jsx_attributes_prefer_hanging = true
+object_expression_prefer_hanging = true
+object_pattern_prefer_hanging = true
+parameters_prefer_hanging = "always"
+sequence_expression_prefer_hanging = true
+switch_statement_prefer_hanging = true
+tuple_type_prefer_hanging = "always"
+type_literal_prefer_hanging = true
+type_parameters_prefer_hanging = "always"
+union_and_intersection_type_prefer_hanging = true
+variable_statement_prefer_hanging = true
+while_statement_prefer_hanging = true
+method_space_before_parentheses = false
+
 [hooks.yapf]
 priority = 30
 

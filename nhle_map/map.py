@@ -103,14 +103,14 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
             var progressBar = document.getElementById('progress-bar');
 
             console.log('start creating markers: ' + window.performance.now());
-            map.addLayer(marker_cluster_listed_buildings);
+            {{ this._parent.get_name() }}.addLayer(marker_cluster_listed_buildings);
 
             var loaded_ids = [];
 
             load_new_markers()
 
-            // map.on('zoomend', load_new_markers);
-            map.on('moveend', load_new_markers);
+            // {{ this._parent.get_name() }}.on('zoomend', load_new_markers);
+            {{ this._parent.get_name() }}.on('moveend', load_new_markers);
 
         {% endmacro %}
 """,

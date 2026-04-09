@@ -31,3 +31,5 @@ extra_formate_deps:
 extra_formate_types:
  - javascript
  - ts
+
+pre_commit_exclude: "^output/data/"

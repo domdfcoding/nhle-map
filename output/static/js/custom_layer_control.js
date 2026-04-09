@@ -22,11 +22,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
-
-    _addItem: function (obj) {
-        var container = obj.overlay ? this._overlaysList : this._baseLayersList;
+	_addItem: function(obj) {
+		var container = obj.overlay ? this._overlaysList : this._baseLayersList;
 
 		if (obj.overlay) {
 			var labelClass = 'leaflet-lc-overlay-container';
@@ -35,38 +33,38 @@ CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 		}
 
 		var label = L.DomUtil.create('label', labelClass, container);
-        label._layerName = obj.name;
-        var checked = this._map.hasLayer(obj.layer);
+		label._layerName = obj.name;
+		var checked = this._map.hasLayer(obj.layer);
 
-        if (!obj.overlay) {
+		if (!obj.overlay) {
 			label._minimap = this._createMinimap(
-            L.DomUtil.create('div', 'leaflet-minimap', label),
-            obj.layer,
-            obj.overlay
-        );
+				L.DomUtil.create('div', 'leaflet-minimap', label),
+				obj.layer,
+				obj.overlay,
+			);
 		}
 		var span = L.DomUtil.create('span', 'leaflet-minimap-label', label);
-		console.log("Success")
-        var input;
-        if (obj.overlay) {
-            input = document.createElement('input');
-            input.type = 'checkbox';
-            input.className = 'leaflet-control-layers-selector';
-            input.defaultChecked = checked;
-        } else {
-            input = this._createRadioElement('leaflet-base-layers', checked);
-        }
-        this._layerControlInputs.push(input)
-        input.layerId = L.stamp(obj.layer);
-        span.appendChild(input);
+		console.log('Success');
+		var input;
+		if (obj.overlay) {
+			input = document.createElement('input');
+			input.type = 'checkbox';
+			input.className = 'leaflet-control-layers-selector';
+			input.defaultChecked = checked;
+		} else {
+			input = this._createRadioElement('leaflet-base-layers', checked);
+		}
+		this._layerControlInputs.push(input);
+		input.layerId = L.stamp(obj.layer);
+		span.appendChild(input);
 
-        L.DomEvent.on(label, 'click', this._onInputClick, this);
+		L.DomEvent.on(label, 'click', this._onInputClick, this);
 
-        var name = L.DomUtil.create('span', '', span);
-        name.innerHTML = ' ' + obj.name;
+		var name = L.DomUtil.create('span', '', span);
+		name.innerHTML = ' ' + obj.name;
 
-        return label;
-    },
+		return label;
+	},
 });
 
 customlayercontrol = function(baseLayers, overlays, options) {

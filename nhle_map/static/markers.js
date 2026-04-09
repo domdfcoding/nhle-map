@@ -1,22 +1,19 @@
-
 function load_new_markers() {
 	const bounds = map.getBounds();
-	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1)
-	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1)
-	latitudes.forEach(function (latitude) {
-		longitides.forEach(function (longitide) {
-			loadMarkers(latitude, longitide)
+	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1);
+	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1);
+	latitudes.forEach(function(latitude) {
+		longitides.forEach(function(longitide) {
+			loadMarkers(latitude, longitide);
 		});
 	});
 	// loadMarkers(Math.floor(centre.lat),Math.floor(centre.lng))
 }
 
-
-
 function addMarkers(points, markerList) {
 	for (var i = 0; i < points.length; i++) {
 		var a = points[i];
-		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + "</a>";
+		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
 		// var title = a[2].toString();
 		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3], icon: listedBuildingsIcon });
 		marker.bindPopup(title);
@@ -25,25 +22,25 @@ function addMarkers(points, markerList) {
 }
 
 function lookup_id(latitude, longitide) {
-	var lat_lookup = listedBuildingsIDLookup[latitude]
+	var lat_lookup = listedBuildingsIDLookup[latitude];
 	if (lat_lookup === undefined) {
-		return null
+		return null;
 	}
 
 	let id = lat_lookup[longitide];
 
 	if (id === undefined) {
-		return null
+		return null;
 	}
 
-	return id
+	return id;
 }
 
 function loadMarkers(latitude, longitide) {
 	var id = lookup_id(latitude, longitide);
 	if (loaded_ids.includes(id)) {
 		console.log(`Markers already loaded for ${latitude}N ${longitide}E`);
-		return
+		return;
 	}
 
 	var script = document.createElement('script');
@@ -53,36 +50,33 @@ function loadMarkers(latitude, longitide) {
 	progress.addEventListener('shown.bs.modal', event => {
 		if (loaded_ids.includes(id)) {
 			console.log(`Markers already loaded for ${latitude}N ${longitide}E`);
-			return
+			return;
 		}
 
 		marker_cluster_listed_buildings.addLayers(markerList);
 		console.log('end clustering: ' + window.performance.now());
 
 		loaded_ids.push(id);
-	}, { once: true })
+	}, { once: true });
 
-	script.onload = function () {
-		console.log("Script loaded")
+	script.onload = function() {
+		console.log('Script loaded');
 		if (loaded_ids.includes(id)) {
 			console.log(`Markers already loaded for ${latitude}N ${longitide}E`);
-			return
+			return;
 		}
 
-
 		console.log('start creating markers: ' + window.performance.now());
-		addMarkers(window["listedBuildings" + id], markerList);
+		addMarkers(window['listedBuildings' + id], markerList);
 
 		console.log('start clustering: ' + window.performance.now());
 		// disable_interaction();
 
-		modal.show()
-
+		modal.show();
 	};
 
 	script.src = `data/listed_buildings_${id}.js`;
 	document.head.appendChild(script);
-
 }
 
 // https://github.com/jashkenas/underscore/blob/master/underscore.js
@@ -112,14 +106,14 @@ function range(start, stop, step) {
 
 function getClusterRadius(zoom) {
 	if (zoom == MAX_ZOOM) {
-		return 5
+		return 5;
 	}
 
 	if (zoom > 15) {
-		return 40
+		return 40;
 	}
 
-	return 80
+	return 80;
 }
 
 function disable_interaction() {
@@ -154,7 +148,7 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 	// }
 	if (processed === total) {
 		// all markers processed - hide the progress bar:
-		modal.hide()
+		modal.hide();
 		// enable_interaction();
 	}
 }
