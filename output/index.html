@@ -29,6 +29,18 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/css/leaflet.extra-markers.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+
+				<style>
+					.leaflet-control-about {
+						a {
+							font-size: 1.4em;
+							.leaflet-about-icon {
+								color: black;
+							}
+						}
+					}
+				</style>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/control.layers.minimap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/control.layers.minimap.min.css"/>
 
@@ -68,6 +80,32 @@
 
 
 
+            <div class="modal fade modal-lg"
+                 id="aboutModal"
+                 tabindex="-1"
+                 aria-labelledby="aboutModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="aboutModalLabel">About</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo erat sit amet tortor vehicula, nec euismod arcu egestas. Proin neque augue, euismod vel fringilla et, venenatis eu diam.
+                            </p>
+
+                            <p>
+                                Etiam mollis felis purus, a efficitur nibh vulputate id. Suspendisse potenti. Etiam odio libero, feugiat vel nulla vitae, eleifend dignissim lectus. Donec rutrum lacus sed consequat consectetur. Curabitur tortor orci, suscipit sit amet risus a, rutrum suscipit odio. Duis vitae libero leo. Curabitur vel turpis in ante scelerisque consequat non nec dolor. Cras suscipit molestie mauris id pellentesque. Nam iaculis pretium ante vel lacinia. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tempus faucibus libero. Suspendisse et sagittis dolor, fringilla ullamcorper mi. Praesent in mattis leo. Maecenas vitae sem ac massa mollis mattis at sit amet justo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <main class="map-container p-2">
 
 
@@ -96,6 +134,7 @@
     <script src="data/listed_buildings_id_lookup.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b1/folium_about_button/about_button.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/L.Control.Layers.Minimap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/L.Control.Layers.Minimap.Toggle.min.js"></script>
     <script src="static/js/custom_layer_control.js"></script>
@@ -292,6 +331,11 @@
                 {"icon": "fas fa-location-crosshairs"}
             ).addTo(map);
 
+
+
+				var about_control_2ceb21082db25aa2815dc15b4f51dfbc = new AboutControl(
+					{"modalID": "aboutModal"}
+				).addTo(map);
 
 
             var layer_control_basemap_layers = {

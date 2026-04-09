@@ -56,6 +56,32 @@
             </div>
         {% endblock loading_bar %}
 
+        {% block about_dialog %}
+            <div class="modal fade modal-lg"
+                 id="aboutModal"
+                 tabindex="-1"
+                 aria-labelledby="aboutModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="aboutModalLabel">About</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo erat sit amet tortor vehicula, nec euismod arcu egestas. Proin neque augue, euismod vel fringilla et, venenatis eu diam.
+                            </p>
+
+                            <p>
+                                Etiam mollis felis purus, a efficitur nibh vulputate id. Suspendisse potenti. Etiam odio libero, feugiat vel nulla vitae, eleifend dignissim lectus. Donec rutrum lacus sed consequat consectetur. Curabitur tortor orci, suscipit sit amet risus a, rutrum suscipit odio. Duis vitae libero leo. Curabitur vel turpis in ante scelerisque consequat non nec dolor. Cras suscipit molestie mauris id pellentesque. Nam iaculis pretium ante vel lacinia. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tempus faucibus libero. Suspendisse et sagittis dolor, fringilla ullamcorper mi. Praesent in mattis leo. Maecenas vitae sem ac massa mollis mattis at sit amet justo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock about_dialog %}
+
         {% block main %}
             <main class="map-container p-2">
                 {% block body %}

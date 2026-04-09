@@ -35,6 +35,7 @@ from domdf_folium_tools.elements import add_to, set_id
 from domdf_folium_tools.template import SubclassingTemplate
 from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
+from folium_about_button import AboutControl
 from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
@@ -189,6 +190,7 @@ def make_map() -> folium.Map:
 	MarkerLoadingJS(max_zoom=MAX_ZOOM).add_to(m)
 	ZoomStateJS(setup_basemap_state=True).add_to(m)
 	LocateControl().add_to(m)
+	AboutControl("aboutModal").add_to(m)
 
 	layer_control = add_to(LayerControl(), m, "basemap")
 	BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)

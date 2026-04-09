@@ -6,6 +6,7 @@ domdf-folium-tools>=0.1.0b3
 domdf-python-tools>=3.10.0
 fiona<=1.9.6
 folium>=0.20.0
+folium-about-button @ git+https://github.com/domdfcoding/folium-about-button
 folium-layerscontrol-minimap @ git+https://github.com/domdfcoding/folium-layerscontrol-minimap
 folium-zoom-state @ git+https://github.com/domdfcoding/folium-zoom-state
 geopandas>=1.1.3
