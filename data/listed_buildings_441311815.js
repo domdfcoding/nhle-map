@@ -16200,4 +16200,5 @@ var listedBuildings441311815 = [
 [52.202968951795, 0.124120759653492, 1493712, "K6 Telephone Kiosk, St Andrew's Street", "II", "Tue, 24 Jun 2025 08:33:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1493712"],
 [52.4168081547144, 0.347105931850207, 1494959, "Prickwillow War Memorial", "II", "Mon, 09 Mar 2026 11:49:05 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1494959"],
 [52.3104826791294, 0.292216419639351, 1495557, "Fen Cottage (also known as The Fenman's Cottage) Wicken", "II", "Wed, 25 Mar 2026 11:19:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1495557"],
+[52.2116575187986, 0.112467228456931, 1495713, "Castle End Mission and Working Mens Institute with attached Iron Hall", "II", "Wed, 08 Apr 2026 09:51:59 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1495713"],
 ]
