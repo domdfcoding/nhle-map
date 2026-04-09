@@ -43,7 +43,7 @@ from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 from nhle_map.icons import get_layer_label_text
 from nhle_map.nls_basemaps import os10k, os1250, os2500
 
-__all__ = ["LayerControl", "LocateControl", "Map", "MarkerLoadingJS", "make_map"]
+__all__ = ["LayerControl", "MarkerLoadingJS", "make_map"]
 
 
 class Map(ZoomStateMap):
@@ -71,6 +71,13 @@ class Map(ZoomStateMap):
 
 
 class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
+	"""
+	Adds javascript logic for marker loading and display.
+
+	:param max_zoom: The map's maximum zoom level.
+	"""
+
+	# TODO: get max_zoom from the map itself?
 
 	def __init__(self, max_zoom: int):
 		super().__init__()
@@ -118,6 +125,12 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
 
 class LayerControl(ToggleMinimapLayerControl):
+	"""
+	Customised layer control.
+
+	Shows minimap preview for base layers, and opens/closes on click not mouseover.
+	"""
+
 	control_class_name = "customlayercontrol"
 
 	default_js = ToggleMinimapLayerControl.default_js + [(
@@ -207,7 +220,7 @@ class LocateControl(FoliumLocateControl):
 			] + FoliumLocateControl.default_css
 
 	def __init__(self):
-		super().__init__(icon="fas fa-location-crosshairs")
+		super().__init__(icon="fa-solid fa-location-crosshairs")
 
 	def get_name(self) -> str:
 		return "locate_control"

@@ -152,7 +152,7 @@ def write_icons_js(output_directory: PathLike) -> None:
 	]:
 
 		output.append(f"var {var_name} = L.ExtraMarkers.icon(")
-		output.append(json.dumps(layer_icons[layer_name].to_dict()))
+		output.append('\t' + json.dumps(layer_icons[layer_name].to_dict()))
 		output.append(");")
 		output.blankline()
 
