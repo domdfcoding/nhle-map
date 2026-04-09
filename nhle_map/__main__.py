@@ -28,21 +28,25 @@ Map showing places on the National Heritage List for England.
 
 # 3rd party
 from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
-from consolekit.options import auto_default_option, flag_option
+from consolekit.options import auto_default_option
 
 __all__ = ["main", "make_map", "prepare_data"]
 
 
-@click_group(cls=SuggestionGroup, invoke_without_command=False, context_settings=CONTEXT_SETTINGS)
+@click_group(
+		cls=SuggestionGroup,
+		invoke_without_command=False,
+		context_settings={**CONTEXT_SETTINGS, "show_default": True},
+		)
 def main() -> None:
 	"""
 	Development tools for towpath-walk-tracker.
 	"""
 
 
-@flag_option("-d/-D", "--download/--no-download", default=True)
+@auto_default_option("-d/-D", "--download/--no-download", is_flag=True)
 @main.command()
-def prepare_data(download: bool = True) -> None:
+def prepare_data(download: bool = False) -> None:
 	"""
 	Prepare data for the map.
 	"""
@@ -81,6 +85,7 @@ def make_map(output_directory: str = "output") -> None:
 
 	# 3rd party
 	import branca.element
+	from domdf_folium_tools import set_branca_random_seed
 	from domdf_folium_tools.elements import render_figure
 	from domdf_python_tools.paths import PathPlus
 
@@ -88,6 +93,8 @@ def make_map(output_directory: str = "output") -> None:
 	from nhle_map.map import make_map
 	from nhle_map.templates import render_template
 	from nhle_map.utils import copy_static_files
+
+	set_branca_random_seed("NHLE")
 
 	output_dir = PathPlus(output_directory)
 	output_dir.maybe_make()
