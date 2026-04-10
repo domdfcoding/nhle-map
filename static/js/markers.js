@@ -2,20 +2,69 @@ function load_new_markers() {
 	const bounds = map.getBounds();
 	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1);
 	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1);
+	var markerList = [];
+	var chunkIDs = [];
+	var scriptPromises = [];
+
 	latitudes.forEach(function(latitude) {
 		longitides.forEach(function(longitide) {
-			loadMarkers(latitude, longitide);
+			var id = lookup_id(latitude, longitide);
+			if (id !== null) {
+				console.log(`ID for ${latitude}N ${longitide}E is ${id}`);
+				if (loaded_ids.includes(id)) {
+					console.log(`Markers already loaded for ${latitude}N ${longitide}E`);
+				} else {
+					chunkIDs.push(id);
+				}
+			}
 		});
 	});
-	// loadMarkers(Math.floor(centre.lat),Math.floor(centre.lng))
+
+	progress.addEventListener('shown.bs.modal', event => {
+		var addedChunkIDs = [];
+		console.log('Adding markers for ids', chunkIDs);
+		chunkIDs.forEach(function(id) {
+			if (loaded_ids.includes(id)) {
+				console.log(`Markers already loaded for ID ${id}`);
+			} else {
+				console.log('Accessing JS variable', 'listedBuildings' + id);
+				addMarkers(window['listedBuildings' + id], markerList, listedBuildingsIcon);
+				addedChunkIDs.push(id);
+			}
+		});
+
+		marker_cluster_listed_buildings.addLayers(markerList);
+		loaded_ids.push(...addedChunkIDs);
+	}, { once: true });
+
+	// TODO: move script/promise code inside post-modal.show() block so map is blocked during
+	if (chunkIDs.length > 0) {
+		console.log('Loading scripts', chunkIDs);
+		chunkIDs.forEach(function(id) {
+			var script = document.createElement('script');
+			scriptPromises.push(new Promise((resolve, reject) => {
+				script.onload = function() {
+					console.log('Script', id, 'loaded');
+					resolve();
+				};
+			}));
+			script.src = `data/listed_buildings_${id}.js`;
+			document.head.appendChild(script);
+		});
+
+		Promise.all(scriptPromises).then((values) => {
+			console.log('Showing progressbar');
+			modal.show();
+		});
+	}
 }
 
-function addMarkers(points, markerList) {
+function addMarkers(points, markerList, icon) {
 	for (var i = 0; i < points.length; i++) {
 		var a = points[i];
 		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
 		// var title = a[2].toString();
-		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3], icon: listedBuildingsIcon });
+		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3], icon: icon });
 		marker.bindPopup(title);
 		markerList.push(marker);
 	}
@@ -67,7 +116,7 @@ function loadMarkers(latitude, longitide) {
 		}
 
 		console.log('start creating markers: ' + window.performance.now());
-		addMarkers(window['listedBuildings' + id], markerList);
+		addMarkers(window['listedBuildings' + id], markerList, listedBuildingsIcon);
 
 		console.log('start clustering: ' + window.performance.now());
 		// disable_interaction();
@@ -140,9 +189,9 @@ function enable_interaction() {
 function updateProgressBar(processed, total, elapsed, layersArray) {
 	// if (elapsed > 1000) {
 	// if it takes more than a second to load, display the progress bar:
-	// 	if (elapsed > 0) {
-	// 		disable_interaction();
-	// 		modal.show()
+	// if (elapsed > 0) {
+	// 	disable_interaction();
+	// 	modal.show();
 	// }
 	progressBar.style.width = Math.round(processed / total * 100) + '%';
 	// }

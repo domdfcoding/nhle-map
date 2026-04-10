@@ -247,6 +247,28 @@
                 getClusterRadius;
 
 
+            var marker_cluster_building_preservation_notices = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            marker_cluster_building_preservation_notices.options.chunkProgress =
+                updateProgressBar;
+            marker_cluster_building_preservation_notices.options.maxClusterRadius =
+                getClusterRadius;
+
+
+            var marker_cluster_certificates_of_immunity = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            marker_cluster_certificates_of_immunity.options.chunkProgress =
+                updateProgressBar;
+            marker_cluster_certificates_of_immunity.options.maxClusterRadius =
+                getClusterRadius;
+
+
             var marker_cluster_listed_buildings = L.markerClusterGroup(
                 {
   "chunkedLoading": true,
@@ -288,6 +310,17 @@
             marker_cluster_scheduled_monuments.options.chunkProgress =
                 updateProgressBar;
             marker_cluster_scheduled_monuments.options.maxClusterRadius =
+                getClusterRadius;
+
+
+            var marker_cluster_world_heritage_sites = L.markerClusterGroup(
+                {
+  "chunkedLoading": true,
+}
+            );
+            marker_cluster_world_heritage_sites.options.chunkProgress =
+                updateProgressBar;
+            marker_cluster_world_heritage_sites.options.maxClusterRadius =
                 getClusterRadius;
 
 
@@ -333,7 +366,7 @@
 
 
 
-				var about_control_3e9b9f65948a9ff433e3c032a49cd8d8 = new AboutControl(
+				var about_control_25c10f457cdb95350306c18b495d96b5 = new AboutControl(
 					{"modalID": "aboutModal"}
 				).addTo(map);
 
@@ -347,10 +380,13 @@
                 },
                 overlays :  {
                     "Battlefields \u003cimg src=\u0027static/img/Challenge_Icon.svg\u0027 width=\u002720px\u0027\u003e" : marker_cluster_battlefields,
+                    "Building Preservation Notices \u003ci class=\u0027fa-solid fa-building-flag\u0027\u003e\u003c/i\u003e" : marker_cluster_building_preservation_notices,
+                    "Certificates of Immunity \u003ci class=\u0027fa-solid fa-scroll\u0027\u003e\u003c/i\u003e" : marker_cluster_certificates_of_immunity,
                     "Listed Buildings \u003ci class=\u0027fa-solid fa-building\u0027\u003e\u003c/i\u003e" : marker_cluster_listed_buildings,
                     "Parks and Gardens \u003ci class=\u0027fa-solid fa-tree\u0027\u003e\u003c/i\u003e" : marker_cluster_parks_and_gardens,
                     "Protected Wreck Sites \u003ci class=\u0027fa-solid fa-anchor\u0027\u003e\u003c/i\u003e" : marker_cluster_protected_wreck_sites,
                     "Scheduled Monuments \u003ci class=\u0027fa-solid fa-monument\u0027\u003e\u003c/i\u003e" : marker_cluster_scheduled_monuments,
+                    "World Heritage Sites \u003ci class=\u0027fa-solid fa-certificate\u0027\u003e\u003c/i\u003e" : marker_cluster_world_heritage_sites,
                     "De-designated \u003ci class=\u0027fa-solid fa-ban\u0027\u003e\u003c/i\u003e" : marker_cluster_de_designated,
                 },
             };
