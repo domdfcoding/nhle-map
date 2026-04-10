@@ -29,6 +29,10 @@ Map showing places on the National Heritage List for England.
 # 3rd party
 from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
 from consolekit.options import auto_default_option
+from geopandas import GeoDataFrame  # type: ignore[import-untyped]
+
+# this package
+from nhle_map.data import make_polygon_points
 
 __all__ = ["main", "make_map", "prepare_data"]
 
@@ -63,17 +67,23 @@ def prepare_data(download: bool = False) -> None:
 	if download:
 		download_data(data_directory)  # Local data folder, not the processed data within the output folder
 
-	gdf = pyogrio.read_dataframe(data_directory / "Listed Building points.geojson")
-
 	output_dir = PathPlus("output")
 	output_dir.maybe_make()
 
+	listed_buildings_gdf = pyogrio.read_dataframe(data_directory / "Listed Building points.geojson")
+
 	chunk_data(
-			gdf,
+			listed_buildings_gdf,
 			range(49, 55),
 			range(-7, 3),
 			output_dir / "data",
 			)
+
+	protected_wreck_sites_gdf: GeoDataFrame = pyogrio.read_dataframe(
+			data_directory / "Protected Wreck Sites.geojson",
+			)
+
+	make_polygon_points(protected_wreck_sites_gdf, output_dir / "data")
 
 
 @auto_default_option("-O", "--output-dir", "output_directory")

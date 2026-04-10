@@ -46,12 +46,12 @@ from domdf_python_tools.typing import PathLike
 from nhle_map._arcgis_fix import to_geojson
 from nhle_map.utils import get_id
 
-__all__ = ["chunk_data", "download_data", "get_chunk_js"]
+__all__ = ["chunk_data", "download_data", "get_chunk_js", "make_polygon_points"]
 
 DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
 
 
-def get_chunk_js(features: list, chunk_id: int, variable_prefix: str = "listedBuildings") -> str:
+def get_chunk_js(features: list, chunk_id: str | int, variable_prefix: str = "listedBuildings") -> str:
 	"""
 	Returns the javascript array for the given features chunk.
 
@@ -65,11 +65,12 @@ def get_chunk_js(features: list, chunk_id: int, variable_prefix: str = "listedBu
 	output.append("// Lat,Lng,Number,Name,Grade,ListDate,Link")
 	output.append(f"var {variable_prefix}{chunk_id} = [")
 
+	item: dict[str, Any]
 	for item in sorted(features, key=itemgetter("ListEntry")):
 		number = item["ListEntry"]
 		name = item["Name"]
-		grade = item["Grade"]
-		list_date = item["ListDate"]
+		grade = item.get("Grade")
+		list_date = item.get("ListDate", item.get("DesigDate"))
 		if isinstance(list_date, int):
 			# Timestamp in milliseconds
 			list_date = datetime.datetime.fromtimestamp(
@@ -176,3 +177,32 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 
 	output_dir.joinpath("meta.json").dump_json(meta, indent=2)
 	return meta
+
+
+# TODO: camel to snake for default value
+def make_polygon_points(
+		data: geopandas.GeoDataFrame,
+		output_directory: PathLike,
+		variable_prefix: str = "protectedWreckSites",
+		filename_prefix: str = "protected_wreck_sites",
+		) -> None:
+	"""
+	Convert polygons into representative points and write to javascript.
+	Split the data into chunks for the given latitudes and longitudes.
+
+	:param data:
+	:param output_directory: Directory to write files to.
+	:param variable_prefix: String to prefix javascript variables with.
+	:param filename_prefix: String to prefix javascript filenames with.
+	"""
+
+	output_dir = PathPlus(output_directory)
+	output_dir.maybe_make(parents=True)
+
+	data["geometry"] = data["geometry"].representative_point()
+	chunk_js = get_chunk_js(
+			data.to_dict("records"),
+			chunk_id='',
+			variable_prefix=variable_prefix,
+			)
+	(output_dir / "data" / f"{filename_prefix}.js").write_clean(chunk_js)
