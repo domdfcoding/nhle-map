@@ -10,12 +10,12 @@ function load_new_markers() {
 	// loadMarkers(Math.floor(centre.lat),Math.floor(centre.lng))
 }
 
-function addMarkers(points, markerList) {
+function addMarkers(points, markerList, icon) {
 	for (var i = 0; i < points.length; i++) {
 		var a = points[i];
 		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
 		// var title = a[2].toString();
-		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3], icon: listedBuildingsIcon });
+		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3], icon: icon });
 		marker.bindPopup(title);
 		markerList.push(marker);
 	}
@@ -67,7 +67,7 @@ function loadMarkers(latitude, longitide) {
 		}
 
 		console.log('start creating markers: ' + window.performance.now());
-		addMarkers(window['listedBuildings' + id], markerList);
+		addMarkers(window['listedBuildings' + id], markerList, listedBuildingsIcon);
 
 		console.log('start clustering: ' + window.performance.now());
 		// disable_interaction();
