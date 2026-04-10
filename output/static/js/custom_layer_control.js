@@ -44,7 +44,6 @@ CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 			);
 		}
 		var span = L.DomUtil.create('span', 'leaflet-minimap-label', label);
-		console.log('Success');
 		var input;
 		if (obj.overlay) {
 			input = document.createElement('input');
