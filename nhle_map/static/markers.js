@@ -2,12 +2,61 @@ function load_new_markers() {
 	const bounds = map.getBounds();
 	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1);
 	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1);
+	var markerList = [];
+	var chunkIDs = [];
+	var scriptPromises = [];
+
 	latitudes.forEach(function(latitude) {
 		longitides.forEach(function(longitide) {
-			loadMarkers(latitude, longitide);
+			var id = lookup_id(latitude, longitide);
+			if (id !== null) {
+				console.log(`ID for ${latitude}N ${longitide}E is ${id}`);
+				if (loaded_ids.includes(id)) {
+					console.log(`Markers already loaded for ${latitude}N ${longitide}E`);
+				} else {
+					chunkIDs.push(id);
+				}
+			}
 		});
 	});
-	// loadMarkers(Math.floor(centre.lat),Math.floor(centre.lng))
+
+	progress.addEventListener('shown.bs.modal', event => {
+		var addedChunkIDs = [];
+		console.log('Adding markers for ids', chunkIDs);
+		chunkIDs.forEach(function(id) {
+			if (loaded_ids.includes(id)) {
+				console.log(`Markers already loaded for ID ${id}`);
+			} else {
+				console.log('Accessing JS variable', 'listedBuildings' + id);
+				addMarkers(window['listedBuildings' + id], markerList, listedBuildingsIcon);
+				addedChunkIDs.push(id);
+			}
+		});
+
+		marker_cluster_listed_buildings.addLayers(markerList);
+		loaded_ids.push(...addedChunkIDs);
+	}, { once: true });
+
+	// TODO: move script/promise code inside post-modal.show() block so map is blocked during
+	if (chunkIDs.length > 0) {
+		console.log('Loading scripts', chunkIDs);
+		chunkIDs.forEach(function(id) {
+			var script = document.createElement('script');
+			scriptPromises.push(new Promise((resolve, reject) => {
+				script.onload = function() {
+					console.log('Script', id, 'loaded');
+					resolve();
+				};
+			}));
+			script.src = `data/listed_buildings_${id}.js`;
+			document.head.appendChild(script);
+		});
+
+		Promise.all(scriptPromises).then((values) => {
+			console.log('Showing progressbar');
+			modal.show();
+		});
+	}
 }
 
 function addMarkers(points, markerList, icon) {
