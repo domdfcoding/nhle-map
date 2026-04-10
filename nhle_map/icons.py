@@ -106,14 +106,15 @@ class SVGLayerIcon(LayerIcon):
 
 
 layer_icons: dict[str, LayerIcon] = {
-		"Battlefields": SVGLayerIcon(filename="static/img/Challenge_Icon.svg", marker_colour="orange"),
-		# "Building Preservation Notices":
-		# "Certificates of Immunity":
+		"Battlefields": SVGLayerIcon(filename="static/img/Challenge_Icon.svg", marker_colour="orange"),  #
+		# Alternative BPN/immunity icon   # fa-sign-hanging
+		"Building Preservation Notices": FontawesomeLayerIcon(icon="building-flag", marker_colour="teal"),
+		"Certificates of Immunity": FontawesomeLayerIcon(icon="scroll", marker_colour="tan"),
 		"Listed Buildings": FontawesomeLayerIcon(icon="building", marker_colour="blue"),
 		"Parks and Gardens": FontawesomeLayerIcon(icon="tree", marker_colour="green"),
 		"Protected Wreck Sites": FontawesomeLayerIcon(icon="anchor", marker_colour="purple"),
-		"Scheduled Monuments": FontawesomeLayerIcon(icon="monument", marker_colour="red"),  #
-		# "World Heritage Sites":
+		"Scheduled Monuments": FontawesomeLayerIcon(icon="monument", marker_colour="red"),
+		"World Heritage Sites": FontawesomeLayerIcon(icon="certificate", marker_colour="grey"),
 		"De-designated": FontawesomeLayerIcon(icon="ban", marker_colour="black"),
 		}
 
@@ -141,13 +142,13 @@ def write_icons_js(output_directory: PathLike) -> None:
 	output = StringList()
 	for layer_name, var_name in [
 		("Battlefields", "battlefieldsIcon"),
-		# ("Building Preservation Notices", "buildingPreservationNoticesIcon"),
-		# ("Certificates of Immunity", "certificatesOfImmunityIcon"),
+		("Building Preservation Notices", "buildingPreservationNoticesIcon"),
+		("Certificates of Immunity", "certificatesOfImmunityIcon"),
 		("Listed Buildings", "listedBuildingsIcon"),
 		("Parks and Gardens", "parksAndGardensIcon"),
 		("Protected Wreck Sites", "protectedWreckSitesIcon"),
 		("Scheduled Monuments", "scheduledMonumentsIcon"),
-		# ("World Heritage Sites", "worldHeritageSitesIcon"),
+		("World Heritage Sites", "worldHeritageSitesIcon"),
 		("De-designated", "deDesignatedIcon"),
 	]:
 

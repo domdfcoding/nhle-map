@@ -178,13 +178,13 @@ def make_map() -> folium.Map:
 
 	for layer_name, layer_id in [
 		("Battlefields", "battlefields"),
-		# ("Building Preservation Notices", "building_preservation_notices"),
-		# ("Certificates of Immunity", "certificates_of_immunity"),
+		("Building Preservation Notices", "building_preservation_notices"),
+		("Certificates of Immunity", "certificates_of_immunity"),
 		("Listed Buildings", "listed_buildings"),
 		("Parks and Gardens", "parks_and_gardens"),
 		("Protected Wreck Sites", "protected_wreck_sites"),
 		("Scheduled Monuments", "scheduled_monuments"),
-		# ("World Heritage Sites", "world_heritage_sites"),
+		("World Heritage Sites", "world_heritage_sites"),
 		("De-designated", "de_designated"),
 	]:
 
