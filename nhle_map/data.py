@@ -117,11 +117,11 @@ def chunk_data(
 	for latitude in lat_range:
 		for longitide in lng_range:
 			chunk_id = get_id()
-			id_lookup[latitude][longitide] = chunk_id
 			subset = data.cx[longitide:longitide + 1, latitude:latitude + 1]  # type: ignore[misc]  # TODO
 			if not len(subset):
 				continue
 
+			id_lookup[latitude][longitide] = chunk_id
 			chunk_js = get_chunk_js(subset.to_dict("records"), chunk_id, variable_prefix=variable_prefix)
 			output_dir.joinpath(f"{filename_prefix}_{chunk_id}.js").write_clean(chunk_js)
 
