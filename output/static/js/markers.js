@@ -4,7 +4,6 @@ function load_new_markers() {
 	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1);
 	var markerList = [];
 	var chunkIDs = [];
-	var scriptPromises = [];
 
 	latitudes.forEach(function(latitude) {
 		longitides.forEach(function(longitide) {
@@ -22,23 +21,8 @@ function load_new_markers() {
 
 	progress.addEventListener('shown.bs.modal', event => {
 		var addedChunkIDs = [];
-		console.log('Adding markers for ids', chunkIDs);
-		chunkIDs.forEach(function(id) {
-			if (loaded_ids.includes(id)) {
-				console.log(`Markers already loaded for ID ${id}`);
-			} else {
-				console.log('Accessing JS variable', 'listedBuildings' + id);
-				addMarkers(window['listedBuildings' + id], markerList, listedBuildingsIcon);
-				addedChunkIDs.push(id);
-			}
-		});
+		var scriptPromises = [];
 
-		marker_cluster_listed_buildings.addLayers(markerList);
-		loaded_ids.push(...addedChunkIDs);
-	}, { once: true });
-
-	// TODO: move script/promise code inside post-modal.show() block so map is blocked during
-	if (chunkIDs.length > 0) {
 		console.log('Loading scripts', chunkIDs);
 		chunkIDs.forEach(function(id) {
 			var script = document.createElement('script');
@@ -53,9 +37,26 @@ function load_new_markers() {
 		});
 
 		Promise.all(scriptPromises).then((values) => {
-			console.log('Showing progressbar');
-			modal.show();
+			console.log('Adding markers for ids', chunkIDs);
+			chunkIDs.forEach(function(id) {
+				if (loaded_ids.includes(id)) {
+					console.log(`Markers already loaded for ID ${id}`);
+				} else {
+					console.log('Accessing JS variable', 'listedBuildings' + id);
+					addMarkers(window['listedBuildings' + id], markerList, listedBuildingsIcon);
+					addedChunkIDs.push(id);
+				}
+			});
+
+			marker_cluster_listed_buildings.addLayers(markerList);
+			loaded_ids.push(...addedChunkIDs);
 		});
+	}, { once: true });
+
+	// TODO: move script/promise code inside post-modal.show() block so map is blocked during
+	if (chunkIDs.length > 0) {
+		console.log('Showing progressbar');
+		modal.show();
 	}
 }
 
