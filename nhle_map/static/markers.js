@@ -189,9 +189,9 @@ function enable_interaction() {
 function updateProgressBar(processed, total, elapsed, layersArray) {
 	// if (elapsed > 1000) {
 	// if it takes more than a second to load, display the progress bar:
-	// 	if (elapsed > 0) {
-	// 		disable_interaction();
-	// 		modal.show()
+	// if (elapsed > 0) {
+	// 	disable_interaction();
+	// 	modal.show();
 	// }
 	progressBar.style.width = Math.round(processed / total * 100) + '%';
 	// }

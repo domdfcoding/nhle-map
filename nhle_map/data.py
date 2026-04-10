@@ -205,4 +205,4 @@ def make_polygon_points(
 			chunk_id='',
 			variable_prefix=variable_prefix,
 			)
-	(output_dir / "data" / f"{filename_prefix}.js").write_clean(chunk_js)
+	(output_dir / f"{filename_prefix}.js").write_clean(chunk_js)
