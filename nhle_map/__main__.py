@@ -83,7 +83,7 @@ def prepare_data(download: bool = False) -> None:
 			data_directory / "Protected Wreck Sites.geojson",
 			)
 
-	make_polygon_points(protected_wreck_sites_gdf, output_dir / "data")
+	make_polygon_points(protected_wreck_sites_gdf, output_dir / "data", chunk_id=0)
 
 
 @auto_default_option("-O", "--output-dir", "output_directory")

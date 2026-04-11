@@ -114,7 +114,9 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
             var loaded_ids = [];
 
-            load_new_markers()
+			serial([loadShipwreckMarkers, load_new_markers]).then(function (result){
+				console.log("All markers loaded")
+				});
 
             // {{ this._parent.get_name() }}.on('zoomend', load_new_markers);
             {{ this._parent.get_name() }}.on('moveend', load_new_markers);

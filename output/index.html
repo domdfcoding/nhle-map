@@ -346,7 +346,9 @@
 
             var loaded_ids = [];
 
-            load_new_markers()
+			serial([loadShipwreckMarkers, load_new_markers]).then(function (result){
+				console.log("All markers loaded")
+				});
 
             // map.on('zoomend', load_new_markers);
             map.on('moveend', load_new_markers);

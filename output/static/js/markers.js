@@ -18,17 +18,25 @@ function load_new_markers() {
 		});
 	});
 
+	var promise = new Promise((resolve, reject) => {
+		progress.addEventListener('hidden.bs.modal', event => {
+			resolve();
+		}, { once: true });
+	});
+
 	progress.addEventListener('shown.bs.modal', event => {
-		loadMarkers(chunkIDs);
+		loadMarkers(chunkIDs, 'listedBuildings', 'listed_buildings', listedBuildingsIcon);
 	}, { once: true });
 
 	if (chunkIDs.length > 0) {
 		console.log('Showing progressbar');
 		modal.show();
 	}
+
+	return promise;
 }
 
-function loadMarkers(chunkIDs) {
+function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon) {
 	var scriptPromises = [];
 	var markerList = [];
 	var addedChunkIDs = [];
@@ -42,7 +50,7 @@ function loadMarkers(chunkIDs) {
 				resolve();
 			};
 		}));
-		script.src = `data/listed_buildings_${id}.js`;
+		script.src = `data/${filename_prefix}_${id}.js`;
 		document.head.appendChild(script);
 	});
 
@@ -52,8 +60,9 @@ function loadMarkers(chunkIDs) {
 			if (loaded_ids.includes(id)) {
 				console.log(`Markers already loaded for ID ${id}`);
 			} else {
-				console.log('Accessing JS variable', 'listedBuildings' + id);
-				addMarkers(window['listedBuildings' + id], markerList, listedBuildingsIcon);
+				let var_name = variable_prefix + id;
+				console.log('Accessing JS variable', var_name);
+				addMarkers(window[var_name], markerList, icon);
 				addedChunkIDs.push(id);
 			}
 		});
@@ -87,6 +96,28 @@ function lookup_id(latitude, longitide) {
 	}
 
 	return id;
+}
+
+function loadShipwreckMarkers() {
+	var chunkIDs = [0];
+
+	var promise = new Promise((resolve, reject) => {
+		progress.addEventListener('hidden.bs.modal', event => {
+			resolve();
+		}, { once: true });
+	});
+
+	progress.addEventListener('shown.bs.modal', event => {
+		// TODO: proper ID for shipwrecks and other "small" layers
+		loadMarkers(chunkIDs, 'protectedWreckSites', 'protected_wreck_sites', protectedWreckSitesIcon);
+	}, { once: true });
+
+	if (chunkIDs.length > 0) {
+		console.log('Showing progressbar');
+		modal.show();
+	}
+
+	return promise;
 }
 
 // https://github.com/jashkenas/underscore/blob/master/underscore.js
@@ -161,4 +192,10 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 		modal.hide();
 		// enable_interaction();
 	}
+}
+
+// Function to execute promises in serial
+function serial(funcs) {
+	return funcs.reduce((promise, func) => promise.then(result => func().then(Array.prototype.concat.bind(result))),
+		Promise.resolve([]));
 }

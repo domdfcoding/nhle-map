@@ -183,6 +183,7 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 def make_polygon_points(
 		data: geopandas.GeoDataFrame,
 		output_directory: PathLike,
+		chunk_id: str | int,
 		variable_prefix: str = "protectedWreckSites",
 		filename_prefix: str = "protected_wreck_sites",
 		) -> None:
@@ -192,6 +193,7 @@ def make_polygon_points(
 
 	:param data:
 	:param output_directory: Directory to write files to.
+	:param chunk_id:
 	:param variable_prefix: String to prefix javascript variables with.
 	:param filename_prefix: String to prefix javascript filenames with.
 	"""
@@ -202,7 +204,7 @@ def make_polygon_points(
 	data["geometry"] = data["geometry"].representative_point()
 	chunk_js = get_chunk_js(
 			data.to_dict("records"),
-			chunk_id='',
+			chunk_id=chunk_id,
 			variable_prefix=variable_prefix,
 			)
-	(output_dir / f"{filename_prefix}.js").write_clean(chunk_js)
+	output_dir.joinpath(f"{filename_prefix}_{chunk_id}.js").write_clean(chunk_js)
