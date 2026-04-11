@@ -35,6 +35,7 @@ from domdf_folium_tools.elements import add_to, set_id
 from domdf_folium_tools.template import SubclassingTemplate
 from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
+from folium.utilities import TypeJsonValue, remove_empty
 from folium_about_button import AboutControl
 from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
@@ -110,7 +111,18 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
             var progressBar = document.getElementById('progress-bar');
 
             console.log('start creating markers: ' + window.performance.now());
-            {{ this._parent.get_name() }}.addLayer(marker_cluster_listed_buildings);
+            {{ this._parent.get_name() }}.addLayer(marker_cluster_nhle);
+
+			// TODO: gets stuck if any layers not shown (since chunkedLoading not triggered)
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_battlefields);
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_building_preservation_notices);
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_certificates_of_immunity);
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_listed_buildings);
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_parks_and_gardens);
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_protected_wreck_sites);
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_scheduled_monuments);
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_world_heritage_sites);
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_de_designated);
 
             var loaded_ids = [];
 
@@ -124,6 +136,33 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
         {% endmacro %}
 """,
 			)
+
+
+class MarkerGroup(folium.map.Layer):
+
+	_template = Template(
+			"""
+        {% macro script(this, kwargs) %}
+            var {{ this.get_name() }} = new MarkerGroup(
+                {{ this.options|tojavascript }}
+            );
+        {% endmacro %}
+        """,
+			)
+
+	def __init__(
+			self,
+			name: str | None = None,
+			overlay: bool = True,
+			control: bool = True,
+			show: bool = True,
+			**kwargs: TypeJsonValue,
+			):
+		super().__init__(name=name, overlay=overlay, control=control, show=show)
+		# self._name = "MarkerGroup"
+		self._name = "MarkerCluster"  # To keep old variable names
+		self.tile_name = name if name is not None else self.get_name()
+		self.options = remove_empty(**kwargs)
 
 
 class LayerControl(ToggleMinimapLayerControl):
@@ -178,6 +217,15 @@ def make_map() -> folium.Map:
 	# TODO: layer selection background colours to match pins/polygons
 	# TODO: handle polygons
 
+	mcg = markercluster.MarkerCluster(
+			chunkedLoading=True,
+			chunk_progress_function="updateProgressBar",
+			max_cluster_radius_function="getClusterRadius",
+			control=False,
+			show=False,
+			)
+	add_to(mcg, m, "nhle")
+
 	for layer_name, layer_id in [
 		("Battlefields", "battlefields"),
 		("Building Preservation Notices", "building_preservation_notices"),
@@ -191,10 +239,7 @@ def make_map() -> folium.Map:
 	]:
 
 		add_to(
-				markercluster.MarkerCluster(
-						chunkedLoading=True,
-						chunk_progress_function="updateProgressBar",
-						max_cluster_radius_function="getClusterRadius",
+				MarkerGroup(
 						show=False,
 						name=get_layer_label_text(layer_name),
 						),

@@ -1,4 +1,5 @@
 function load_new_markers() {
+	// TODO: new markers are loaded even when layer hidden. Need to hook into show/hide to suppress when hidden and then call when shown (as if panned/zoomed)
 	const bounds = map.getBounds();
 	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1);
 	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1);
@@ -25,7 +26,13 @@ function load_new_markers() {
 	});
 
 	progress.addEventListener('shown.bs.modal', event => {
-		loadMarkers(chunkIDs, 'listedBuildings', 'listed_buildings', listedBuildingsIcon);
+		loadMarkers(
+			chunkIDs,
+			'listedBuildings',
+			'listed_buildings',
+			listedBuildingsIcon,
+			marker_cluster_listed_buildings,
+		);
 	}, { once: true });
 
 	if (chunkIDs.length > 0) {
@@ -36,7 +43,7 @@ function load_new_markers() {
 	return promise;
 }
 
-function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon) {
+function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon, layer) {
 	var scriptPromises = [];
 	var markerList = [];
 	var addedChunkIDs = [];
@@ -67,7 +74,7 @@ function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon) {
 			}
 		});
 
-		marker_cluster_listed_buildings.addLayers(markerList);
+		layer.addLayers(markerList);
 		loaded_ids.push(...addedChunkIDs);
 	});
 }
@@ -109,7 +116,13 @@ function loadShipwreckMarkers() {
 
 	progress.addEventListener('shown.bs.modal', event => {
 		// TODO: proper ID for shipwrecks and other "small" layers
-		loadMarkers(chunkIDs, 'protectedWreckSites', 'protected_wreck_sites', protectedWreckSitesIcon);
+		loadMarkers(
+			chunkIDs,
+			'protectedWreckSites',
+			'protected_wreck_sites',
+			protectedWreckSitesIcon,
+			marker_cluster_protected_wreck_sites,
+		);
 	}, { once: true });
 
 	if (chunkIDs.length > 0) {
@@ -119,9 +132,6 @@ function loadShipwreckMarkers() {
 
 	return promise;
 }
-
-
-
 
 // https://github.com/jashkenas/underscore/blob/master/underscore.js
 // MIT
@@ -160,40 +170,38 @@ function getClusterRadius(zoom) {
 	return 80;
 }
 
-function disable_interaction() {
-	map.dragging.disable();
-	map.touchZoom.disable();
-	map.doubleClickZoom.disable();
-	map.scrollWheelZoom.disable();
-	map.boxZoom.disable();
-	map.keyboard.disable();
-	if (map.tap) map.tap.disable();
-	document.getElementById('map').style.cursor = 'default';
-}
+// function disable_interaction() {
+// 	map.dragging.disable();
+// 	map.touchZoom.disable();
+// 	map.doubleClickZoom.disable();
+// 	map.scrollWheelZoom.disable();
+// 	map.boxZoom.disable();
+// 	map.keyboard.disable();
+// 	if (map.tap) map.tap.disable();
+// 	document.getElementById('map').style.cursor = 'default';
+// }
 
-function enable_interaction() {
-	map.dragging.enable();
-	map.touchZoom.enable();
-	map.doubleClickZoom.enable();
-	map.scrollWheelZoom.enable();
-	map.boxZoom.enable();
-	map.keyboard.enable();
-	if (map.tap) map.tap.enable();
-	document.getElementById('map').style.cursor = 'grab';
-}
+// function enable_interaction() {
+// 	map.dragging.enable();
+// 	map.touchZoom.enable();
+// 	map.doubleClickZoom.enable();
+// 	map.scrollWheelZoom.enable();
+// 	map.boxZoom.enable();
+// 	map.keyboard.enable();
+// 	if (map.tap) map.tap.enable();
+// 	document.getElementById('map').style.cursor = 'grab';
+// }
+
 function updateProgressBar(processed, total, elapsed, layersArray) {
-	// if (elapsed > 1000) {
 	// if it takes more than a second to load, display the progress bar:
-	// if (elapsed > 0) {
-	// 	disable_interaction();
-	// 	modal.show();
-	// }
 	progressBar.style.width = Math.round(processed / total * 100) + '%';
 	// }
-	if (processed === total) {
+	if (total > 0 && processed === total) {
 		// all markers processed - hide the progress bar:
 		modal.hide();
 		// enable_interaction();
+	} else if (total > 0 && elapsed > 0) {
+		modal.show();
 	}
 }
 
@@ -202,3 +210,37 @@ function serial(funcs) {
 	return funcs.reduce((promise, func) => promise.then(result => func().then(Array.prototype.concat.bind(result))),
 		Promise.resolve([]));
 }
+
+MarkerGroup = L.Layer.extend({
+	initialize: function(options) {
+		console.log('Initialize called');
+		// L.Layer.prototype.initialize.call(this, options);
+		this._markers = [];
+	},
+
+	addLayers: function(layers) {
+		this._markers.push(...layers);
+
+		if (this._map) {
+			// Don't add if the layer isn't visible
+			marker_cluster_nhle.addLayers(layers);
+		} else {
+			// Pretend chunkedLoading happened
+			modal.hide();
+		}
+	},
+
+	onRemove: function(map) {
+		this._map = null;
+		console.log('Removing markers', this._markers);
+		// TODO: chunkedLoading not triggered. Is it supposed to?
+		marker_cluster_nhle.removeLayers(this._markers);
+	},
+
+	onAdd: function(map) {
+		this._map = map;
+		if (this._markers !== undefined) {
+			marker_cluster_nhle.addLayers(this._markers);
+		}
+	},
+});

@@ -236,103 +236,69 @@
             );
 
 
-            var marker_cluster_battlefields = L.markerClusterGroup(
+            var marker_cluster_nhle = L.markerClusterGroup(
                 {
   "chunkedLoading": true,
 }
             );
-            marker_cluster_battlefields.options.chunkProgress =
+            marker_cluster_nhle.options.chunkProgress =
                 updateProgressBar;
-            marker_cluster_battlefields.options.maxClusterRadius =
+            marker_cluster_nhle.options.maxClusterRadius =
                 getClusterRadius;
 
 
-            var marker_cluster_building_preservation_notices = L.markerClusterGroup(
+            var marker_cluster_battlefields = new MarkerGroup(
                 {
-  "chunkedLoading": true,
 }
             );
-            marker_cluster_building_preservation_notices.options.chunkProgress =
-                updateProgressBar;
-            marker_cluster_building_preservation_notices.options.maxClusterRadius =
-                getClusterRadius;
 
 
-            var marker_cluster_certificates_of_immunity = L.markerClusterGroup(
+            var marker_cluster_building_preservation_notices = new MarkerGroup(
                 {
-  "chunkedLoading": true,
 }
             );
-            marker_cluster_certificates_of_immunity.options.chunkProgress =
-                updateProgressBar;
-            marker_cluster_certificates_of_immunity.options.maxClusterRadius =
-                getClusterRadius;
 
 
-            var marker_cluster_listed_buildings = L.markerClusterGroup(
+            var marker_cluster_certificates_of_immunity = new MarkerGroup(
                 {
-  "chunkedLoading": true,
 }
             );
-            marker_cluster_listed_buildings.options.chunkProgress =
-                updateProgressBar;
-            marker_cluster_listed_buildings.options.maxClusterRadius =
-                getClusterRadius;
 
 
-            var marker_cluster_parks_and_gardens = L.markerClusterGroup(
+            var marker_cluster_listed_buildings = new MarkerGroup(
                 {
-  "chunkedLoading": true,
 }
             );
-            marker_cluster_parks_and_gardens.options.chunkProgress =
-                updateProgressBar;
-            marker_cluster_parks_and_gardens.options.maxClusterRadius =
-                getClusterRadius;
 
 
-            var marker_cluster_protected_wreck_sites = L.markerClusterGroup(
+            var marker_cluster_parks_and_gardens = new MarkerGroup(
                 {
-  "chunkedLoading": true,
 }
             );
-            marker_cluster_protected_wreck_sites.options.chunkProgress =
-                updateProgressBar;
-            marker_cluster_protected_wreck_sites.options.maxClusterRadius =
-                getClusterRadius;
 
 
-            var marker_cluster_scheduled_monuments = L.markerClusterGroup(
+            var marker_cluster_protected_wreck_sites = new MarkerGroup(
                 {
-  "chunkedLoading": true,
 }
             );
-            marker_cluster_scheduled_monuments.options.chunkProgress =
-                updateProgressBar;
-            marker_cluster_scheduled_monuments.options.maxClusterRadius =
-                getClusterRadius;
 
 
-            var marker_cluster_world_heritage_sites = L.markerClusterGroup(
+            var marker_cluster_scheduled_monuments = new MarkerGroup(
                 {
-  "chunkedLoading": true,
 }
             );
-            marker_cluster_world_heritage_sites.options.chunkProgress =
-                updateProgressBar;
-            marker_cluster_world_heritage_sites.options.maxClusterRadius =
-                getClusterRadius;
 
 
-            var marker_cluster_de_designated = L.markerClusterGroup(
+            var marker_cluster_world_heritage_sites = new MarkerGroup(
                 {
-  "chunkedLoading": true,
 }
             );
-            marker_cluster_de_designated.options.chunkProgress =
-                updateProgressBar;
-            marker_cluster_de_designated.options.maxClusterRadius =
-                getClusterRadius;
+
+
+            var marker_cluster_de_designated = new MarkerGroup(
+                {
+}
+            );
 
 
             const MAX_ZOOM = 20;
@@ -342,7 +308,18 @@
             var progressBar = document.getElementById('progress-bar');
 
             console.log('start creating markers: ' + window.performance.now());
-            map.addLayer(marker_cluster_listed_buildings);
+            map.addLayer(marker_cluster_nhle);
+
+			// TODO: gets stuck if any layers not shown (since chunkedLoading not triggered)
+			map.addLayer(marker_cluster_battlefields);
+			map.addLayer(marker_cluster_building_preservation_notices);
+			map.addLayer(marker_cluster_certificates_of_immunity);
+			map.addLayer(marker_cluster_listed_buildings);
+			map.addLayer(marker_cluster_parks_and_gardens);
+			map.addLayer(marker_cluster_protected_wreck_sites);
+			map.addLayer(marker_cluster_scheduled_monuments);
+			map.addLayer(marker_cluster_world_heritage_sites);
+			map.addLayer(marker_cluster_de_designated);
 
             var loaded_ids = [];
 
@@ -368,7 +345,7 @@
 
 
 
-				var about_control_25c10f457cdb95350306c18b495d96b5 = new AboutControl(
+				var about_control_2ed0ad7be0cf1415b0b5168e19918c13 = new AboutControl(
 					{"modalID": "aboutModal"}
 				).addTo(map);
 
