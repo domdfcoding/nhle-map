@@ -105,8 +105,38 @@ function lookup_id(latitude, longitide) {
 	return id;
 }
 
-function loadShipwreckMarkers() {
-	var chunkIDs = [0];
+function loadShipwreckMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'protectedWreckSites',
+		'protected_wreck_sites',
+		protectedWreckSitesIcon,
+		marker_cluster_protected_wreck_sites,
+	);
+}
+
+function loadBPNMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'buildingPreservationNotices',
+		'building_preservation_notices',
+		buildingPreservationNoticesIcon,
+		marker_cluster_building_preservation_notices,
+	);
+}
+
+function loadImmunityMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'certificatesOfImmunity',
+		'certificates_of_immunity',
+		certificatesOfImmunityIcon,
+		marker_cluster_certificates_of_immunity,
+	);
+}
+
+function loadSmallDataset(chunkID, variable_prefix, filename_prefix, icon, layer) {
+	var chunkIDs = [chunkID];
 
 	var promise = new Promise((resolve, reject) => {
 		progress.addEventListener('hidden.bs.modal', event => {
@@ -118,10 +148,10 @@ function loadShipwreckMarkers() {
 		// TODO: proper ID for shipwrecks and other "small" layers
 		loadMarkers(
 			chunkIDs,
-			'protectedWreckSites',
-			'protected_wreck_sites',
-			protectedWreckSitesIcon,
-			marker_cluster_protected_wreck_sites,
+			variable_prefix,
+			filename_prefix,
+			icon,
+			layer,
 		);
 	}, { once: true });
 

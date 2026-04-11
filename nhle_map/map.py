@@ -41,6 +41,7 @@ from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
 # this package
+from nhle_map.data import small_dataset_chunk_ids
 from nhle_map.icons import get_layer_label_text
 from nhle_map.nls_basemaps import os10k, os1250, os2500
 
@@ -76,13 +77,15 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 	Adds javascript logic for marker loading and display.
 
 	:param max_zoom: The map's maximum zoom level.
+	:param small_dataset_chunk_ids: Mapping of dataset identifiers to chunk IDs for small datasets (where chunking is unnecessary).
 	"""
 
 	# TODO: get max_zoom from the map itself?
 
-	def __init__(self, max_zoom: int):
+	def __init__(self, max_zoom: int, small_dataset_chunk_ids: dict[str, int]):
 		super().__init__()
 		self.max_zoom = max_zoom
+		self.small_dataset_chunk_ids = small_dataset_chunk_ids
 
 	default_js = [
 			(
@@ -126,7 +129,12 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
             var loaded_ids = [];
 
-			serial([loadShipwreckMarkers, load_new_markers]).then(function (result){
+			serial([
+				function () {return loadShipwreckMarkers({{ this.small_dataset_chunk_ids["protected_wreck_sites"] }})},
+				function () {return loadBPNMarkers({{ this.small_dataset_chunk_ids["building_preservation_notices"] }})},
+				function () {return loadImmunityMarkers({{ this.small_dataset_chunk_ids["certificates_of_immunity"] }})},
+				load_new_markers,
+			]).then(function (result){
 				console.log("All markers loaded")
 				});
 
@@ -226,6 +234,8 @@ def make_map() -> folium.Map:
 			)
 	add_to(mcg, m, "nhle")
 
+	# TODO: for BPN and COI, show polygon on click. Or always show?
+	# TODO: make layer dialog wider to show full names
 	for layer_name, layer_id in [
 		("Battlefields", "battlefields"),
 		("Building Preservation Notices", "building_preservation_notices"),
@@ -247,7 +257,7 @@ def make_map() -> folium.Map:
 				layer_id,
 				)
 
-	MarkerLoadingJS(max_zoom=MAX_ZOOM).add_to(m)
+	MarkerLoadingJS(max_zoom=MAX_ZOOM, small_dataset_chunk_ids=small_dataset_chunk_ids).add_to(m)
 	ZoomStateJS(setup_basemap_state=True).add_to(m)
 	LocateControl().add_to(m)
 	AboutControl("aboutModal").add_to(m)

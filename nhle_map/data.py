@@ -46,9 +46,22 @@ from domdf_python_tools.typing import PathLike
 from nhle_map._arcgis_fix import to_geojson
 from nhle_map.utils import get_id
 
-__all__ = ["chunk_data", "download_data", "get_chunk_js", "make_polygon_points"]
+__all__ = [
+		"chunk_data",
+		"download_data",
+		"get_chunk_js",
+		"make_polygon_points",
+		"small_dataset_chunk_ids",
+		"write_data",
+		]
 
 DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
+
+small_dataset_chunk_ids = {
+		"protected_wreck_sites": get_id(),
+		"building_preservation_notices": get_id(),
+		"certificates_of_immunity": get_id(),
+		}
 
 
 def get_chunk_js(features: list, chunk_id: str | int, variable_prefix: str = "listedBuildings") -> str:
@@ -70,7 +83,8 @@ def get_chunk_js(features: list, chunk_id: str | int, variable_prefix: str = "li
 		number = item["ListEntry"]
 		name = item["Name"]
 		grade = item.get("Grade")
-		list_date = item.get("ListDate", item.get("DesigDate"))
+		# TODO: better way for multiple keys to check?
+		list_date = item.get("ListDate", item.get("DesigDate", item.get("COIStart", item.get("BPNStart"))))
 		if isinstance(list_date, int):
 			# Timestamp in milliseconds
 			list_date = datetime.datetime.fromtimestamp(
@@ -122,8 +136,13 @@ def chunk_data(
 				continue
 
 			id_lookup[latitude][longitide] = chunk_id
-			chunk_js = get_chunk_js(subset.to_dict("records"), chunk_id, variable_prefix=variable_prefix)
-			output_dir.joinpath(f"{filename_prefix}_{chunk_id}.js").write_clean(chunk_js)
+			write_data(
+					subset,
+					output_directory=output_directory,
+					chunk_id=chunk_id,
+					variable_prefix=variable_prefix,
+					filename_prefix=filename_prefix,
+					)
 
 	id_lookup_js = f"{variable_prefix}IDLookup = {json.dumps(id_lookup, indent=4)}"
 	output_dir.joinpath(f"{filename_prefix}_id_lookup.js").write_clean(id_lookup_js)
@@ -198,10 +217,37 @@ def make_polygon_points(
 	:param filename_prefix: String to prefix javascript filenames with.
 	"""
 
+	data["geometry"] = data["geometry"].representative_point()
+
+	write_data(
+			data,
+			output_directory=output_directory,
+			chunk_id=chunk_id,
+			variable_prefix=variable_prefix,
+			filename_prefix=filename_prefix,
+			)
+
+
+def write_data(
+		data: geopandas.GeoDataFrame,
+		output_directory: PathLike,
+		chunk_id: str | int,
+		variable_prefix: str = "listedBuildings",
+		filename_prefix: str = "listed_buildings",
+		) -> None:
+	"""
+	Write unchunked data (or a single chunk) to a javascript file.
+
+	:param data:
+	:param output_directory: Directory to write files to.
+	:param chunk_id:
+	:param variable_prefix: String to prefix javascript variables with.
+	:param filename_prefix: String to prefix javascript filenames with.
+	"""
+
 	output_dir = PathPlus(output_directory)
 	output_dir.maybe_make(parents=True)
 
-	data["geometry"] = data["geometry"].representative_point()
 	chunk_js = get_chunk_js(
 			data.to_dict("records"),
 			chunk_id=chunk_id,
