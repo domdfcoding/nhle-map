@@ -323,7 +323,12 @@
 
             var loaded_ids = [];
 
-			serial([loadShipwreckMarkers, load_new_markers]).then(function (result){
+			serial([
+				function () {return loadShipwreckMarkers(3115455186)},
+				function () {return loadBPNMarkers(1823735210)},
+				function () {return loadImmunityMarkers(400980587)},
+				load_new_markers,
+			]).then(function (result){
 				console.log("All markers loaded")
 				});
 
