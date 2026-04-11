@@ -1,5 +1,5 @@
 // Lat,Lng,Number,Name,Grade,ListDate,Link
-var protectedWreckSites = [
+var protectedWreckSites0 = [
 [50.7424230338067, -0.9213037403442257, 1000043, "HMS/m A1", null, "Wed, 04 Nov 1998 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1000043"],
 [50.7092528960019, -1.4946953409486596, 1000044, "YARMOUTH ROADS", null, "Mon, 09 Apr 1984 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1000044"],
 [50.661424415499454, -1.914531719244124, 1000045, "STUDLAND BAY WRECK", null, "Mon, 22 Oct 1984 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1000045"],
