@@ -327,6 +327,7 @@
 				function () {return loadShipwreckMarkers(3115455186)},
 				function () {return loadBPNMarkers(1823735210)},
 				function () {return loadImmunityMarkers(400980587)},
+				function () {return loadParksGardensMarkers(2165861770)},
 				load_new_markers,
 			]).then(function (result){
 				console.log("All markers loaded")
@@ -395,6 +396,7 @@
             function showZoomLevel() {
                 document.getElementById('zoom').innerHTML = map.getZoom();
             }
+
 
 
             map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)

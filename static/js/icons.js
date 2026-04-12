@@ -14,7 +14,7 @@ var listedBuildingsIcon = L.ExtraMarkers.icon(
 	{"icon": "fa-building", "markerColor": "blue", "prefix": "fa"}
 );
 
-var parksAndGardensIcon = L.ExtraMarkers.icon(
+var parksGardensIcon = L.ExtraMarkers.icon(
 	{"icon": "fa-tree", "markerColor": "green", "prefix": "fa"}
 );
 
