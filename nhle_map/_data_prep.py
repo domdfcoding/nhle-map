@@ -37,6 +37,7 @@ from nhle_map.data import make_polygon_points, small_dataset_chunk_ids, write_da
 __all__ = [
 		"_prepare_building_preservation_notices_data",
 		"_prepare_certificates_of_immunity_data",
+		"_prepare_parks_gardens_data",
 		"_prepare_protected_wreck_sites_data",
 		]
 
@@ -58,29 +59,43 @@ def _prepare_protected_wreck_sites_data(data_directory: PathPlus, output_directo
 
 def _prepare_building_preservation_notices_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
 
-	bpn_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
 			data_directory / "Building Preservation Notice points.geojson",
 			)
-	bpn_prefixes = ("buildingPreservationNotices", "building_preservation_notices")
-	bpn_chunk_id = small_dataset_chunk_ids[bpn_prefixes[1]]
+	prefixes = ("buildingPreservationNotices", "building_preservation_notices")
+	chunk_id = small_dataset_chunk_ids[prefixes[1]]
 	write_data(
-			bpn_gdf,
+			gdf,
 			output_directory,
-			bpn_chunk_id,
-			*bpn_prefixes,
+			chunk_id,
+			*prefixes,
 			)
 
 
 def _prepare_certificates_of_immunity_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
 
-	bpn_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
 			data_directory / "Certificate of Immunity points.geojson",
 			)
-	bpn_prefixes = ("certificatesOfImmunity", "certificates_of_immunity")
-	bpn_chunk_id = small_dataset_chunk_ids[bpn_prefixes[1]]
+	prefixes = ("certificatesOfImmunity", "certificates_of_immunity")
+	chunk_id = small_dataset_chunk_ids[prefixes[1]]
 	write_data(
-			bpn_gdf,
+			gdf,
 			output_directory,
-			bpn_chunk_id,
-			*bpn_prefixes,
+			chunk_id,
+			*prefixes,
+			)
+
+
+def _prepare_parks_gardens_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
+
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / "Parks and Gardens.geojson")
+
+	prefixes = ("parksGardens", "parks_and_gardens")
+	chunk_id = small_dataset_chunk_ids[prefixes[1]]
+	make_polygon_points(
+			gdf,
+			output_directory,
+			chunk_id,
+			*prefixes,
 			)

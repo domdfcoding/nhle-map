@@ -133,6 +133,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 				function () {return loadShipwreckMarkers({{ this.small_dataset_chunk_ids["protected_wreck_sites"] }})},
 				function () {return loadBPNMarkers({{ this.small_dataset_chunk_ids["building_preservation_notices"] }})},
 				function () {return loadImmunityMarkers({{ this.small_dataset_chunk_ids["certificates_of_immunity"] }})},
+				function () {return loadParksGardensMarkers({{ this.small_dataset_chunk_ids["parks_and_gardens"] }})},
 				load_new_markers,
 			]).then(function (result){
 				console.log("All markers loaded")

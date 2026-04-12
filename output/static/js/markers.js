@@ -79,12 +79,59 @@ function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon, layer) {
 	});
 }
 
+PolyMarker = L.Marker.extend({
+	initialize: function(latlng, poly_points, options) {
+		L.Marker.prototype.initialize.call(this, latlng, options);
+		// TODO: handle multiple polygons
+		this._polygons = [];
+		if (poly_points) {
+			// this._polygon = L.polygon(poly_points[0], {color: options.icon.options.markerColor});
+			poly_points.forEach((p) => {
+				this._polygons.push(L.polygon(p, { color: options.icon.options.markerColor }));
+			});
+		}
+	},
+
+	onAdd: function(map) {
+		console.log('Add polygon', this._polygon);
+		L.Marker.prototype.onAdd.call(this, map);
+		if (this._polygons) {
+			this._polygons.forEach((p) => {
+				p.addTo(map);
+			});
+			// this._polygon.addTo(map)
+		}
+
+		return this;
+	},
+
+	onRemove: function(map) {
+		// TODO: if marker removed because offscreen the polygon goes too!
+		console.log('Remove polygon', this._polygon);
+		L.Marker.prototype.onRemove.call(this, map);
+		if (this._polygons) {
+			this._polygons.forEach((p) => {
+				p.remove();
+			});
+			// this._polygon.remove()
+		}
+
+		return this;
+	},
+});
+
 function addMarkers(points, markerList, icon) {
 	for (var i = 0; i < points.length; i++) {
 		var a = points[i];
 		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
 		// var title = a[2].toString();
-		var marker = L.marker(L.latLng(a[0], a[1]), { title: a[3], icon: icon });
+		var marker = new PolyMarker(
+			L.latLng(a[0], a[1]),
+			// (a[7] ? a[7]: null),
+			a[7],
+			{ title: a[3], icon: icon },
+		);
+		// TODO: constants for indices rather than magic numbers
 		marker.bindPopup(title);
 		markerList.push(marker);
 	}
@@ -132,6 +179,15 @@ function loadImmunityMarkers(ChunkID) {
 		'certificates_of_immunity',
 		certificatesOfImmunityIcon,
 		marker_cluster_certificates_of_immunity,
+	);
+}
+function loadParksGardensMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'parksGardens',
+		'parks_and_gardens',
+		parksGardensIcon,
+		marker_cluster_parks_and_gardens,
 	);
 }
 
@@ -194,6 +250,10 @@ function getClusterRadius(zoom) {
 	}
 
 	if (zoom > 15) {
+		return 20;
+	}
+
+	if (zoom > 12) {
 		return 40;
 	}
 
@@ -265,6 +325,7 @@ MarkerGroup = L.Layer.extend({
 		console.log('Removing markers', this._markers);
 		// TODO: chunkedLoading not triggered. Is it supposed to?
 		marker_cluster_nhle.removeLayers(this._markers);
+		return this;
 	},
 
 	onAdd: function(map) {
@@ -272,5 +333,6 @@ MarkerGroup = L.Layer.extend({
 		if (this._markers !== undefined) {
 			marker_cluster_nhle.addLayers(this._markers);
 		}
+		return this;
 	},
 });

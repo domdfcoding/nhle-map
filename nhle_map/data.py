@@ -42,6 +42,7 @@ from arcgis.gis import GIS, ContentManager  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.typing import PathLike
+from shapely.geometry import mapping
 
 # this package
 from nhle_map._arcgis_fix import to_geojson
@@ -63,16 +64,23 @@ small_dataset_chunk_ids = {
 		"protected_wreck_sites": get_id(),
 		"building_preservation_notices": get_id(),
 		"certificates_of_immunity": get_id(),
+		"parks_and_gardens": get_id(),
 		}
 
 
-def get_chunk_js(features: list, chunk_id: str | int, variable_prefix: str = "listedBuildings") -> str:
+def get_chunk_js(
+		features: list,
+		chunk_id: str | int,
+		variable_prefix: str = "listedBuildings",
+		include_polygon: bool = False,
+		) -> str:
 	"""
 	Returns the javascript array for the given features chunk.
 
 	:param features:
 	:param chunk_id:
 	:param variable_prefix: String to prefix javascript variables with.
+	:param include_polygon: Include the outline polygon points (from the ``polygon`` column) and not merely the central coordinates.
 	"""
 
 	output = StringList()
@@ -88,7 +96,20 @@ def get_chunk_js(features: list, chunk_id: str | int, variable_prefix: str = "li
 		list_date = get_list_date(item)
 		link = item["hyperlink"]
 		coord = item["geometry"].bounds[:2]
-		output.append(json.dumps([coord[1], coord[0], number, name, grade, list_date, link]) + ',')
+		values = [coord[1], coord[0], number, name, grade, list_date, link]
+
+		if include_polygon:
+			poly_points = []
+			for sub_poly in mapping(item["polygon"])["coordinates"]:
+				while not isinstance(sub_poly[0][0], float):
+					assert len(sub_poly) == 1
+					sub_poly = sub_poly[0]
+
+				poly_points.append([(lat, lng) for (lng, lat) in sub_poly])
+
+			values.append(poly_points)
+
+		output.append(json.dumps(values) + ',')
 
 	output.append(']')
 	output.blankline()
@@ -212,7 +233,13 @@ def make_polygon_points(
 	:param filename_prefix: String to prefix javascript filenames with.
 	"""
 
-	data["geometry"] = data["geometry"].representative_point()
+	data["polygon"] = data["geometry"]
+
+	# TODO: get point in centre of largest polygon if multiple (and centre of sole poly otherwise)
+	# data["geometry"] = data["geometry"].representative_point()
+	data["geometry"] = data.to_crs(epsg=27700).representative_point().to_crs(epsg=4326)
+	# data["geometry"] = data["geometry"].centroid
+	# data["geometry"] = data.to_crs(epsg=27700).centroid.to_crs(epsg=4326)
 
 	write_data(
 			data,
@@ -220,6 +247,7 @@ def make_polygon_points(
 			chunk_id=chunk_id,
 			variable_prefix=variable_prefix,
 			filename_prefix=filename_prefix,
+			include_polygon=True,
 			)
 
 
@@ -229,6 +257,7 @@ def write_data(
 		chunk_id: str | int,
 		variable_prefix: str = "listedBuildings",
 		filename_prefix: str = "listed_buildings",
+		include_polygon: bool = False,
 		) -> None:
 	"""
 	Write unchunked data (or a single chunk) to a javascript file.
@@ -238,6 +267,7 @@ def write_data(
 	:param chunk_id:
 	:param variable_prefix: String to prefix javascript variables with.
 	:param filename_prefix: String to prefix javascript filenames with.
+	:param include_polygon: Include the outline polygon points and not merely the central coordinates.
 	"""
 
 	output_dir = PathPlus(output_directory)
@@ -247,6 +277,7 @@ def write_data(
 			data.to_dict("records"),
 			chunk_id=chunk_id,
 			variable_prefix=variable_prefix,
+			include_polygon=include_polygon,
 			)
 	output_dir.joinpath(f"{filename_prefix}_{chunk_id}.js").write_clean(chunk_js)
 
@@ -258,7 +289,7 @@ def get_list_date(list_entry: dict[str, Any]) -> str | None:
 	:param list_entry:
 	"""
 
-	possible_keys = ["ListDate", "DesigDate", "COIStart", "BPNStart"]
+	possible_keys = ["ListDate", "DesigDate", "COIStart", "BPNStart", "RegDate"]
 	actual_keys = set(possible_keys) & list_entry.keys()
 
 	if not actual_keys:

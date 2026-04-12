@@ -145,7 +145,7 @@ def write_icons_js(output_directory: PathLike) -> None:
 		("Building Preservation Notices", "buildingPreservationNoticesIcon"),
 		("Certificates of Immunity", "certificatesOfImmunityIcon"),
 		("Listed Buildings", "listedBuildingsIcon"),
-		("Parks and Gardens", "parksAndGardensIcon"),
+		("Parks and Gardens", "parksGardensIcon"),
 		("Protected Wreck Sites", "protectedWreckSitesIcon"),
 		("Scheduled Monuments", "scheduledMonumentsIcon"),
 		("World Heritage Sites", "worldHeritageSitesIcon"),

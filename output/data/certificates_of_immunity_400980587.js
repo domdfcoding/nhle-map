@@ -216,4 +216,5 @@ var certificatesOfImmunity400980587 = [
 [51.5091406092178, -0.130140725388631, 1495948, "St Vincent House", null, "Fri, 13 Mar 2026 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1495948"],
 [51.4080088536289, -0.776218612599236, 1496009, "Fujitsu Services (former ICL) Building and garages", null, "Fri, 13 Mar 2026 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1496009"],
 [52.6082491908071, -1.08935778187322, 1496070, "Stamford Halls, Warden's House and Porter's Lodge", null, "Wed, 18 Mar 2026 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1496070"],
+[51.5175639528084, -0.172955305633049, 1496217, "Former Imperial College Medical School", null, "Thu, 09 Apr 2026 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1496217"],
 ]

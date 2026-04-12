@@ -34,6 +34,7 @@ from consolekit.options import auto_default_option
 from nhle_map._data_prep import (
 		_prepare_building_preservation_notices_data,
 		_prepare_certificates_of_immunity_data,
+		_prepare_parks_gardens_data,
 		_prepare_protected_wreck_sites_data
 		)
 
@@ -85,6 +86,7 @@ def prepare_data(download: bool = False) -> None:
 	_prepare_protected_wreck_sites_data(data_directory, output_dir / "data")
 	_prepare_building_preservation_notices_data(data_directory, output_dir / "data")
 	_prepare_certificates_of_immunity_data(data_directory, output_dir / "data")
+	_prepare_parks_gardens_data(data_directory, output_dir / "data")
 
 
 @auto_default_option("-O", "--output-dir", "output_directory")
