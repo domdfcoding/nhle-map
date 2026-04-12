@@ -36,6 +36,7 @@ from typing import Any
 
 # 3rd party
 import geopandas  # type: ignore[import-untyped]
+import numpy  # nodep
 from arcgis.features import FeatureLayer, FeatureSet  # type: ignore[import-untyped]
 from arcgis.gis import GIS, ContentManager  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
@@ -50,6 +51,7 @@ __all__ = [
 		"chunk_data",
 		"download_data",
 		"get_chunk_js",
+		"get_list_date",
 		"make_polygon_points",
 		"small_dataset_chunk_ids",
 		"write_data",
@@ -83,14 +85,7 @@ def get_chunk_js(features: list, chunk_id: str | int, variable_prefix: str = "li
 		number = item["ListEntry"]
 		name = item["Name"]
 		grade = item.get("Grade")
-		# TODO: better way for multiple keys to check?
-		list_date = item.get("ListDate", item.get("DesigDate", item.get("COIStart", item.get("BPNStart"))))
-		if isinstance(list_date, int):
-			# Timestamp in milliseconds
-			list_date = datetime.datetime.fromtimestamp(
-					list_date / 1000,
-					tz=datetime.timezone.utc,
-					).strftime(DATE_FORMAT)
+		list_date = get_list_date(item)
 		link = item["hyperlink"]
 		coord = item["geometry"].bounds[:2]
 		output.append(json.dumps([coord[1], coord[0], number, name, grade, list_date, link]) + ',')
@@ -254,3 +249,33 @@ def write_data(
 			variable_prefix=variable_prefix,
 			)
 	output_dir.joinpath(f"{filename_prefix}_{chunk_id}.js").write_clean(chunk_js)
+
+
+def get_list_date(list_entry: dict[str, Any]) -> str | None:
+	"""
+	Returns the listing date, Building Preservation Notice / Certificate of Immunity start date, or similar for the given list entry.
+
+	:param list_entry:
+	"""
+
+	possible_keys = ["ListDate", "DesigDate", "COIStart", "BPNStart"]
+	actual_keys = set(possible_keys) & list_entry.keys()
+
+	if not actual_keys:
+		raise KeyError(possible_keys)
+
+	assert len(actual_keys) == 1  # if not need to take first out of possible_keys
+
+	list_date: str | float | None = list_entry[actual_keys.pop()]
+
+	if list_date is None or numpy.isnan(list_date):
+		return None
+
+	if isinstance(list_date, (int, float)):
+		# Timestamp in milliseconds
+		list_date = datetime.datetime.fromtimestamp(
+				list_date / 1000,
+				tz=datetime.timezone.utc,
+				).strftime(DATE_FORMAT)
+
+	return list_date
