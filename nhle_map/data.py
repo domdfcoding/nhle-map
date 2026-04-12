@@ -65,6 +65,8 @@ small_dataset_chunk_ids = {
 		"building_preservation_notices": get_id(),
 		"certificates_of_immunity": get_id(),
 		"parks_and_gardens": get_id(),
+		"battlefields": get_id(),
+		"scheduled_monuments": get_id(),
 		}
 
 
@@ -289,7 +291,7 @@ def get_list_date(list_entry: dict[str, Any]) -> str | None:
 	:param list_entry:
 	"""
 
-	possible_keys = ["ListDate", "DesigDate", "COIStart", "BPNStart", "RegDate"]
+	possible_keys = ["ListDate", "DesigDate", "COIStart", "BPNStart", "RegDate", "SchedDate"]
 	actual_keys = set(possible_keys) & list_entry.keys()
 
 	if not actual_keys:

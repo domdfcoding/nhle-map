@@ -35,10 +35,12 @@ from domdf_python_tools.paths import PathPlus
 from nhle_map.data import make_polygon_points, small_dataset_chunk_ids, write_data
 
 __all__ = [
+		"_prepare_battlefields_data",
 		"_prepare_building_preservation_notices_data",
 		"_prepare_certificates_of_immunity_data",
 		"_prepare_parks_gardens_data",
 		"_prepare_protected_wreck_sites_data",
+		"_prepare_scheduled_monuments_data",
 		]
 
 
@@ -99,3 +101,31 @@ def _prepare_parks_gardens_data(data_directory: PathPlus, output_directory: Path
 			chunk_id,
 			*prefixes,
 			)
+
+def _prepare_battlefields_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
+
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / "Battlefields.geojson")
+
+	prefixes = ("battlefields", "battlefields")
+	chunk_id = small_dataset_chunk_ids[prefixes[1]]
+	make_polygon_points(
+			gdf,
+			output_directory,
+			chunk_id,
+			*prefixes,
+			)
+
+def _prepare_scheduled_monuments_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
+
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / "Scheduled Monuments.geojson")
+
+	prefixes = ("scheduledMonuments", "scheduled_monuments")
+	chunk_id = small_dataset_chunk_ids[prefixes[1]]
+	make_polygon_points(
+			gdf,
+			output_directory,
+			chunk_id,
+			*prefixes,
+			)
+
+# TODO: World Heritage Sites

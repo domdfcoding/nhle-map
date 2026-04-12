@@ -79,6 +79,7 @@ function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon, layer) {
 	});
 }
 
+// TODO: highlight polygon when marker clicked
 PolyMarker = L.Marker.extend({
 	initialize: function(latlng, poly_points, options) {
 		L.Marker.prototype.initialize.call(this, latlng, options);
@@ -181,6 +182,7 @@ function loadImmunityMarkers(ChunkID) {
 		marker_cluster_certificates_of_immunity,
 	);
 }
+
 function loadParksGardensMarkers(ChunkID) {
 	return loadSmallDataset(
 		ChunkID,
@@ -188,6 +190,26 @@ function loadParksGardensMarkers(ChunkID) {
 		'parks_and_gardens',
 		parksGardensIcon,
 		marker_cluster_parks_and_gardens,
+	);
+}
+
+function loadBattlefieldMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'battlefields',
+		'battlefields',
+		battlefieldsIcon,
+		marker_cluster_battlefields,
+	);
+}
+
+function loadScheduledMonumentMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'scheduledMonuments',
+		'scheduled_monuments',
+		scheduledMonumentsIcon,
+		marker_cluster_scheduled_monuments,
 	);
 }
 

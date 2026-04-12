@@ -191,6 +191,26 @@ function loadParksGardensMarkers(ChunkID) {
 	);
 }
 
+function loadBattlefieldMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'battlefields',
+		'battlefields',
+		battlefieldsIcon,
+		marker_cluster_battlefields,
+	);
+}
+
+function loadScheduledMonumentMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'scheduledMonuments',
+		'scheduled_monuments',
+		scheduledMonumentsIcon,
+		marker_cluster_scheduled_monuments,
+	);
+}
+
 function loadSmallDataset(chunkID, variable_prefix, filename_prefix, icon, layer) {
 	var chunkIDs = [chunkID];
 
