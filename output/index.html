@@ -128,6 +128,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b5/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
     <script src="static/js/icons.js"></script>
     <script src="static/js/markers.js"></script>
@@ -236,7 +237,7 @@
             );
 
 
-            var marker_cluster_nhle = L.markerClusterGroup(
+            var marker_cluster_nhle = new L.MarkerClusterGroup(
                 {
   "chunkedLoading": true,
 }
@@ -248,57 +249,75 @@
 
 
             var marker_cluster_battlefields = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_building_preservation_notices = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_certificates_of_immunity = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_listed_buildings = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_parks_and_gardens = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_protected_wreck_sites = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_scheduled_monuments = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_world_heritage_sites = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_de_designated = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             const MAX_ZOOM = 20;
@@ -323,7 +342,7 @@
 
             var loaded_ids = [];
 
-			serial([
+			L.Util.serial([
 				function () {return loadShipwreckMarkers(3115455186)},
 				function () {return loadBPNMarkers(1823735210)},
 				function () {return loadImmunityMarkers(400980587)},

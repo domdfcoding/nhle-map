@@ -35,7 +35,6 @@ from domdf_folium_tools.elements import add_to, set_id
 from domdf_folium_tools.template import SubclassingTemplate
 from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
-from folium.utilities import TypeJsonValue, remove_empty
 from folium_about_button import AboutControl
 from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
@@ -129,7 +128,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
             var loaded_ids = [];
 
-			serial([
+			L.Util.serial([
 				function () {return loadShipwreckMarkers({{ this.small_dataset_chunk_ids["protected_wreck_sites"] }})},
 				function () {return loadBPNMarkers({{ this.small_dataset_chunk_ids["building_preservation_notices"] }})},
 				function () {return loadImmunityMarkers({{ this.small_dataset_chunk_ids["certificates_of_immunity"] }})},
@@ -149,31 +148,12 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 			)
 
 
-class MarkerGroup(folium.map.Layer):
+class MarkerGroup(markercluster.MarkerGroup):
+	_js_constructor = "new MarkerGroup"
 
-	_template = Template(
-			"""
-        {% macro script(this, kwargs) %}
-            var {{ this.get_name() }} = new MarkerGroup(
-                {{ this.options|tojavascript }}
-            );
-        {% endmacro %}
-        """,
-			)
-
-	def __init__(
-			self,
-			name: str | None = None,
-			overlay: bool = True,
-			control: bool = True,
-			show: bool = True,
-			**kwargs: TypeJsonValue,
-			):
-		super().__init__(name=name, overlay=overlay, control=control, show=show)
-		# self._name = "MarkerGroup"
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
 		self._name = "MarkerCluster"  # To keep old variable names
-		self.tile_name = name if name is not None else self.get_name()
-		self.options = remove_empty(**kwargs)
 
 
 class LayerControl(ToggleMinimapLayerControl):
@@ -253,6 +233,7 @@ def make_map() -> folium.Map:
 
 		add_to(
 				MarkerGroup(
+						cluster=mcg,
 						show=False,
 						name=get_layer_label_text(layer_name),
 						),

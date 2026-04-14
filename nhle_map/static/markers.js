@@ -79,54 +79,12 @@ function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon, layer) {
 	});
 }
 
-// TODO: highlight polygon when marker clicked
-PolyMarker = L.Marker.extend({
-	initialize: function(latlng, poly_points, options) {
-		L.Marker.prototype.initialize.call(this, latlng, options);
-		// TODO: handle multiple polygons
-		this._polygons = [];
-		if (poly_points) {
-			// this._polygon = L.polygon(poly_points[0], {color: options.icon.options.markerColor});
-			poly_points.forEach((p) => {
-				this._polygons.push(L.polygon(p, { color: options.icon.options.markerColor }));
-			});
-		}
-	},
-
-	onAdd: function(map) {
-		console.log('Add polygon', this._polygon);
-		L.Marker.prototype.onAdd.call(this, map);
-		if (this._polygons) {
-			this._polygons.forEach((p) => {
-				p.addTo(map);
-			});
-			// this._polygon.addTo(map)
-		}
-
-		return this;
-	},
-
-	onRemove: function(map) {
-		// TODO: if marker removed because offscreen the polygon goes too!
-		console.log('Remove polygon', this._polygon);
-		L.Marker.prototype.onRemove.call(this, map);
-		if (this._polygons) {
-			this._polygons.forEach((p) => {
-				p.remove();
-			});
-			// this._polygon.remove()
-		}
-
-		return this;
-	},
-});
-
 function addMarkers(points, markerList, icon) {
 	for (var i = 0; i < points.length; i++) {
 		var a = points[i];
 		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
 		// var title = a[2].toString();
-		var marker = new PolyMarker(
+		var marker = new L.PolyMarker(
 			L.latLng(a[0], a[1]),
 			// (a[7] ? a[7]: null),
 			a[7],
@@ -282,27 +240,6 @@ function getClusterRadius(zoom) {
 	return 80;
 }
 
-// function disable_interaction() {
-// 	map.dragging.disable();
-// 	map.touchZoom.disable();
-// 	map.doubleClickZoom.disable();
-// 	map.scrollWheelZoom.disable();
-// 	map.boxZoom.disable();
-// 	map.keyboard.disable();
-// 	if (map.tap) map.tap.disable();
-// 	document.getElementById('map').style.cursor = 'default';
-// }
-
-// function enable_interaction() {
-// 	map.dragging.enable();
-// 	map.touchZoom.enable();
-// 	map.doubleClickZoom.enable();
-// 	map.scrollWheelZoom.enable();
-// 	map.boxZoom.enable();
-// 	map.keyboard.enable();
-// 	if (map.tap) map.tap.enable();
-// 	document.getElementById('map').style.cursor = 'grab';
-// }
 
 function updateProgressBar(processed, total, elapsed, layersArray) {
 	// if it takes more than a second to load, display the progress bar:
@@ -317,19 +254,8 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 	}
 }
 
-// Function to execute promises in serial
-function serial(funcs) {
-	return funcs.reduce((promise, func) => promise.then(result => func().then(Array.prototype.concat.bind(result))),
-		Promise.resolve([]));
-}
 
-MarkerGroup = L.Layer.extend({
-	initialize: function(options) {
-		console.log('Initialize called');
-		// L.Layer.prototype.initialize.call(this, options);
-		this._markers = [];
-	},
-
+MarkerGroup = L.MarkerGroup.extend({
 	addLayers: function(layers) {
 		this._markers.push(...layers);
 
@@ -342,19 +268,4 @@ MarkerGroup = L.Layer.extend({
 		}
 	},
 
-	onRemove: function(map) {
-		this._map = null;
-		console.log('Removing markers', this._markers);
-		// TODO: chunkedLoading not triggered. Is it supposed to?
-		marker_cluster_nhle.removeLayers(this._markers);
-		return this;
-	},
-
-	onAdd: function(map) {
-		this._map = map;
-		if (this._markers !== undefined) {
-			marker_cluster_nhle.addLayers(this._markers);
-		}
-		return this;
-	},
 });
