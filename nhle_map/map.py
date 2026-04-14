@@ -192,9 +192,9 @@ def make_map() -> folium.Map:
 
 	m = Map(
 			location=(52.561928, -1.464854),
-			minZoom=10,
+			minZoom=9,
 			maxZoom=MAX_ZOOM,
-			zoom_start=13,
+			zoom_start=11,
 			wheelPxPerZoomLevel=80,
 			tiles=osm_tiles,
 			control_scale=True,  # prefer_canvas=True,
