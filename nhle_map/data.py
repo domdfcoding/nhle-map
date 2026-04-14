@@ -173,8 +173,6 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 	:param output_directory: Directory to write files to.
 	"""
 
-	# TODO: De-designated sites 8836370be44f4916b9ba7d350df24902_0
-
 	output_dir = PathPlus(output_directory)
 	output_dir.maybe_make(parents=True)
 
@@ -187,30 +185,32 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 
 	gis = GIS()
 
-	data_item_id = "767f279327a24845bf47dfe5eae9862b"
+	for data_item_id in [
+		"8836370be44f4916b9ba7d350df24902",
+		"767f279327a24845bf47dfe5eae9862b"
+		]:
+		content: ContentManager = gis.content
+		data_item = content.get(data_item_id)
 
-	content: ContentManager = gis.content
-	data_item = content.get(data_item_id)
+		layer: FeatureLayer
 
-	layer: FeatureLayer
+		for layer in data_item.layers:
+			# print(layer)
+			# print("  ", layer.properties.id)
+			# print("  ", layer.properties.name)
+			# print("  ", layer.properties.type)
+			# print("  ", str(layer.properties.geometryType))
+			meta["layers"] = dict(layer.properties)
 
-	for layer in data_item.layers:
-		# print(layer)
-		# print("  ", layer.properties.id)
-		# print("  ", layer.properties.name)
-		# print("  ", layer.properties.type)
-		# print("  ", str(layer.properties.geometryType))
-		meta["layers"] = dict(layer.properties)
+			query: FeatureSet = layer.query(out_sr=4326)
 
-		query: FeatureSet = layer.query(out_sr=4326)
+			# if query.geometry_type == "esriGeometryMultipoint":
+			# 	query._geometry_type = "esriGeometryMultiPoint"
 
-		# if query.geometry_type == "esriGeometryMultipoint":
-		# 	query._geometry_type = "esriGeometryMultiPoint"
+			print(repr(query))
 
-		print(repr(query))
-
-		if query.features:  # If no features (e.g. no preservation notices at this time) dont proceed
-			(output_dir / f"{layer.properties.name}.geojson").write_clean(to_geojson(query))
+			if query.features:  # If no features (e.g. no preservation notices at this time) dont proceed
+				(output_dir / f"{layer.properties.name}.geojson").write_clean(to_geojson(query))
 
 	output_dir.joinpath("meta.json").dump_json(meta, indent=2)
 	return meta
