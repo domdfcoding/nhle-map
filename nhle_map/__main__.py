@@ -35,9 +35,11 @@ from nhle_map._data_prep import (
 		_prepare_battlefields_data,
 		_prepare_building_preservation_notices_data,
 		_prepare_certificates_of_immunity_data,
+		_prepare_de_designated_data,
 		_prepare_parks_gardens_data,
 		_prepare_protected_wreck_sites_data,
-		_prepare_scheduled_monuments_data
+		_prepare_scheduled_monuments_data,
+		_prepare_world_heritage_sites_data
 		)
 
 __all__ = ["main", "make_map", "prepare_data"]
@@ -85,12 +87,17 @@ def prepare_data(download: bool = False) -> None:
 			output_dir / "data",
 			)
 
-	_prepare_protected_wreck_sites_data(data_directory, output_dir / "data")
-	_prepare_building_preservation_notices_data(data_directory, output_dir / "data")
-	_prepare_certificates_of_immunity_data(data_directory, output_dir / "data")
-	_prepare_parks_gardens_data(data_directory, output_dir / "data")
-	_prepare_battlefields_data(data_directory, output_dir / "data")
-	_prepare_scheduled_monuments_data(data_directory, output_dir / "data")
+	for function in [
+			_prepare_protected_wreck_sites_data,
+			_prepare_building_preservation_notices_data,
+			_prepare_certificates_of_immunity_data,
+			_prepare_parks_gardens_data,
+			_prepare_battlefields_data,
+			_prepare_scheduled_monuments_data,
+			_prepare_de_designated_data,
+			_prepare_world_heritage_sites_data,
+			]:
+		function(data_directory, output_dir / "data")
 
 
 @auto_default_option("-O", "--output-dir", "output_directory")

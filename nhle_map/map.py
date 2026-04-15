@@ -135,6 +135,8 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 				function () {return loadParksGardensMarkers({{ this.small_dataset_chunk_ids["parks_and_gardens"] }})},
 				function () {return loadBattlefieldMarkers({{ this.small_dataset_chunk_ids["battlefields"] }})},
 				function () {return loadScheduledMonumentMarkers({{ this.small_dataset_chunk_ids["scheduled_monuments"] }})},
+				function () {return loadDeDesignatedMarkers({{ this.small_dataset_chunk_ids["de_designated"] }})},
+				function () {return loadWorldHeritageMarkers({{ this.small_dataset_chunk_ids["world_heritage_sites"] }})},
 				load_new_markers,
 			]).then(function (result){
 				console.log("All markers loaded")

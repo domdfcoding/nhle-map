@@ -38,9 +38,11 @@ __all__ = [
 		"_prepare_battlefields_data",
 		"_prepare_building_preservation_notices_data",
 		"_prepare_certificates_of_immunity_data",
+		"_prepare_de_designated_data",
 		"_prepare_parks_gardens_data",
 		"_prepare_protected_wreck_sites_data",
 		"_prepare_scheduled_monuments_data",
+		"_prepare_world_heritage_sites_data",
 		]
 
 
@@ -102,6 +104,7 @@ def _prepare_parks_gardens_data(data_directory: PathPlus, output_directory: Path
 			*prefixes,
 			)
 
+
 def _prepare_battlefields_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
 
 	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / "Battlefields.geojson")
@@ -114,6 +117,7 @@ def _prepare_battlefields_data(data_directory: PathPlus, output_directory: PathP
 			chunk_id,
 			*prefixes,
 			)
+
 
 def _prepare_scheduled_monuments_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
 
@@ -128,4 +132,30 @@ def _prepare_scheduled_monuments_data(data_directory: PathPlus, output_directory
 			*prefixes,
 			)
 
-# TODO: World Heritage Sites
+
+def _prepare_de_designated_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
+
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / "De-designated sites.geojson")
+
+	prefixes = ("deDesignated", "de_designated")
+	chunk_id = small_dataset_chunk_ids[prefixes[1]]
+	make_polygon_points(
+			gdf,
+			output_directory,
+			chunk_id,
+			*prefixes,
+			)
+
+
+def _prepare_world_heritage_sites_data(data_directory: PathPlus, output_directory: PathPlus) -> None:
+
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / "World Heritage Sites.geojson")
+
+	prefixes = ("worldHeritageSites", "world_heritage_sites")
+	chunk_id = small_dataset_chunk_ids[prefixes[1]]
+	make_polygon_points(
+			gdf,
+			output_directory,
+			chunk_id,
+			*prefixes,
+			)

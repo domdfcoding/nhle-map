@@ -171,6 +171,25 @@ function loadScheduledMonumentMarkers(ChunkID) {
 	);
 }
 
+function loadDeDesignatedMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'deDesignated',
+		'de_designated',
+		deDesignatedIcon,
+		marker_cluster_de_designated,
+	);
+}
+function loadWorldHeritageMarkers(ChunkID) {
+	return loadSmallDataset(
+		ChunkID,
+		'worldHeritageSites',
+		'world_heritage_sites',
+		worldHeritageSitesIcon,
+		marker_cluster_world_heritage_sites,
+	);
+}
+
 function loadSmallDataset(chunkID, variable_prefix, filename_prefix, icon, layer) {
 	var chunkIDs = [chunkID];
 

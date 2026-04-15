@@ -1,5 +1,5 @@
 // Lat,Lng,Number,Name,Grade,ListDate,Link
-var listedBuildings3395720056 = [
+var listedBuildings633332358 = [
 [49.9694419283672, -5.19340663724712, 1141879, "CHURCH COTTAGE AND WYNWALLOW COTTAGE, AND CHURCH TOWN FARMHOUSE", "II", "Wed, 10 Jul 1957 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1141879"],
 [49.9694985709003, -5.19390354168213, 1141880, "BARN TO NORTH WEST OF CHURCH TOWN FARMHOUSE", "II", "Tue, 09 Oct 1984 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1141880"],
 [49.9696464914641, -5.19294994683472, 1141881, "ANGEL COTTAGE", "II", "Tue, 09 Oct 1984 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1141881"],

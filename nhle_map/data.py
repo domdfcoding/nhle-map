@@ -31,7 +31,6 @@ import datetime
 import json
 from collections import defaultdict
 from collections.abc import Iterable
-from operator import itemgetter
 from typing import Any
 
 # 3rd party
@@ -67,6 +66,8 @@ small_dataset_chunk_ids = {
 		"parks_and_gardens": get_id(),
 		"battlefields": get_id(),
 		"scheduled_monuments": get_id(),
+		"de_designated": get_id(),
+		"world_heritage_sites": get_id(),
 		}
 
 
@@ -91,12 +92,12 @@ def get_chunk_js(
 	output.append(f"var {variable_prefix}{chunk_id} = [")
 
 	item: dict[str, Any]
-	for item in sorted(features, key=itemgetter("ListEntry")):
-		number = item["ListEntry"]
-		name = item["Name"]
+	for item in sorted(features, key=_get_list_entry_no):
+		number = _get_list_entry_no(item)
+		name = _get_list_entry_name(item)
 		grade = item.get("Grade")
 		list_date = get_list_date(item)
-		link = item["hyperlink"]
+		link = item.get("hyperlink")
 		coord = item["geometry"].bounds[:2]
 		values = [coord[1], coord[0], number, name, grade, list_date, link]
 
@@ -186,9 +187,9 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 	gis = GIS()
 
 	for data_item_id in [
-		"8836370be44f4916b9ba7d350df24902",
-		"767f279327a24845bf47dfe5eae9862b"
-		]:
+			"8836370be44f4916b9ba7d350df24902",
+			"767f279327a24845bf47dfe5eae9862b",
+			]:
 		content: ContentManager = gis.content
 		data_item = content.get(data_item_id)
 
@@ -291,7 +292,16 @@ def get_list_date(list_entry: dict[str, Any]) -> str | None:
 	:param list_entry:
 	"""
 
-	possible_keys = ["ListDate", "DesigDate", "COIStart", "BPNStart", "RegDate", "SchedDate"]
+	possible_keys = [
+			"ListDate",
+			"DesigDate",
+			"COIStart",
+			"BPNStart",
+			"RegDate",
+			"SchedDate",
+			"DateRemovedFromList",
+			"InscrDate",
+			]
 	actual_keys = set(possible_keys) & list_entry.keys()
 
 	if not actual_keys:
@@ -312,3 +322,32 @@ def get_list_date(list_entry: dict[str, Any]) -> str | None:
 				).strftime(DATE_FORMAT)
 
 	return list_date
+
+
+def _get_list_entry_no(list_entry: dict[str, Any]) -> int:
+	possible_keys = ["ListEntry", "OriginalListEntryNumber"]
+	actual_keys = set(possible_keys) & list_entry.keys()
+
+	if not actual_keys:
+		raise KeyError(possible_keys)
+
+	assert len(actual_keys) == 1  # if not need to take first out of possible_keys
+
+	entry_no = list_entry[actual_keys.pop()]
+
+	if entry_no is None or numpy.isnan(entry_no):
+		return -1
+
+	return int(entry_no)
+
+
+def _get_list_entry_name(list_entry: dict[str, Any]) -> str:
+	possible_keys = ["Name", "ARTICLEVERSIONNAME"]
+	actual_keys = set(possible_keys) & list_entry.keys()
+
+	if not actual_keys:
+		raise KeyError(possible_keys)
+
+	assert len(actual_keys) == 1  # if not need to take first out of possible_keys
+
+	return list_entry[actual_keys.pop()]
