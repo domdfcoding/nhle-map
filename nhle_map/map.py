@@ -116,7 +116,6 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
             console.log('start creating markers: ' + window.performance.now());
             {{ this._parent.get_name() }}.addLayer(marker_cluster_nhle);
 
-			// TODO: gets stuck if any layers not shown (since chunkedLoading not triggered)
 			{% for layer in this._layers -%}
 			{{ this._parent.get_name() }}.addLayer(marker_cluster_{{ layer.filename_prefix }});
 			{% endfor %}
