@@ -26,12 +26,55 @@ function load_new_markers() {
 	});
 
 	progress.addEventListener('shown.bs.modal', event => {
-		loadMarkers(
+		loadMarkersAllLayers(
 			chunkIDs,
-			'listedBuildings',
-			'nhle',
-			listedBuildingsIcon,
-			marker_cluster_listed_buildings,
+			[
+				{
+					'variable_prefix': 'battlefields',
+					'layer': marker_cluster_battlefields,
+					'icon': battlefieldsIcon,
+				},
+				{
+					'variable_prefix': 'buildingPreservationNotices',
+					'layer': marker_cluster_building_preservation_notices,
+					'icon': buildingPreservationNoticesIcon,
+				},
+				{
+					'variable_prefix': 'certificatesOfImmunity',
+					'layer': marker_cluster_certificates_of_immunity,
+					'icon': certificatesOfImmunityIcon,
+				},
+				{
+					'variable_prefix': 'listedBuildings',
+					'layer': marker_cluster_listed_buildings,
+					'icon': listedBuildingsIcon,
+				},
+				{
+					'variable_prefix': 'parksGardens',
+					'layer': marker_cluster_parks_and_gardens,
+					'icon': parksGardensIcon,
+				},
+				{
+					'variable_prefix': 'protectedWreckSites',
+					'layer': marker_cluster_protected_wreck_sites,
+					'icon': protectedWreckSitesIcon,
+				},
+				{
+					'variable_prefix': 'scheduledMonuments',
+					'layer': marker_cluster_scheduled_monuments,
+					'icon': scheduledMonumentsIcon,
+				},
+				{
+					'variable_prefix': 'worldHeritageSites',
+					'layer': marker_cluster_world_heritage_sites,
+					'icon': worldHeritageSitesIcon,
+				},
+				{
+					'variable_prefix': 'deDesignated',
+					'layer': marker_cluster_de_designated,
+					'icon': deDesignatedIcon,
+				},
+			],
 		);
 	}, { once: true });
 
@@ -43,7 +86,7 @@ function load_new_markers() {
 	return promise;
 }
 
-function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon, layer) {
+function loadMarkersAllLayers(chunkIDs, layers) {
 	var scriptPromises = [];
 	var markerList = [];
 	var addedChunkIDs = [];
@@ -60,24 +103,31 @@ function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon, layer) {
 				reject();
 			};
 		}));
-		script.src = `data/${filename_prefix}_${id}.js`;
+		script.src = `data/nhle_${id}.js`;
 		document.head.appendChild(script);
 	});
 
 	Promise.all(scriptPromises).then((values) => {
 		console.log('Adding markers for ids', chunkIDs);
+
 		chunkIDs.forEach(function(id) {
 			if (loaded_ids.includes(id)) {
 				console.log(`Markers already loaded for ID ${id}`);
 			} else {
-				let var_name = variable_prefix + id;
-				console.log('Accessing JS variable', var_name);
-				addMarkers(window[var_name], markerList, icon);
+				layers.forEach((layer_data) => {
+					let var_name = layer_data.variable_prefix + id;
+					console.log('Accessing JS variable', var_name);
+					var layerMarkerList = [];
+					addMarkers(window[var_name], layerMarkerList, layer_data.icon);
+					markerList.push(...layerMarkerList);
+					// TODO: make proper API to avoid poking around in the MarkerGroup guts
+					layer_data.layer._markers.push(...layerMarkerList);
+				});
 				addedChunkIDs.push(id);
 			}
 		});
 
-		layer.addLayers(markerList);
+		marker_cluster_nhle.addLayers(markerList);
 		loaded_ids.push(...addedChunkIDs);
 	}).catch(function(rej) {
 		console.log('Error loading markers: ', rej);
@@ -116,113 +166,6 @@ function lookup_id(latitude, longitide) {
 	}
 
 	return id;
-}
-
-function loadShipwreckMarkers(ChunkID) {
-	return loadSmallDataset(
-		ChunkID,
-		'protectedWreckSites',
-		'protected_wreck_sites',
-		protectedWreckSitesIcon,
-		marker_cluster_protected_wreck_sites,
-	);
-}
-
-function loadBPNMarkers(ChunkID) {
-	return loadSmallDataset(
-		ChunkID,
-		'buildingPreservationNotices',
-		'building_preservation_notices',
-		buildingPreservationNoticesIcon,
-		marker_cluster_building_preservation_notices,
-	);
-}
-
-function loadImmunityMarkers(ChunkID) {
-	return loadSmallDataset(
-		ChunkID,
-		'certificatesOfImmunity',
-		'certificates_of_immunity',
-		certificatesOfImmunityIcon,
-		marker_cluster_certificates_of_immunity,
-	);
-}
-
-function loadParksGardensMarkers(ChunkID) {
-	return loadSmallDataset(
-		ChunkID,
-		'parksGardens',
-		'parks_and_gardens',
-		parksGardensIcon,
-		marker_cluster_parks_and_gardens,
-	);
-}
-
-function loadBattlefieldMarkers(ChunkID) {
-	return loadSmallDataset(
-		ChunkID,
-		'battlefields',
-		'battlefields',
-		battlefieldsIcon,
-		marker_cluster_battlefields,
-	);
-}
-
-function loadScheduledMonumentMarkers(ChunkID) {
-	return loadSmallDataset(
-		ChunkID,
-		'scheduledMonuments',
-		'scheduled_monuments',
-		scheduledMonumentsIcon,
-		marker_cluster_scheduled_monuments,
-	);
-}
-
-function loadDeDesignatedMarkers(ChunkID) {
-	return loadSmallDataset(
-		ChunkID,
-		'deDesignated',
-		'de_designated',
-		deDesignatedIcon,
-		marker_cluster_de_designated,
-	);
-}
-function loadWorldHeritageMarkers(ChunkID) {
-	return loadSmallDataset(
-		ChunkID,
-		'worldHeritageSites',
-		'world_heritage_sites',
-		worldHeritageSitesIcon,
-		marker_cluster_world_heritage_sites,
-	);
-}
-
-function loadSmallDataset(chunkID, variable_prefix, filename_prefix, icon, layer) {
-	var chunkIDs = [chunkID];
-
-	var promise = new Promise((resolve, reject) => {
-		progress.addEventListener('hidden.bs.modal', event => {
-			resolve();
-		}, { once: true });
-	});
-
-	progress.addEventListener('shown.bs.modal', event => {
-		// TODO: proper ID for shipwrecks and other "small" layers
-		loadMarkers(
-			chunkIDs,
-			variable_prefix,
-			filename_prefix,
-			icon,
-			layer,
-		);
-	}, { once: true });
-
-	if (chunkIDs.length > 0) {
-		console.log('Showing progressbar');
-		modal.show();
-	}
-
-	return promise;
 }
 
 // https://github.com/jashkenas/underscore/blob/master/underscore.js

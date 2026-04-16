@@ -58,16 +58,6 @@ def prepare_data(download: bool = False) -> None:
 
 	# this package
 	from nhle_map import constants
-	from nhle_map._data_prep import (
-			_prepare_battlefields_data,
-			_prepare_building_preservation_notices_data,
-			_prepare_certificates_of_immunity_data,
-			_prepare_de_designated_data,
-			_prepare_parks_gardens_data,
-			_prepare_protected_wreck_sites_data,
-			_prepare_scheduled_monuments_data,
-			_prepare_world_heritage_sites_data
-			)
 	from nhle_map.data import chunk_data_v2, download_data
 
 	data_directory = PathPlus("data")
@@ -77,27 +67,6 @@ def prepare_data(download: bool = False) -> None:
 
 	output_dir = PathPlus("output")
 	output_dir.maybe_make()
-
-	# listed_buildings_gdf = pyogrio.read_dataframe(data_directory / "Listed Building points.geojson")
-
-	# chunk_data(
-	# 		listed_buildings_gdf,
-	# 		range(49, 55),
-	# 		range(-7, 3),
-	# 		output_dir / "data",
-	# 		)
-
-	for function in [
-			_prepare_protected_wreck_sites_data,
-			_prepare_building_preservation_notices_data,
-			_prepare_certificates_of_immunity_data,
-			_prepare_parks_gardens_data,
-			_prepare_battlefields_data,
-			_prepare_scheduled_monuments_data,
-			_prepare_de_designated_data,
-			_prepare_world_heritage_sites_data,
-			]:
-		function(data_directory, output_dir / "data")
 
 	listed_buildings_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
 			data_directory / "Listed Building points.geojson",

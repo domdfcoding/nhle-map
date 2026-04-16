@@ -122,14 +122,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
             var loaded_ids = [];
 
-			L.Util.serial([
-				{% for layer in this._layers -%}
-				{% if layer.promise_function -%}
-				function () {return {{ layer.promise_function }}({{ this.small_dataset_chunk_ids[layer.filename_prefix] }})},
-				{% endif -%}
-				{% endfor -%}
-				load_new_markers,
-			]).then(function (result){
+			load_new_markers().then(function (result){
 				console.log("All markers loaded")
 				});
 
