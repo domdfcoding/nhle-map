@@ -56,6 +56,9 @@ function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon, layer) {
 				console.log('Script', id, 'loaded');
 				resolve();
 			};
+			script.onerror = function() {
+				reject();
+			};
 		}));
 		script.src = `data/${filename_prefix}_${id}.js`;
 		document.head.appendChild(script);
@@ -76,6 +79,10 @@ function loadMarkers(chunkIDs, variable_prefix, filename_prefix, icon, layer) {
 
 		layer.addLayers(markerList);
 		loaded_ids.push(...addedChunkIDs);
+	}).catch(function(rej) {
+		console.log('Error loading markers: ', rej);
+		alert('Error loading markers');
+		modal.hide();
 	});
 }
 
