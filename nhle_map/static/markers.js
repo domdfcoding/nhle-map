@@ -266,7 +266,6 @@ function getClusterRadius(zoom) {
 	return 80;
 }
 
-
 function updateProgressBar(processed, total, elapsed, layersArray) {
 	// if it takes more than a second to load, display the progress bar:
 	progressBar.style.width = Math.round(processed / total * 100) + '%';
@@ -280,7 +279,6 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 	}
 }
 
-
 MarkerGroup = L.MarkerGroup.extend({
 	addLayers: function(layers) {
 		this._markers.push(...layers);
@@ -293,5 +291,4 @@ MarkerGroup = L.MarkerGroup.extend({
 			modal.hide();
 		}
 	},
-
 });

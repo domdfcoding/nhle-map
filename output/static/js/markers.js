@@ -147,6 +147,7 @@ function loadImmunityMarkers(ChunkID) {
 		marker_cluster_certificates_of_immunity,
 	);
 }
+
 function loadParksGardensMarkers(ChunkID) {
 	return loadSmallDataset(
 		ChunkID,
@@ -265,7 +266,6 @@ function getClusterRadius(zoom) {
 	return 80;
 }
 
-
 function updateProgressBar(processed, total, elapsed, layersArray) {
 	// if it takes more than a second to load, display the progress bar:
 	progressBar.style.width = Math.round(processed / total * 100) + '%';
@@ -278,7 +278,6 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 		modal.show();
 	}
 }
-
 
 MarkerGroup = L.MarkerGroup.extend({
 	addLayers: function(layers) {
