@@ -172,6 +172,7 @@ def make_map() -> folium.Map:
 					max_zoom=MAX_ZOOM,
 					max_native_zoom=19,
 					referrerPolicy="strict-origin-when-cross-origin",
+					attr='Map &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 					),
 			"osm_carto",
 			)
