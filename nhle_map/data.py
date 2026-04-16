@@ -130,10 +130,33 @@ def get_chunk_js(
 
 	return str(output)
 
+def get_data_chunks(
+		data: geopandas.GeoDataFrame,
+		lat_range: Iterable[float],
+		lng_range: Iterable[float],
+		) -> dict[float, dict[float, geopandas.GeoDataFrame]]:
+	"""
+	Split the data into chunks for the given latitudes and longitudes.
 
-# TODO: camel to snake for default value
+	:param data:
+	:param lat_range: Range of latitude values (southern edge of square)
+	:param lng_range: Range of longitude values (western edge of square)
+	"""
+
+	chunks: dict[float, dict[float, geopandas.GeoDataFrame]] = defaultdict(dict)
+
+	for latitude in lat_range:
+		for longitude in lng_range:
+			subset = data.cx[longitude:longitude + 1, latitude:latitude + 1]  # type: ignore[misc]  # TODO
+
+			if len(subset):
+				chunks[latitude][longitude] = subset
+
+	return chunks
+
+
+
 # TODO: optional tqdm progress bar
-# TODO: split generation and writing, and use iterator for generation?
 def chunk_data(
 		data: geopandas.GeoDataFrame,
 		lat_range: Iterable[float],
@@ -158,14 +181,16 @@ def chunk_data(
 
 	id_lookup: dict[float, dict[float, int]] = defaultdict(dict)
 
-	for latitude in lat_range:
-		for longitide in lng_range:
+	chunks = get_data_chunks(data, lat_range, lng_range)
+
+	for latitude, lat_chunk in chunks.items():
+		for longitude, subset in lat_chunk.items():
 			chunk_id = get_id()
-			subset = data.cx[longitide:longitide + 1, latitude:latitude + 1]  # type: ignore[misc]  # TODO
+			subset = data.cx[longitude:longitude + 1, latitude:latitude + 1]  # type: ignore[misc]  # TODO
 			if not len(subset):
 				continue
 
-			id_lookup[latitude][longitide] = chunk_id
+			id_lookup[latitude][longitude] = chunk_id
 			write_data(
 					subset,
 					output_directory=output_directory,

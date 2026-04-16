@@ -1,5 +1,5 @@
 // Lat,Lng,Number,Name,Grade,ListDate,Link
-var listedBuildings1433100313 = [
+var listedBuildings3820998799 = [
 [52.4090855381437, -1.50454073599895, 1021930, "Coventry Central Baths (original part including sunbathing terraces), part of Coventry Sports and Leisure Centre", "II", "Tue, 02 Dec 1997 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1021930"],
 [52.3758435334317, -1.8385847650137, 1022553, "BARN AND ATTACHED STABLES AND CART SHED IMMEDIATELY NORTH NORTH WEST OF LITTLE CLEOBURY FARMHOUSE", "II", "Wed, 13 May 1998 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1022553"],
 [52.431146715754, -1.85696035967513, 1022564, "397, WAKE GREEN ROAD", "II", "Mon, 05 Jan 1998 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1022564"],
