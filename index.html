@@ -182,7 +182,7 @@
                                 </tbody>
                             </table>
 
-                            <small class="text-muted">Generated on Thu, 16 Apr 2026 18:35:49 GMT</small>
+                            <small class="text-muted">Generated on Thu, 16 Apr 2026 21:25:23 GMT</small>
 
                         </div>
                     </div>
@@ -217,7 +217,7 @@
     <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
     <script src="static/js/icons.js"></script>
     <script src="static/js/markers.js"></script>
-    <script src="data/listed_buildings_id_lookup.js"></script>
+    <script src="data/nhle_id_lookup.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b1/folium_about_button/about_button.min.js"></script>
@@ -260,7 +260,7 @@
   "maxZoom": 20,
   "maxNativeZoom": 19,
   "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "attribution": "Map \u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
   "subdomains": "abc",
   "detectRetina": false,
   "tms": false,
@@ -414,7 +414,6 @@
             console.log('start creating markers: ' + window.performance.now());
             map.addLayer(marker_cluster_nhle);
 
-			// TODO: gets stuck if any layers not shown (since chunkedLoading not triggered)
 			map.addLayer(marker_cluster_battlefields);
 			map.addLayer(marker_cluster_building_preservation_notices);
 			map.addLayer(marker_cluster_certificates_of_immunity);
@@ -428,17 +427,7 @@
 
             var loaded_ids = [];
 
-			L.Util.serial([
-				function () {return loadBattlefieldMarkers(2868999231)},
-				function () {return loadBPNMarkers(1823735210)},
-				function () {return loadImmunityMarkers(400980587)},
-				function () {return loadParksGardensMarkers(2165861770)},
-				function () {return loadShipwreckMarkers(3115455186)},
-				function () {return loadScheduledMonumentMarkers(3817174073)},
-				function () {return loadWorldHeritageMarkers(3395720056)},
-				function () {return loadDeDesignatedMarkers(4228471844)},
-				load_new_markers,
-			]).then(function (result){
+			load_new_markers().then(function (result){
 				console.log("All markers loaded")
 				});
 
