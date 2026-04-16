@@ -257,7 +257,7 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 	return meta
 
 
-def set_polygon_marker(data: geopandas.GeoDataFrame):
+def set_polygon_marker(data: geopandas.GeoDataFrame) -> geopandas.GeoDataFrame:
 	"""
 	Sets the marker position for the given data's polygon.
 
@@ -468,4 +468,4 @@ def chunk_data_v2(
 				output_dir.joinpath(f"nhle_{chunk_id}.js").write_lines(chunk_buffer)
 
 	id_lookup_js = f"nhleIDLookup = {json.dumps(id_lookup, indent=4)}"
-	output_dir.joinpath(f"nhle_id_lookup.js").write_clean(id_lookup_js)
+	output_dir.joinpath("nhle_id_lookup.js").write_clean(id_lookup_js)

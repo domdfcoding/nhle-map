@@ -52,7 +52,7 @@ def prepare_data(download: bool = False) -> None:
 	"""
 
 	# 3rd party
-	import geopandas
+	import geopandas  # type: ignore[import-untyped]
 	import pyogrio  # type: ignore[import-untyped]
 	from domdf_python_tools.paths import PathPlus
 
@@ -146,7 +146,7 @@ def make_map(output_directory: str = "output") -> None:
 			"map.jinja2",
 			**render_figure(root)._asdict(),
 			layers=constants.LAYERS,
-			generated_date=datetime.datetime.now(tz=datetime.timezone.utc).strftime(DATE_FORMAT)
+			generated_date=datetime.datetime.now(tz=datetime.timezone.utc).strftime(DATE_FORMAT),
 			)
 	output_dir.joinpath("index.html").write_clean(map_html)
 

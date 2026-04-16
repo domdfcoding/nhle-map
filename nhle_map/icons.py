@@ -29,7 +29,7 @@ Layer icons.
 # stdlib
 import abc
 import json
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Iterable
 
 # 3rd party
 import attrs
@@ -109,7 +109,7 @@ class SVGLayerIcon(LayerIcon):
 				}
 
 
-def write_icons_js(layers: list["Dataset"], output_directory: PathLike) -> None:
+def write_icons_js(layers: Iterable["Dataset"], output_directory: PathLike) -> None:
 	"""
 	Write the javascript file containing the icons for Leaflet.
 

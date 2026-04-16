@@ -234,5 +234,4 @@ MarkerGroup = L.MarkerGroup.extend({
 			modal.hide();
 		}
 	},
-
 });
