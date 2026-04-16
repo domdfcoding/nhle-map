@@ -29,7 +29,7 @@ Layer icons.
 # stdlib
 import abc
 import json
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 # 3rd party
 import attrs
@@ -37,7 +37,11 @@ from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.typing import PathLike
 
-__all__ = ["FontawesomeLayerIcon", "LayerIcon", "SVGLayerIcon", "get_layer_label_text", "write_icons_js"]
+if TYPE_CHECKING:
+	# this package
+	from nhle_map.constants import Dataset
+
+__all__ = ["FontawesomeLayerIcon", "LayerIcon", "SVGLayerIcon", "write_icons_js"]
 
 
 @attrs.define
@@ -105,34 +109,11 @@ class SVGLayerIcon(LayerIcon):
 				}
 
 
-layer_icons: dict[str, LayerIcon] = {
-		"Battlefields": SVGLayerIcon(filename="static/img/Challenge_Icon.svg", marker_colour="orange"),  #
-		# Alternative BPN/immunity icon   # fa-sign-hanging
-		"Building Preservation Notices": FontawesomeLayerIcon(icon="building-flag", marker_colour="teal"),
-		"Certificates of Immunity": FontawesomeLayerIcon(icon="scroll", marker_colour="tan"),
-		"Listed Buildings": FontawesomeLayerIcon(icon="building", marker_colour="blue"),
-		"Parks and Gardens": FontawesomeLayerIcon(icon="tree", marker_colour="green"),
-		"Protected Wreck Sites": FontawesomeLayerIcon(icon="anchor", marker_colour="purple"),
-		"Scheduled Monuments": FontawesomeLayerIcon(icon="monument", marker_colour="red"),
-		"World Heritage Sites": FontawesomeLayerIcon(icon="certificate", marker_colour="grey"),
-		"De-designated": FontawesomeLayerIcon(icon="ban", marker_colour="black"),
-		}
-
-
-def get_layer_label_text(name: str) -> str:
-	"""
-	Returns the text for the layer control, showing the layer name and icon.
-
-	:param name:
-	"""
-
-	return f"{name} {layer_icons[name].layercontrol_icon}"
-
-
-def write_icons_js(output_directory: PathLike) -> None:
+def write_icons_js(layers: list["Dataset"], output_directory: PathLike) -> None:
 	"""
 	Write the javascript file containing the icons for Leaflet.
 
+	:param layers:
 	:param output_directory: Directory to write the ``icons.js`` file to.
 	"""
 
@@ -140,20 +121,11 @@ def write_icons_js(output_directory: PathLike) -> None:
 	output_dir.maybe_make(parents=True)
 
 	output = StringList()
-	for layer_name, var_name in [
-		("Battlefields", "battlefieldsIcon"),
-		("Building Preservation Notices", "buildingPreservationNoticesIcon"),
-		("Certificates of Immunity", "certificatesOfImmunityIcon"),
-		("Listed Buildings", "listedBuildingsIcon"),
-		("Parks and Gardens", "parksGardensIcon"),
-		("Protected Wreck Sites", "protectedWreckSitesIcon"),
-		("Scheduled Monuments", "scheduledMonumentsIcon"),
-		("World Heritage Sites", "worldHeritageSitesIcon"),
-		("De-designated", "deDesignatedIcon"),
-	]:
+	for layer in layers:
+		var_name = layer.variable_prefix + "Icon"
 
 		output.append(f"var {var_name} = L.ExtraMarkers.icon(")
-		output.append('\t' + json.dumps(layer_icons[layer_name].to_dict()))
+		output.append('\t' + json.dumps(layer.icon.to_dict()))
 		output.append(");")
 		output.blankline()
 

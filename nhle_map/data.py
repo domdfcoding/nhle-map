@@ -45,6 +45,17 @@ from shapely.geometry import mapping
 
 # this package
 from nhle_map._arcgis_fix import to_geojson
+from nhle_map.constants import (
+		BATTLEFIELDS,
+		BUILDING_PRESERVATION_NOTICES,
+		CERTIFICATES_OF_IMMUNITY,
+		DE_DESIGNATED,
+		LISTED_BUILDINGS,
+		PARKS_AND_GARDENS,
+		PROTECTED_WRECK_SITES,
+		SCHEDULED_MONUMENTS,
+		WORLD_HERITAGE_SITES
+		)
 from nhle_map.utils import get_id
 
 __all__ = [
@@ -60,21 +71,21 @@ __all__ = [
 DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
 
 small_dataset_chunk_ids = {
-		"protected_wreck_sites": get_id(),
-		"building_preservation_notices": get_id(),
-		"certificates_of_immunity": get_id(),
-		"parks_and_gardens": get_id(),
-		"battlefields": get_id(),
-		"scheduled_monuments": get_id(),
-		"de_designated": get_id(),
-		"world_heritage_sites": get_id(),
+		PROTECTED_WRECK_SITES.filename_prefix: get_id(),
+		BUILDING_PRESERVATION_NOTICES.filename_prefix: get_id(),
+		CERTIFICATES_OF_IMMUNITY.filename_prefix: get_id(),
+		PARKS_AND_GARDENS.filename_prefix: get_id(),
+		BATTLEFIELDS.filename_prefix: get_id(),
+		SCHEDULED_MONUMENTS.filename_prefix: get_id(),
+		DE_DESIGNATED.filename_prefix: get_id(),
+		WORLD_HERITAGE_SITES.filename_prefix: get_id(),
 		}
 
 
 def get_chunk_js(
 		features: list,
 		chunk_id: str | int,
-		variable_prefix: str = "listedBuildings",
+		variable_prefix: str = LISTED_BUILDINGS.variable_prefix,
 		include_polygon: bool = False,
 		) -> str:
 	"""
@@ -128,8 +139,8 @@ def chunk_data(
 		lat_range: Iterable[float],
 		lng_range: Iterable[float],
 		output_directory: PathLike,
-		variable_prefix: str = "listedBuildings",
-		filename_prefix: str = "listed_buildings",
+		variable_prefix: str = LISTED_BUILDINGS.variable_prefix,
+		filename_prefix: str = LISTED_BUILDINGS.filename_prefix,
 		) -> None:
 	"""
 	Split the data into chunks for the given latitudes and longitudes.
@@ -222,8 +233,8 @@ def make_polygon_points(
 		data: geopandas.GeoDataFrame,
 		output_directory: PathLike,
 		chunk_id: str | int,
-		variable_prefix: str = "protectedWreckSites",
-		filename_prefix: str = "protected_wreck_sites",
+		variable_prefix: str = PROTECTED_WRECK_SITES.variable_prefix,
+		filename_prefix: str = PROTECTED_WRECK_SITES.filename_prefix,
 		) -> None:
 	"""
 	Convert polygons into representative points and write to javascript.
@@ -258,8 +269,8 @@ def write_data(
 		data: geopandas.GeoDataFrame,
 		output_directory: PathLike,
 		chunk_id: str | int,
-		variable_prefix: str = "listedBuildings",
-		filename_prefix: str = "listed_buildings",
+		variable_prefix: str = LISTED_BUILDINGS.variable_prefix,
+		filename_prefix: str = LISTED_BUILDINGS.filename_prefix,
 		include_polygon: bool = False,
 		) -> None:
 	"""

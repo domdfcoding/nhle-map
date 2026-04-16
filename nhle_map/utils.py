@@ -31,10 +31,10 @@ import random
 
 # 3rd party
 import domdf_folium_tools.static_files
-from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.paths import PathPlus
 
 # this package
+from nhle_map import constants
 from nhle_map.icons import write_icons_js
 
 __all__ = ["copy_static_files", "get_id"]
@@ -48,10 +48,6 @@ def get_id() -> int:
 	"""
 
 	return rng.getrandbits(32)
-
-
-def _copy_file(module: str, filename: str, target_dir: PathPlus) -> None:
-	(target_dir / filename).write_text(importlib_resources.read_text(module, filename))
 
 
 def copy_static_files(static_dir: PathPlus) -> None:
@@ -82,4 +78,5 @@ def copy_static_files(static_dir: PathPlus) -> None:
 			img_dir,
 			)
 
-	write_icons_js(static_dir / "js")
+	layers = constants.LAYERS
+	write_icons_js(layers, static_dir / "js")

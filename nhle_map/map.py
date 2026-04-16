@@ -40,8 +40,8 @@ from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
 # this package
+from nhle_map import constants
 from nhle_map.data import small_dataset_chunk_ids
-from nhle_map.icons import get_layer_label_text
 from nhle_map.nls_basemaps import os10k, os1250, os2500
 
 __all__ = ["LayerControl", "MarkerLoadingJS", "make_map"]
@@ -85,6 +85,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 		super().__init__()
 		self.max_zoom = max_zoom
 		self.small_dataset_chunk_ids = small_dataset_chunk_ids
+		self._layers = constants.LAYERS
 
 	default_js = [
 			(
@@ -116,27 +117,18 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
             {{ this._parent.get_name() }}.addLayer(marker_cluster_nhle);
 
 			// TODO: gets stuck if any layers not shown (since chunkedLoading not triggered)
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_battlefields);
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_building_preservation_notices);
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_certificates_of_immunity);
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_listed_buildings);
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_parks_and_gardens);
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_protected_wreck_sites);
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_scheduled_monuments);
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_world_heritage_sites);
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_de_designated);
+			{% for layer in this._layers -%}
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_{{ layer.filename_prefix }});
+			{% endfor %}
 
             var loaded_ids = [];
 
 			L.Util.serial([
-				function () {return loadShipwreckMarkers({{ this.small_dataset_chunk_ids["protected_wreck_sites"] }})},
-				function () {return loadBPNMarkers({{ this.small_dataset_chunk_ids["building_preservation_notices"] }})},
-				function () {return loadImmunityMarkers({{ this.small_dataset_chunk_ids["certificates_of_immunity"] }})},
-				function () {return loadParksGardensMarkers({{ this.small_dataset_chunk_ids["parks_and_gardens"] }})},
-				function () {return loadBattlefieldMarkers({{ this.small_dataset_chunk_ids["battlefields"] }})},
-				function () {return loadScheduledMonumentMarkers({{ this.small_dataset_chunk_ids["scheduled_monuments"] }})},
-				function () {return loadDeDesignatedMarkers({{ this.small_dataset_chunk_ids["de_designated"] }})},
-				function () {return loadWorldHeritageMarkers({{ this.small_dataset_chunk_ids["world_heritage_sites"] }})},
+				{% for layer in this._layers -%}
+				{% if layer.promise_function -%}
+				function () {return {{ layer.promise_function }}({{ this.small_dataset_chunk_ids[layer.filename_prefix] }})},
+				{% endif -%}
+				{% endfor -%}
 				load_new_markers,
 			]).then(function (result){
 				console.log("All markers loaded")
@@ -221,26 +213,17 @@ def make_map() -> folium.Map:
 
 	# TODO: for BPN and COI, show polygon on click. Or always show?
 	# TODO: make layer dialog wider to show full names
-	for layer_name, layer_id in [
-		("Battlefields", "battlefields"),
-		("Building Preservation Notices", "building_preservation_notices"),
-		("Certificates of Immunity", "certificates_of_immunity"),
-		("Listed Buildings", "listed_buildings"),
-		("Parks and Gardens", "parks_and_gardens"),
-		("Protected Wreck Sites", "protected_wreck_sites"),
-		("Scheduled Monuments", "scheduled_monuments"),
-		("World Heritage Sites", "world_heritage_sites"),
-		("De-designated", "de_designated"),
-	]:
+	layer: constants.Dataset
+	for layer in constants.LAYERS:
 
 		add_to(
 				MarkerGroup(
 						cluster=mcg,
 						show=False,
-						name=get_layer_label_text(layer_name),
+						name=layer.layer_label,
 						),
 				m,
-				layer_id,
+				layer.filename_prefix,
 				)
 
 	MarkerLoadingJS(max_zoom=MAX_ZOOM, small_dataset_chunk_ids=small_dataset_chunk_ids).add_to(m)
