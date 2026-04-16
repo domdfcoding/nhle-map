@@ -52,13 +52,11 @@ def prepare_data(download: bool = False) -> None:
 	"""
 
 	# 3rd party
-	import geopandas  # type: ignore[import-untyped]
-	import pyogrio  # type: ignore[import-untyped]
 	from domdf_python_tools.paths import PathPlus
 
 	# this package
 	from nhle_map import constants
-	from nhle_map.data import chunk_data_v2, download_data
+	from nhle_map.data import chunk_data, download_data
 
 	data_directory = PathPlus("data")
 
@@ -68,45 +66,25 @@ def prepare_data(download: bool = False) -> None:
 	output_dir = PathPlus("output")
 	output_dir.maybe_make()
 
-	listed_buildings_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
-			data_directory / "Listed Building points.geojson",
-			)
-	protected_wreck_sites_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
-			data_directory / "Protected Wreck Sites.geojson",
-			)
-	building_preservation_notices_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
-			data_directory / "Building Preservation Notice points.geojson",
-			)
-	certificates_of_immunity_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
-			data_directory / "Certificate of Immunity points.geojson",
-			)
-	parks_gardens_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
-			data_directory / "Parks and Gardens.geojson",
-			)
-	battlefields_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / "Battlefields.geojson")
-	scheduled_monuments_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
-			data_directory / "Scheduled Monuments.geojson",
-			)
-	de_designated_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
-			data_directory / "De-designated sites.geojson",
-			)
-	world_heritage_sites_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(
-			data_directory / "World Heritage Sites.geojson",
-			)
-
 	data = [
-			(listed_buildings_gdf, constants.LISTED_BUILDINGS, False),
-			(protected_wreck_sites_gdf, constants.PROTECTED_WRECK_SITES, True),
-			(building_preservation_notices_gdf, constants.BUILDING_PRESERVATION_NOTICES, False),
-			(certificates_of_immunity_gdf, constants.CERTIFICATES_OF_IMMUNITY, False),
-			(parks_gardens_gdf, constants.PARKS_AND_GARDENS, True),
-			(battlefields_gdf, constants.BATTLEFIELDS, True),
-			(scheduled_monuments_gdf, constants.SCHEDULED_MONUMENTS, True),
-			(de_designated_gdf, constants.DE_DESIGNATED, False),
-			(world_heritage_sites_gdf, constants.WORLD_HERITAGE_SITES, True),
+			(constants.LISTED_BUILDINGS, False),
+			(constants.PROTECTED_WRECK_SITES, True),
+			(constants.BUILDING_PRESERVATION_NOTICES, False),
+			(constants.CERTIFICATES_OF_IMMUNITY, False),
+			(constants.PARKS_AND_GARDENS, True),
+			(constants.BATTLEFIELDS, True),
+			(constants.SCHEDULED_MONUMENTS, True),
+			(constants.DE_DESIGNATED, False),
+			(constants.WORLD_HERITAGE_SITES, True),
 			]
 
-	chunk_data_v2(data, range(49, 55), range(-7, 3), output_directory=output_dir / "data")
+	chunk_data(
+			data,
+			range(49, 55),
+			range(-7, 3),
+			data_directory=data_directory,
+			output_directory=output_dir / "data",
+			)
 
 
 @auto_default_option("-O", "--output-dir", "output_directory")

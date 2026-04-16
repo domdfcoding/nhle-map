@@ -36,6 +36,7 @@ from typing import Any
 # 3rd party
 import geopandas  # type: ignore[import-untyped]
 import numpy  # nodep
+import pyogrio  # type: ignore[import-untyped]
 from arcgis.features import FeatureLayer, FeatureSet  # type: ignore[import-untyped]
 from arcgis.gis import GIS, ContentManager  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
@@ -45,45 +46,21 @@ from shapely.geometry import mapping
 
 # this package
 from nhle_map._arcgis_fix import to_geojson
-from nhle_map.constants import (
-		BATTLEFIELDS,
-		BUILDING_PRESERVATION_NOTICES,
-		CERTIFICATES_OF_IMMUNITY,
-		DE_DESIGNATED,
-		LISTED_BUILDINGS,
-		PARKS_AND_GARDENS,
-		PROTECTED_WRECK_SITES,
-		SCHEDULED_MONUMENTS,
-		WORLD_HERITAGE_SITES,
-		Dataset
-		)
+from nhle_map.constants import LISTED_BUILDINGS, Dataset
 from nhle_map.utils import get_id
 
 __all__ = [
 		"chunk_data",
-		"chunk_data_v2",
 		"download_data",
 		"get_chunk_js",
 		"get_data_chunks",
 		"get_list_date",
-		"make_polygon_points",
 		"set_polygon_marker",
-		"small_dataset_chunk_ids",
 		"write_data",
 		]
 
 DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
-
-small_dataset_chunk_ids = {
-		PROTECTED_WRECK_SITES.filename_prefix: get_id(),
-		BUILDING_PRESERVATION_NOTICES.filename_prefix: get_id(),
-		CERTIFICATES_OF_IMMUNITY.filename_prefix: get_id(),
-		PARKS_AND_GARDENS.filename_prefix: get_id(),
-		BATTLEFIELDS.filename_prefix: get_id(),
-		SCHEDULED_MONUMENTS.filename_prefix: get_id(),
-		DE_DESIGNATED.filename_prefix: get_id(),
-		WORLD_HERITAGE_SITES.filename_prefix: get_id(),
-		}
+Chunks = dict[float, dict[float, geopandas.GeoDataFrame]]
 
 
 def get_chunk_js(
@@ -139,7 +116,7 @@ def get_data_chunks(
 		data: geopandas.GeoDataFrame,
 		lat_range: Iterable[float],
 		lng_range: Iterable[float],
-		) -> dict[float, dict[float, geopandas.GeoDataFrame]]:
+		) -> Chunks:
 	"""
 	Split the data into chunks for the given latitudes and longitudes.
 
@@ -148,7 +125,7 @@ def get_data_chunks(
 	:param lng_range: Range of longitude values (western edge of square)
 	"""
 
-	chunks: dict[float, dict[float, geopandas.GeoDataFrame]] = defaultdict(dict)
+	chunks: Chunks = defaultdict(dict)
 
 	for latitude in lat_range:
 		for longitude in lng_range:
@@ -158,53 +135,6 @@ def get_data_chunks(
 				chunks[latitude][longitude] = subset
 
 	return chunks
-
-
-# TODO: optional tqdm progress bar
-def chunk_data(
-		data: geopandas.GeoDataFrame,
-		lat_range: Iterable[float],
-		lng_range: Iterable[float],
-		output_directory: PathLike,
-		variable_prefix: str = LISTED_BUILDINGS.variable_prefix,
-		filename_prefix: str = LISTED_BUILDINGS.filename_prefix,
-		) -> None:
-	"""
-	Split the data into chunks for the given latitudes and longitudes.
-
-	:param data:
-	:param lat_range: Range of latitude values (southern edge of square)
-	:param lng_range: Range of longitude values (western edge of square)
-	:param output_directory: Directory to write files to.
-	:param variable_prefix: String to prefix javascript variables with.
-	:param filename_prefix: String to prefix javascript filenames with.
-	"""
-
-	output_dir = PathPlus(output_directory)
-	output_dir.maybe_make(parents=True)
-
-	id_lookup: dict[float, dict[float, int]] = defaultdict(dict)
-
-	chunks = get_data_chunks(data, lat_range, lng_range)
-
-	for latitude, lat_chunk in chunks.items():
-		for longitude, subset in lat_chunk.items():
-			chunk_id = get_id()
-			subset = data.cx[longitude:longitude + 1, latitude:latitude + 1]  # type: ignore[misc]  # TODO
-			if not len(subset):
-				continue
-
-			id_lookup[latitude][longitude] = chunk_id
-			write_data(
-					subset,
-					output_directory=output_directory,
-					chunk_id=chunk_id,
-					variable_prefix=variable_prefix,
-					filename_prefix=filename_prefix,
-					)
-
-	id_lookup_js = f"{variable_prefix}IDLookup = {json.dumps(id_lookup, indent=4)}"
-	output_dir.joinpath(f"{filename_prefix}_id_lookup.js").write_clean(id_lookup_js)
 
 
 def download_data(output_directory: PathLike) -> dict[str, Any]:
@@ -275,37 +205,6 @@ def set_polygon_marker(data: geopandas.GeoDataFrame) -> geopandas.GeoDataFrame:
 	# data["geometry"] = data.to_crs(epsg=27700).centroid.to_crs(epsg=4326)
 
 	return data
-
-
-# TODO: camel to snake for default value
-def make_polygon_points(
-		data: geopandas.GeoDataFrame,
-		output_directory: PathLike,
-		chunk_id: str | int,
-		variable_prefix: str = PROTECTED_WRECK_SITES.variable_prefix,
-		filename_prefix: str = PROTECTED_WRECK_SITES.filename_prefix,
-		) -> None:
-	"""
-	Convert polygons into representative points and write to javascript.
-	Split the data into chunks for the given latitudes and longitudes.
-
-	:param data:
-	:param output_directory: Directory to write files to.
-	:param chunk_id:
-	:param variable_prefix: String to prefix javascript variables with.
-	:param filename_prefix: String to prefix javascript filenames with.
-	"""
-
-	data = set_polygon_marker(data)
-
-	write_data(
-			data,
-			output_directory=output_directory,
-			chunk_id=chunk_id,
-			variable_prefix=variable_prefix,
-			filename_prefix=filename_prefix,
-			include_polygon=True,
-			)
 
 
 def write_data(
@@ -407,10 +306,22 @@ def _get_list_entry_name(list_entry: dict[str, Any]) -> str:
 	return list_entry[actual_keys.pop()]
 
 
-def chunk_data_v2(
-		data: list[tuple[geopandas.GeoDataFrame, Dataset, bool]],
+def _prepare_dataset(
+		dataset: Dataset,
 		lat_range: Iterable[float],
 		lng_range: Iterable[float],
+		data_directory: PathPlus,
+		) -> Chunks:
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.geojson_filename)
+	return get_data_chunks(gdf, lat_range, lng_range)
+
+
+# TODO: optional tqdm progress bar
+def chunk_data(
+		data: list[tuple[Dataset, bool]],
+		lat_range: Iterable[float],
+		lng_range: Iterable[float],
+		data_directory: PathLike,
 		output_directory: PathLike,
 		) -> None:
 	"""
@@ -419,16 +330,20 @@ def chunk_data_v2(
 	:param data:
 	:param lat_range: Range of latitude values (southern edge of square)
 	:param lng_range: Range of longitude values (western edge of square)
+	:param data_directory: Directory containing the input GeoJSON files.
 	:param output_directory: Directory to write files to.
 	"""
 
 	lat_range = list(lat_range)
 	lng_range = list(lng_range)
 
-	datasets = [(get_data_chunks(gdf, lat_range, lng_range), dataset, polygon) for (gdf, dataset, polygon) in data]
-
+	data_dir = PathPlus(data_directory)
 	output_dir = PathPlus(output_directory)
 	output_dir.maybe_make(parents=True)
+
+	datasets: list[tuple[Chunks, Dataset, bool]] = []
+	for (dataset, polygon) in data:
+		datasets.append((_prepare_dataset(dataset, lat_range, lng_range, data_dir), dataset, polygon))
 
 	id_lookup: dict[float, dict[float, int]] = defaultdict(dict)
 

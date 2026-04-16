@@ -56,6 +56,7 @@ class Dataset(NamedTuple):
 	filename_prefix: str
 	name: str
 	icon: "LayerIcon"
+	geojson_filename: str
 	promise_function: str | None = None
 
 	@property
@@ -68,77 +69,86 @@ class Dataset(NamedTuple):
 
 
 BATTLEFIELDS = Dataset(
-		"battlefields",
-		"battlefields",
-		"Battlefields",
-		SVGLayerIcon(filename="static/img/Challenge_Icon.svg", marker_colour="orange"),
-		"loadBattlefieldMarkers",
+		variable_prefix="battlefields",
+		filename_prefix="battlefields",
+		name="Battlefields",
+		icon=SVGLayerIcon(filename="static/img/Challenge_Icon.svg", marker_colour="orange"),
+		geojson_filename="Battlefields.geojson",
+		promise_function="loadBattlefieldMarkers",
 		)
 
 # Alternative BPN/immunity icon   # fa-sign-hanging
 BUILDING_PRESERVATION_NOTICES = Dataset(
-		"buildingPreservationNotices",
-		"building_preservation_notices",
-		"Building Preservation Notices",
-		FontawesomeLayerIcon(icon="building-flag", marker_colour="teal"),
-		"loadBPNMarkers",
+		variable_prefix="buildingPreservationNotices",
+		filename_prefix="building_preservation_notices",
+		name="Building Preservation Notices",
+		icon=FontawesomeLayerIcon(icon="building-flag", marker_colour="teal"),
+		geojson_filename="Building Preservation Notice points.geojson",
+		promise_function="loadBPNMarkers",
 		)
 
 CERTIFICATES_OF_IMMUNITY = Dataset(
-		"certificatesOfImmunity",
-		"certificates_of_immunity",
-		"Certificates of Immunity",
-		FontawesomeLayerIcon(icon="scroll", marker_colour="tan"),
-		"loadImmunityMarkers",
+		variable_prefix="certificatesOfImmunity",
+		filename_prefix="certificates_of_immunity",
+		name="Certificates of Immunity",
+		icon=FontawesomeLayerIcon(icon="scroll", marker_colour="tan"),
+		geojson_filename="Certificate of Immunity points.geojson",
+		promise_function="loadImmunityMarkers",
 		)
 
 # TODO: adjust shade back to old blue now using SVG
 LISTED_BUILDINGS = Dataset(
-		"listedBuildings",
-		"listed_buildings",
-		"Listed Buildings",
-		FontawesomeLayerIcon(icon="building", marker_colour="blue"),
-		None,
+		variable_prefix="listedBuildings",
+		filename_prefix="listed_buildings",
+		name="Listed Buildings",
+		icon=FontawesomeLayerIcon(icon="building", marker_colour="blue"),
+		geojson_filename="Listed Building points.geojson",
+		promise_function=None,
 		)
 
 PARKS_AND_GARDENS = Dataset(
-		"parksGardens",
-		"parks_and_gardens",
-		"Parks and Gardens",
-		FontawesomeLayerIcon(icon="tree", marker_colour="green"),
-		"loadParksGardensMarkers",
+		variable_prefix="parksGardens",
+		filename_prefix="parks_and_gardens",
+		name="Parks and Gardens",
+		icon=FontawesomeLayerIcon(icon="tree", marker_colour="green"),
+		geojson_filename="Parks and Gardens.geojson",
+		promise_function="loadParksGardensMarkers",
 		)
 
 PROTECTED_WRECK_SITES = Dataset(
-		"protectedWreckSites",
-		"protected_wreck_sites",
-		"Protected Wreck Sites",
-		FontawesomeLayerIcon(icon="anchor", marker_colour="purple"),
-		"loadShipwreckMarkers",
+		variable_prefix="protectedWreckSites",
+		filename_prefix="protected_wreck_sites",
+		name="Protected Wreck Sites",
+		icon=FontawesomeLayerIcon(icon="anchor", marker_colour="purple"),
+		geojson_filename="Protected Wreck Sites.geojson",
+		promise_function="loadShipwreckMarkers",
 		)
 
 SCHEDULED_MONUMENTS = Dataset(
-		"scheduledMonuments",
-		"scheduled_monuments",
-		"Scheduled Monuments",
-		FontawesomeLayerIcon(icon="monument", marker_colour="red"),
-		"loadScheduledMonumentMarkers",
+		variable_prefix="scheduledMonuments",
+		filename_prefix="scheduled_monuments",
+		name="Scheduled Monuments",
+		icon=FontawesomeLayerIcon(icon="monument", marker_colour="red"),
+		geojson_filename="Scheduled Monuments.geojson",
+		promise_function="loadScheduledMonumentMarkers",
 		)
 
 WORLD_HERITAGE_SITES = Dataset(
-		"worldHeritageSites",
-		"world_heritage_sites",
-		"World Heritage Sites",
-		FontawesomeLayerIcon(icon="certificate", marker_colour="grey"),
-		"loadWorldHeritageMarkers",
+		variable_prefix="worldHeritageSites",
+		filename_prefix="world_heritage_sites",
+		name="World Heritage Sites",
+		icon=FontawesomeLayerIcon(icon="certificate", marker_colour="grey"),
+		geojson_filename="World Heritage Sites.geojson",
+		promise_function="loadWorldHeritageMarkers",
 		)
 
 DE_DESIGNATED = Dataset(
-		"deDesignated",
-		"de_designated",
-		"De-designated",
-		FontawesomeLayerIcon(icon="ban", marker_colour="black"),
-		"loadDeDesignatedMarkers",
+		variable_prefix="deDesignated",
+		filename_prefix="de_designated",
+		name="De-designated",
+		icon=FontawesomeLayerIcon(icon="ban", marker_colour="black"),
+		geojson_filename="De-designated sites.geojson",
+		promise_function="loadDeDesignatedMarkers",
 		)
 
 LAYERS = (

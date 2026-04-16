@@ -41,7 +41,6 @@ from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
 # this package
 from nhle_map import constants
-from nhle_map.data import small_dataset_chunk_ids
 from nhle_map.nls_basemaps import os10k, os1250, os2500
 
 __all__ = ["LayerControl", "MarkerLoadingJS", "make_map"]
@@ -76,16 +75,15 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 	Adds javascript logic for marker loading and display.
 
 	:param max_zoom: The map's maximum zoom level.
-	:param small_dataset_chunk_ids: Mapping of dataset identifiers to chunk IDs for small datasets (where chunking is unnecessary).
+	:param layers: Data about layers to add to the map.
 	"""
 
 	# TODO: get max_zoom from the map itself?
 
-	def __init__(self, max_zoom: int, small_dataset_chunk_ids: dict[str, int]):
+	def __init__(self, max_zoom: int, layers: list[constants.Dataset]):
 		super().__init__()
 		self.max_zoom = max_zoom
-		self.small_dataset_chunk_ids = small_dataset_chunk_ids
-		self._layers = constants.LAYERS
+		self._layers = layers
 
 	default_js = [
 			(
@@ -219,7 +217,7 @@ def make_map() -> folium.Map:
 				layer.filename_prefix,
 				)
 
-	MarkerLoadingJS(max_zoom=MAX_ZOOM, small_dataset_chunk_ids=small_dataset_chunk_ids).add_to(m)
+	MarkerLoadingJS(max_zoom=MAX_ZOOM, layers=constants.LAYERS).add_to(m)
 	ZoomStateJS(setup_basemap_state=True).add_to(m)
 	LocateControl().add_to(m)
 	AboutControl("aboutModal").add_to(m)

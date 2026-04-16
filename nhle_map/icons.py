@@ -29,7 +29,8 @@ Layer icons.
 # stdlib
 import abc
 import json
-from typing import TYPE_CHECKING, Any, Iterable
+from collections.abc import Iterable
+from typing import TYPE_CHECKING, Any
 
 # 3rd party
 import attrs
