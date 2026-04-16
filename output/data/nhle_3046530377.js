@@ -3825,7 +3825,7 @@ var listedBuildings3046530377 = [
 [53.9674781790534, -2.07389811842809, 1131669, "BOUNDARY STONE (AT NGR SD 9525 5233)", "II", "Mon, 02 Nov 1987 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1131669"],
 [53.9610236655869, -2.06059649767707, 1131670, "INGHEY BRIDGE", "II", "Thu, 24 Nov 1977 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1131670"],
 [53.9618620711851, -2.05532424009059, 1131671, "TUNNEL UNDER LEEDS AND LIVERPOOL CANAL", "II", "Mon, 02 Nov 1987 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1131671"],
-[53.9941991664933, -2.3023589261553, 1131676, "LANE SIDE FARMHOUSE", "II", "Fri, 20 Nov 1987 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1131676"],
+[53.9941919326176, -2.30228068221157, 1131676, "LANE SIDE FARMHOUSE", "II", "Fri, 20 Nov 1987 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1131676"],
 [53.9888504084759, -2.25152537460517, 1131694, "COW HILL FARMHOUSE", "II", "Fri, 20 Nov 1987 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1131694"],
 [53.9862545832737, -2.23841882851615, 1131695, "AULD HALL", "II", "Thu, 20 Feb 1958 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1131695"],
 [53.9847953479366, -2.24004216606903, 1131696, "THE STORES", "II", "Fri, 20 Nov 1987 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1131696"],
@@ -5215,7 +5215,7 @@ var listedBuildings3046530377 = [
 [53.3819780008675, -2.57312636484099, 1139391, "502, KNUTSFORD ROAD", "II", "Fri, 04 Apr 1975 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1139391"],
 [53.3871391373652, -2.57653358250716, 1139392, "THE OLD WARPS, IN VICTORIA PARK", "II", "Fri, 04 Apr 1975 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1139392"],
 [53.3814743487873, -2.56943646888098, 1139393, "562-568, KNUTSFORD ROAD", "II", "Fri, 04 Apr 1975 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1139393"],
-[53.3812027734366, -2.56606542121525, 1139394, "THE CHESIRE CHEESE PUBLIC HOUSE", "II", "Fri, 04 Apr 1975 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1139394"],
+[53.3812027734366, -2.56606542121525, 1139394, "Cheshire Cheese Public House", "II", "Fri, 04 Apr 1975 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1139394"],
 [53.3966837735311, -2.6022734668936, 1139395, "OFFICES OF WILLIAMS, TARR AND CO LTD", "II", "Fri, 04 Apr 1975 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1139395"],
 [53.3833392726832, -2.62250108337094, 1139396, "THE BLACK HORSE PUBLIC HOUSE", "II", "Fri, 04 Apr 1975 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1139396"],
 [53.3889470872661, -2.60705070881006, 1139397, "ROMAN CATHOLIC CHURCH OF THE SACRED HEART", "II", "Fri, 04 Apr 1975 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1139397"],
@@ -18421,8 +18421,8 @@ var scheduledMonuments3046530377 = [
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated3046530377 = [
 [53.3327804364058, -2.97890168364009, -1, "Standing cross in churchyard of St Barnabas, Bromborough, beside the porch", null, "Fri, 16 Mar 2018 10:54:05 GMT", null],
-[53.6333935508587, -2.15218541439472, -1, "100 Syke Road, Rochdale", null, "Mon, 06 Jun 2022 15:36:23 GMT", null],
 [53.3623867037504, -2.4362963318316, -1, "Lime Tree Cottage", null, "Mon, 24 Mar 2014 09:53:02 GMT", null],
+[53.6333935508587, -2.15218541439472, -1, "100 Syke Road, Rochdale", null, "Mon, 06 Jun 2022 15:36:23 GMT", null],
 [53.5782521779081, -2.08698773137435, 1003449, "Dee Mill engine and engine house, Shaw", null, "Thu, 10 Dec 2015 13:58:19 GMT", null],
 [53.9090520270813, -2.06319070400618, 1004071, "Dale End Mills (wheel, pit and ancillaries)", null, "Fri, 04 Mar 2016 14:07:26 GMT", null],
 [53.8100798969413, -2.2016213714093, 1005085, "Queen Street Mill engine", null, "Mon, 09 Mar 2015 12:10:09 GMT", null],

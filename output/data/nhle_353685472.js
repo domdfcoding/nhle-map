@@ -7578,7 +7578,7 @@ var listedBuildings353685472 = [
 [53.0749031067026, -0.946460932921616, 1374855, "EASTHORPE LODGE AND EASTHORPE COURT", "II", "Fri, 09 Feb 1973 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1374855"],
 [53.0762597096956, -0.946368137802542, 1374856, "31, EASTHORPE", "II", "Fri, 09 Feb 1973 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1374856"],
 [53.0761410248071, -0.946162048481712, 1374857, "37 Easthorpe", "II", "Fri, 09 Feb 1973 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1374857"],
-[53.9906895448624, -0.972274017673439, 1375643, "LAMBS COTTAGES", "II", "Fri, 10 Jul 1998 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1375643"],
+[53.9906895448624, -0.972274017673439, 1375643, "Lambs Cottages", "II", "Fri, 10 Jul 1998 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1375643"],
 [53.9849932233962, -0.44952580340314, 1375668, "SUNDERLANDWICK HOUSE", "II", "Wed, 15 Jul 1998 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1375668"],
 [53.9853167170289, -0.450215356674223, 1375669, "STABLES AT SUNDERLANDWICK HOUSE", "II", "Wed, 15 Jul 1998 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1375669"],
 [53.7393982590887, -0.332093844158348, 1375866, "CENTRAL DRY DOCK/ SAND SOUTHEND WHARF", "II", "Tue, 28 Jul 1998 00:00:00 GMT", "https://historicengland.org.uk/listing/the-list/list-entry/1375866"],

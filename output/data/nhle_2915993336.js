@@ -19452,8 +19452,8 @@ var scheduledMonuments2915993336 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated2915993336 = [
-[52.0823073012982, -0.450544304826931, -1, "34, Bedford Road, CAWNE CLOSE", null, "Tue, 09 Aug 2016 16:19:49 GMT", null],
 [52.2914589678177, -0.517726785230504, -1, "1 AND 2, SPRING LANE", null, "Thu, 27 Sep 2018 16:13:18 GMT", null],
+[52.0823073012982, -0.450544304826931, -1, "34, Bedford Road, CAWNE CLOSE", null, "Tue, 09 Aug 2016 16:19:49 GMT", null],
 [52.1958223589726, -0.603712440578364, 1003067, "Harrold Bridge", null, "Wed, 13 May 2015 16:37:15 GMT", null],
 [52.1364661657608, -0.467418881811598, 1004674, "Remains of the Old George Inn", null, "Thu, 20 Mar 2025 16:40:58 GMT", null],
 [52.9851145886013, -0.0187151732882947, 1004968, "Hospital Footbridge ", null, "Tue, 24 Jul 2012 14:17:20 GMT", null],
