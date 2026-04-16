@@ -92,13 +92,98 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo erat sit amet tortor vehicula, nec euismod arcu egestas. Proin neque augue, euismod vel fringilla et, venenatis eu diam.
+                                Map showing Listed Buildings, Scheduled Monuments, Parks & Gardens, and more from the <a href="https://historicengland.org.uk/listing/the-list/">National Heritage List for England</a>.
                             </p>
 
                             <p>
-                                Etiam mollis felis purus, a efficitur nibh vulputate id. Suspendisse potenti. Etiam odio libero, feugiat vel nulla vitae, eleifend dignissim lectus. Donec rutrum lacus sed consequat consectetur. Curabitur tortor orci, suscipit sit amet risus a, rutrum suscipit odio. Duis vitae libero leo. Curabitur vel turpis in ante scelerisque consequat non nec dolor. Cras suscipit molestie mauris id pellentesque. Nam iaculis pretium ante vel lacinia. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tempus faucibus libero. Suspendisse et sagittis dolor, fringilla ullamcorper mi. Praesent in mattis leo. Maecenas vitae sem ac massa mollis mattis at sit amet justo.
+                                Powered by <code>nhle-map</code>, available on GitHub at <a href="https://github.com/domdfcoding/nhle-map"><code>github.com/domdfcoding/nhle-map</code></a>
                             </p>
+
+                            <p>
+                                Data downloaded from the <a href="https://opendata-historicengland.hub.arcgis.com/">Historic England Open Data Hub</a>.
+                                <br>
+                                Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
+                                <br>
+                                © Historic England 2026. Contains Ordnance Survey data © Crown copyright and database right 2026.
+                            </p>
+
+                            <h3>Legend</h3>
+
+                            <table class="table table-striped legend">
+                                <thead>
+                                </thead>
+                                <tbody>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: orange"
+                                                scope="row"><img src='static/img/Challenge_Icon.svg' width='20px'></th>
+                                            <td>Battlefields</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: teal"
+                                                scope="row"><i class='fa-solid fa-building-flag'></i></th>
+                                            <td>Building Preservation Notices</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: tan"
+                                                scope="row"><i class='fa-solid fa-scroll'></i></th>
+                                            <td>Certificates of Immunity</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: blue"
+                                                scope="row"><i class='fa-solid fa-building'></i></th>
+                                            <td>Listed Buildings</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: green"
+                                                scope="row"><i class='fa-solid fa-tree'></i></th>
+                                            <td>Parks and Gardens</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: purple"
+                                                scope="row"><i class='fa-solid fa-anchor'></i></th>
+                                            <td>Protected Wreck Sites</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: red"
+                                                scope="row"><i class='fa-solid fa-monument'></i></th>
+                                            <td>Scheduled Monuments</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: grey"
+                                                scope="row"><i class='fa-solid fa-certificate'></i></th>
+                                            <td>World Heritage Sites</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: black"
+                                                scope="row"><i class='fa-solid fa-ban'></i></th>
+                                            <td>De-designated</td>
+                                        </tr>
+
+                                </tbody>
+                            </table>
+
+                            <small class="text-muted">Generated on Thu, 16 Apr 2026 18:35:49 GMT</small>
+
                         </div>
                     </div>
                 </div>
@@ -128,6 +213,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b5/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
     <script src="static/js/icons.js"></script>
     <script src="static/js/markers.js"></script>
@@ -141,10 +227,10 @@
             <script>
 
             var mapOptions = {
-  "zoom": 13,
+  "zoom": 11,
   "zoomControl": true,
   "preferCanvas": false,
-  "minZoom": 10,
+  "minZoom": 9,
   "maxZoom": 20,
   "wheelPxPerZoomLevel": 80,
 };
@@ -236,7 +322,7 @@
             );
 
 
-            var marker_cluster_nhle = L.markerClusterGroup(
+            var marker_cluster_nhle = new L.MarkerClusterGroup(
                 {
   "chunkedLoading": true,
 }
@@ -248,57 +334,75 @@
 
 
             var marker_cluster_battlefields = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_building_preservation_notices = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_certificates_of_immunity = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_listed_buildings = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_parks_and_gardens = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_protected_wreck_sites = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_scheduled_monuments = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_world_heritage_sites = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             var marker_cluster_de_designated = new MarkerGroup(
+				marker_cluster_nhle,
                 {
 }
             );
+
 
 
             const MAX_ZOOM = 20;
@@ -321,13 +425,18 @@
 			map.addLayer(marker_cluster_world_heritage_sites);
 			map.addLayer(marker_cluster_de_designated);
 
+
             var loaded_ids = [];
 
-			serial([
-				function () {return loadShipwreckMarkers(3115455186)},
+			L.Util.serial([
+				function () {return loadBattlefieldMarkers(2868999231)},
 				function () {return loadBPNMarkers(1823735210)},
 				function () {return loadImmunityMarkers(400980587)},
 				function () {return loadParksGardensMarkers(2165861770)},
+				function () {return loadShipwreckMarkers(3115455186)},
+				function () {return loadScheduledMonumentMarkers(3817174073)},
+				function () {return loadWorldHeritageMarkers(3395720056)},
+				function () {return loadDeDesignatedMarkers(4228471844)},
 				load_new_markers,
 			]).then(function (result){
 				console.log("All markers loaded")
