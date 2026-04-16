@@ -43,3 +43,10 @@
 }
 
 /* === End styles for custom layer control when not showing a minimap === */
+
+
+.modal table.legend tr th {
+	color: white;
+	width: 1%;
+	white-space: nowrap;
+}

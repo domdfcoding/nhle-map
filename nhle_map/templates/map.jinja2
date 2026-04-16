@@ -69,13 +69,40 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            {# TODO: render from markdown file #}
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo erat sit amet tortor vehicula, nec euismod arcu egestas. Proin neque augue, euismod vel fringilla et, venenatis eu diam.
+                                Map showing Listed Buildings, Scheduled Monuments, Parks & Gardens, and more from the <a href="https://historicengland.org.uk/listing/the-list/">National Heritage List for England</a>.
                             </p>
 
                             <p>
-                                Etiam mollis felis purus, a efficitur nibh vulputate id. Suspendisse potenti. Etiam odio libero, feugiat vel nulla vitae, eleifend dignissim lectus. Donec rutrum lacus sed consequat consectetur. Curabitur tortor orci, suscipit sit amet risus a, rutrum suscipit odio. Duis vitae libero leo. Curabitur vel turpis in ante scelerisque consequat non nec dolor. Cras suscipit molestie mauris id pellentesque. Nam iaculis pretium ante vel lacinia. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tempus faucibus libero. Suspendisse et sagittis dolor, fringilla ullamcorper mi. Praesent in mattis leo. Maecenas vitae sem ac massa mollis mattis at sit amet justo.
+                                Powered by <code>nhle-map</code>, available on GitHub at <a href="https://github.com/domdfcoding/nhle-map"><code>github.com/domdfcoding/nhle-map</code></a>
                             </p>
+
+                            <p>
+                                Data downloaded from the <a href="https://opendata-historicengland.hub.arcgis.com/">Historic England Open Data Hub</a>.
+                                <br>
+                                Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
+                                <br>
+                                © Historic England 2026. Contains Ordnance Survey data © Crown copyright and database right 2026.
+                            </p>
+
+                            <h3>Legend</h3>
+
+                            <table class="table table-striped legend">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                    {% for layer in layers %}
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: {{ layer.icon.marker_colour }}"
+                                                scope="row">{{ layer.icon.layercontrol_icon }}</th>
+                                            <td>{{ layer.name }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>

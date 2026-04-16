@@ -31,6 +31,7 @@ from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
 from consolekit.options import auto_default_option
 
 # this package
+from nhle_map import constants
 from nhle_map._data_prep import (
 		_prepare_battlefields_data,
 		_prepare_building_preservation_notices_data,
@@ -131,6 +132,7 @@ def make_map(output_directory: str = "output") -> None:
 	map_html = render_template(
 			"map.jinja2",
 			**render_figure(root)._asdict(),
+			layers=constants.LAYERS,
 			)
 	output_dir.joinpath("index.html").write_clean(map_html)
 
