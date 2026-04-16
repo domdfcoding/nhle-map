@@ -27,6 +27,7 @@ Map showing places on the National Heritage List for England.
 #
 
 # 3rd party
+import datetime
 from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
 from consolekit.options import auto_default_option
 
@@ -42,6 +43,7 @@ from nhle_map._data_prep import (
 		_prepare_scheduled_monuments_data,
 		_prepare_world_heritage_sites_data
 		)
+from nhle_map.data import DATE_FORMAT
 
 __all__ = ["main", "make_map", "prepare_data"]
 
@@ -133,6 +135,7 @@ def make_map(output_directory: str = "output") -> None:
 			"map.jinja2",
 			**render_figure(root)._asdict(),
 			layers=constants.LAYERS,
+			generated_date=datetime.datetime.now(tz=datetime.timezone.utc).strftime(DATE_FORMAT)
 			)
 	output_dir.joinpath("index.html").write_clean(map_html)
 
