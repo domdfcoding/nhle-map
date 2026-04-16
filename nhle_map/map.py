@@ -94,7 +94,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 					),
 			("icons_js", "static/js/icons.js"),
 			("nhle_markers_js", "static/js/markers.js"),
-			("listed_buildings_id_lookup", "data/listed_buildings_id_lookup.js"),
+			("nhle_id_lookup", "data/nhle_id_lookup.js"),
 			]
 
 	default_css = [

@@ -29,7 +29,7 @@ function load_new_markers() {
 		loadMarkers(
 			chunkIDs,
 			'listedBuildings',
-			'listed_buildings',
+			'nhle',
 			listedBuildingsIcon,
 			marker_cluster_listed_buildings,
 		);
@@ -104,7 +104,7 @@ function addMarkers(points, markerList, icon) {
 }
 
 function lookup_id(latitude, longitide) {
-	var lat_lookup = listedBuildingsIDLookup[latitude];
+	var lat_lookup = nhleIDLookup[latitude];
 	if (lat_lookup === undefined) {
 		return null;
 	}

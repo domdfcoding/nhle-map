@@ -68,7 +68,7 @@ def prepare_data(download: bool = False) -> None:
 			_prepare_scheduled_monuments_data,
 			_prepare_world_heritage_sites_data
 			)
-	from nhle_map.data import chunk_data, chunk_data_v2, download_data
+	from nhle_map.data import chunk_data_v2, download_data
 
 	data_directory = PathPlus("data")
 
@@ -78,14 +78,14 @@ def prepare_data(download: bool = False) -> None:
 	output_dir = PathPlus("output")
 	output_dir.maybe_make()
 
-	listed_buildings_gdf = pyogrio.read_dataframe(data_directory / "Listed Building points.geojson")
+	# listed_buildings_gdf = pyogrio.read_dataframe(data_directory / "Listed Building points.geojson")
 
-	chunk_data(
-			listed_buildings_gdf,
-			range(49, 55),
-			range(-7, 3),
-			output_dir / "data",
-			)
+	# chunk_data(
+	# 		listed_buildings_gdf,
+	# 		range(49, 55),
+	# 		range(-7, 3),
+	# 		output_dir / "data",
+	# 		)
 
 	for function in [
 			_prepare_protected_wreck_sites_data,
