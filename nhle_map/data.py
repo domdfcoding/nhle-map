@@ -54,16 +54,20 @@ from nhle_map.constants import (
 		PARKS_AND_GARDENS,
 		PROTECTED_WRECK_SITES,
 		SCHEDULED_MONUMENTS,
-		WORLD_HERITAGE_SITES
+		WORLD_HERITAGE_SITES,
+		Dataset
 		)
 from nhle_map.utils import get_id
 
 __all__ = [
 		"chunk_data",
+		"chunk_data_v2",
 		"download_data",
 		"get_chunk_js",
+		"get_data_chunks",
 		"get_list_date",
 		"make_polygon_points",
+		"set_polygon_marker",
 		"small_dataset_chunk_ids",
 		"write_data",
 		]
@@ -130,6 +134,7 @@ def get_chunk_js(
 
 	return str(output)
 
+
 def get_data_chunks(
 		data: geopandas.GeoDataFrame,
 		lat_range: Iterable[float],
@@ -153,7 +158,6 @@ def get_data_chunks(
 				chunks[latitude][longitude] = subset
 
 	return chunks
-
 
 
 # TODO: optional tqdm progress bar
@@ -253,6 +257,26 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 	return meta
 
 
+def set_polygon_marker(data: geopandas.GeoDataFrame):
+	"""
+	Sets the marker position for the given data's polygon.
+
+	Saves the actual polygon in the ``polygon`` column.
+
+	:param data:
+	"""
+
+	data["polygon"] = data["geometry"]
+
+	# TODO: get point in centre of largest polygon if multiple (and centre of sole poly otherwise)
+	# data["geometry"] = data["geometry"].representative_point()
+	data["geometry"] = data.to_crs(epsg=27700).representative_point().to_crs(epsg=4326)
+	# data["geometry"] = data["geometry"].centroid
+	# data["geometry"] = data.to_crs(epsg=27700).centroid.to_crs(epsg=4326)
+
+	return data
+
+
 # TODO: camel to snake for default value
 def make_polygon_points(
 		data: geopandas.GeoDataFrame,
@@ -272,13 +296,7 @@ def make_polygon_points(
 	:param filename_prefix: String to prefix javascript filenames with.
 	"""
 
-	data["polygon"] = data["geometry"]
-
-	# TODO: get point in centre of largest polygon if multiple (and centre of sole poly otherwise)
-	# data["geometry"] = data["geometry"].representative_point()
-	data["geometry"] = data.to_crs(epsg=27700).representative_point().to_crs(epsg=4326)
-	# data["geometry"] = data["geometry"].centroid
-	# data["geometry"] = data.to_crs(epsg=27700).centroid.to_crs(epsg=4326)
+	data = set_polygon_marker(data)
 
 	write_data(
 			data,
@@ -387,3 +405,67 @@ def _get_list_entry_name(list_entry: dict[str, Any]) -> str:
 	assert len(actual_keys) == 1  # if not need to take first out of possible_keys
 
 	return list_entry[actual_keys.pop()]
+
+
+def chunk_data_v2(
+		data: list[tuple[geopandas.GeoDataFrame, Dataset, bool]],
+		lat_range: Iterable[float],
+		lng_range: Iterable[float],
+		output_directory: PathLike,
+		) -> None:
+	"""
+	Split the data into chunks for the given latitudes and longitudes.
+
+	:param data:
+	:param lat_range: Range of latitude values (southern edge of square)
+	:param lng_range: Range of longitude values (western edge of square)
+	:param output_directory: Directory to write files to.
+	"""
+
+	lat_range = list(lat_range)
+	lng_range = list(lng_range)
+
+	datasets = [(get_data_chunks(gdf, lat_range, lng_range), dataset, polygon) for (gdf, dataset, polygon) in data]
+
+	output_dir = PathPlus(output_directory)
+	output_dir.maybe_make(parents=True)
+
+	id_lookup: dict[float, dict[float, int]] = defaultdict(dict)
+
+	for latitude in lat_range:
+		for longitude in lng_range:
+			chunk_id = get_id()
+			chunk_buffer = []
+			data_for_chunk: bool = False
+
+			for chunks, dataset, polygon in datasets:
+				subset = chunks.get(latitude, {}).get(longitude)
+
+				if subset is None:
+					chunk_js = get_chunk_js(
+							[],
+							chunk_id=chunk_id,
+							variable_prefix=dataset.variable_prefix,
+							)
+				else:
+					data_for_chunk = True
+					subset = subset.copy()
+					if polygon:
+						subset = set_polygon_marker(subset)
+
+					chunk_js = get_chunk_js(
+							subset.to_dict("records"),
+							chunk_id=chunk_id,
+							variable_prefix=dataset.variable_prefix,
+							include_polygon=polygon,
+							)
+
+				chunk_buffer.append(chunk_js)
+
+			if data_for_chunk:
+				id_lookup[latitude][longitude] = chunk_id
+
+				output_dir.joinpath(f"nhle_{chunk_id}.js").write_lines(chunk_buffer)
+
+	id_lookup_js = f"nhleIDLookup = {json.dumps(id_lookup, indent=4)}"
+	output_dir.joinpath(f"nhle_id_lookup.js").write_clean(id_lookup_js)
