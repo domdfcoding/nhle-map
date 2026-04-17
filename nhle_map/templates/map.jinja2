@@ -97,13 +97,31 @@
                                             <th class="text-center"
                                                 style="background-color: {{ layer.icon.marker_colour }}"
                                                 scope="row">{{ layer.icon.layercontrol_icon }}</th>
-                                            <td>{{ layer.name }}</td>
+                                            <td class="layer-name">{{ layer.name }}</td>
+                                            <td>
+                                                {% set description = layers_data[layer.geojson_filename.replace(".geojson", '')]["description"].replace("•", "<br>•").replace("¬", '') -%}
+                                                {% if description -%}
+                                                    <div class="container description-container">
+                                                        <p class="collapse description-collapse"
+                                                           id="{{ layer.variable_prefix }}Collapse"
+                                                           aria-expanded="false">{{ description }}</p>
+                                                        <div class="text-end w-100">
+                                                            <a role="button"
+                                                               class="collapsed"
+                                                               data-bs-toggle="collapse"
+                                                               href="#{{ layer.variable_prefix }}Collapse"
+                                                               aria-expanded="false"
+                                                               aria-controls="{{ layer.variable_prefix }}Collapse"></a>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>
 
-                            <small class="text-muted">Generated on {{ generated_date }}</small>
+                            <small class="text-muted">Generated on {{ generated_date }}. Data last updated {{ most_recent_modification }}</small>
 
                         </div>
                     </div>

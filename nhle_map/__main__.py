@@ -86,6 +86,17 @@ def prepare_data(download: bool = False) -> None:
 			output_directory=output_dir / "data",
 			)
 
+	meta_json = data_directory.joinpath("meta.json").load_json()
+	layers_data = {}
+	for layer in meta_json["layers"]:
+		layers_data[layer["name"]] = {
+				"description": layer["description"],
+				"copyrightText": layer["copyrightText"],
+				"dataLastEditDate": layer["editingInfo"]["dataLastEditDate"],
+				}
+
+	output_dir.joinpath("data", "meta.json").dump_json(layers_data, indent=2)
+
 
 @auto_default_option("-O", "--output-dir", "output_directory")
 @main.command()
@@ -120,10 +131,19 @@ def make_map(output_directory: str = "output") -> None:
 	m = make_map()
 	root: branca.element.Figure = m.get_root()  # type: ignore[assignment]
 
+	layers_data = output_dir.joinpath("data", "meta.json").load_json()
+	layer_mod_times = [v["dataLastEditDate"] for k, v in layers_data.items()]
+	most_recent_modification = datetime.datetime.fromtimestamp(
+			max(layer_mod_times) / 1000,
+			tz=datetime.timezone.utc,
+			).strftime(DATE_FORMAT)
+
 	map_html = render_template(
 			"map.jinja2",
 			**render_figure(root)._asdict(),
 			layers=constants.LAYERS,
+			layers_data=layers_data,
+			most_recent_modification=most_recent_modification,
 			generated_date=datetime.datetime.now(tz=datetime.timezone.utc).strftime(DATE_FORMAT),
 			)
 	output_dir.joinpath("index.html").write_clean(map_html)
