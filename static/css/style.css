@@ -47,8 +47,34 @@
 
 .modal table.legend tr th {
 	color: white;
-
-	/* width: fit-content; */
 	width: 1%;
 	white-space: nowrap;
+}
+
+.modal table.legend tr td.layer-name, .modal table.legend tr td.expand-btn {
+	width: fit-content;
+	white-space: nowrap;
+}
+
+
+.description-container .description-collapse.collapse:not(.show) {
+	display: block;
+	height: 1.5rem;
+	overflow: hidden;
+}
+
+.description-container .description-collapse.collapsing {
+	height: 1.5rem;
+}
+
+a.description-btn.collapsed::after {
+	content: "+ More";
+}
+
+a.description-btn:not(.collapsed)::after {
+	content: "− Less";
+}
+
+.description-container p {
+	margin-bottom: unset;
 }
