@@ -51,7 +51,7 @@
 	white-space: nowrap;
 }
 
-.modal table.legend tr td.layer-name {
+.modal table.legend tr td.layer-name, .modal table.legend tr td.expand-btn {
 	width: fit-content;
 	white-space: nowrap;
 }
@@ -67,12 +67,12 @@
 	height: 1.5rem;
 }
 
-.description-container a.collapsed::after {
-	content: "+ Show More";
+a.description-btn.collapsed::after {
+	content: "+ More";
 }
 
-.description-container a:not(.collapsed)::after {
-	content: "- Show Less";
+a.description-btn:not(.collapsed)::after {
+	content: "− Less";
 }
 
 .description-container p {

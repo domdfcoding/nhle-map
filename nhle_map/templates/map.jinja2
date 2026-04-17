@@ -86,9 +86,9 @@
                                 © Historic England 2026. Contains Ordnance Survey data © Crown copyright and database right 2026.
                             </p>
 
-                            <h3>Legend</h3>
+                            <h3 class="fs-6">Legend</h3>
 
-                            <table class="table table-striped legend">
+                            <table class="table table-striped legend" id="legendTable">
                                 <thead>
                                 </thead>
                                 <tbody>
@@ -104,15 +104,20 @@
                                                     <div class="container description-container">
                                                         <p class="collapse description-collapse"
                                                            id="{{ layer.variable_prefix }}Collapse"
+                                                           data-bs-parent="#legendTable"
                                                            aria-expanded="false">{{ description }}</p>
-                                                        <div class="text-end w-100">
-                                                            <a role="button"
-                                                               class="collapsed"
-                                                               data-bs-toggle="collapse"
-                                                               href="#{{ layer.variable_prefix }}Collapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="{{ layer.variable_prefix }}Collapse"></a>
-                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </td>
+                                            <td class="expand-btn">
+                                                {% if description -%}
+                                                    <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#{{ layer.variable_prefix }}Collapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="{{ layer.variable_prefix }}Collapse"></a>
                                                     </div>
                                                 {% endif %}
                                             </td>
