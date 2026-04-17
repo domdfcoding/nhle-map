@@ -120,8 +120,7 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 					var layerMarkerList = [];
 					addMarkers(window[var_name], layerMarkerList, layer_data.icon);
 					markerList.push(...layerMarkerList);
-					// TODO: make proper API to avoid poking around in the MarkerGroup guts
-					layer_data.layer._markers.push(...layerMarkerList);
+					layer_data.layer.addLayers(layerMarkerList, false);
 				});
 				addedChunkIDs.push(id);
 			}
