@@ -26,6 +26,9 @@ Map generation.
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+# stdlib
+from folium_map_search import MapSearchControl, MapSearchProvider
+
 # 3rd party
 import branca.element
 import folium
@@ -37,6 +40,7 @@ from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
 from folium_about_button import AboutControl
 from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
+from folium_map_search import MapSearchControl, MapSearchProvider
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
 # this package
@@ -221,6 +225,15 @@ def make_map() -> folium.Map:
 	ZoomStateJS(setup_basemap_state=True).add_to(m)
 	LocateControl().add_to(m)
 	AboutControl("aboutModal").add_to(m)
+	MapSearchControl(
+			provider=MapSearchProvider(layer=mcg, map=m, viewbox="-7,49,3,55", feature_type="settlement"),
+			auto_complete_delay=1000,  # Effectively turns off autocomplete to comply with Nominatum TOS
+			show_marker=False,
+			max_suggestions=15,
+			search_label="Enter town or list entry name",
+			disable_enter_search=True,  # Otherwise markers don't appear 🤷
+			close_on_submit=True,
+			).add_to(m)
 
 	layer_control = add_to(LayerControl(), m, "basemap")
 	BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)

@@ -41,6 +41,7 @@
 					}
 				</style>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/control.layers.minimap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/control.layers.minimap.min.css"/>
 
@@ -360,7 +361,7 @@ Please note: this dataset represents Historic England’s interpretation of the 
                                 </tbody>
                             </table>
 
-                            <small class="text-muted">Generated on Fri, 17 Apr 2026 10:30:34 GMT. Data last updated Fri, 17 Apr 2026 05:26:47 GMT</small>
+                            <small class="text-muted">Generated on Sat, 18 Apr 2026 15:58:24 GMT. Data last updated Fri, 17 Apr 2026 05:26:47 GMT</small>
 
                         </div>
                     </div>
@@ -391,7 +392,7 @@ Please note: this dataset represents Historic England’s interpretation of the 
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b5/domdf_folium_tools/domdf-folium-tools.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b7/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
     <script src="static/js/icons.js"></script>
     <script src="static/js/markers.js"></script>
@@ -399,6 +400,8 @@ Please note: this dataset represents Historic England’s interpretation of the 
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b1/folium_about_button/about_button.min.js"></script>
+    <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b1/folium_map_search/folium-map-search.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/L.Control.Layers.Minimap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/L.Control.Layers.Minimap.Toggle.min.js"></script>
     <script src="static/js/custom_layer_control.js"></script>
@@ -630,6 +633,22 @@ Please note: this dataset represents Historic England’s interpretation of the 
 				var about_control_2ed0ad7be0cf1415b0b5168e19918c13 = new AboutControl(
 					{"modalID": "aboutModal"}
 				).addTo(map);
+
+
+				var map_search_control_8d8d416d2107832b29e290fafda86df9 = L.MapSearchControl({
+					provider: new L.MapSearchProvider({
+				map: map,
+				layer: marker_cluster_nhle,
+				...{"featureType": "settlement", "viewbox": "-7,49,3,55"},
+				}),
+					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "searchLabel": "Enter town or list entry name", "showMarker": false},
+					}
+				)
+
+				// Close search box when map clicked.
+				map.on('click', map_search_control_8d8d416d2107832b29e290fafda86df9.close, map_search_control_8d8d416d2107832b29e290fafda86df9);
+
+				map_search_control_8d8d416d2107832b29e290fafda86df9.addTo(map);
 
 
             var layer_control_basemap_layers = {
