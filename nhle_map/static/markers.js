@@ -221,10 +221,10 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 }
 
 MarkerGroup = L.MarkerGroup.extend({
-	addLayers: function(layers) {
+	addLayers: function(layers, addToCluster = true) {
 		this._markers.push(...layers);
 
-		if (this._map) {
+		if (this._map && addToCluster) {
 			// Don't add if the layer isn't visible
 			marker_cluster_nhle.addLayers(layers);
 		} else {
