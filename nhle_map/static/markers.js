@@ -118,8 +118,7 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 					console.log('Accessing JS variable', var_name);
 					var layerMarkerList = [];
 					addMarkers(window[var_name], layerMarkerList, layer_data.icon);
-					markerList.push(...layerMarkerList);
-					layer_data.layer.addLayers(layerMarkerList, false);
+					markerList.push(...layer_data.layer.internLayers(layerMarkerList))
 				});
 				addedChunkIDs.push(id);
 			}
@@ -224,15 +223,26 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 }
 
 MarkerGroup = L.MarkerGroup.extend({
-	addLayers: function(layers, addToCluster = true) {
+	/* Like addLayers, adds to the internal list of markers but doesn't add to map.
+	Returns the list of markers to add to the map (none if the layer is not visible)
+	*/
+	internLayers: function(layers, addToCluster = true) {
+		// TODO: move this function to domdf-folium-tools
 		this._markers.push(...layers);
 
-		if (this._map) {
-			if (addToCluster) {
-				// Don't add if the layer isn't visible
-				marker_cluster_nhle.addLayers(layers);
-			}
-		} else {
+		if (this._map && addToCluster) {
+			return layers;
+		}
+
+		return [];
+	},
+
+	addLayers: function(layers, addToCluster = true) {
+		console.log('addLayers called; addToCluster=', addToCluster);
+
+		marker_cluster_nhle.addLayers(this.internLayers(layers));
+
+		if (!this._map) {
 			// Pretend chunkedLoading happened
 			modal.hide();
 		}
