@@ -30,7 +30,6 @@ Map showing places on the National Heritage List for England.
 from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
 from consolekit.options import auto_default_option
 
-
 __all__ = ["main", "make_map", "prepare_data"]
 
 
@@ -117,10 +116,9 @@ def make_map(output_directory: str = "output") -> None:
 
 	# this package
 	from nhle_map import constants
-	from nhle_map.utils import format_datetime, format_description
 	from nhle_map.map import make_map
 	from nhle_map.templates import render_template
-	from nhle_map.utils import copy_static_files
+	from nhle_map.utils import copy_static_files, format_datetime, format_description
 
 	set_branca_random_seed("NHLE")
 
@@ -147,7 +145,7 @@ def make_map(output_directory: str = "output") -> None:
 			most_recent_modification=most_recent_modification,
 			generated_date=datetime.datetime.now(tz=datetime.timezone.utc),
 			format_description=format_description,
-			format_datetime=format_datetime
+			format_datetime=format_datetime,
 			)
 	output_dir.joinpath("index.html").write_clean(map_html)
 
