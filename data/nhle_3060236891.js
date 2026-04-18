@@ -8524,7 +8524,6 @@ var scheduledMonuments3060236891 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated3060236891 = [
-[50.8520558602898, -1.01099885153031, -1, "HILL LODGE", null, "Thu, 07 Feb 2013 15:07:50 GMT", null],
 [50.7841093073335, -1.12987802418242, 1001811, "Haslar Gunboat Yard - miscellaneous buildings", null, "Tue, 14 Jun 2016 10:16:25 GMT", null],
 [50.7340569088969, -1.77376223660269, 1002370, "Town or Christchurch Bridge", null, "Fri, 03 Jul 2015 00:00:00 GMT", null],
 [50.7123701206987, -1.98933132965411, 1002692, "The Town Cellars", null, "Thu, 14 Jan 2021 10:45:40 GMT", null],
@@ -8568,6 +8567,7 @@ var deDesignated3060236891 = [
 [50.77803741902, -1.74722413928871, 1391774, "Corboys Cottage", null, "Wed, 09 Jun 2021 15:15:23 GMT", null],
 [50.9731561210484, -1.33639855882362, 1402414, "Peach House", null, "Thu, 13 Sep 2018 11:25:20 GMT", null],
 [50.9555278823007, -1.45324473023538, 1422013, "Gray Thatch", null, "Mon, 08 Jun 2015 17:05:06 GMT", null],
+[50.8520558602898, -1.01099885153031, -1, "HILL LODGE", null, "Thu, 07 Feb 2013 15:07:50 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

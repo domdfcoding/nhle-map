@@ -45897,8 +45897,6 @@ var scheduledMonuments3820998799 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated3820998799 = [
-[51.4954534706401, -0.179102082920467, -1, "Gates, Gatepiers and Railings to Natural History Museum", null, "Fri, 29 Jul 2016 15:27:07 GMT", null],
-[51.8171827597043, -0.813102537474073, -1, "Number 7 Kingsbury", null, "Mon, 04 Jan 2021 12:24:54 GMT", null],
 [51.4989611178632, -0.20121807246176, 1001393, "Commonwealth Institute", null, "Thu, 19 Mar 2015 10:38:52 GMT", null],
 [51.8717440725407, -0.189823457592071, 1003546, "Deard's End Lane Bridge", null, "Tue, 06 Jan 2026 16:51:02 GMT", null],
 [51.9249866878294, -0.430524067271677, 1003804, "Dray's Ditches (duplicate for removal from Schedule)", null, "Fri, 09 May 2025 15:08:39 GMT", null],
@@ -46184,6 +46182,8 @@ var deDesignated3820998799 = [
 [51.5075786916589, -0.141547082709063, 1429315, "Horse and Rider Sculpture", null, "Wed, 11 Jun 2025 13:43:08 GMT", null],
 [51.7783100118629, -0.721981990765341, 1446830, "BUILDING NO 27, SERGEANT'S MESS (GROVES BARRACKS)", null, "Fri, 19 May 2017 16:01:12 GMT", null],
 [51.0314930751341, -0.524122798914871, 1451825, "Boxal Bridge", null, "Mon, 03 Sep 2018 00:00:00 GMT", null],
+[51.4954534706401, -0.179102082920467, -1, "Gates, Gatepiers and Railings to Natural History Museum", null, "Fri, 29 Jul 2016 15:27:07 GMT", null],
+[51.8171827597043, -0.813102537474073, -1, "Number 7 Kingsbury", null, "Mon, 04 Jan 2021 12:24:54 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

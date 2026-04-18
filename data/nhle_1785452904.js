@@ -6274,7 +6274,6 @@ var scheduledMonuments1785452904 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated1785452904 = [
-[50.1923071494814, -5.4119563934706, -1, "Black Road causeway, Black Bridge and Second World War reservoir at Copperhouse Pool", null, "Mon, 01 Oct 2018 16:26:27 GMT", null],
 [50.1939928855173, -5.41029867757308, 1007304, "Railway bridge", null, "Mon, 16 Jul 2018 15:07:13 GMT", null],
 [50.2106962696664, -5.47775938747234, 1031586, "EPIDAUROS SCULPTURE", null, "Thu, 12 May 2016 14:06:32 GMT", null],
 [50.1272169422122, -5.70878510275538, 1115112, "Mining Chimney", null, "Mon, 16 Dec 2024 14:09:47 GMT", null],
@@ -6296,6 +6295,7 @@ var deDesignated1785452904 = [
 [50.1894118786056, -5.42421665948107, 1327607, "Building at approximately 100m north-west of the Custom House", null, "Thu, 04 Oct 2018 15:13:46 GMT", null],
 [50.1200603371853, -5.31481539566383, 1328326, "Boundary Stone at SW631297", null, "Mon, 27 Nov 2017 14:09:18 GMT", null],
 [50.2515505452333, -5.12189124579174, 1328614, "Kilters Farm ", null, "Mon, 03 Jun 2024 10:11:53 GMT", null],
+[50.1923071494814, -5.4119563934706, -1, "Black Road causeway, Black Bridge and Second World War reservoir at Copperhouse Pool", null, "Mon, 01 Oct 2018 16:26:27 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

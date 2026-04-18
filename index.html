@@ -13,16 +13,12 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="static/css/style.css" />
 
-        <link rel="preload"
-              href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_default.png"
-              as="image" />
-        <link rel="preload"
-              href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png"
-              as="image" />
-
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
 
+
+    <link rel="preload" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_default.png" as="image" />
+	<link rel="preload" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png" as="image" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
@@ -41,6 +37,7 @@
 					}
 				</style>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/control.layers.minimap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/control.layers.minimap.min.css"/>
 
@@ -108,8 +105,6 @@
                                 <br>
                                 © Historic England 2026. Contains Ordnance Survey data © Crown copyright and database right 2026.
                             </p>
-
-                            <h3>Legend</h3>
 
                             <h3 class="fs-6">Legend</h3>
 
@@ -182,7 +177,7 @@
                                                         <p class="collapse description-collapse"
                                                            id="certificatesOfImmunityCollapse"
                                                            data-bs-parent="#legendTable"
-                                                           aria-expanded="false">A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see below) on the respective property during this period.</p>
+                                                           aria-expanded="false">A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see above) on the respective property during this period.</p>
                                                     </div>
 
                                             </td>
@@ -201,7 +196,7 @@
 
                                         <tr>
                                             <th class="text-center"
-                                                style="background-color: blue"
+                                                style="background-color: #006fb2"
                                                 scope="row"><i class='fa-solid fa-building'></i></th>
                                             <td class="layer-name">Listed Buildings</td>
                                             <td>
@@ -210,11 +205,17 @@
                                                            id="listedBuildingsCollapse"
                                                            data-bs-parent="#legendTable"
                                                            aria-expanded="false">When a building is recognised as being of special architectural or historic interest it is added to the statutory ‘List’. This is compiled by the Department for Digital, Culture, Media and Sport (DCMS) on advice from Historic England.
+<br>
 Buildings on the List are given one of three grades which denote their level of importance, Grade I being the highest and Grade II the lowest:
- <br>• Grade I (one)  of exceptional interest
-<br>• Grade II* (two star)  particularly important
-<br>• Grade II (two)  of special interest
+<br>
+ • Grade I (one)  of exceptional interest
+<br>
+• Grade II* (two star)  particularly important
+<br>
+• Grade II (two)  of special interest
+<br>
 Structures that might not be classified as ‘buildings’  such as railings, gate piers, walls, war memorials, gravestones, post boxes and telephone boxes  can all be Listed Buildings.
+<br>
 Related to Listed Buildings are Certificates of Immunity (COI) and Building Preservation Notices (BPN).</p>
                                                     </div>
 
@@ -243,6 +244,7 @@ Related to Listed Buildings are Certificates of Immunity (COI) and Building Pres
                                                            id="parksGardensCollapse"
                                                            data-bs-parent="#legendTable"
                                                            aria-expanded="false">The 'Register’ of Historic Parks and Gardens was established in 1983, with the emphasis placed on protecting 'designed' landscapes rather than those with botanical importance.
+<br>
 The Register safeguards a broad range of planned open spaces, including public parks, cemeteries, the grounds of private houses, and town squares. Like Listed Buildings, Parks and Gardens are assigned one of three grades to indicate their significance.</p>
                                                     </div>
 
@@ -289,7 +291,7 @@ The Register safeguards a broad range of planned open spaces, including public p
 
                                         <tr>
                                             <th class="text-center"
-                                                style="background-color: red"
+                                                style="background-color: #a32d2f"
                                                 scope="row"><i class='fa-solid fa-monument'></i></th>
                                             <td class="layer-name">Scheduled Monuments</td>
                                             <td>
@@ -298,6 +300,7 @@ The Register safeguards a broad range of planned open spaces, including public p
                                                            id="scheduledMonumentsCollapse"
                                                            data-bs-parent="#legendTable"
                                                            aria-expanded="false">Historic buildings and archaeological sites of national importance are given legal protection by being placed on a ‘Schedule’ of monuments. Historic England identifies and advises on these monuments, which are placed on the Schedule by the DCMS.
+<br>
 Examples of Scheduled Monuments are Roman remains, burial mounds, castles, bridges, earthworks, the remains of deserted villages, and industrial sites. Scheduled Monuments can not include ecclesiastical or residential buildings (except for associated caretaker’s dwellings), and unlike Listed Buildings they are not assigned grades.</p>
                                                     </div>
 
@@ -326,7 +329,9 @@ Examples of Scheduled Monuments are Roman remains, burial mounds, castles, bridg
                                                            id="worldHeritageSitesCollapse"
                                                            data-bs-parent="#legendTable"
                                                            aria-expanded="false">World Heritage Sites are part of the World Heritage Convention, established in 1972 by UNESCO (United Nations Educational, Scientific and Cultural Organisation). They are landscapes, cities, monuments or buildings of exceptional natural or cultural value.
+<br>
 The World Heritage List includes the Great Wall of China, the Pyramids, the Great Barrier Reef and the City of Venice. Sites in England include Stonehenge and Avebury, Canterbury Cathedral, the Tower of London, Hadrian’s Wall and the whole of the City of Bath.
+<br>
 Please note: this dataset represents Historic England’s interpretation of the UNESCO World Heritage Site boundaries for sites wholly in or crossing into England.</p>
                                                     </div>
 
@@ -360,7 +365,7 @@ Please note: this dataset represents Historic England’s interpretation of the 
                                 </tbody>
                             </table>
 
-                            <small class="text-muted">Generated on Fri, 17 Apr 2026 10:30:34 GMT. Data last updated Fri, 17 Apr 2026 05:26:47 GMT</small>
+                            <small class="text-muted">Generated on Sat, 18 Apr 2026 18:04:24 GMT. Data last updated Fri, 17 Apr 2026 05:26:47 GMT</small>
 
                         </div>
                     </div>
@@ -391,7 +396,7 @@ Please note: this dataset represents Historic England’s interpretation of the 
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b5/domdf_folium_tools/domdf-folium-tools.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b8/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
     <script src="static/js/icons.js"></script>
     <script src="static/js/markers.js"></script>
@@ -399,6 +404,8 @@ Please note: this dataset represents Historic England’s interpretation of the 
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b1/folium_about_button/about_button.min.js"></script>
+    <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b1/folium_map_search/folium-map-search.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/L.Control.Layers.Minimap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/L.Control.Layers.Minimap.Toggle.min.js"></script>
     <script src="static/js/custom_layer_control.js"></script>
@@ -627,9 +634,25 @@ Please note: this dataset represents Historic England’s interpretation of the 
 
 
 
-				var about_control_2ed0ad7be0cf1415b0b5168e19918c13 = new AboutControl(
+				var about_control_8d8d416d2107832b29e290fafda86df9 = new AboutControl(
 					{"modalID": "aboutModal"}
 				).addTo(map);
+
+
+				var map_search_control_26639ae57150b04e3980dab500e98e87 = L.MapSearchControl({
+					provider: new L.MapSearchProvider({
+				map: map,
+				layer: marker_cluster_nhle,
+				...{"featureType": "settlement", "viewbox": "-7,49,3,55"},
+				}),
+					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "searchLabel": "Enter town or list entry name", "showMarker": false},
+					}
+				)
+
+				// Close search box when map clicked.
+				map.on('click', map_search_control_26639ae57150b04e3980dab500e98e87.close, map_search_control_26639ae57150b04e3980dab500e98e87);
+
+				map_search_control_26639ae57150b04e3980dab500e98e87.addTo(map);
 
 
             var layer_control_basemap_layers = {
@@ -672,7 +695,6 @@ Please note: this dataset represents Historic England’s interpretation of the 
             function showZoomLevel() {
                 document.getElementById('zoom').innerHTML = map.getZoom();
             }
-
 
 
             map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)

@@ -9742,8 +9742,6 @@ var scheduledMonuments3590499840 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated3590499840 = [
-[54.6650513167403, -2.75418956880795, -1, "13 and 14 Middlegate", null, "Wed, 17 Apr 2013 10:19:45 GMT", null],
-[54.6649902513351, -2.75389387117118, -1, "11 and 12 Middlegate", null, "Wed, 17 Apr 2013 10:27:50 GMT", null],
 [54.96159657265, -2.13232312778539, 1042610, "GINGANG AT LOW YARRIDGE FARM TO WEST OF FARMHOUSE", null, "Mon, 28 Sep 2015 10:18:30 GMT", null],
 [54.9719606888167, -2.1011773219278, 1042639, "Former North Eastern Hotel", null, "Wed, 13 Dec 2017 10:46:16 GMT", null],
 [54.8295553075087, -2.46525578670778, 1042921, "Gilderdale Bridge", null, "Fri, 05 Apr 2019 10:33:39 GMT", null],
@@ -9811,6 +9809,8 @@ var deDesignated3590499840 = [
 [54.0763234828905, -2.73188218124951, 1362491, "EASTERN RAILWAY BRIDGE OVER THE RIVER LUNE AT CROOK OF LUNE", null, "Thu, 14 May 2015 11:14:12 GMT", null],
 [54.3316576515769, -2.56944282139216, 1383592, "Lune Viaduct at Newbys Dub that part in Sedbergh CP", null, "Thu, 19 Jan 2017 14:58:16 GMT", null],
 [54.3204392759455, -2.526901543995, 1384167, "27 & 28 Loftus Hill, Sedbergh", null, "Wed, 14 Jan 2015 11:07:30 GMT", null],
+[54.6650513167403, -2.75418956880795, -1, "13 and 14 Middlegate", null, "Wed, 17 Apr 2013 10:19:45 GMT", null],
+[54.6649902513351, -2.75389387117118, -1, "11 and 12 Middlegate", null, "Wed, 17 Apr 2013 10:27:50 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

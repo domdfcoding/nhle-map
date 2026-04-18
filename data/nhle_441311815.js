@@ -16909,8 +16909,6 @@ var scheduledMonuments441311815 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated441311815 = [
-[52.1176573659877, 0.353662831643258, -1, "Pond Meadow Barn", null, "Fri, 03 Mar 2017 13:09:26 GMT", null],
-[52.448038089037, 0.0471212315567926, -1, "46 and 48 London Road", null, "Fri, 06 Dec 2019 11:50:34 GMT", null],
 [52.5199408642386, 0.761852714059659, 1002890, "Sturston Hall, site of (duplicate for removal from Schedule)", null, "Fri, 27 Mar 2026 16:36:54 GMT", null],
 [52.5295626667429, 0.721989310383651, 1003915, "Round barrow 330yds (300m) ESE of North East Lodge, Buckenham Tofts Park", null, "Fri, 08 Apr 2016 12:10:56 GMT", null],
 [52.2121216549874, 0.113946764594239, 1006886, "Civil War earthworks at the Castle", null, "Tue, 01 Apr 2025 15:23:09 GMT", null],
@@ -17001,6 +16999,8 @@ var deDesignated441311815 = [
 [52.1547896657584, 0.502795961292301, 1376718, "Mill Green Cottage", null, "Wed, 24 Apr 2019 10:06:45 GMT", null],
 [52.3663310599055, 0.983302231387262, 1393122, "Bridge Farm", null, "Tue, 08 Apr 2025 09:21:15 GMT", null],
 [52.1097705487556, 0.536061474724786, 1425029, "1-3 Church Street", null, "Fri, 13 Feb 2015 17:45:08 GMT", null],
+[52.1176573659877, 0.353662831643258, -1, "Pond Meadow Barn", null, "Fri, 03 Mar 2017 13:09:26 GMT", null],
+[52.448038089037, 0.0471212315567926, -1, "46 and 48 London Road", null, "Fri, 06 Dec 2019 11:50:34 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

@@ -1,5 +1,4 @@
 function load_new_markers() {
-	// TODO: new markers are loaded even when layer hidden. Need to hook into show/hide to suppress when hidden and then call when shown (as if panned/zoomed)
 	const bounds = map.getBounds();
 	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1);
 	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1);
@@ -119,8 +118,7 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 					console.log('Accessing JS variable', var_name);
 					var layerMarkerList = [];
 					addMarkers(window[var_name], layerMarkerList, layer_data.icon);
-					markerList.push(...layerMarkerList);
-					layer_data.layer.addLayers(layerMarkerList, false);
+					markerList.push(...layer_data.layer.internLayers(layerMarkerList));
 				});
 				addedChunkIDs.push(id);
 			}
@@ -211,24 +209,40 @@ function getClusterRadius(zoom) {
 function updateProgressBar(processed, total, elapsed, layersArray) {
 	// if it takes more than a second to load, display the progress bar:
 	progressBar.style.width = Math.round(processed / total * 100) + '%';
-	// }
+	console.log(`Update progressbar to ${processed} out of ${total}`);
 	if (total > 0 && processed === total) {
 		// all markers processed - hide the progress bar:
-		modal.hide();
-		// enable_interaction();
+		setTimeout(e => {
+			progressBar.style.width = '0';
+			modal.hide();
+			console.log(`Progressbar finished (${processed} out of ${total})`);
+		}, 500);
 	} else if (total > 0 && elapsed > 0) {
 		modal.show();
 	}
 }
 
 MarkerGroup = L.MarkerGroup.extend({
-	addLayers: function(layers) {
+	/* Like addLayers, adds to the internal list of markers but doesn't add to map.
+	Returns the list of markers to add to the map (none if the layer is not visible)
+	*/
+	internLayers: function(layers, addToCluster = true) {
+		// TODO: move this function to domdf-folium-tools
 		this._markers.push(...layers);
 
-		if (this._map) {
-			// Don't add if the layer isn't visible
-			marker_cluster_nhle.addLayers(layers);
-		} else {
+		if (this._map && addToCluster) {
+			return layers;
+		}
+
+		return [];
+	},
+
+	addLayers: function(layers, addToCluster = true) {
+		console.log('addLayers called; addToCluster=', addToCluster);
+
+		marker_cluster_nhle.addLayers(this.internLayers(layers));
+
+		if (!this._map) {
 			// Pretend chunkedLoading happened
 			modal.hide();
 		}

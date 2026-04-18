@@ -23337,11 +23337,6 @@ var scheduledMonuments3211818894 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated3211818894 = [
-[53.3433022046066, -1.60851655691518, -1, "Upper Burbage Bridge (East), that part in Outseats Parish", null, "Fri, 23 Jan 2015 10:41:46 GMT", null],
-[53.1829167918242, -1.85090698884282, -1, "Bridge over River Dove", null, "Tue, 19 May 2015 11:06:58 GMT", null],
-[53.6574405352912, -1.80961619044974, -1, "Archway in Wall to Ravendean", null, "Mon, 10 Jun 2019 10:44:15 GMT", null],
-[53.6273871006844, -1.80036127365423, -1, "152 and 154 Woodhead Road ", null, "Fri, 28 Jun 2019 10:29:23 GMT", null],
-[53.6500023233504, -1.79559532266588, -1, "Lamp post opposite 154 Trinity Street", null, "Fri, 28 Jun 2019 10:34:43 GMT", null],
 [53.008826740442, -1.76597416717071, 1003737, "Hanging Bridge, near Ashbourne See also STAFFORDSHIRE 259", null, "Thu, 14 Apr 2016 13:50:37 GMT", null],
 [53.0088294588267, -1.76597600058886, 1003751, "Hanging Bridge See also DERBYSHIRE 57", null, "Wed, 27 Apr 2016 11:05:27 GMT", null],
 [53.1728933917309, -1.24535951915895, 1031532, "PLEASLEY BRIDGE", null, "Wed, 08 Nov 2017 15:18:32 GMT", null],
@@ -23592,6 +23587,11 @@ var deDesignated3211818894 = [
 [53.4073194005994, -1.39314577629713, 1443985, "Former Park House Secondary School", null, "Thu, 16 Nov 2017 14:03:21 GMT", null],
 [53.7910748307352, -1.53848963115192, 1460811, "18 Crown Point Road", null, "Tue, 06 Jul 2021 11:29:35 GMT", null],
 [53.7909295500353, -1.53853355658736, 1460972, "39 Hunslet Road", null, "Tue, 06 Jul 2021 11:29:31 GMT", null],
+[53.3433022046066, -1.60851655691518, -1, "Upper Burbage Bridge (East), that part in Outseats Parish", null, "Fri, 23 Jan 2015 10:41:46 GMT", null],
+[53.1829167918242, -1.85090698884282, -1, "Bridge over River Dove", null, "Tue, 19 May 2015 11:06:58 GMT", null],
+[53.6574405352912, -1.80961619044974, -1, "Archway in Wall to Ravendean", null, "Mon, 10 Jun 2019 10:44:15 GMT", null],
+[53.6273871006844, -1.80036127365423, -1, "152 and 154 Woodhead Road ", null, "Fri, 28 Jun 2019 10:29:23 GMT", null],
+[53.6500023233504, -1.79559532266588, -1, "Lamp post opposite 154 Trinity Street", null, "Fri, 28 Jun 2019 10:34:43 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

@@ -18420,9 +18420,6 @@ var scheduledMonuments366697925 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated366697925 = [
-[53.3623867037504, -2.4362963318316, -1, "Lime Tree Cottage", null, "Mon, 24 Mar 2014 09:53:02 GMT", null],
-[53.6333935508587, -2.15218541439472, -1, "100 Syke Road, Rochdale", null, "Mon, 06 Jun 2022 15:36:23 GMT", null],
-[53.3327804364058, -2.97890168364009, -1, "Standing cross in churchyard of St Barnabas, Bromborough, beside the porch", null, "Fri, 16 Mar 2018 10:54:05 GMT", null],
 [53.5782521779081, -2.08698773137435, 1003449, "Dee Mill engine and engine house, Shaw", null, "Thu, 10 Dec 2015 13:58:19 GMT", null],
 [53.9090520270813, -2.06319070400618, 1004071, "Dale End Mills (wheel, pit and ancillaries)", null, "Fri, 04 Mar 2016 14:07:26 GMT", null],
 [53.8100798969413, -2.2016213714093, 1005085, "Queen Street Mill engine", null, "Mon, 09 Mar 2015 12:10:09 GMT", null],
@@ -18656,6 +18653,9 @@ var deDesignated366697925 = [
 [53.6094643317378, -2.63490307505902, 1393888, "Holt Farm", null, "Fri, 28 Feb 2020 12:20:16 GMT", null],
 [53.3933804523134, -2.3181454781329, 1404378, "Church of St John the Baptist (Roman Catholic)", null, "Tue, 12 Feb 2013 13:06:41 GMT", null],
 [53.5500048964805, -2.20542342489531, 1417028, "Church of the Holy Trinity", null, "Thu, 12 Mar 2015 15:31:10 GMT", null],
+[53.3623867037504, -2.4362963318316, -1, "Lime Tree Cottage", null, "Mon, 24 Mar 2014 09:53:02 GMT", null],
+[53.3327804364058, -2.97890168364009, -1, "Standing cross in churchyard of St Barnabas, Bromborough, beside the porch", null, "Fri, 16 Mar 2018 10:54:05 GMT", null],
+[53.6333935508587, -2.15218541439472, -1, "100 Syke Road, Rochdale", null, "Mon, 06 Jun 2022 15:36:23 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
