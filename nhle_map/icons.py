@@ -78,6 +78,7 @@ class FontawesomeLayerIcon(LayerIcon):
 	"""
 
 	icon: str
+	svg_marker: bool = False
 
 	@property
 	def layercontrol_icon(self) -> str:  # noqa: D102
@@ -88,6 +89,7 @@ class FontawesomeLayerIcon(LayerIcon):
 				"icon": f"fa-{self.icon}",
 				"markerColor": self.marker_colour,
 				"prefix": "fa",
+				"svg": self.svg_marker,
 				}
 
 
@@ -107,6 +109,7 @@ class SVGLayerIcon(LayerIcon):
 		return {
 				"innerHTML": f"<img src='{self.filename}' style='margin: 8px'>",
 				"markerColor": self.marker_colour,
+				# "svg": self.svg_marker,  # TODO: causes marker pin not to display, but icon and shadow do
 				}
 
 

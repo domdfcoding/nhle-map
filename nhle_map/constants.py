@@ -82,7 +82,7 @@ BUILDING_PRESERVATION_NOTICES = Dataset(
 		variable_prefix="buildingPreservationNotices",
 		filename_prefix="building_preservation_notices",
 		name="Building Preservation Notices",
-		icon=FontawesomeLayerIcon(icon="building-flag", marker_colour="teal"),
+		icon=FontawesomeLayerIcon(icon="building-flag", marker_colour="teal", svg_marker=True),
 		geojson_filename="Building Preservation Notice points.geojson",
 		promise_function="loadBPNMarkers",
 		)
@@ -91,7 +91,7 @@ CERTIFICATES_OF_IMMUNITY = Dataset(
 		variable_prefix="certificatesOfImmunity",
 		filename_prefix="certificates_of_immunity",
 		name="Certificates of Immunity",
-		icon=FontawesomeLayerIcon(icon="scroll", marker_colour="tan"),
+		icon=FontawesomeLayerIcon(icon="scroll", marker_colour="tan", svg_marker=True),
 		geojson_filename="Certificate of Immunity points.geojson",
 		promise_function="loadImmunityMarkers",
 		)
@@ -101,7 +101,7 @@ LISTED_BUILDINGS = Dataset(
 		variable_prefix="listedBuildings",
 		filename_prefix="listed_buildings",
 		name="Listed Buildings",
-		icon=FontawesomeLayerIcon(icon="building", marker_colour="blue"),
+		icon=FontawesomeLayerIcon(icon="building", marker_colour="#006fb2", svg_marker=True),
 		geojson_filename="Listed Building points.geojson",
 		promise_function=None,
 		)
@@ -119,7 +119,7 @@ PROTECTED_WRECK_SITES = Dataset(
 		variable_prefix="protectedWreckSites",
 		filename_prefix="protected_wreck_sites",
 		name="Protected Wreck Sites",
-		icon=FontawesomeLayerIcon(icon="anchor", marker_colour="purple"),
+		icon=FontawesomeLayerIcon(icon="anchor", marker_colour="purple", svg_marker=True),
 		geojson_filename="Protected Wreck Sites.geojson",
 		promise_function="loadShipwreckMarkers",
 		)
@@ -128,7 +128,7 @@ SCHEDULED_MONUMENTS = Dataset(
 		variable_prefix="scheduledMonuments",
 		filename_prefix="scheduled_monuments",
 		name="Scheduled Monuments",
-		icon=FontawesomeLayerIcon(icon="monument", marker_colour="red"),
+		icon=FontawesomeLayerIcon(icon="monument", marker_colour="#a32d2f", svg_marker=True),
 		geojson_filename="Scheduled Monuments.geojson",
 		promise_function="loadScheduledMonumentMarkers",
 		)
@@ -137,7 +137,7 @@ WORLD_HERITAGE_SITES = Dataset(
 		variable_prefix="worldHeritageSites",
 		filename_prefix="world_heritage_sites",
 		name="World Heritage Sites",
-		icon=FontawesomeLayerIcon(icon="certificate", marker_colour="grey"),
+		icon=FontawesomeLayerIcon(icon="certificate", marker_colour="grey", svg_marker=True),
 		geojson_filename="World Heritage Sites.geojson",
 		promise_function="loadWorldHeritageMarkers",
 		)
