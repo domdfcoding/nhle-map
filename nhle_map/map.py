@@ -27,7 +27,7 @@ Map generation.
 #
 
 # stdlib
-from folium_map_search import MapSearchControl, MapSearchProvider
+from collections.abc import Iterable
 
 # 3rd party
 import branca.element
@@ -84,7 +84,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
 	# TODO: get max_zoom from the map itself?
 
-	def __init__(self, max_zoom: int, layers: list[constants.Dataset]):
+	def __init__(self, max_zoom: int, layers: Iterable[constants.Dataset]):
 		super().__init__()
 		self.max_zoom = max_zoom
 		self._layers = layers

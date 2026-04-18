@@ -1,5 +1,4 @@
 function load_new_markers() {
-	// TODO: new markers are loaded even when layer hidden. Need to hook into show/hide to suppress when hidden and then call when shown (as if panned/zoomed)
 	const bounds = map.getBounds();
 	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1);
 	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1);
