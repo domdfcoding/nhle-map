@@ -37,7 +37,7 @@ from domdf_python_tools.paths import PathPlus
 from nhle_map import constants
 from nhle_map.icons import write_icons_js
 
-__all__ = ["copy_static_files", "get_id"]
+__all__ = ["copy_static_files", "format_description", "get_id"]
 
 rng = random.Random("NHLE")
 
@@ -80,3 +80,16 @@ def copy_static_files(static_dir: PathPlus) -> None:
 
 	layers = constants.LAYERS
 	write_icons_js(layers, static_dir / "js")
+
+
+def format_description(description: str) -> str:
+	"""
+	Format a layer description for the about dialog.
+
+	:param description:
+	"""
+
+	description = description.replace('\n', "\n<br>\n")
+	# description = description.replace('•', "<br>•")
+	description = description.replace('¬', '').replace("see below", "see above")
+	return description

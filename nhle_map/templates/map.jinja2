@@ -99,7 +99,7 @@
                                                 scope="row">{{ layer.icon.layercontrol_icon }}</th>
                                             <td class="layer-name">{{ layer.name }}</td>
                                             <td>
-                                                {% set description = layers_data[layer.geojson_filename.replace(".geojson", '')]["description"].replace("•", "<br>•").replace("¬", '') -%}
+                                                {% set description = format_description(layers_data[layer.geojson_filename.replace(".geojson", '')]["description"]) -%}
                                                 {% if description -%}
                                                     <div class="container description-container">
                                                         <p class="collapse description-collapse"
