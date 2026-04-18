@@ -171,7 +171,7 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 			# print("  ", layer.properties.name)
 			# print("  ", layer.properties.type)
 			# print("  ", str(layer.properties.geometryType))
-			meta["layers"] = dict(layer.properties)
+			meta["layers"].append(dict(layer.properties))
 
 			query: FeatureSet = layer.query(out_sr=4326)
 
