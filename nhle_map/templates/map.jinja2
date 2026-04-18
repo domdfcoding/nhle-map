@@ -77,7 +77,7 @@
                                 <br>
                                 Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
                                 <br>
-                                © Historic England 2026. Contains Ordnance Survey data © Crown copyright and database right 2026.
+                                © Historic England {{ most_recent_modification.year }}. Contains Ordnance Survey data © Crown copyright and database right {{ most_recent_modification.year }}.
                             </p>
 
                             <h3 class="fs-6">Legend</h3>
@@ -120,7 +120,7 @@
                                 </tbody>
                             </table>
 
-                            <small class="text-muted">Generated on {{ generated_date }}. Data last updated {{ most_recent_modification }}</small>
+                            <small class="text-muted">Generated on {{ format_datetime(generated_date) }}. Data last updated {{ format_datetime(most_recent_modification) }}</small>
 
                         </div>
                     </div>
@@ -156,7 +156,7 @@
             }
 
             {# TODO: hyperlink and add "crown copyright" #}
-            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)
+            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England {{ most_recent_modification.year }} (OGL)`)
             </script>
         {% endblock scripts %}
     </body>
