@@ -47,7 +47,7 @@ from shapely.geometry import mapping
 # this package
 from nhle_map._arcgis_fix import to_geojson
 from nhle_map.constants import LISTED_BUILDINGS, Dataset
-from nhle_map.utils import get_id
+from nhle_map.utils import DATE_FORMAT, format_datetime, get_id
 
 __all__ = [
 		"chunk_data",
@@ -59,7 +59,6 @@ __all__ = [
 		"write_data",
 		]
 
-DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
 Chunks = dict[float, dict[float, geopandas.GeoDataFrame]]
 
 
@@ -84,11 +83,11 @@ def get_chunk_js(
 	output.append(f"var {variable_prefix}{chunk_id} = [")
 
 	item: dict[str, Any]
-	for item in sorted(features, key=_get_list_entry_no):
+	for item in sorted(features, key=_chunk_sort_fn):
 		number = _get_list_entry_no(item)
 		name = _get_list_entry_name(item)
 		grade = item.get("Grade")
-		list_date = get_list_date(item)
+		list_date = format_datetime(get_list_date(item))
 		link = item.get("hyperlink")
 		coord = item["geometry"].bounds[:2]
 		values = [coord[1], coord[0], number, name, grade, list_date, link]
@@ -238,7 +237,7 @@ def write_data(
 	output_dir.joinpath(f"{filename_prefix}_{chunk_id}.js").write_clean(chunk_js)
 
 
-def get_list_date(list_entry: dict[str, Any]) -> str | None:
+def get_list_date(list_entry: dict[str, Any]) -> datetime.datetime | None:
 	"""
 	Returns the listing date, Building Preservation Notice / Certificate of Immunity start date, or similar for the given list entry.
 
@@ -269,12 +268,25 @@ def get_list_date(list_entry: dict[str, Any]) -> str | None:
 
 	if isinstance(list_date, (int, float)):
 		# Timestamp in milliseconds
-		list_date = datetime.datetime.fromtimestamp(
+		return datetime.datetime.fromtimestamp(
 				list_date / 1000,
 				tz=datetime.timezone.utc,
-				).strftime(DATE_FORMAT)
+				)
+	else:
+		return datetime.datetime.strptime(list_date, DATE_FORMAT)
 
-	return list_date
+
+def _chunk_sort_fn(list_entry: dict[str, Any]) -> int:
+	list_entry_no = _get_list_entry_no(list_entry)
+
+	if list_entry_no == -1:
+		dt = get_list_date(list_entry)
+		if dt is None:
+			return -1
+
+		return int(dt.timestamp())
+
+	return list_entry_no
 
 
 def _get_list_entry_no(list_entry: dict[str, Any]) -> int:

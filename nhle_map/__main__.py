@@ -30,8 +30,6 @@ Map showing places on the National Heritage List for England.
 from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
 from consolekit.options import auto_default_option
 
-# this package
-from nhle_map.utils import format_description
 
 __all__ = ["main", "make_map", "prepare_data"]
 
@@ -119,7 +117,7 @@ def make_map(output_directory: str = "output") -> None:
 
 	# this package
 	from nhle_map import constants
-	from nhle_map.data import DATE_FORMAT
+	from nhle_map.utils import format_datetime, format_description
 	from nhle_map.map import make_map
 	from nhle_map.templates import render_template
 	from nhle_map.utils import copy_static_files
@@ -139,7 +137,7 @@ def make_map(output_directory: str = "output") -> None:
 	most_recent_modification = datetime.datetime.fromtimestamp(
 			max(layer_mod_times) / 1000,
 			tz=datetime.timezone.utc,
-			).strftime(DATE_FORMAT)
+			)
 
 	map_html = render_template(
 			"map.jinja2",
@@ -147,8 +145,9 @@ def make_map(output_directory: str = "output") -> None:
 			layers=constants.LAYERS,
 			layers_data=layers_data,
 			most_recent_modification=most_recent_modification,
-			generated_date=datetime.datetime.now(tz=datetime.timezone.utc).strftime(DATE_FORMAT),
+			generated_date=datetime.datetime.now(tz=datetime.timezone.utc),
 			format_description=format_description,
+			format_datetime=format_datetime
 			)
 	output_dir.joinpath("index.html").write_clean(map_html)
 

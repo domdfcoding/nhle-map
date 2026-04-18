@@ -15933,7 +15933,6 @@ var scheduledMonuments2784490156 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated2784490156 = [
-[50.6839537440708, -3.46572228912712, -1, "Former 1 to 5 Underhill Terrace", null, "Fri, 07 Dec 2018 12:10:34 GMT", null],
 [50.7920828480682, -3.46080077172658, 1017191, "Ice house 210m north west of Killerton House", null, "Wed, 07 Feb 2018 09:25:48 GMT", null],
 [50.6952721478246, -3.78108344218456, 1020700, "Fingle Bridge", null, "Thu, 26 May 2016 14:13:44 GMT", null],
 [50.9742867321133, -3.2459243497401, 1059869, "ROCKWELL GREEN POST OFFICE", null, "Mon, 09 Jun 2014 09:50:42 GMT", null],
@@ -16014,6 +16013,7 @@ var deDesignated2784490156 = [
 [50.9072946149045, -3.48662290623617, 1384763, "Old Bartow's", null, "Mon, 23 Sep 2019 11:56:48 GMT", null],
 [50.9862640430362, -3.18822994951898, 1387281, "Sign opposite the Blackbird Inn", null, "Thu, 21 Apr 2022 09:49:31 GMT", null],
 [50.581124208112, -3.46385590163212, 1391070, "SIGNAL BOX AT DAWLISH STATION", null, "Wed, 17 Apr 2013 10:58:51 GMT", null],
+[50.6839537440708, -3.46572228912712, -1, "Former 1 to 5 Underhill Terrace", null, "Fri, 07 Dec 2018 12:10:34 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

@@ -20036,7 +20036,6 @@ var scheduledMonuments3922140260 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated3922140260 = [
-[52.2893631089643, -2.41923468350213, -1, "STANFORD BRIDGE", null, "Fri, 04 Nov 2016 15:25:46 GMT", null],
 [52.2481235606919, -2.25373566779803, 1002940, "Enclosures to the south of Upper Barn", null, "Thu, 11 Sep 2014 09:21:57 GMT", null],
 [52.6795302648392, -2.66368865445275, 1003712, "Tern Bridge", null, "Thu, 17 Aug 2017 13:10:14 GMT", null],
 [52.689557591848, -2.03190610425658, 1003756, "Conduit head ", null, "Wed, 29 Oct 2014 09:11:19 GMT", null],
@@ -20185,6 +20184,7 @@ var deDesignated3922140260 = [
 [52.1698467859032, -2.24100659519093, 1389991, "Bridge over River Teme (that part within the City of Worcester)", null, "Tue, 13 Aug 2024 10:56:39 GMT", null],
 [52.3762087816088, -2.00693000037057, 1391394, "19, Warren Lane", null, "Fri, 24 Jul 2020 11:32:03 GMT", null],
 [52.1949837453541, -2.20959239340973, 1486714, "K6 at Shrub Hill Railway Station", null, "Wed, 25 Sep 2024 12:14:48 GMT", null],
+[52.2893631089643, -2.41923468350213, -1, "STANFORD BRIDGE", null, "Fri, 04 Nov 2016 15:25:46 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

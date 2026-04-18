@@ -27,6 +27,7 @@ General utilities.
 #
 
 # stdlib
+import datetime
 import random
 
 # 3rd party
@@ -40,6 +41,7 @@ from nhle_map.icons import write_icons_js
 __all__ = ["copy_static_files", "format_description", "get_id"]
 
 rng = random.Random("NHLE")
+DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
 
 
 def get_id() -> int:
@@ -93,3 +95,16 @@ def format_description(description: str) -> str:
 	# description = description.replace('•', "<br>•")
 	description = description.replace('¬', '').replace("see below", "see above")
 	return description
+
+
+def format_datetime(dt: datetime.datetime | None) -> str | None:
+	"""
+	Format the given datetime to string.
+
+	:param dt:
+	"""
+
+	if dt:
+		return dt.strftime(DATE_FORMAT)
+
+	return None

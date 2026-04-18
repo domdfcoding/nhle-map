@@ -29120,7 +29120,6 @@ var scheduledMonuments3067267924 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated3067267924 = [
-[51.0783623840334, -1.95076843451966, -1, "Horse Shoe Bridge", null, "Tue, 10 Jun 2025 15:36:24 GMT", null],
 [51.2760343021863, -1.13152417523043, 1001855, "Site revealed by air photography at Catern Crossroads", null, "Tue, 17 Jan 2017 11:02:02 GMT", null],
 [51.1052100852367, -1.64985057328919, 1002995, "Tithe barn, Roche Old Court", null, "Thu, 14 Apr 2022 11:49:47 GMT", null],
 [51.6932510805595, -1.74157990810389, 1003443, "Settlement site (Thornhill Farm) south of Claydon Cottages", null, "Thu, 09 Jun 2016 14:32:00 GMT", null],
@@ -29224,6 +29223,7 @@ var deDesignated3067267924 = [
 [51.6381490250005, -1.70612157435123, 1395511, "K8 Telephone Kiosk", null, "Mon, 24 Nov 2025 10:27:10 GMT", null],
 [51.3801012919242, -1.62623459791854, 1421247, "23 Stokke Common", null, "Wed, 06 May 2020 08:59:47 GMT", null],
 [51.62837243476, -1.91118881970924, 1436883, "War memorial outside All Saints' Church, The Leigh", null, "Thu, 22 Jun 2017 14:44:30 GMT", null],
+[51.0783623840334, -1.95076843451966, -1, "Horse Shoe Bridge", null, "Tue, 10 Jun 2025 15:36:24 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

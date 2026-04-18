@@ -12742,7 +12742,6 @@ var scheduledMonuments941008092 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated941008092 = [
-[54.9081820325153, -1.37962671306051, -1, "Former Salvation Army Citadel", null, "Tue, 28 Feb 2023 09:47:07 GMT", null],
 [54.5341943480643, -1.55110493292558, 1002331, "Skerne Railway Bridge, 320m south east of Darlington Railway Museum", null, "Tue, 07 Dec 2021 15:39:29 GMT", null],
 [54.6663796025733, -1.68391384705311, 1005581, "Newton Cap Bridge", null, "Tue, 16 Dec 2025 09:11:38 GMT", null],
 [54.9733140750944, -1.60267492656127, 1024754, "9, Stepney Lane", null, "Fri, 21 Sep 2018 11:48:40 GMT", null],
@@ -12870,6 +12869,7 @@ var deDesignated941008092 = [
 [54.8677542922301, -1.61615424200997, 1392395, "Newfield Farmstead", null, "Fri, 28 Feb 2020 12:42:52 GMT", null],
 [54.8675198290868, -1.61659609034326, 1392396, "Pair of farm labourers' cottages at Newfield Farm", null, "Fri, 28 Feb 2020 12:35:46 GMT", null],
 [54.585264368495, -1.17217112029659, 1477999, "Dorman Long Tower", null, "Thu, 16 Sep 2021 16:22:21 GMT", null],
+[54.9081820325153, -1.37962671306051, -1, "Former Salvation Army Citadel", null, "Tue, 28 Feb 2023 09:47:07 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

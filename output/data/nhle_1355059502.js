@@ -9088,9 +9088,6 @@ var scheduledMonuments1355059502 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated1355059502 = [
-[53.124264434454, -0.326614709385321, -1, "CARTSHED TO SOUTH OF MANOR HOUSE FARMYARD", null, "Fri, 30 Oct 2015 09:53:43 GMT", null],
-[53.8970309480741, -0.806414877930234, -1, "Coat's Bridge", null, "Mon, 09 Jul 2012 14:05:15 GMT", null],
-[53.3220365591692, -0.82420655805474, -1, "CARTSHED WITH GRANARY OVER, AT WHITES FARM", null, "Thu, 11 Oct 2012 14:45:17 GMT", null],
 [53.0048003454736, -0.0218391373073657, 1004967, "Cowbridge Footbridge", null, "Tue, 24 Jul 2012 14:19:34 GMT", null],
 [53.8974072246036, -0.910482720074196, 1005203, "Hagg Bridge", null, "Mon, 09 Jul 2012 14:07:41 GMT", null],
 [53.8902500308507, -0.847377498605504, 1005242, "Church Bridge", null, "Mon, 09 Jul 2012 14:08:54 GMT", null],
@@ -9176,6 +9173,9 @@ var deDesignated1355059502 = [
 [53.6107149106108, -0.960850592770144, 1391348, "1 and 2, Market Place", null, "Thu, 27 Sep 2018 15:29:51 GMT", null],
 [53.5709369830208, -0.401415338403517, 1400028, "12-14 Old Post Office Lane", null, "Mon, 10 Jul 2017 13:20:42 GMT", null],
 [53.1024128928941, -0.146597678745206, 1458123, "Black Holt former Atomic Bomb Store: 13 individual fissile core stores within a mounded earthen bund", null, "Tue, 09 Dec 2025 08:52:34 GMT", null],
+[53.8970309480741, -0.806414877930234, -1, "Coat's Bridge", null, "Mon, 09 Jul 2012 14:05:15 GMT", null],
+[53.3220365591692, -0.82420655805474, -1, "CARTSHED WITH GRANARY OVER, AT WHITES FARM", null, "Thu, 11 Oct 2012 14:45:17 GMT", null],
+[53.124264434454, -0.326614709385321, -1, "CARTSHED TO SOUTH OF MANOR HOUSE FARMYARD", null, "Fri, 30 Oct 2015 09:53:43 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

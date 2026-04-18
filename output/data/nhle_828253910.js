@@ -32915,8 +32915,6 @@ var scheduledMonuments828253910 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated828253910 = [
-[51.0389022188042, -2.27898504636244, -1, "The Cottage", null, "Wed, 28 Sep 2016 14:34:33 GMT", null],
-[51.3379958804116, -2.10650819451299, -1, "Baldham Bridge", null, "Tue, 24 Mar 2026 13:21:52 GMT", null],
 [51.8690728400478, -2.23055916579204, 1002093, "Scriven's Conduit", null, "Mon, 22 Sep 2014 15:50:27 GMT", null],
 [51.3684509672173, -2.34526045133554, 1004514, "Palladian Bridge, Prior Park, Bath", null, "Wed, 16 Dec 2015 11:41:24 GMT", null],
 [51.3562073064927, -2.32658214320606, 1004541, "Lock-up at Monkton Combe", null, "Fri, 30 May 2025 14:53:38 GMT", null],
@@ -33094,6 +33092,8 @@ var deDesignated828253910 = [
 [51.3881510112214, -2.36259148432068, 1396349, "Bath Industrial Museum (The Former Tennis Court)", null, "Fri, 22 Feb 2019 11:15:27 GMT", null],
 [51.370534838497, -2.34798334805405, 1396356, "Mortuary Chapel in Abbey Cemetery", null, "Thu, 17 Jan 2019 09:12:37 GMT", null],
 [51.4590889696909, -2.58049729432384, 1462333, "17 Wade Street", null, "Thu, 28 Feb 2019 09:37:20 GMT", null],
+[51.0389022188042, -2.27898504636244, -1, "The Cottage", null, "Wed, 28 Sep 2016 14:34:33 GMT", null],
+[51.3379958804116, -2.10650819451299, -1, "Baldham Bridge", null, "Tue, 24 Mar 2026 13:21:52 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link

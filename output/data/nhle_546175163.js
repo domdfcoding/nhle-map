@@ -29493,9 +29493,6 @@ var scheduledMonuments546175163 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
 var deDesignated546175163 = [
-[51.1466247150482, 0.708415949011864, -1, "TIMBER FRAMED BARN OPPOSITE ROMDEN", null, "Thu, 31 Jan 2013 09:57:29 GMT", null],
-[51.8341025000362, 0.907387780213366, -1, "Corrie Cottage", null, "Tue, 13 May 2014 16:02:12 GMT", null],
-[51.1488539083064, 0.879376687806817, -1, "30, EAST HILL", null, "Fri, 06 Jun 2014 12:00:12 GMT", null],
 [51.914512239942, 0.89113121321527, 1001599, "Severalls Hospital", null, "Mon, 09 Jul 2018 14:50:09 GMT", null],
 [51.7336130073553, 0.426370999405359, 1002166, "Barn near King John's Palace (also known as Lordship Barn)", null, "Tue, 27 Jan 2026 13:47:08 GMT", null],
 [51.662020987566, 0.388554735665949, 1002174, "Barn at Ingatestone Hall", null, "Fri, 05 Dec 2025 16:35:46 GMT", null],
@@ -29646,6 +29643,9 @@ var deDesignated546175163 = [
 [51.782171334797, 0.931529979143455, 1390587, "Barn at Brierley Hall Farm", null, "Thu, 05 Mar 2026 14:37:20 GMT", null],
 [51.2011571871974, 0.172285401807549, 1414135, "CAMP HILL HOUSE", null, "Tue, 19 Jan 2016 16:55:07 GMT", null],
 [51.5970846039909, 0.287195307863493, 1455840, "North Lodge", null, "Thu, 26 Jul 2018 10:30:40 GMT", null],
+[51.1466247150482, 0.708415949011864, -1, "TIMBER FRAMED BARN OPPOSITE ROMDEN", null, "Thu, 31 Jan 2013 09:57:29 GMT", null],
+[51.8341025000362, 0.907387780213366, -1, "Corrie Cottage", null, "Tue, 13 May 2014 16:02:12 GMT", null],
+[51.1488539083064, 0.879376687806817, -1, "30, EAST HILL", null, "Fri, 06 Jun 2014 12:00:12 GMT", null],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link
