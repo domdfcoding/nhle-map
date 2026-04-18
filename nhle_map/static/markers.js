@@ -210,11 +210,14 @@ function getClusterRadius(zoom) {
 function updateProgressBar(processed, total, elapsed, layersArray) {
 	// if it takes more than a second to load, display the progress bar:
 	progressBar.style.width = Math.round(processed / total * 100) + '%';
-	// }
+	console.log(`Update progressbar to ${processed} out of ${total}`);
 	if (total > 0 && processed === total) {
 		// all markers processed - hide the progress bar:
-		modal.hide();
-		// enable_interaction();
+		setTimeout(e => {
+			progressBar.style.width = '0';
+			modal.hide();
+			console.log(`Progressbar finished (${processed} out of ${total})`);
+		}, 500);
 	} else if (total > 0 && elapsed > 0) {
 		modal.show();
 	}
