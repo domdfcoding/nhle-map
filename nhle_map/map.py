@@ -34,7 +34,7 @@ import branca.element
 import folium
 import folium.elements
 from domdf_folium_tools import markercluster
-from domdf_folium_tools.elements import add_to, set_id
+from domdf_folium_tools.elements import Preload, add_to, set_id
 from domdf_folium_tools.template import SubclassingTemplate
 from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
@@ -193,6 +193,14 @@ def make_map() -> folium.Map:
 	set_id(os1250, "os1250").add_to(m)
 	set_id(os2500, "os2500").add_to(m)
 	# set_id(os25inch, "os25inch").add_to(m)
+
+	preloads = Preload()
+	# preloads.add_preload("https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/images/marker-icon.png", "image")
+	# preloads.add_preload("https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/images/marker-icon-2x.png", "image")
+	# preloads.add_preload("https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/images/marker-shadow.png", "image")
+	preloads.add_preload("https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_default.png", "image")
+	preloads.add_preload("https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png", "image")
+	preloads.add_to(m)
 
 	# TODO: layer selection background colours to match pins/polygons
 	# TODO: handle polygons

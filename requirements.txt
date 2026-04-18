@@ -2,7 +2,7 @@ arcgis>=2.4.2
 attrs>=26.1.0
 branca>=0.8.2
 consolekit>=1.13.0
-domdf-folium-tools>=0.1.0b7
+domdf-folium-tools>=0.1.0b8
 domdf-python-tools>=3.10.0
 folium>=0.20.0
 folium-map-search @ git+https://github.com/domdfcoding/folium-map-search

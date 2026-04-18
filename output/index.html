@@ -13,16 +13,12 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="static/css/style.css" />
 
-        <link rel="preload"
-              href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_default.png"
-              as="image" />
-        <link rel="preload"
-              href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png"
-              as="image" />
-
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
 
+
+    <link rel="preload" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_default.png" as="image" />
+	<link rel="preload" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png" as="image" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
@@ -401,7 +397,7 @@ Please note: this dataset represents Historic England’s interpretation of the 
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b7/domdf_folium_tools/domdf-folium-tools.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b8/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
     <script src="static/js/icons.js"></script>
     <script src="static/js/markers.js"></script>
@@ -639,12 +635,12 @@ Please note: this dataset represents Historic England’s interpretation of the 
 
 
 
-				var about_control_2ed0ad7be0cf1415b0b5168e19918c13 = new AboutControl(
+				var about_control_8d8d416d2107832b29e290fafda86df9 = new AboutControl(
 					{"modalID": "aboutModal"}
 				).addTo(map);
 
 
-				var map_search_control_8d8d416d2107832b29e290fafda86df9 = L.MapSearchControl({
+				var map_search_control_26639ae57150b04e3980dab500e98e87 = L.MapSearchControl({
 					provider: new L.MapSearchProvider({
 				map: map,
 				layer: marker_cluster_nhle,
@@ -655,9 +651,9 @@ Please note: this dataset represents Historic England’s interpretation of the 
 				)
 
 				// Close search box when map clicked.
-				map.on('click', map_search_control_8d8d416d2107832b29e290fafda86df9.close, map_search_control_8d8d416d2107832b29e290fafda86df9);
+				map.on('click', map_search_control_26639ae57150b04e3980dab500e98e87.close, map_search_control_26639ae57150b04e3980dab500e98e87);
 
-				map_search_control_8d8d416d2107832b29e290fafda86df9.addTo(map);
+				map_search_control_26639ae57150b04e3980dab500e98e87.addTo(map);
 
 
             var layer_control_basemap_layers = {
