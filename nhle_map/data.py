@@ -42,7 +42,7 @@ from arcgis.gis import GIS, ContentManager  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.typing import PathLike
-from shapely.geometry import mapping
+from shapely import MultiPolygon, Polygon
 
 # this package
 from nhle_map._arcgis_fix import to_geojson
@@ -94,12 +94,14 @@ def get_chunk_js(
 
 		if include_polygon:
 			poly_points = []
-			for sub_poly in mapping(item["polygon"])["coordinates"]:
-				while not isinstance(sub_poly[0][0], float):
-					assert len(sub_poly) == 1
-					sub_poly = sub_poly[0]
-
-				poly_points.append([(lat, lng) for (lng, lat) in sub_poly])
+			polygon = item["polygon"]
+			if isinstance(polygon, Polygon):
+				poly_points.append(_get_poly_points(polygon))
+			elif isinstance(polygon, MultiPolygon):
+				for sub_poly in polygon.geoms:
+					if not isinstance(sub_poly, Polygon):
+						raise NotImplementedError(sub_poly)
+					poly_points.append(_get_poly_points(sub_poly))
 
 			values.append(poly_points)
 
@@ -109,6 +111,16 @@ def get_chunk_js(
 	output.blankline()
 
 	return str(output)
+
+
+def _get_poly_points(sub_poly: Polygon) -> list[list[tuple[float, float]]]:
+	this_poly_points = []
+	this_poly_points.append([(lat, lng) for (lng, lat) in sub_poly.exterior.coords])
+
+	for hole in sub_poly.interiors:
+		this_poly_points.append([(lat, lng) for (lng, lat) in hole.coords])
+
+	return this_poly_points
 
 
 def get_data_chunks(
@@ -129,6 +141,10 @@ def get_data_chunks(
 	for latitude in lat_range:
 		for longitude in lng_range:
 			subset = data.cx[longitude:longitude + 1, latitude:latitude + 1]  # type: ignore[misc]  # TODO
+
+			# Remove all sites we've taken in this chunk,
+			# to avoid duplicating those than span chunk boundaries
+			data = data.filter(items=(data.index.difference(subset.index)), axis=0)
 
 			if len(subset):
 				chunks[latitude][longitude] = subset

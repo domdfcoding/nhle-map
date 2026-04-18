@@ -1,5 +1,8 @@
 """
-Fixes problem with arcgis's own ``to_geojson`` function.
+Fixes problems with arcgis's own ``to_geojson`` function.
+
+* Capitalisation of esri types in ``get_geom_type()``
+* Mangling of polygons with holes in ``extract()``
 """
 
 # stdlib
@@ -24,12 +27,6 @@ def extract(feature: dict, esri_geom_type: str) -> dict[str, Any]:
 	geometry: dict[str, Any] = {}
 	geometry["type"] = get_geom_type(esri_geom_type)
 	geometry["coordinates"] = get_coordinates(geom, geometry["type"])
-	# add check for MultiPolygon
-	if geometry["type"] == "Polygon" and len(geometry["coordinates"]) > 1:
-		geometry["type"] = "MultiPolygon"
-		# for multipolygons, each set of rings should be nested an extra level
-		new_coords = [[poly] for poly in geometry["coordinates"]]
-		geometry["coordinates"] = new_coords
 	item["geometry"] = geometry
 	item["properties"] = feature["attributes"]
 
