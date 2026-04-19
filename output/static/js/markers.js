@@ -147,9 +147,10 @@ function addMarkers(points, markerList, icon, noun) {
 	for (var i = 0; i < points.length; i++) {
 		var a = points[i];
 		// var popupText = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
-		var listingGrade = a[4] ? `Grade: <strong>${listingGrade}</strong><br>` : '';
+		var listingGrade = a[4] ? `Grade: <strong>${a[4]}</strong><br>` : '';
 		var listingLink = a[6] ? `<a href="${a[6]}" class="card-link" target='_blank'>View list entry</a>` : '';
 		var date = a[5] ? `Date: <strong>${a[5]}</strong>` : '';
+		var notes = a[8] ? `<p>${a[8]}</p>` : '';
 		var popupText = `
 <div class="card border-0">
   <div class="card-body p-0">
@@ -161,6 +162,7 @@ function addMarkers(points, markerList, icon, noun) {
 		<br>
 	    ${date}
 	</p>
+    ${notes}
     ${listingLink}
   </div>
 </div>

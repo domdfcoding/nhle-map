@@ -84,6 +84,11 @@ def get_chunk_js(
 
 	item: dict[str, Any]
 	for item in sorted(features, key=_chunk_sort_fn):
+		notes = item.get("Notes")
+		if notes and "Buffer Zone" in notes:
+			# TODO: find a way to indicate this still
+			continue
+
 		number = _get_list_entry_no(item)
 		name = _get_list_entry_name(item)
 		grade = item.get("Grade")
@@ -92,8 +97,8 @@ def get_chunk_js(
 		coord = item["geometry"].bounds[:2]
 		values = [coord[1], coord[0], number, name, grade, list_date, link]
 
+		poly_points = []
 		if include_polygon:
-			poly_points = []
 			polygon = item["polygon"]
 			if isinstance(polygon, Polygon):
 				poly_points.append(_get_poly_points(polygon))
@@ -105,7 +110,29 @@ def get_chunk_js(
 
 			values.append(poly_points)
 
-		output.append(json.dumps(values) + ',')
+		if notes:
+			values.append(notes)
+
+		if poly_points and len(poly_points[0][0]) > 10:
+			# Nicer formatting
+			as_js = json.dumps(values)[1:] + ','
+			split_at_square_brackets = as_js.split("[")
+			line = ''
+			indent = ''
+			
+			for line_chunk in split_at_square_brackets:
+				line += f"{indent}[{line_chunk}"
+				indent = ''
+				if len(line) > 200:
+					output.append(line)
+					line = ''
+					indent = "    "
+			
+			if line:
+				output.append(line)
+
+		else:
+			output.append(json.dumps(values) + ',')
 
 	output.append(']')
 	output.blankline()
