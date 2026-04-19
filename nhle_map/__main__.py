@@ -40,7 +40,7 @@ __all__ = ["main", "make_map", "prepare_data"]
 		)
 def main() -> None:
 	"""
-	Development tools for towpath-walk-tracker.
+	Map showing listed buildings in England and Wales.
 	"""
 
 
@@ -56,12 +56,14 @@ def prepare_data(download: bool = False) -> None:
 
 	# this package
 	from nhle_map import constants
-	from nhle_map.data import chunk_data, download_data
+	from nhle_map.data import chunk_data, download_data, download_welsh_data
 
 	data_directory = PathPlus("data")
 
 	if download:
-		download_data(data_directory)  # Local data folder, not the processed data within the output folder
+		# data_directory is the local data folder, not the processed data within the output folder
+		download_data(data_directory)
+		download_welsh_data(data_directory)
 
 	output_dir = PathPlus("output")
 	output_dir.maybe_make()

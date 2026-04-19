@@ -47,6 +47,7 @@ __all__ = [
 		"PARKS_AND_GARDENS",
 		"PROTECTED_WRECK_SITES",
 		"SCHEDULED_MONUMENTS",
+		"WELSH_LAYERS",
 		"WORLD_HERITAGE_SITES",
 		]
 
@@ -60,7 +61,9 @@ class Dataset(NamedTuple):
 	identifier: str
 	name: str
 	icon: "LayerIcon"
-	geojson_filename: str
+	geojson_filename: str  # TODO: Accept None to allow welsh-only layers
+	welsh_geojson_filename: str | None = None
+	welsh_api_typename: str | None = None
 
 	@property
 	def layer_label(self) -> str:
@@ -96,13 +99,14 @@ CERTIFICATES_OF_IMMUNITY = Dataset(
 		geojson_filename="Certificate of Immunity points.geojson",
 		)
 
-
 LISTED_BUILDINGS = Dataset(
 		variable_prefix="listedBuildings",
 		identifier="listed_buildings",
 		name="Listed Buildings",
 		icon=FontawesomeLayerIcon(icon="building", marker_colour="#006fb2", svg_marker=True),
 		geojson_filename="Listed Building points.geojson",
+		welsh_geojson_filename="Welsh Listed Buildings.geojson",
+		welsh_api_typename="inspire-wg:Cadw_ListedBuildings",
 		)
 
 PARKS_AND_GARDENS = Dataset(
@@ -119,6 +123,8 @@ PROTECTED_WRECK_SITES = Dataset(
 		name="Protected Wreck Sites",
 		icon=FontawesomeLayerIcon(icon="anchor", marker_colour="purple", svg_marker=True),
 		geojson_filename="Protected Wreck Sites.geojson",
+		# welsh_geojson_filename="Welsh Protected Wreck Sites.geojson",
+		welsh_api_typename="inspire-wg:Cadw_DesignatedWrecks",
 		)
 
 SCHEDULED_MONUMENTS = Dataset(
@@ -127,6 +133,8 @@ SCHEDULED_MONUMENTS = Dataset(
 		name="Scheduled Monuments",
 		icon=FontawesomeLayerIcon(icon="monument", marker_colour="#a32d2f", svg_marker=True),
 		geojson_filename="Scheduled Monuments.geojson",
+		# welsh_geojson_filename="Welsh Scheduled Monuments.geojson",
+		welsh_api_typename="inspire-wg:Cadw_SAM",
 		)
 
 WORLD_HERITAGE_SITES = Dataset(
@@ -135,6 +143,8 @@ WORLD_HERITAGE_SITES = Dataset(
 		name="World Heritage Sites",
 		icon=FontawesomeLayerIcon(icon="certificate", marker_colour="grey", svg_marker=True),
 		geojson_filename="World Heritage Sites.geojson",
+		# welsh_geojson_filename="Welsh World Heritage Sites.geojson",
+		welsh_api_typename="inspire-wg:vGeoServer_WorldHeritageSites_Public",
 		)
 
 DE_DESIGNATED = Dataset(
@@ -163,3 +173,13 @@ MIN_LNG = -7
 # MAX_LAT = 62
 MAX_LAT = 55
 MAX_LNG = 3
+
+
+WELSH_LAYERS = (
+		LISTED_BUILDINGS,
+		# TODO: WELSH_PARKS_AND_GARDENS,
+		# PROTECTED_WRECK_SITES,
+		# WELSH_REGISTERED_LANDSCAPES,
+		# SCHEDULED_MONUMENTS,
+		# WORLD_HERITAGE_SITES,
+		)

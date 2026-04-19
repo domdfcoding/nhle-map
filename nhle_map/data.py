@@ -36,7 +36,9 @@ from typing import Any
 # 3rd party
 import geopandas  # type: ignore[import-untyped]
 import numpy  # nodep
+import pandas
 import pyogrio  # type: ignore[import-untyped]
+import requests
 from arcgis.features import FeatureLayer, FeatureSet  # type: ignore[import-untyped]
 from arcgis.gis import GIS, ContentManager  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
@@ -46,17 +48,18 @@ from shapely import MultiPolygon, Polygon
 
 # this package
 from nhle_map._arcgis_fix import to_geojson
-from nhle_map.constants import LISTED_BUILDINGS, Dataset
-from nhle_map.utils import DATE_FORMAT, DATE_ONLY_FORMAT, format_datetime, get_id
+from nhle_map.constants import LISTED_BUILDINGS, WELSH_LAYERS, Dataset
+from nhle_map.utils import DATE_FORMAT, DATE_ONLY_FORMAT, format_datetime, from_iso_zulu, get_id
 
 __all__ = [
 		"chunk_data",
+		"dict_get_oneof",
 		"download_data",
+		"download_welsh_data",
 		"get_chunk_js",
 		"get_data_chunks",
 		"get_list_date",
 		"set_polygon_marker",
-		"write_data",
 		]
 
 Chunks = dict[float, dict[float, geopandas.GeoDataFrame]]
@@ -79,12 +82,14 @@ def get_chunk_js(
 
 	output = StringList()
 
-	output.append("// Lat,Lng,Number,Name,Grade,ListDate,Link")
+	output.append("// Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,")
 	output.append(f"var {variable_prefix}{chunk_id} = [")
 
 	item: dict[str, Any]
 	for item in sorted(features, key=_chunk_sort_fn):
-		notes = item.get("Notes")
+		# TODO: add "Period" to notes
+		notes = dict_get_oneof(item, ["Notes", "Location"], default=None, err_missing=False)
+
 		if notes and "Buffer Zone" in notes:
 			# TODO: find a way to indicate this still
 			continue
@@ -108,10 +113,9 @@ def get_chunk_js(
 						raise NotImplementedError(sub_poly)
 					poly_points.append(_get_poly_points(sub_poly))
 
+		if poly_points or notes:
+			values.append(notes or None)
 			values.append(poly_points)
-
-		if notes:
-			values.append(notes)
 
 		if poly_points and len(poly_points[0][0]) > 10:
 			# Nicer formatting
@@ -229,6 +233,65 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 	return meta
 
 
+wales_datamap_url = "https://datamap.gov.wales/geoserver/ows"
+
+
+def download_welsh_data(output_directory: PathLike) -> dict[str, Any]:
+	"""
+	Download data from the cadw datasets on ``datamap.gov.wales``.
+
+	:param output_directory: Directory to write files to.
+	"""
+
+	output_dir = PathPlus(output_directory)
+	output_dir.maybe_make(parents=True)
+
+	data_common_params = {
+			"service": "WFS",
+			"version": "1.0.0",
+			"request": "GetFeature",
+			"outputFormat": "json",
+			"srs": "EPSG:4326",
+			"srsName": "EPSG:4326",
+			}
+
+	for dataset in WELSH_LAYERS:
+		response = requests.get(
+				wales_datamap_url,
+				params={**data_common_params, "typename": dataset.welsh_api_typename},
+				)
+		response.raise_for_status()
+		geojson = response.json()
+		for feature in geojson["features"]:
+			feature_properties = {}
+			for key, value in feature["properties"].items():
+				if key in {"RecordNumber", "reference_number"}:
+					feature_properties["ListEntry"] = value
+				elif key == "Report":
+					feature_properties["hyperlink"] = value
+				elif key == "Report_welsh":
+					feature_properties["hyperlink_welsh"] = value
+				elif key == "site_name_en":
+					feature_properties["Name"] = value
+				elif key == "site_name_cy":
+					feature_properties["Name_cy"] = value
+				elif key == "DesignationDate":
+					if value:
+						feature_properties["ListDate"] = from_iso_zulu(value).timestamp() * 1000  # To milliseconds
+					else:
+						feature_properties["ListDate"] = None
+				else:
+					feature_properties[key] = value
+
+			feature["properties"] = feature_properties
+
+		output_dir.joinpath(dataset.welsh_geojson_filename).dump_json(geojson)
+
+	# TODO: metadata. Have to hardcode descriptions
+	# based on links from https://cadw.gov.wales/advice-support/cof-cymru/downloads
+	# as the provided downloads give too verbose descriptions
+
+
 def set_polygon_marker(data: geopandas.GeoDataFrame) -> geopandas.GeoDataFrame:
 	"""
 	Sets the marker position for the given data's polygon.
@@ -248,6 +311,48 @@ def set_polygon_marker(data: geopandas.GeoDataFrame) -> geopandas.GeoDataFrame:
 
 	return data
 
+
+# TODO: generic on KT?
+def dict_get_oneof(
+		dictionary: dict[str, Any],
+		keys: Iterable[str],  #
+		default: str | None = ...,
+		err_missing: bool = True,
+		) -> str | None:
+	"""
+	Get one of many possible keys from the given dictionary.
+
+	:param dictionary:
+	:param keys:
+	:param default: If set, the default value to return if all values are :py:obj:`None`
+		(or if no keys exist and ``err_missing`` is :py:obj:`False`)
+	:param err_missing: If :py:obj:`True` will error if none of the keys exist in the dictionary.
+		If :py:obj:`False` the default value (if set) will be returned instead.
+	"""
+	possible_keys = list(keys)
+	actual_keys = set(possible_keys) & dictionary.keys()
+
+	if not actual_keys:
+		if default is not Ellipsis and not err_missing:
+			return default
+
+		raise KeyError(possible_keys)
+
+	if len(actual_keys) == 1:
+		return dictionary[actual_keys.pop()]
+
+	else:
+		for key in actual_keys:
+			value = dictionary[value]
+			if value is not None:
+				return value
+
+	if default is not Ellipsis:
+		return default
+
+	raise KeyError(possible_keys)
+
+
 def get_list_date(list_entry: dict[str, Any]) -> datetime.datetime | None:
 	"""
 	Returns the listing date, Building Preservation Notice / Certificate of Immunity start date, or similar for the given list entry.
@@ -265,14 +370,8 @@ def get_list_date(list_entry: dict[str, Any]) -> datetime.datetime | None:
 			"DateRemovedFromList",
 			"InscrDate",
 			]
-	actual_keys = set(possible_keys) & list_entry.keys()
 
-	if not actual_keys:
-		raise KeyError(possible_keys)
-
-	assert len(actual_keys) == 1  # if not need to take first out of possible_keys
-
-	list_date: str | float | None = list_entry[actual_keys.pop()]
+	list_date: str | float | None = dict_get_oneof(list_entry, possible_keys, default=None)
 
 	if list_date is None or numpy.isnan(list_date):
 		return None
@@ -300,16 +399,12 @@ def _chunk_sort_fn(list_entry: dict[str, Any]) -> int:
 	return list_entry_no
 
 
-def _get_list_entry_no(list_entry: dict[str, Any]) -> int:
+def _get_list_entry_no(list_entry: dict[str, Any]) -> str | int:
 	possible_keys = ["ListEntry", "OriginalListEntryNumber"]
-	actual_keys = set(possible_keys) & list_entry.keys()
+	entry_no = dict_get_oneof(list_entry, possible_keys, default=-1)
 
-	if not actual_keys:
-		raise KeyError(possible_keys)
-
-	assert len(actual_keys) == 1  # if not need to take first out of possible_keys
-
-	entry_no = list_entry[actual_keys.pop()]
+	if isinstance(entry_no, str):
+		return entry_no
 
 	if entry_no is None or numpy.isnan(entry_no):
 		return -1
@@ -319,14 +414,7 @@ def _get_list_entry_no(list_entry: dict[str, Any]) -> int:
 
 def _get_list_entry_name(list_entry: dict[str, Any]) -> str:
 	possible_keys = ["Name", "ARTICLEVERSIONNAME"]
-	actual_keys = set(possible_keys) & list_entry.keys()
-
-	if not actual_keys:
-		raise KeyError(possible_keys)
-
-	assert len(actual_keys) == 1  # if not need to take first out of possible_keys
-
-	return list_entry[actual_keys.pop()]
+	return dict_get_oneof(list_entry, possible_keys)
 
 
 def _prepare_dataset(
@@ -335,7 +423,13 @@ def _prepare_dataset(
 		lng_range: Iterable[float],
 		data_directory: PathPlus,
 		) -> Chunks:
+	# TODO: handle no English dataset
 	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.geojson_filename)
+	if dataset.welsh_geojson_filename:
+		welsh_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.welsh_geojson_filename)
+		gdf = pandas.concat((gdf, welsh_gdf), ignore_index=True)
+		gdf = gdf.where(gdf.notnull(), None)
+
 	return get_data_chunks(gdf, lat_range, lng_range)
 
 

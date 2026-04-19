@@ -147,9 +147,10 @@ function addMarkers(points, markerList, icon, noun) {
 	for (var i = 0; i < points.length; i++) {
 		var a = points[i];
 		// var popupText = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
-		var listingGrade = a[4] ? `Grade: <strong>${listingGrade}</strong><br>` : '';
+		var listingGrade = a[4] ? `Grade: <strong>${a[4]}</strong><br>` : '';
 		var listingLink = a[6] ? `<a href="${a[6]}" class="card-link" target='_blank'>View list entry</a>` : '';
 		var date = a[5] ? `Date: <strong>${a[5]}</strong>` : '';
+		var notes = a[7] ? `<p>${a[7]}</p>` : '';
 		var popupText = `
 <div class="card border-0">
   <div class="card-body p-0">
@@ -161,13 +162,14 @@ function addMarkers(points, markerList, icon, noun) {
 		<br>
 	    ${date}
 	</p>
+    ${notes}
     ${listingLink}
   </div>
 </div>
 		`;
 		var marker = new L.PolyMarker(
 			L.latLng(a[0], a[1]),
-			a[7],
+			a[8],
 			{ title: a[3], icon: icon },
 		);
 		// TODO: constants for indices rather than magic numbers

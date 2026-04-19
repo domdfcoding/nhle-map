@@ -38,7 +38,7 @@ from domdf_python_tools.paths import PathPlus
 from nhle_map import constants
 from nhle_map.icons import write_icons_js
 
-__all__ = ["copy_static_files", "format_description", "get_id"]
+__all__ = ["copy_static_files", "format_datetime", "format_description", "from_iso_zulu", "get_id"]
 
 rng = random.Random("NHLE")
 DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
@@ -109,3 +109,16 @@ def format_datetime(dt: datetime.datetime | None, date_format: str = DATE_FORMAT
 		return dt.strftime(date_format)
 
 	return None
+
+
+def from_iso_zulu(the_datetime: str) -> datetime.datetime:
+	"""
+	Constructs a :class:`datetime.datetime` object from an
+	`ISO 8601 <https://en.wikipedia.org/wiki/ISO_8601>`_ format string.
+
+	This function understands the character ``Z`` as meaning Zulu time (GMT/UTC).
+
+	:param the_datetime:
+	"""  # noqa: D400
+
+	return datetime.datetime.fromisoformat(the_datetime.replace('Z', "+00:00"))
