@@ -26,52 +26,62 @@ function load_new_markers() {
 
 	progress.addEventListener('shown.bs.modal', event => {
 		loadMarkersAllLayers(
+			// TODO: generate with jinja2 and populate from LAYERS
 			chunkIDs,
 			[
 				{
 					'variable_prefix': 'battlefields',
 					'layer': marker_cluster_battlefields,
 					'icon': battlefieldsIcon,
+					'noun': 'Battlefield',
 				},
 				{
 					'variable_prefix': 'buildingPreservationNotices',
 					'layer': marker_cluster_building_preservation_notices,
 					'icon': buildingPreservationNoticesIcon,
+					'noun': 'Building Preservation Notice',
 				},
 				{
 					'variable_prefix': 'certificatesOfImmunity',
 					'layer': marker_cluster_certificates_of_immunity,
 					'icon': certificatesOfImmunityIcon,
+					'noun': 'Certificate of Immunity',
 				},
 				{
 					'variable_prefix': 'listedBuildings',
 					'layer': marker_cluster_listed_buildings,
 					'icon': listedBuildingsIcon,
+					'noun': 'Listed Building',
 				},
 				{
 					'variable_prefix': 'parksGardens',
 					'layer': marker_cluster_parks_and_gardens,
 					'icon': parksGardensIcon,
+					'noun': 'Park and Garden',
 				},
 				{
 					'variable_prefix': 'protectedWreckSites',
 					'layer': marker_cluster_protected_wreck_sites,
 					'icon': protectedWreckSitesIcon,
+					'noun': 'Protected Wreck',
 				},
 				{
 					'variable_prefix': 'scheduledMonuments',
 					'layer': marker_cluster_scheduled_monuments,
 					'icon': scheduledMonumentsIcon,
+					'noun': 'Scheduled Monument',
 				},
 				{
 					'variable_prefix': 'worldHeritageSites',
 					'layer': marker_cluster_world_heritage_sites,
 					'icon': worldHeritageSitesIcon,
+					'noun': 'World Heritage Site',
 				},
 				{
 					'variable_prefix': 'deDesignated',
 					'layer': marker_cluster_de_designated,
 					'icon': deDesignatedIcon,
+					'noun': 'De-designated Site',
 				},
 			],
 		);
@@ -117,7 +127,7 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 					let var_name = layer_data.variable_prefix + id;
 					console.log('Accessing JS variable', var_name);
 					var layerMarkerList = [];
-					addMarkers(window[var_name], layerMarkerList, layer_data.icon);
+					addMarkers(window[var_name], layerMarkerList, layer_data.icon, layer_data.noun);
 					markerList.push(...layer_data.layer.internLayers(layerMarkerList));
 				});
 				addedChunkIDs.push(id);
@@ -133,19 +143,35 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 	});
 }
 
-function addMarkers(points, markerList, icon) {
+function addMarkers(points, markerList, icon, noun) {
 	for (var i = 0; i < points.length; i++) {
 		var a = points[i];
-		var title = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
-		// var title = a[2].toString();
+		// var popupText = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
+		var listingGrade = a[4] ? `Grade: <strong>${listingGrade}</strong><br>` : '';
+		var listingLink = a[6] ? `<a href="${a[6]}" class="card-link" target='_blank'>View list entry</a>` : '';
+		var date = a[5] ? `Date: <strong>${a[5]}</strong>` : '';
+		var popupText = `
+<div class="card border-0">
+  <div class="card-body p-0">
+    <h5 class="card-title">${a[3]}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${noun}</h6>
+    <p class="card-text">
+		${listingGrade}
+	    List Entry Number: <strong>${a[2]}</strong>
+		<br>
+	    ${date}
+	</p>
+    ${listingLink}
+  </div>
+</div>
+		`;
 		var marker = new L.PolyMarker(
 			L.latLng(a[0], a[1]),
-			// (a[7] ? a[7]: null),
 			a[7],
 			{ title: a[3], icon: icon },
 		);
 		// TODO: constants for indices rather than magic numbers
-		marker.bindPopup(title);
+		marker.bindPopup(popupText);
 		markerList.push(marker);
 	}
 }
@@ -221,30 +247,3 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 		modal.show();
 	}
 }
-
-MarkerGroup = L.MarkerGroup.extend({
-	/* Like addLayers, adds to the internal list of markers but doesn't add to map.
-	Returns the list of markers to add to the map (none if the layer is not visible)
-	*/
-	internLayers: function(layers, addToCluster = true) {
-		// TODO: move this function to domdf-folium-tools
-		this._markers.push(...layers);
-
-		if (this._map && addToCluster) {
-			return layers;
-		}
-
-		return [];
-	},
-
-	addLayers: function(layers, addToCluster = true) {
-		console.log('addLayers called; addToCluster=', addToCluster);
-
-		marker_cluster_nhle.addLayers(this.internLayers(layers));
-
-		if (!this._map) {
-			// Pretend chunkedLoading happened
-			modal.hide();
-		}
-	},
-});
