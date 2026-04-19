@@ -97,6 +97,13 @@ def prepare_data(download: bool = False) -> None:
 				"dataLastEditDate": layer["editingInfo"]["dataLastEditDate"],
 				}
 
+	layers_data["Battlefields"]["description"] += "<br>England Only"
+	layers_data["Building Preservation Notice points"]["description"] += "<br>England Only"
+	layers_data["Certificate of Immunity points"]["description"] += "<br>England Only"
+	layers_data["Parks and Gardens"]["description"] += "<br>England Only"
+	de_designated_description = "Sites removed from the National Heritage List for England because they no longer met any of the above criteria.<br>England Only"
+	layers_data["De-designated sites"]["description"] = de_designated_description
+
 	output_dir.joinpath("data", "meta.json").dump_json(layers_data, indent=2)
 
 

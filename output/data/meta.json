@@ -1,6 +1,6 @@
 {
   "De-designated sites": {
-    "description": "",
+    "description": "Sites removed from the National Heritage List for England because they no longer met any of the above criteria.<br>England Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776398427145
   },
@@ -10,12 +10,12 @@
     "dataLastEditDate": 1776403528385
   },
   "Building Preservation Notice points": {
-    "description": "This is a form of \u2018temporary\u2019 listing. Local authorities have the power to serve a BPN on the owner of a building which is not listed, but which is of special architectural/historical interest and in danger of being demolished or altered. A BPN lasts for a period of six months and in effect makes an unlisted building subject to the same rules as if it were listed. This allows time for a formal assessment to be carried out.",
+    "description": "This is a form of \u2018temporary\u2019 listing. Local authorities have the power to serve a BPN on the owner of a building which is not listed, but which is of special architectural/historical interest and in danger of being demolished or altered. A BPN lasts for a period of six months and in effect makes an unlisted building subject to the same rules as if it were listed. This allows time for a formal assessment to be carried out.<br>England Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776403528559
   },
   "Certificate of Immunity points": {
-    "description": "A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see below) on the respective property during this period.",
+    "description": "A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see below) on the respective property during this period.<br>England Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776403528824
   },
@@ -40,12 +40,12 @@
     "dataLastEditDate": 1776403603653
   },
   "Parks and Gardens": {
-    "description": "The 'Register\u2019 of Historic Parks and Gardens was established in 1983, with the emphasis placed on protecting 'designed' landscapes rather than those with botanical importance. \nThe Register safeguards a broad range of planned open spaces, including public parks, cemeteries, the grounds of private houses, and town squares. Like Listed Buildings, Parks and Gardens are assigned one of three grades to indicate their significance.",
+    "description": "The 'Register\u2019 of Historic Parks and Gardens was established in 1983, with the emphasis placed on protecting 'designed' landscapes rather than those with botanical importance. \nThe Register safeguards a broad range of planned open spaces, including public parks, cemeteries, the grounds of private houses, and town squares. Like Listed Buildings, Parks and Gardens are assigned one of three grades to indicate their significance.<br>England Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776403606172
   },
   "Battlefields": {
-    "description": "The \u2018Register\u2019 of Historic Battlefields, established in 1995, offers protection to the sites of English battles, as well as promoting a better understanding of their historical significance. These landscapes are of vital importance, as they provide archaeological and topographical evidence of major turning points in England\u2019s history.",
+    "description": "The \u2018Register\u2019 of Historic Battlefields, established in 1995, offers protection to the sites of English battles, as well as promoting a better understanding of their historical significance. These landscapes are of vital importance, as they provide archaeological and topographical evidence of major turning points in England\u2019s history.<br>England Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776403606329
   },
