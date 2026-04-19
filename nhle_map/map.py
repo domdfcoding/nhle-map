@@ -119,7 +119,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
             {{ this._parent.get_name() }}.addLayer(marker_cluster_nhle);
 
 			{% for layer in this._layers -%}
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_{{ layer.filename_prefix }});
+			{{ this._parent.get_name() }}.addLayer(marker_cluster_{{ layer.identifier }});
 			{% endfor %}
 
             var loaded_ids = [];
@@ -225,7 +225,7 @@ def make_map() -> folium.Map:
 						name=layer.layer_label,
 						),
 				m,
-				layer.filename_prefix,
+				layer.identifier,
 				)
 
 	MarkerLoadingJS(max_zoom=MAX_ZOOM, layers=constants.LAYERS).add_to(m)

@@ -221,38 +221,6 @@ def set_polygon_marker(data: geopandas.GeoDataFrame) -> geopandas.GeoDataFrame:
 
 	return data
 
-
-def write_data(
-		data: geopandas.GeoDataFrame,
-		output_directory: PathLike,
-		chunk_id: str | int,
-		variable_prefix: str = LISTED_BUILDINGS.variable_prefix,
-		filename_prefix: str = LISTED_BUILDINGS.filename_prefix,
-		include_polygon: bool = False,
-		) -> None:
-	"""
-	Write unchunked data (or a single chunk) to a javascript file.
-
-	:param data:
-	:param output_directory: Directory to write files to.
-	:param chunk_id:
-	:param variable_prefix: String to prefix javascript variables with.
-	:param filename_prefix: String to prefix javascript filenames with.
-	:param include_polygon: Include the outline polygon points and not merely the central coordinates.
-	"""
-
-	output_dir = PathPlus(output_directory)
-	output_dir.maybe_make(parents=True)
-
-	chunk_js = get_chunk_js(
-			data.to_dict("records"),
-			chunk_id=chunk_id,
-			variable_prefix=variable_prefix,
-			include_polygon=include_polygon,
-			)
-	output_dir.joinpath(f"{filename_prefix}_{chunk_id}.js").write_clean(chunk_js)
-
-
 def get_list_date(list_entry: dict[str, Any]) -> datetime.datetime | None:
 	"""
 	Returns the listing date, Building Preservation Notice / Certificate of Immunity start date, or similar for the given list entry.
