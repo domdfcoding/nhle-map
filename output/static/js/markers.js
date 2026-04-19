@@ -247,30 +247,3 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 		modal.show();
 	}
 }
-
-MarkerGroup = L.MarkerGroup.extend({
-	/* Like addLayers, adds to the internal list of markers but doesn't add to map.
-	Returns the list of markers to add to the map (none if the layer is not visible)
-	*/
-	internLayers: function(layers, addToCluster = true) {
-		// TODO: move this function to domdf-folium-tools
-		this._markers.push(...layers);
-
-		if (this._map && addToCluster) {
-			return layers;
-		}
-
-		return [];
-	},
-
-	addLayers: function(layers, addToCluster = true) {
-		console.log('addLayers called; addToCluster=', addToCluster);
-
-		marker_cluster_nhle.addLayers(this.internLayers(layers));
-
-		if (!this._map) {
-			// Pretend chunkedLoading happened
-			modal.hide();
-		}
-	},
-});

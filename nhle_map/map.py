@@ -137,7 +137,6 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
 
 class MarkerGroup(markercluster.MarkerGroup):
-	_js_constructor = "new MarkerGroup"
 
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
