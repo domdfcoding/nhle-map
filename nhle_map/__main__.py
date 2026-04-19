@@ -80,8 +80,8 @@ def prepare_data(download: bool = False) -> None:
 
 	chunk_data(
 			data,
-			range(49, 55),
-			range(-7, 3),
+			range(constants.MIN_LAT, constants.MAX_LAT),
+			range(constants.MIN_LNG, constants.MAX_LNG),
 			data_directory=data_directory,
 			output_directory=output_dir / "data",
 			)

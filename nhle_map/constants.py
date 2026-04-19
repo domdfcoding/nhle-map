@@ -33,17 +33,21 @@ from typing import NamedTuple
 from nhle_map.icons import FontawesomeLayerIcon, LayerIcon, SVGLayerIcon
 
 __all__ = [
-		"Dataset",
 		"BATTLEFIELDS",
 		"BUILDING_PRESERVATION_NOTICES",
 		"CERTIFICATES_OF_IMMUNITY",
+		"Dataset",
+		"DE_DESIGNATED",
+		"LAYERS",
 		"LISTED_BUILDINGS",
+		"MAX_LAT",
+		"MAX_LNG",
+		"MIN_LAT",
+		"MIN_LNG",
 		"PARKS_AND_GARDENS",
 		"PROTECTED_WRECK_SITES",
 		"SCHEDULED_MONUMENTS",
 		"WORLD_HERITAGE_SITES",
-		"DE_DESIGNATED",
-		"LAYERS",
 		]
 
 
@@ -162,3 +166,10 @@ LAYERS = (
 		WORLD_HERITAGE_SITES,
 		DE_DESIGNATED,
 		)
+
+MIN_LAT = 49
+# MIN_LNG = -12
+MIN_LNG = -7
+# MAX_LAT = 62
+MAX_LAT = 55
+MAX_LNG = 3
