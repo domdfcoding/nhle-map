@@ -42,6 +42,7 @@ __all__ = ["copy_static_files", "format_description", "get_id"]
 
 rng = random.Random("NHLE")
 DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
+DATE_ONLY_FORMAT = "%a, %d %b %Y"
 
 
 def get_id() -> int:
@@ -97,7 +98,7 @@ def format_description(description: str) -> str:
 	return description
 
 
-def format_datetime(dt: datetime.datetime | None) -> str | None:
+def format_datetime(dt: datetime.datetime | None, date_format: str = DATE_FORMAT) -> str | None:
 	"""
 	Format the given datetime to string.
 
@@ -105,6 +106,6 @@ def format_datetime(dt: datetime.datetime | None) -> str | None:
 	"""
 
 	if dt:
-		return dt.strftime(DATE_FORMAT)
+		return dt.strftime(date_format)
 
 	return None

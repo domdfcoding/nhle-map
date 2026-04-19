@@ -47,7 +47,7 @@ from shapely import MultiPolygon, Polygon
 # this package
 from nhle_map._arcgis_fix import to_geojson
 from nhle_map.constants import LISTED_BUILDINGS, Dataset
-from nhle_map.utils import DATE_FORMAT, format_datetime, get_id
+from nhle_map.utils import DATE_FORMAT, DATE_ONLY_FORMAT, format_datetime, get_id
 
 __all__ = [
 		"chunk_data",
@@ -87,7 +87,7 @@ def get_chunk_js(
 		number = _get_list_entry_no(item)
 		name = _get_list_entry_name(item)
 		grade = item.get("Grade")
-		list_date = format_datetime(get_list_date(item))
+		list_date = format_datetime(get_list_date(item), DATE_ONLY_FORMAT)
 		link = item.get("hyperlink")
 		coord = item["geometry"].bounds[:2]
 		values = [coord[1], coord[0], number, name, grade, list_date, link]

@@ -78,3 +78,20 @@ a.description-btn:not(.collapsed)::after {
 .description-container p {
 	margin-bottom: unset;
 }
+
+.leaflet-popup-close-button {
+	margin-right: 4px;
+	margin-top: 4px;
+
+	span {
+		font-size: 24px;
+	}
+}
+
+.leaflet-popup .card {
+	p.card-text, a {
+		font-size: 14px;
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+}
