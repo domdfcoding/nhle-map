@@ -120,10 +120,10 @@ def get_chunk_js(
 		if poly_points and len(poly_points[0][0]) > 10:
 			# Nicer formatting
 			as_js = json.dumps(values)[1:] + ','
-			split_at_square_brackets = as_js.split("[")
+			split_at_square_brackets = as_js.split('[')
 			line = ''
 			indent = ''
-			
+
 			for line_chunk in split_at_square_brackets:
 				line += f"{indent}[{line_chunk}"
 				indent = ''
@@ -131,7 +131,7 @@ def get_chunk_js(
 					output.append(line)
 					line = ''
 					indent = "    "
-			
+
 			if line:
 				output.append(line)
 
@@ -259,7 +259,7 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 wales_datamap_url = "https://datamap.gov.wales/geoserver/ows"
 
 
-def download_welsh_data(output_directory: PathLike) -> dict[str, Any]:
+def download_welsh_data(output_directory: PathLike) -> None:
 	"""
 	Download data from the cadw datasets on ``datamap.gov.wales``.
 
@@ -279,6 +279,9 @@ def download_welsh_data(output_directory: PathLike) -> dict[str, Any]:
 			}
 
 	for dataset in WELSH_LAYERS:
+		assert dataset.welsh_api_typename is not None
+		assert dataset.welsh_geojson_filename is not None
+
 		response = requests.get(
 				wales_datamap_url,
 				params={**data_common_params, "typename": dataset.welsh_api_typename},

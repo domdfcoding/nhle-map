@@ -103,6 +103,7 @@ def format_datetime(dt: datetime.datetime | None, date_format: str = DATE_FORMAT
 	Format the given datetime to string.
 
 	:param dt:
+	:param date_format:
 	"""
 
 	if dt:
