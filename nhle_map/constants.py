@@ -123,7 +123,7 @@ PROTECTED_WRECK_SITES = Dataset(
 		name="Protected Wreck Sites",
 		icon=FontawesomeLayerIcon(icon="anchor", marker_colour="purple", svg_marker=True),
 		geojson_filename="Protected Wreck Sites.geojson",
-		# welsh_geojson_filename="Welsh Protected Wreck Sites.geojson",
+		welsh_geojson_filename="Welsh Protected Wreck Sites.geojson",
 		welsh_api_typename="inspire-wg:Cadw_DesignatedWrecks",
 		)
 
@@ -178,7 +178,7 @@ MAX_LNG = 3
 WELSH_LAYERS = (
 		LISTED_BUILDINGS,
 		# TODO: WELSH_PARKS_AND_GARDENS,
-		# PROTECTED_WRECK_SITES,
+		PROTECTED_WRECK_SITES,
 		# WELSH_REGISTERED_LANDSCAPES,
 		# SCHEDULED_MONUMENTS,
 		# WORLD_HERITAGE_SITES,
