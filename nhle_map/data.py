@@ -292,6 +292,9 @@ def download_welsh_data(output_directory: PathLike) -> None:
 			feature_properties = {}
 			for key, value in feature["properties"].items():
 				if key in {"RecordNumber", "reference_number"}:
+					if "ListEntry" not in feature_properties:
+						feature_properties["ListEntry"] = value
+				elif key == "SAMNumber":
 					feature_properties["ListEntry"] = value
 				elif key == "Report":
 					feature_properties["hyperlink"] = value
@@ -499,7 +502,7 @@ def _prepare_dataset(
 	if dataset.welsh_geojson_filename:
 		welsh_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.welsh_geojson_filename)
 		gdf = pandas.concat((gdf, welsh_gdf), ignore_index=True)
-		gdf = gdf.where(gdf.notnull(), None)
+		gdf = gdf.where(gdf.notnull(), None).replace({float("nan"): None})
 
 	return get_data_chunks(gdf, lat_range, lng_range)
 

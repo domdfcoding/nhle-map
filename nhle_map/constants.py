@@ -133,7 +133,7 @@ SCHEDULED_MONUMENTS = Dataset(
 		name="Scheduled Monuments",
 		icon=FontawesomeLayerIcon(icon="monument", marker_colour="#a32d2f", svg_marker=True),
 		geojson_filename="Scheduled Monuments.geojson",
-		# welsh_geojson_filename="Welsh Scheduled Monuments.geojson",
+		welsh_geojson_filename="Welsh Scheduled Monuments.geojson",
 		welsh_api_typename="inspire-wg:Cadw_SAM",
 		)
 
@@ -180,6 +180,6 @@ WELSH_LAYERS = (
 		# TODO: WELSH_PARKS_AND_GARDENS,
 		PROTECTED_WRECK_SITES,
 		# WELSH_REGISTERED_LANDSCAPES,
-		# SCHEDULED_MONUMENTS,
+		SCHEDULED_MONUMENTS,
 		# WORLD_HERITAGE_SITES,
 		)
