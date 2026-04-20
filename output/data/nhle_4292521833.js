@@ -18,7 +18,7 @@ var listedBuildings4292521833 = [
 [53.3165481177214, 0.24593752442573, 1062984, "THORPE FARM COTTAGE", "II", "Wed, 09 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1062984"],
 [53.3059926991387, 0.195701752764907, 1062985, "MANOR HOUSE", "II", "Thu, 09 Mar 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1062985"],
 [53.3130431561233, 0.201646147873358, 1062986, "Dovecote House", "II", "Wed, 09 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1062986"],
-[53.327466545784, 0.110342639912033, 1062987, "The Hall ", "II", "Thu, 09 Mar 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1062987"],
+[53.327466545784, 0.110342639912033, 1062987, "The Hall", "II", "Thu, 09 Mar 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1062987"],
 [53.3202072294745, 0.179494662381266, 1062988, "CHURCH OF ST. OSWALD", "II*", "Thu, 09 Mar 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1062988"],
 [53.3019363670669, 0.157823379783075, 1062989, "WOODTHORPE HALL", "II", "Wed, 09 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1062989"],
 [53.3604939537032, 0.196682932224296, 1062990, "NEVES FARM HOUSE", "II", "Wed, 09 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1062990"],

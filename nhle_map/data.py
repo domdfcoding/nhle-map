@@ -29,14 +29,15 @@ Data preparation.
 # stdlib
 import datetime
 import json
+import re
 from collections import defaultdict
 from collections.abc import Iterable
-from typing import Any
+from typing import Any, TypeVar, cast, overload
 
 # 3rd party
 import geopandas  # type: ignore[import-untyped]
 import numpy  # nodep
-import pandas
+import pandas  # type: ignore[import-untyped]
 import pyogrio  # type: ignore[import-untyped]
 import requests
 from arcgis.features import FeatureLayer, FeatureSet  # type: ignore[import-untyped]
@@ -87,8 +88,7 @@ def get_chunk_js(
 
 	item: dict[str, Any]
 	for item in sorted(features, key=_chunk_sort_fn):
-		# TODO: add "Period" to notes
-		notes = dict_get_oneof(item, ["Notes", "Location"], default=None, err_missing=False)
+		notes = _get_notes(item)
 
 		if notes and "Buffer Zone" in notes:
 			# TODO: find a way to indicate this still
@@ -142,6 +142,29 @@ def get_chunk_js(
 	output.blankline()
 
 	return str(output)
+
+
+def _get_notes(list_entry: dict[str, Any]) -> str | None:
+	notes: list[str] = []
+
+	for item in [
+			list_entry.get("Notes"),
+			list_entry.get("Location"),
+			list_entry.get("Period"),
+			]:
+		if item:
+			assert isinstance(item, str)
+			item = item.strip().replace('\r', '')
+			item = re.sub(r"[.0-9] *\n+", ".\n<br>\n", item)
+			item = re.sub(r" +\n+([ A-Za-z0-9])", r" \1", item)
+			item = re.sub(r"([A-Za-z0-9,])\n+( +)", r"\1 ", item)
+			item = re.sub(r"([A-Za-z0-9,])\n+([A-Za-z0-9])", r"\1 \2", item)
+			notes.append(item)
+
+	if not notes:
+		return None
+
+	return "\n<br>\n".join(notes).strip()
 
 
 def _get_poly_points(sub_poly: Polygon) -> list[list[tuple[float, float]]]:
@@ -312,13 +335,57 @@ def set_polygon_marker(data: geopandas.GeoDataFrame) -> geopandas.GeoDataFrame:
 	return data
 
 
+class _UnsetType:
+	pass
+
+
+UNSET = _UnsetType()
+VT = TypeVar("VT")
 # TODO: generic on KT?
+
+
+@overload
 def dict_get_oneof(
-		dictionary: dict[str, Any],
-		keys: Iterable[str],  #
-		default: str | None = ...,
+		dictionary: dict[str, VT],
+		keys: Iterable[str],
+		default: _UnsetType = ...,
 		err_missing: bool = True,
-		) -> str | None:
+		) -> VT: ...
+
+
+@overload
+def dict_get_oneof(
+		dictionary: dict[str, VT],
+		keys: Iterable[str],
+		default: VT | None | _UnsetType = ...,
+		err_missing: bool = False,
+		) -> VT | None: ...
+
+
+@overload
+def dict_get_oneof(
+		dictionary: dict[str, VT],
+		keys: Iterable[str],
+		default: None = ...,
+		err_missing: bool = False,
+		) -> VT | None: ...
+
+
+@overload
+def dict_get_oneof(
+		dictionary: dict[str, VT],
+		keys: Iterable[str],
+		default: VT = ...,
+		err_missing: bool = False,
+		) -> VT: ...
+
+
+def dict_get_oneof(
+		dictionary: dict[str, VT],
+		keys: Iterable[str],
+		default: VT | None | _UnsetType = UNSET,
+		err_missing: bool = True,
+		) -> VT | None:
 	"""
 	Get one of many possible keys from the given dictionary.
 
@@ -329,12 +396,13 @@ def dict_get_oneof(
 	:param err_missing: If :py:obj:`True` will error if none of the keys exist in the dictionary.
 		If :py:obj:`False` the default value (if set) will be returned instead.
 	"""
+
 	possible_keys = list(keys)
 	actual_keys = set(possible_keys) & dictionary.keys()
 
 	if not actual_keys:
-		if default is not Ellipsis and not err_missing:
-			return default
+		if default is not UNSET and not err_missing:
+			return cast(VT | None, default)
 
 		raise KeyError(possible_keys)
 
@@ -343,12 +411,12 @@ def dict_get_oneof(
 
 	else:
 		for key in actual_keys:
-			value = dictionary[value]
+			value = dictionary[key]
 			if value is not None:
 				return value
 
-	if default is not Ellipsis:
-		return default
+	if default is not UNSET:
+		return cast(VT | None, default)
 
 	raise KeyError(possible_keys)
 
@@ -386,17 +454,17 @@ def get_list_date(list_entry: dict[str, Any]) -> datetime.datetime | None:
 		return datetime.datetime.strptime(list_date, DATE_FORMAT)
 
 
-def _chunk_sort_fn(list_entry: dict[str, Any]) -> int:
+def _chunk_sort_fn(list_entry: dict[str, Any]) -> tuple[bool, str | int]:
 	list_entry_no = _get_list_entry_no(list_entry)
 
 	if list_entry_no == -1:
 		dt = get_list_date(list_entry)
 		if dt is None:
-			return -1
+			return True, -1
 
-		return int(dt.timestamp())
+		return True, int(dt.timestamp())
 
-	return list_entry_no
+	return isinstance(list_entry_no, int), list_entry_no
 
 
 def _get_list_entry_no(list_entry: dict[str, Any]) -> str | int:
@@ -404,7 +472,7 @@ def _get_list_entry_no(list_entry: dict[str, Any]) -> str | int:
 	entry_no = dict_get_oneof(list_entry, possible_keys, default=-1)
 
 	if isinstance(entry_no, str):
-		return entry_no
+		return entry_no.strip()
 
 	if entry_no is None or numpy.isnan(entry_no):
 		return -1
@@ -414,7 +482,7 @@ def _get_list_entry_no(list_entry: dict[str, Any]) -> str | int:
 
 def _get_list_entry_name(list_entry: dict[str, Any]) -> str:
 	possible_keys = ["Name", "ARTICLEVERSIONNAME"]
-	return dict_get_oneof(list_entry, possible_keys)
+	return dict_get_oneof(list_entry, possible_keys).strip().replace("\r\n", ' ')
 
 
 def _prepare_dataset(
