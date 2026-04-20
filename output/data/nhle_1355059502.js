@@ -22079,3 +22079,7 @@ var deDesignated1355059502 = [
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var worldHeritageSites1355059502 = [
 ]
+
+// Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
+var registeredLandscapesWales1355059502 = [
+]

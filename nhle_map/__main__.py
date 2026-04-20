@@ -26,6 +26,9 @@ Map showing places on the National Heritage List for England.
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+# stdlib
+from typing import Any
+
 # 3rd party
 from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
 from consolekit.options import auto_default_option
@@ -78,6 +81,7 @@ def prepare_data(download: bool = False) -> None:
 			(constants.SCHEDULED_MONUMENTS, True),
 			(constants.DE_DESIGNATED, False),
 			(constants.WORLD_HERITAGE_SITES, True),
+			(constants.REGISTERED_LANDSCAPES_WALES, True),
 			]
 
 	chunk_data(
@@ -97,12 +101,27 @@ def prepare_data(download: bool = False) -> None:
 				"dataLastEditDate": layer["editingInfo"]["dataLastEditDate"],
 				}
 
-	layers_data["Battlefields"]["description"] += "<br>England Only"
-	layers_data["Building Preservation Notice points"]["description"] += "<br>England Only"
-	layers_data["Certificate of Immunity points"]["description"] += "<br>England Only"
-	layers_data["Parks and Gardens"]["description"] += "<br>England Only"
-	de_designated_description = "Sites removed from the National Heritage List for England because they no longer met any of the above criteria.<br>England Only"
-	layers_data["De-designated sites"]["description"] = de_designated_description
+	for layer in [
+			constants.BATTLEFIELDS,
+			constants.BUILDING_PRESERVATION_NOTICES,
+			constants.CERTIFICATES_OF_IMMUNITY,
+			constants.PARKS_AND_GARDENS,
+			]:
+		layers_data[layer.geojson_filename_stem]["description"] += "\nEngland Only"
+
+	de_designated_description = "Sites removed from the National Heritage List for England because they no longer met any of the above criteria.\nEngland Only"
+	layers_data[constants.DE_DESIGNATED.geojson_filename_stem]["description"] = de_designated_description
+
+	registered_landscape_description = """\
+The Register of Historic Landscapes in Wales.
+
+It is a non-statutory, advisory register. Its primary aim is to provide information and raise awareness of an initial selection of the most important and significant historic landscape areas in Wales in order to aid their protection and conservation. This information is intended to help owners, Government, statutory bodies, Local Authorities, developers and all those who are involved with land management and protection to make better-informed decisions about areas on the Register.
+
+Wales Only
+"""
+	layers_data[constants.REGISTERED_LANDSCAPES_WALES.geojson_filename_stem] = {
+			"description": registered_landscape_description,
+			}
 
 	output_dir.joinpath("data", "meta.json").dump_json(layers_data, indent=2)
 
@@ -139,8 +158,8 @@ def make_map(output_directory: str = "output") -> None:
 	m = make_map()
 	root: branca.element.Figure = m.get_root()  # type: ignore[assignment]
 
-	layers_data = output_dir.joinpath("data", "meta.json").load_json()
-	layer_mod_times = [v["dataLastEditDate"] for k, v in layers_data.items()]
+	layers_data: dict[str, Any] = output_dir.joinpath("data", "meta.json").load_json()
+	layer_mod_times = [v.get("dataLastEditDate", -1) for v in layers_data.values()]
 	most_recent_modification = datetime.datetime.fromtimestamp(
 			max(layer_mod_times) / 1000,
 			tz=datetime.timezone.utc,

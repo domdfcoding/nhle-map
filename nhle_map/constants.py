@@ -27,6 +27,7 @@ String constants.
 #
 
 # stdlib
+import os
 from typing import NamedTuple
 
 # this package
@@ -61,7 +62,7 @@ class Dataset(NamedTuple):
 	identifier: str
 	name: str
 	icon: "LayerIcon"
-	geojson_filename: str  # TODO: Accept None to allow welsh-only layers
+	geojson_filename: str | None = None
 	welsh_geojson_filename: str | None = None
 	welsh_api_typename: str | None = None
 
@@ -72,6 +73,19 @@ class Dataset(NamedTuple):
 		"""
 
 		return f"{self.name} {self.icon.layercontrol_icon}"
+
+	@property
+	def geojson_filename_stem(self) -> str:
+		"""
+		The geoJSON filename (or its Welsh counterpart for Wales-only layers) without the file extension.
+		"""
+
+		if self.geojson_filename:
+			return os.path.splitext(self.geojson_filename)[0]
+		elif self.welsh_geojson_filename:
+			return os.path.splitext(self.welsh_geojson_filename)[0]
+		else:
+			raise NotImplementedError
 
 
 BATTLEFIELDS = Dataset(
@@ -155,6 +169,15 @@ DE_DESIGNATED = Dataset(
 		geojson_filename="De-designated sites.geojson",
 		)
 
+REGISTERED_LANDSCAPES_WALES = Dataset(
+		variable_prefix="registeredLandscapesWales",
+		identifier="registered_landscapes",
+		name="Registered Landscapes",
+		icon=FontawesomeLayerIcon(icon="mountain", marker_colour="Olive", svg_marker=True),
+		welsh_geojson_filename="Welsh Registered Landscapes.geojson",
+		welsh_api_typename="inspire-wg:Cadw_HistoricLandscapes",
+		)
+
 LAYERS = (
 		BATTLEFIELDS,
 		BUILDING_PRESERVATION_NOTICES,
@@ -162,6 +185,7 @@ LAYERS = (
 		LISTED_BUILDINGS,
 		PARKS_AND_GARDENS,
 		PROTECTED_WRECK_SITES,
+		REGISTERED_LANDSCAPES_WALES,
 		SCHEDULED_MONUMENTS,
 		WORLD_HERITAGE_SITES,
 		DE_DESIGNATED,
@@ -177,7 +201,7 @@ WELSH_LAYERS = (
 		LISTED_BUILDINGS,
 		# TODO: WELSH_PARKS_AND_GARDENS,
 		PROTECTED_WRECK_SITES,
-		# WELSH_REGISTERED_LANDSCAPES,
+		REGISTERED_LANDSCAPES_WALES,
 		SCHEDULED_MONUMENTS,
 		WORLD_HERITAGE_SITES,
 		)

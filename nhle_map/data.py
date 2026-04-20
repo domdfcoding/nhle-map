@@ -306,7 +306,12 @@ def download_welsh_data(output_directory: PathLike) -> None:
 					feature_properties["Name_cy"] = value
 				elif key == "DesignationDate":
 					if value:
-						feature_properties["ListDate"] = from_iso_zulu(value).timestamp() * 1000  # To milliseconds
+						if isinstance(value, int):
+							# Just the year
+							list_date = datetime.datetime(year=value, month=1, day=1)
+						else:
+							list_date = from_iso_zulu(value)
+						feature_properties["ListDate"] = list_date.timestamp() * 1000  # To milliseconds
 					else:
 						feature_properties["ListDate"] = None
 				else:
@@ -508,12 +513,26 @@ def _prepare_dataset(
 		lng_range: Iterable[float],
 		data_directory: PathPlus,
 		) -> Chunks:
-	# TODO: handle no English dataset
-	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.geojson_filename)
-	if dataset.welsh_geojson_filename:
-		welsh_gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.welsh_geojson_filename)
-		gdf = pandas.concat((gdf, welsh_gdf), ignore_index=True)
-		gdf = gdf.where(gdf.notnull(), None).replace({float("nan"): None})
+
+	def read_english() -> geopandas.GeoDataFrame:
+		assert dataset.geojson_filename is not None
+		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.geojson_filename)
+		return gdf
+
+	def read_welsh() -> geopandas.GeoDataFrame:
+		assert dataset.welsh_geojson_filename is not None
+		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.welsh_geojson_filename)
+		return gdf
+
+	if dataset.geojson_filename:
+		# TODO: handle no English dataset
+		gdf = read_english()
+		if dataset.welsh_geojson_filename:
+			welsh_gdf = read_welsh()
+			gdf = pandas.concat((gdf, welsh_gdf), ignore_index=True)
+			gdf = gdf.where(gdf.notnull(), None).replace({float("nan"): None})
+	else:
+		gdf = read_welsh()
 
 	return get_data_chunks(gdf, lat_range, lng_range)
 

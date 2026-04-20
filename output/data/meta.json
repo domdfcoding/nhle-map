@@ -1,6 +1,6 @@
 {
   "De-designated sites": {
-    "description": "Sites removed from the National Heritage List for England because they no longer met any of the above criteria.<br>England Only",
+    "description": "Sites removed from the National Heritage List for England because they no longer met any of the above criteria.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776398427145
   },
@@ -10,12 +10,12 @@
     "dataLastEditDate": 1776403528385
   },
   "Building Preservation Notice points": {
-    "description": "This is a form of \u2018temporary\u2019 listing. Local authorities have the power to serve a BPN on the owner of a building which is not listed, but which is of special architectural/historical interest and in danger of being demolished or altered. A BPN lasts for a period of six months and in effect makes an unlisted building subject to the same rules as if it were listed. This allows time for a formal assessment to be carried out.<br>England Only",
+    "description": "This is a form of \u2018temporary\u2019 listing. Local authorities have the power to serve a BPN on the owner of a building which is not listed, but which is of special architectural/historical interest and in danger of being demolished or altered. A BPN lasts for a period of six months and in effect makes an unlisted building subject to the same rules as if it were listed. This allows time for a formal assessment to be carried out.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776403528559
   },
   "Certificate of Immunity points": {
-    "description": "A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see below) on the respective property during this period.<br>England Only",
+    "description": "A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see below) on the respective property during this period.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776403528824
   },
@@ -40,12 +40,12 @@
     "dataLastEditDate": 1776403603653
   },
   "Parks and Gardens": {
-    "description": "The 'Register\u2019 of Historic Parks and Gardens was established in 1983, with the emphasis placed on protecting 'designed' landscapes rather than those with botanical importance. \nThe Register safeguards a broad range of planned open spaces, including public parks, cemeteries, the grounds of private houses, and town squares. Like Listed Buildings, Parks and Gardens are assigned one of three grades to indicate their significance.<br>England Only",
+    "description": "The 'Register\u2019 of Historic Parks and Gardens was established in 1983, with the emphasis placed on protecting 'designed' landscapes rather than those with botanical importance. \nThe Register safeguards a broad range of planned open spaces, including public parks, cemeteries, the grounds of private houses, and town squares. Like Listed Buildings, Parks and Gardens are assigned one of three grades to indicate their significance.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776403606172
   },
   "Battlefields": {
-    "description": "The \u2018Register\u2019 of Historic Battlefields, established in 1995, offers protection to the sites of English battles, as well as promoting a better understanding of their historical significance. These landscapes are of vital importance, as they provide archaeological and topographical evidence of major turning points in England\u2019s history.<br>England Only",
+    "description": "The \u2018Register\u2019 of Historic Battlefields, established in 1995, offers protection to the sites of English battles, as well as promoting a better understanding of their historical significance. These landscapes are of vital importance, as they provide archaeological and topographical evidence of major turning points in England\u2019s history.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
     "dataLastEditDate": 1776403606329
   },
@@ -58,5 +58,8 @@
     "description": "World Heritage Sites are part of the World Heritage Convention, established in 1972 by UNESCO (United Nations Educational, Scientific and Cultural Organisation). They are landscapes, cities, monuments or buildings of exceptional natural or cultural value. \nThe World Heritage List includes the Great Wall of China, the Pyramids, the Great Barrier Reef and the City of Venice. Sites in England include Stonehenge and Avebury, Canterbury Cathedral, the Tower of London, Hadrian\u2019s Wall and the whole of the City of Bath. \nPlease note: this dataset represents Historic England\u2019s interpretation of the UNESCO World Heritage Site boundaries for sites wholly in or crossing into England.",
     "copyrightText": "\u00a9 Historic England",
     "dataLastEditDate": 1776403607128
+  },
+  "Welsh Registered Landscapes": {
+    "description": "The Register of Historic Landscapes in Wales.\n\nIt is a non-statutory, advisory register. Its primary aim is to provide information and raise awareness of an initial selection of the most important and significant historic landscape areas in Wales in order to aid their protection and conservation. This information is intended to help owners, Government, statutory bodies, Local Authorities, developers and all those who are involved with land management and protection to make better-informed decisions about areas on the Register.\n\nWales Only\n"
   }
 }

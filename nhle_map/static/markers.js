@@ -60,6 +60,12 @@ function load_new_markers() {
 					'noun': 'Park and Garden',
 				},
 				{
+					'variable_prefix': 'registeredLandscapesWales',
+					'layer': marker_cluster_registered_landscapes,
+					'icon': registeredLandscapesWalesIcon,
+					'noun': 'Registered Landscape',
+				},
+				{
 					'variable_prefix': 'protectedWreckSites',
 					'layer': marker_cluster_protected_wreck_sites,
 					'icon': protectedWreckSitesIcon,
