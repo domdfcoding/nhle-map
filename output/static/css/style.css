@@ -95,3 +95,14 @@ a.description-btn:not(.collapsed)::after {
 		margin-bottom: 0.5rem;
 	}
 }
+
+
+.leaflet-control.geosearch form {
+	input {
+		font-size: 14px !important;
+	}
+
+	.results.active {
+		font-size: 14px;
+	}
+}
