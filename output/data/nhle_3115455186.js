@@ -1,3 +1,4 @@
+// Lat: 49 — -7, Lng: 50 — -6,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3115455186 = [
 [49.9474289700029, -6.33019794809289, 1141172, "REMAINS OF TRESCO PRIORY AND ASSOCIATED MONUMENTS AND ATTACHED WALLS", "II", "Wed, 12 Feb 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1141172"],

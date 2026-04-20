@@ -1,3 +1,4 @@
+// Lat: 54 — -1, Lng: 55 — 0,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings1283952549 = [
 [54.0944565387538, -0.210108961380503, 1025301, "17, MARKET PLACE", "II", "Fri, 09 Jan 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1025301"],

@@ -1,3 +1,4 @@
+// Lat: 51 — -4, Lng: 52 — -3,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings1389770266 = [
 [51.7902342, -3.25861422, 1860, "Blaen y Cwm Viaduct", "II", "Fri, 25 May 1962", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=1860", "Nant-y-bwch is situated along the A465 (Heads of the Valleys road), 0.5 km N of Tredegar.  Railway viaduct is prominently visible from the road, NE of the Tredegar roundabout and is reached via a footpath across a field.", []],

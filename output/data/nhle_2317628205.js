@@ -1,3 +1,4 @@
+// Lat: 50 — -1, Lng: 51 — 0,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings2317628205 = [
 [50.9864321897376, -0.0924987453559805, 1025468, "HOSPITAL FARMHOUSE", "II*", "Tue, 06 Apr 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1025468"],

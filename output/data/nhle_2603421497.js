@@ -1,3 +1,4 @@
+// Lat: 51 — 1, Lng: 52 — 2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings2603421497 = [
 [51.329918870056, 1.41268050655026, 1025310, "NOS 4-44 WITH RAILED AREAS", "II", "Thu, 04 Feb 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1025310"],

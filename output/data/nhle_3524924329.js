@@ -1,3 +1,4 @@
+// Lat: 52 — -4, Lng: 53 — -3,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3524924329 = [
 [52.98880071, -3.54065373, 102, "Church of St Jerome", "II", "Fri, 23 Jun 1967", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=102", "The church stands in a sub-rectangular churchyard at the centre of Llangwm village.", []],

@@ -1,3 +1,4 @@
+// Lat: 51 — -6, Lng: 52 — -5,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings953405554 = [
 [51.68425983, -5.08803173, 5921, "Church of St Mary", "II", "Thu, 14 May 1970", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=5921"],

@@ -1,3 +1,4 @@
+// Lat: 52 — -5, Lng: 53 — -4,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings2247108127 = [
 [52.99504311, -4.09581003, 3748, "Pont Aberglaslyn", "II", "Wed, 29 May 1968", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=3748", "Spanning the Afon Glaslyn approximately 1km W of Nantmor.", []],

@@ -1,3 +1,4 @@
+// Lat: 53 — -4, Lng: 54 — -3,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings1433100313 = [
 [53.22854379, -3.08246439, 1, "Kelsterton Hall", "II", "Mon, 08 Aug 1949", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=1", "Set back slightly from the road at the junction of Kelsterton Road and Kelsterton Lane.", []],

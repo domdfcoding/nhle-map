@@ -1,3 +1,4 @@
+// Lat: 51 — -1, Lng: 52 — 0,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3820998799 = [
 [51.5223683876579, -0.0972799621821162, 1021941, "CRESCENT HOUSE INCLUDING GROUND FLOOR SHOPS AND SHAKESPEARE PUBLIC HOUSE", "II*", "Thu, 04 Dec 1997", "https://historicengland.org.uk/listing/the-list/list-entry/1021941"],

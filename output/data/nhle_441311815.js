@@ -1,3 +1,4 @@
+// Lat: 52 — 0, Lng: 53 — 1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings441311815 = [
 [52.2432340100346, 0.719387393709643, 1021924, "A10, MONUMENT 209", "II", "Thu, 30 Oct 1997", "https://historicengland.org.uk/listing/the-list/list-entry/1021924"],

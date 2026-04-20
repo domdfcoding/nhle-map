@@ -1,3 +1,4 @@
+// Lat: 54 — -4, Lng: 55 — -3,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings2268460373 = [
 [54.1374749013983, -3.19852040775573, 1025255, "THE ABBEY TAVERN", "II", "Thu, 06 May 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1025255"],

@@ -1,3 +1,4 @@
+// Lat: 50 — -6, Lng: 51 — -5,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings1785452904 = [
 [50.1686781866022, -5.10556779534814, 1024995, "85, 87 AND 89, THE TERRACE", "II", "Fri, 28 Jan 1949", "https://historicengland.org.uk/listing/the-list/list-entry/1024995"],

@@ -1,3 +1,4 @@
+// Lat: 53 — -5, Lng: 54 — -4,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings1471749265 = [
 [53.23468169, -4.01176614, 3651, "Pen-y-bryn", "II*", "Fri, 22 Feb 1952", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=3651", "Situated on rising ground above the A 55 on the north-east side of the Afon Aber to the east of the village.", []],

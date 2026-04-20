@@ -1,3 +1,4 @@
+// Lat: 52 — -6, Lng: 53 — -5,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3402385155 = [
 [52.00633899, -5.0066302, 12267, "Ffynnon Clun farmhouse & adjoining outbuilding", "II", "Fri, 24 Nov 1978", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=12267", "Situated on W side of lane to Llanwnda some 400m N of Stop-And-Call.", []],

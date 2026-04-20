@@ -1,3 +1,4 @@
+// Lat: 50 — -3, Lng: 51 — -2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings32815386 = [
 [50.9284397549744, -2.91534959230682, 1025285, "WALLS AND RAILINGS TO WESLEYAN METHODIST CHURCH", "II", "Mon, 24 Jan 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1025285"],

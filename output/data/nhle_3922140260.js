@@ -1,3 +1,4 @@
+// Lat: 52 — -3, Lng: 53 — -2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3922140260 = [
 [52.96694586, -2.96949947, 1531, "Manley Hall", "II*", "Mon, 09 Jun 1952", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=1531", "Situated 600m NW of Erbistock reached from a track running SE off the A539.", []],

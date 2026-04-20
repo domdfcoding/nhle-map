@@ -1,3 +1,4 @@
+// Lat: 49 — -6, Lng: 50 — -5,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings1823735210 = [
 [49.9694419283672, -5.19340663724712, 1141879, "CHURCH COTTAGE AND WYNWALLOW COTTAGE, AND CHURCH TOWN FARMHOUSE", "II", "Wed, 10 Jul 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1141879"],

@@ -1,3 +1,4 @@
+// Lat: 52 — -2, Lng: 53 — -1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings715690407 = [
 [52.4090855381437, -1.50454073599895, 1021930, "Coventry Central Baths (original part including sunbathing terraces), part of Coventry Sports and Leisure Centre", "II", "Tue, 02 Dec 1997", "https://historicengland.org.uk/listing/the-list/list-entry/1021930"],

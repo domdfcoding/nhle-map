@@ -1,3 +1,4 @@
+// Lat: 50 — 1, Lng: 51 — 2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings120964137 = [
 ]

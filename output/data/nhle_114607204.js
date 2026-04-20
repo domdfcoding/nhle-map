@@ -1,3 +1,4 @@
+// Lat: 51 — -5, Lng: 52 — -4,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings114607204 = [
 [51.61543667, -4.93922855, 5927, "St. Michael and All Angel's Church", "II*", "Thu, 14 May 1970", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=5927"],

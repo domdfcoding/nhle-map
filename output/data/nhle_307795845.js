@@ -1,3 +1,4 @@
+// Lat: 50 — 0, Lng: 51 — 1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings307795845 = [
 [50.9863872145135, 0.941451033643228, 1025290, "HENBURY COTTAGE HENBURY HOUSE", "II", "Tue, 28 Aug 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1025290"],

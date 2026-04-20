@@ -1,3 +1,4 @@
+// Lat: 52 — -1, Lng: 53 — 0,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3632567315 = [
 [52.2830866225624, -0.817002166586424, 1025849, "OVERSTONE COLLEGE", "II", "Wed, 27 Apr 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1025849"],

@@ -1,3 +1,4 @@
+// Lat: 50 — -5, Lng: 51 — -4,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings185270852 = [
 [50.6402193802069, -4.36383560893646, 1024984, "42, ST THOMAS ROAD", "II", "Mon, 07 Jun 1993", "https://historicengland.org.uk/listing/the-list/list-entry/1024984"],

@@ -1,3 +1,4 @@
+// Lat: 51 — 0, Lng: 52 — 1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings546175163 = [
 [51.6601344002007, 0.312060982691091, 1025006, "PETTITS FARMHOUSE", "II", "Fri, 20 Feb 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1025006"],

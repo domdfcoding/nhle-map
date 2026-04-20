@@ -1,3 +1,4 @@
+// Lat: 50 — -2, Lng: 51 — -1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3060236891 = [
 [50.994158826942, -1.87051756461711, 1023809, "LITTLE TOYD FARMHOUSE", "II", "Thu, 28 Mar 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1023809"],

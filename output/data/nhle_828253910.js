@@ -1,3 +1,4 @@
+// Lat: 51 — -3, Lng: 52 — -2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings828253910 = [
 [51.88046543, -2.98068276, 1918, "The Skirrid Inn, with attached barn", "II", "Tue, 06 May 1952", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=1918", "In the centre of Llanvihangel Crucorney about 50m north-east of the church.", []],

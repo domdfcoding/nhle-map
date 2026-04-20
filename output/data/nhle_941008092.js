@@ -1,3 +1,4 @@
+// Lat: 54 — -2, Lng: 55 — -1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings941008092 = [
 [54.9785492673699, -1.64591364230514, 1024710, "WEST GATEWAY, WALLS AND GATES OF ST NICHOLAS CEMETERY", "II", "Mon, 30 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1024710"],
