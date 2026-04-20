@@ -49,7 +49,7 @@ from shapely import MultiPolygon, Polygon
 
 # this package
 from nhle_map._arcgis_fix import to_geojson
-from nhle_map.constants import LISTED_BUILDINGS, WELSH_LAYERS, Dataset
+from nhle_map.constants import LISTED_BUILDINGS, WORLD_HERITAGE_SITES, WELSH_LAYERS, Dataset
 from nhle_map.utils import DATE_FORMAT, DATE_ONLY_FORMAT, format_datetime, from_iso_zulu, get_id
 
 __all__ = [
@@ -314,6 +314,16 @@ def download_welsh_data(output_directory: PathLike) -> None:
 
 			feature["properties"] = feature_properties
 
+		if dataset is WORLD_HERITAGE_SITES:
+			# Remove duplicated Pontcysyllte Aqueduct and Canal
+			# TODO: merge data into NHLE entry?
+			features = []
+			for feature in geojson["features"]:
+				if feature["properties"]["Name"] == "Pontcysyllte Aqueduct and Canal":
+					continue
+				features.append(feature)
+			geojson["features"] = features
+
 		output_dir.joinpath(dataset.welsh_geojson_filename).dump_json(geojson)
 
 	# TODO: metadata. Have to hardcode descriptions
@@ -332,6 +342,7 @@ def set_polygon_marker(data: geopandas.GeoDataFrame) -> geopandas.GeoDataFrame:
 
 	data["polygon"] = data["geometry"]
 
+	# TODO: pick point that's less likely to conflict with other markers so polygon can still be seen when zoomed out
 	# TODO: get point in centre of largest polygon if multiple (and centre of sole poly otherwise)
 	# data["geometry"] = data["geometry"].representative_point()
 	data["geometry"] = data.to_crs(epsg=27700).representative_point().to_crs(epsg=4326)

@@ -143,7 +143,7 @@ WORLD_HERITAGE_SITES = Dataset(
 		name="World Heritage Sites",
 		icon=FontawesomeLayerIcon(icon="certificate", marker_colour="grey", svg_marker=True),
 		geojson_filename="World Heritage Sites.geojson",
-		# welsh_geojson_filename="Welsh World Heritage Sites.geojson",
+		welsh_geojson_filename="Welsh World Heritage Sites.geojson",
 		welsh_api_typename="inspire-wg:vGeoServer_WorldHeritageSites_Public",
 		)
 
@@ -181,5 +181,5 @@ WELSH_LAYERS = (
 		PROTECTED_WRECK_SITES,
 		# WELSH_REGISTERED_LANDSCAPES,
 		SCHEDULED_MONUMENTS,
-		# WORLD_HERITAGE_SITES,
+		WORLD_HERITAGE_SITES,
 		)

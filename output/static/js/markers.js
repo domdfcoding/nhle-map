@@ -167,6 +167,7 @@ function addMarkers(points, markerList, icon, noun) {
   </div>
 </div>
 		`;
+		// TODO: show popup when clicking polygon too, centred on the mouse pointer
 		var marker = new L.PolyMarker(
 			L.latLng(a[0], a[1]),
 			a[8],
