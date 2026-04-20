@@ -168,10 +168,8 @@ LAYERS = (
 		)
 
 MIN_LAT = 49
-# MIN_LNG = -12
 MIN_LNG = -7
-# MAX_LAT = 62
-MAX_LAT = 55
+MAX_LAT = 56
 MAX_LNG = 3
 
 

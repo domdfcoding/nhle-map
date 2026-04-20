@@ -232,8 +232,14 @@ def make_map() -> folium.Map:
 	ZoomStateJS(setup_basemap_state=True).add_to(m)
 	LocateControl().add_to(m)
 	AboutControl("aboutModal").add_to(m)
+	search_provider = MapSearchProvider(
+			layer=mcg,
+			map=m,
+			viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
+			feature_type="settlement"
+			)
 	MapSearchControl(
-			provider=MapSearchProvider(layer=mcg, map=m, viewbox="-7,49,3,55", feature_type="settlement"),
+			provider=search_provider,
 			auto_complete_delay=1000,  # Effectively turns off autocomplete to comply with Nominatum TOS
 			show_marker=False,
 			max_suggestions=15,
