@@ -151,6 +151,7 @@ def _get_notes(list_entry: dict[str, Any]) -> str | None:
 			list_entry.get("Notes"),
 			list_entry.get("Location"),
 			list_entry.get("Period"),
+			list_entry.get("main_phase_en"),
 			]:
 		if item:
 			assert isinstance(item, str)
@@ -296,15 +297,17 @@ def download_welsh_data(output_directory: PathLike) -> None:
 						feature_properties["ListEntry"] = value
 				elif key == "SAMNumber":
 					feature_properties["ListEntry"] = value
-				elif key == "Report":
+				elif key in {"Report", "report_en"}:
 					feature_properties["hyperlink"] = value
-				elif key == "Report_welsh":
+				elif key in {"Report_welsh", "report_cy"}:
 					feature_properties["hyperlink_welsh"] = value
+				elif key == "grade_gradd":
+					feature_properties["Grade"] = value
 				elif key == "site_name_en":
 					feature_properties["Name"] = value
 				elif key == "site_name_cy":
 					feature_properties["Name_cy"] = value
-				elif key == "DesignationDate":
+				elif key in {"DesignationDate", "designation_date"}:
 					if value:
 						if isinstance(value, int):
 							# Just the year

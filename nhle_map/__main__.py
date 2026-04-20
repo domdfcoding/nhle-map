@@ -105,7 +105,6 @@ def prepare_data(download: bool = False) -> None:
 			constants.BATTLEFIELDS,
 			constants.BUILDING_PRESERVATION_NOTICES,
 			constants.CERTIFICATES_OF_IMMUNITY,
-			constants.PARKS_AND_GARDENS,
 			]:
 		layers_data[layer.geojson_filename_stem]["description"] += "\nEngland Only"
 

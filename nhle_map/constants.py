@@ -129,6 +129,8 @@ PARKS_AND_GARDENS = Dataset(
 		name="Parks and Gardens",
 		icon=FontawesomeLayerIcon(icon="tree", marker_colour="green"),
 		geojson_filename="Parks and Gardens.geojson",
+		welsh_geojson_filename="Welsh Parks and Gardens.geojson",
+		welsh_api_typename="geonode:cadw_rhpg_registeredareas",
 		)
 
 PROTECTED_WRECK_SITES = Dataset(
@@ -199,7 +201,7 @@ MAX_LNG = 3
 
 WELSH_LAYERS = (
 		LISTED_BUILDINGS,
-		# TODO: WELSH_PARKS_AND_GARDENS,
+		PARKS_AND_GARDENS,
 		PROTECTED_WRECK_SITES,
 		REGISTERED_LANDSCAPES_WALES,
 		SCHEDULED_MONUMENTS,
