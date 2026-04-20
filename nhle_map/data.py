@@ -152,6 +152,7 @@ def _get_notes(list_entry: dict[str, Any]) -> str | None:
 			list_entry.get("Location"),
 			list_entry.get("Period"),
 			list_entry.get("main_phase_en"),
+			list_entry.get("HERITAGECATEGORYDESCRIPTION"),
 			]:
 		if item:
 			assert isinstance(item, str)

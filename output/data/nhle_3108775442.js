@@ -17472,11 +17472,11 @@ var scheduledMonuments3108775442 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var deDesignated3108775442 = [
-[55.653938653272, -2.24197183880896, 1006573, "Coldstream Bridge", null, "Thu, 05 Jul 2012", null],
-[55.7687226921041, -2.00636841177387, 1041672, "Grain Store, Bridge Terrace, Berwick-upon-Tweed", null, "Wed, 06 Aug 2025", null],
-[55.1589321281994, -2.30175380913577, 1370458, "PUMP C10 YARDS NORTH OF CHARLTON OLD FARMHOUSE", null, "Thu, 27 Oct 2016", null],
-[55.5782149197955, -2.02041041380132, 1370945, "BRIDGE OVER RIVER TILL C 1 MILE SOUTH-WEST OF DODDINGTON VILLAGE", null, "Thu, 24 Oct 2019", null],
-[55.7680265803141, -2.00377622833709, 1371251, "11A, BRIDGE STREET", null, "Tue, 27 Oct 2015", null],
+[55.653938653272, -2.24197183880896, 1006573, "Coldstream Bridge", null, "Thu, 05 Jul 2012", null, "Scheduling", []],
+[55.7687226921041, -2.00636841177387, 1041672, "Grain Store, Bridge Terrace, Berwick-upon-Tweed", null, "Wed, 06 Aug 2025", null, "Listing", []],
+[55.1589321281994, -2.30175380913577, 1370458, "PUMP C10 YARDS NORTH OF CHARLTON OLD FARMHOUSE", null, "Thu, 27 Oct 2016", null, "Listing", []],
+[55.5782149197955, -2.02041041380132, 1370945, "BRIDGE OVER RIVER TILL C 1 MILE SOUTH-WEST OF DODDINGTON VILLAGE", null, "Thu, 24 Oct 2019", null, "Listing", []],
+[55.7680265803141, -2.00377622833709, 1371251, "11A, BRIDGE STREET", null, "Tue, 27 Oct 2015", null, "Listing", []],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
