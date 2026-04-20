@@ -186,6 +186,11 @@ def make_map() -> folium.Map:
 			wheelPxPerZoomLevel=80,
 			tiles=osm_tiles,
 			control_scale=True,  # prefer_canvas=True,
+			max_bounds=True,
+			min_lat=constants.MIN_LAT - 2,
+			min_lon=constants.MIN_LNG - 2,
+			max_lat=constants.MAX_LAT + 2,
+			max_lon=constants.MAX_LNG + 3,
 			)
 
 	set_id(os10k, "os10k").add_to(m)
