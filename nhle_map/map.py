@@ -236,7 +236,7 @@ def make_map() -> folium.Map:
 			layer=mcg,
 			map=m,
 			viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
-			feature_type="settlement"
+			feature_type="settlement",
 			)
 	MapSearchControl(
 			provider=search_provider,

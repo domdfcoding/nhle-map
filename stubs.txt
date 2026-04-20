@@ -1,1 +1,2 @@
 types-shapely
+types-requests
