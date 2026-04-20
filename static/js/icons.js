@@ -22,6 +22,10 @@ var protectedWreckSitesIcon = L.ExtraMarkers.icon(
 	{"icon": "fa-anchor", "markerColor": "purple", "prefix": "fa", "svg": true}
 );
 
+var registeredLandscapesWalesIcon = L.ExtraMarkers.icon(
+	{"icon": "fa-mountain", "markerColor": "Olive", "prefix": "fa", "svg": true}
+);
+
 var scheduledMonumentsIcon = L.ExtraMarkers.icon(
 	{"icon": "fa-monument", "markerColor": "#a32d2f", "prefix": "fa", "svg": true}
 );
