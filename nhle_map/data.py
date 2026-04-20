@@ -456,12 +456,12 @@ def get_list_date(list_entry: dict[str, Any]) -> datetime.datetime | None:
 	possible_keys = [
 			"ListDate",
 			"DesigDate",
-			"COIStart",
-			"BPNStart",
+			"COIStart",  # Certificate of immunity
+			"BPNStart",  # Building preservation notice
 			"RegDate",
-			"SchedDate",
-			"DateRemovedFromList",
-			"InscrDate",
+			"SchedDate",  # Scheduled Monuments?
+			"DateRemovedFromList",  # De-designated
+			"InscrDate",  # World Heritage Sites
 			]
 
 	list_date: str | float | None = dict_get_oneof(list_entry, possible_keys, default=None)
@@ -493,7 +493,11 @@ def _chunk_sort_fn(list_entry: dict[str, Any]) -> tuple[bool, str | int]:
 
 
 def _get_list_entry_no(list_entry: dict[str, Any]) -> str | int:
-	possible_keys = ["ListEntry", "OriginalListEntryNumber"]
+	possible_keys = [
+			"ListEntry",
+			"OriginalListEntryNumber",  # De-designated sites
+			]
+
 	entry_no = dict_get_oneof(list_entry, possible_keys, default=-1)
 
 	if isinstance(entry_no, str):
