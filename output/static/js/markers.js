@@ -142,6 +142,11 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 
 		marker_cluster_nhle.addLayers(markerList);
 		loaded_ids.push(...addedChunkIDs);
+
+		if (markerList.length == 0) {
+			// No clustering will take place if we're not adding any new markers
+			modal.hide();
+		}
 	}).catch(function(rej) {
 		console.log('Error loading markers: ', rej);
 		alert('Error loading markers');
