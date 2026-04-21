@@ -29,14 +29,17 @@ General utilities.
 # stdlib
 import datetime
 import random
+from collections.abc import Iterable
+from typing import Any
 
 # 3rd party
 import domdf_folium_tools.static_files
+import ujson5
 from domdf_python_tools.paths import PathPlus
 
 # this package
 from nhle_map import constants
-from nhle_map.icons import write_icons_js
+from nhle_map.icons import make_icons_js
 
 __all__ = ["copy_static_files", "format_datetime", "format_description", "from_iso_zulu", "get_id"]
 
@@ -82,7 +85,51 @@ def copy_static_files(static_dir: PathPlus) -> None:
 			)
 
 	layers = constants.LAYERS
-	write_icons_js(layers, static_dir / "js")
+	icons_js = make_icons_js(layers)
+	layer_data = []
+
+	for layer in layers:
+		layer_data.append({
+				"variable_prefix": layer.variable_prefix,
+				"layer": f"marker_cluster_{layer.identifier}",
+				"icon": Identifier(layer.variable_prefix + "Icon"),
+				"noun": layer.noun,
+				})
+
+	layer_data_js = f"const layerData = {ujson5.dumps(layer_data, indent=4, cls=JSEncoder)}"
+
+	static_dir.joinpath("js", "layer_data.js").write_lines([
+			icons_js,
+			'',
+			layer_data_js,
+			])
+
+
+class Identifier:
+
+	def __init__(self, identifier: str):
+		self._identifier = identifier
+
+
+class JSEncoder(ujson5.JSON5Encoder):
+
+	def encode(self, obj: Any, typed_dict_cls: Any | None = None) -> str:
+		if isinstance(obj, Identifier):
+			return obj._identifier
+
+		return super().encode(obj, typed_dict_cls)
+
+	def _iterencode(self, obj: Any, indent_level: int, key_path: str) -> Iterable[str]:
+		if isinstance(obj, Identifier):
+			yield obj._identifier
+		else:
+			yield from super()._iterencode(obj, indent_level, key_path)
+
+	def default(self, obj: Any) -> ujson5.Serializable:
+		if isinstance(obj, Identifier):
+			return obj
+
+		super().default(obj)
 
 
 def format_description(description: str) -> str:

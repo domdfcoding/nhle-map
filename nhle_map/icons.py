@@ -42,7 +42,7 @@ if TYPE_CHECKING:
 	# this package
 	from nhle_map.constants import Dataset
 
-__all__ = ["FontawesomeLayerIcon", "LayerIcon", "SVGLayerIcon", "write_icons_js"]
+__all__ = ["FontawesomeLayerIcon", "LayerIcon", "SVGLayerIcon", "make_icons_js"]
 
 
 @attrs.define
@@ -113,16 +113,12 @@ class SVGLayerIcon(LayerIcon):
 				}
 
 
-def write_icons_js(layers: Iterable["Dataset"], output_directory: PathLike) -> None:
+def make_icons_js(layers: Iterable["Dataset"]) -> str:
 	"""
-	Write the javascript file containing the icons for Leaflet.
+	Generate the javascript file containing the icons for Leaflet.
 
 	:param layers:
-	:param output_directory: Directory to write the ``icons.js`` file to.
 	"""
-
-	output_dir = PathPlus(output_directory)
-	output_dir.maybe_make(parents=True)
 
 	output = StringList()
 	for layer in layers:
@@ -133,4 +129,4 @@ def write_icons_js(layers: Iterable["Dataset"], output_directory: PathLike) -> N
 		output.append(");")
 		output.blankline()
 
-	output_dir.joinpath("icons.js").write_clean(str(output))
+	return str(output)

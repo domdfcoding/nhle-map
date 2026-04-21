@@ -94,8 +94,8 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 					"awesome_markers_js",
 					"https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js",
 					),
-			("icons_js", "static/js/icons.js"),
 			("nhle_markers_js", "static/js/markers.js"),
+			("layer_data_js_js", "static/js/layer_data.js"),
 			("nhle_id_lookup", "data/nhle_id_lookup.js"),
 			]
 

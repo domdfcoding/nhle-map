@@ -61,6 +61,10 @@ class Dataset(NamedTuple):
 	variable_prefix: str
 	identifier: str
 	name: str
+
+	#: How to refer to a single item in this dataset.
+	noun: str
+
 	icon: "LayerIcon"
 	geojson_filename: str | None = None
 	welsh_geojson_filename: str | None = None
@@ -92,6 +96,7 @@ BATTLEFIELDS = Dataset(
 		variable_prefix="battlefields",
 		identifier="battlefields",
 		name="Battlefields",
+		noun="Battlefield",
 		icon=SVGLayerIcon(filename="static/img/Challenge_Icon.svg", marker_colour="orange"),
 		geojson_filename="Battlefields.geojson",
 		)
@@ -101,6 +106,7 @@ BUILDING_PRESERVATION_NOTICES = Dataset(
 		variable_prefix="buildingPreservationNotices",
 		identifier="building_preservation_notices",
 		name="Building Preservation Notices",
+		noun="Building Preservation Notice",
 		icon=FontawesomeLayerIcon(icon="building-flag", marker_colour="teal", svg_marker=True),
 		geojson_filename="Building Preservation Notice points.geojson",
 		)
@@ -109,6 +115,7 @@ CERTIFICATES_OF_IMMUNITY = Dataset(
 		variable_prefix="certificatesOfImmunity",
 		identifier="certificates_of_immunity",
 		name="Certificates of Immunity",
+		noun="Certificate of Immunity",
 		icon=FontawesomeLayerIcon(icon="scroll", marker_colour="tan", svg_marker=True),
 		geojson_filename="Certificate of Immunity points.geojson",
 		)
@@ -117,6 +124,7 @@ LISTED_BUILDINGS = Dataset(
 		variable_prefix="listedBuildings",
 		identifier="listed_buildings",
 		name="Listed Buildings",
+		noun="Listed Building",
 		icon=FontawesomeLayerIcon(icon="building", marker_colour="#006fb2", svg_marker=True),
 		geojson_filename="Listed Building points.geojson",
 		welsh_geojson_filename="Welsh Listed Buildings.geojson",
@@ -127,6 +135,7 @@ PARKS_AND_GARDENS = Dataset(
 		variable_prefix="parksGardens",
 		identifier="parks_and_gardens",
 		name="Parks and Gardens",
+		noun="Park and Garden",
 		icon=FontawesomeLayerIcon(icon="tree", marker_colour="green"),
 		geojson_filename="Parks and Gardens.geojson",
 		welsh_geojson_filename="Welsh Parks and Gardens.geojson",
@@ -137,6 +146,7 @@ PROTECTED_WRECK_SITES = Dataset(
 		variable_prefix="protectedWreckSites",
 		identifier="protected_wreck_sites",
 		name="Protected Wreck Sites",
+		noun="Protected Wreck",
 		icon=FontawesomeLayerIcon(icon="anchor", marker_colour="purple", svg_marker=True),
 		geojson_filename="Protected Wreck Sites.geojson",
 		welsh_geojson_filename="Welsh Protected Wreck Sites.geojson",
@@ -147,6 +157,7 @@ SCHEDULED_MONUMENTS = Dataset(
 		variable_prefix="scheduledMonuments",
 		identifier="scheduled_monuments",
 		name="Scheduled Monuments",
+		noun="Scheduled Monument",
 		icon=FontawesomeLayerIcon(icon="monument", marker_colour="#a32d2f", svg_marker=True),
 		geojson_filename="Scheduled Monuments.geojson",
 		welsh_geojson_filename="Welsh Scheduled Monuments.geojson",
@@ -157,6 +168,7 @@ WORLD_HERITAGE_SITES = Dataset(
 		variable_prefix="worldHeritageSites",
 		identifier="world_heritage_sites",
 		name="World Heritage Sites",
+		noun="World Heritage Site",
 		icon=FontawesomeLayerIcon(icon="certificate", marker_colour="grey", svg_marker=True),
 		geojson_filename="World Heritage Sites.geojson",
 		welsh_geojson_filename="Welsh World Heritage Sites.geojson",
@@ -167,6 +179,7 @@ DE_DESIGNATED = Dataset(
 		variable_prefix="deDesignated",
 		identifier="de_designated",
 		name="De-designated",
+		noun="De-designated Site",
 		icon=FontawesomeLayerIcon(icon="ban", marker_colour="black"),
 		geojson_filename="De-designated sites.geojson",
 		)
@@ -175,6 +188,7 @@ REGISTERED_LANDSCAPES_WALES = Dataset(
 		variable_prefix="registeredLandscapesWales",
 		identifier="registered_landscapes",
 		name="Registered Landscapes",
+		noun="Registered Landscape",
 		icon=FontawesomeLayerIcon(icon="mountain", marker_colour="Olive", svg_marker=True),
 		welsh_geojson_filename="Welsh Registered Landscapes.geojson",
 		welsh_api_typename="inspire-wg:Cadw_HistoricLandscapes",
