@@ -114,7 +114,7 @@ repos:
        - stylelint-config-standard@29.0.0
       args:
        - --fix
-      exclude: (\.min.css|main.css|scss/bootstrap/)
+      exclude: (\.min.css|main.css|scss/bootstrap/|output/)
 
  - repo: https://github.com/djlint/djLint
    rev: v1.35.2
