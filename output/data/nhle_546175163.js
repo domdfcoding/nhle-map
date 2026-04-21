@@ -20094,7 +20094,7 @@ var listedBuildings546175163 = [
 [51.1734950027077, 0.182992823064846, 1273072, "THE RECTORY", "II", "Fri, 10 Sep 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1273072"],
 [51.1733156516614, 0.183928581483949, 1273073, "1-3, LEICESTER SQUARE", "II", "Fri, 10 Sep 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1273073"],
 [51.1727128299666, 0.183271990911576, 1273075, "RECTORY COTTAGES", "II", "Thu, 16 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1273075"],
-[51.1726257557877, 0.182478807211803, 1273076, "QUAINTWAYS TEA ROOMS", "II", "Fri, 10 Sep 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1273076"],
+[51.1726257557877, 0.182478807211803, 1273076, "Quaintways", "II", "Fri, 10 Sep 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1273076"],
 [51.1724911082505, 0.182330229394315, 1273077, "COLQUHOUN HOUSE", "II", "Fri, 10 Sep 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1273077"],
 [51.1582161565157, 0.177151267927835, 1273093, "BURZES COTTAGES", "II", "Thu, 16 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1273093"],
 [51.1567267964804, 0.184636888993891, 1273094, "FORMER THRESHING BARN TO SOUTH OF NASHES FARMHOUSE", "II", "Thu, 16 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1273094"],

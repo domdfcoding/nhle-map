@@ -8869,6 +8869,7 @@ var listedBuildings3590499840 = [
 [54.1033840538544, -2.41077342948944, 1488086, "Wenning Hipping", "II", "Mon, 18 Dec 2023", "https://historicengland.org.uk/listing/the-list/list-entry/1488086"],
 [54.2957907468427, -2.90102090946109, 1488251, "Collinfield Farmhouse and two bank barns", "II", "Fri, 26 Jan 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1488251"],
 [54.3130205045967, -2.80853095238113, 1490336, "Henry's Castle", "II*", "Tue, 24 Mar 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1490336"],
+[54.0716616572618, -2.85865061036634, 1492083, "Former Morecambe Odeon Cinema, including shops to Euston Road", "II", "Fri, 17 Apr 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1492083"],
 [54.6303800247175, -2.61666323043246, 1492205, "C18 Farmhouse and Barn at Julian Bower Farm", "II", "Thu, 03 Apr 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1492205"],
 [54.775747617315, -2.94711121333837, 1492425, "Agricultural ranges, boundary walls and cobbled yard at The Ashes", "II", "Tue, 25 Mar 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1492425"],
 [54.9049318350323, -2.74232847830171, 1492934, "Cowran Bridge, Skellion Bridge and revetment walls to the Cowran cutting on the Newcastle and Carlisle Railway", "II", "Tue, 04 Nov 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1492934"],
