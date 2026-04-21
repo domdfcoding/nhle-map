@@ -25319,10 +25319,10 @@ var scheduledMonuments114607204 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var deDesignated114607204 = [
-[51.103158249842, -4.00740412027606, 1163718, "Collard Bridge over River Yeo", null, "Mon, 06 Jan 2014", null],
-[51.0528558814348, -4.04667999702722, 1366223, "The Old Vicarage and nos. 1 and 2", null, "Tue, 27 Aug 2024", null],
-[51.080429423815, -4.0581136518261, 1385031, "37 and 37a Boutport Street", null, "Wed, 03 Apr 2013", null],
-[51.0682835162934, -4.0266352854922, -1, "Barn approximately 10 metres east of Portmore Farmhouse", null, "Thu, 16 Nov 2023", null],
+[51.103158249842, -4.00740412027606, 1163718, "Collard Bridge over River Yeo", null, "Mon, 06 Jan 2014", null, "Listing", []],
+[51.0528558814348, -4.04667999702722, 1366223, "The Old Vicarage and nos. 1 and 2", null, "Tue, 27 Aug 2024", null, "Listing", []],
+[51.080429423815, -4.0581136518261, 1385031, "37 and 37a Boutport Street", null, "Wed, 03 Apr 2013", null, "Listing", []],
+[51.0682835162934, -4.0266352854922, -1, "Barn approximately 10 metres east of Portmore Farmhouse", null, "Thu, 16 Nov 2023", null, "Listing", []],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

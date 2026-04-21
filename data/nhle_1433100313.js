@@ -25727,16 +25727,16 @@ var scheduledMonuments1433100313 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var deDesignated1433100313 = [
-[53.4222428685146, -3.00535399677604, 1073479, "Dockmaster's House", null, "Fri, 25 Feb 2022", null],
-[53.3156231460453, -3.09221412129298, 1075366, "GAYTON HALL", null, "Fri, 15 May 2015", null],
-[53.3160266699077, -3.09217277595476, 1075367, "DOVECOTE TO NORTH OF GAYTON HALL", null, "Fri, 15 May 2015", null],
-[53.5550499610183, -3.05575011962757, 1198990, "Walker Cottage", null, "Fri, 15 Jun 2018", null],
-[53.3735732566254, -3.00148707115453, 1218974, "Bath Cottages", null, "Thu, 14 Aug 2014", null],
-[53.3721377009728, -3.00223496830923, 1282518, "No 1A, Rock Lane East; No 44, Rock Park", null, "Thu, 05 Mar 2015", null],
-[53.4257667300078, -3.00031211878271, 1360217, "HYDRAULIC TOWER AT WELLINGTON DOCK", null, "Fri, 11 Sep 2015", null],
-[53.4320362776551, -3.03948093824502, 1375688, "EMMANUEL CHURCH", null, "Wed, 22 Apr 2015", null],
-[53.6465672888933, -3.00724752726645, 1379670, "Cannon Cinema", null, "Thu, 05 Mar 2015", null],
-[53.2850189883374, -3.05933537197148, 1387647, "Presbytery to the Roman Catholic Church of St Winefride", null, "Fri, 11 Apr 2014", null],
+[53.4222428685146, -3.00535399677604, 1073479, "Dockmaster's House", null, "Fri, 25 Feb 2022", null, "Listing", []],
+[53.3156231460453, -3.09221412129298, 1075366, "GAYTON HALL", null, "Fri, 15 May 2015", null, "Listing", []],
+[53.3160266699077, -3.09217277595476, 1075367, "DOVECOTE TO NORTH OF GAYTON HALL", null, "Fri, 15 May 2015", null, "Listing", []],
+[53.5550499610183, -3.05575011962757, 1198990, "Walker Cottage", null, "Fri, 15 Jun 2018", null, "Listing", []],
+[53.3735732566254, -3.00148707115453, 1218974, "Bath Cottages", null, "Thu, 14 Aug 2014", null, "Listing", []],
+[53.3721377009728, -3.00223496830923, 1282518, "No 1A, Rock Lane East; No 44, Rock Park", null, "Thu, 05 Mar 2015", null, "Listing", []],
+[53.4257667300078, -3.00031211878271, 1360217, "HYDRAULIC TOWER AT WELLINGTON DOCK", null, "Fri, 11 Sep 2015", null, "Listing", []],
+[53.4320362776551, -3.03948093824502, 1375688, "EMMANUEL CHURCH", null, "Wed, 22 Apr 2015", null, "Listing", []],
+[53.6465672888933, -3.00724752726645, 1379670, "Cannon Cinema", null, "Thu, 05 Mar 2015", null, "Listing", []],
+[53.2850189883374, -3.05933537197148, 1387647, "Presbytery to the Roman Catholic Church of St Winefride", null, "Fri, 11 Apr 2014", null, "Listing", []],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

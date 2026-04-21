@@ -23,6 +23,11 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
+	initialize(baseLayers, overlays, options) {
+		L.Control.Layers.MinimapToggle.prototype.initialize.call(this, baseLayers, overlays, options);
+		this._toggleAllButtons = new ToggleAllButtons(this);
+	},
+
 	_addItem: function(obj) {
 		var container = obj.overlay ? this._overlaysList : this._baseLayersList;
 
@@ -64,7 +69,65 @@ CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 
 		return label;
 	},
+
+	_update: function() {
+		L.Control.Layers.MinimapToggle.prototype._update.call(this);
+
+		var div = L.DomUtil.create('div', 'leaflet-lc-overlay-container', this._overlaysList);
+		var span = L.DomUtil.create('span', 'leaflet-all-layers-buttons pt-1', div);
+		this._toggleAllButtons.createButton(span, 'Show All', (e) => {
+			console.log('Show all overlays');
+			this._toggleAllButtons.showAll();
+			e.preventDefault();
+			e.stopPropagation();
+		});
+		this._toggleAllButtons.createButton(span, 'Show None', (e) => {
+			console.log('Hide all overlays');
+			this._toggleAllButtons.showNone();
+			e.preventDefault();
+			e.stopPropagation();
+		});
+	},
 });
+
+// TODO: better path for markerGroups; need to batch the addLayers call again to avoid multiple progress bars (which for some reason don't have the blurred background)
+class ToggleAllButtons {
+	constructor(layerControl) {
+		this._layerControl = layerControl;
+	}
+
+	createButton(parent, label, callback) {
+		var input = L.DomUtil.create(
+			'input',
+			'leaflet-control-layers-selector btn btn-outline-secondary px-2 py-0 me-1 mt-0 rounded-0',
+			parent,
+		);
+		input.type = 'button';
+		input.value = label;
+		input.addEventListener('click', callback);
+	}
+
+	showAll() {
+		const lc = this._layerControl;
+		for (var i in lc._layers) {
+			if (lc._layers[i].overlay) {
+				if (!lc._map.hasLayer(lc._layers[i].layer)) {
+					lc._map.addLayer(lc._layers[i].layer);
+				}
+			}
+		}
+	}
+	showNone() {
+		const lc = this._layerControl;
+		for (var i in lc._layers) {
+			if (lc._layers[i].overlay) {
+				if (lc._map.hasLayer(lc._layers[i].layer)) {
+					lc._map.removeLayer(lc._layers[i].layer);
+				}
+			}
+		}
+	}
+}
 
 customlayercontrol = function(baseLayers, overlays, options) {
 	return new CustomLayerControl(baseLayers, overlays, options);

@@ -28,68 +28,7 @@ function load_new_markers() {
 		loadMarkersAllLayers(
 			// TODO: generate with jinja2 and populate from LAYERS
 			chunkIDs,
-			[
-				{
-					'variable_prefix': 'battlefields',
-					'layer': marker_cluster_battlefields,
-					'icon': battlefieldsIcon,
-					'noun': 'Battlefield',
-				},
-				{
-					'variable_prefix': 'buildingPreservationNotices',
-					'layer': marker_cluster_building_preservation_notices,
-					'icon': buildingPreservationNoticesIcon,
-					'noun': 'Building Preservation Notice',
-				},
-				{
-					'variable_prefix': 'certificatesOfImmunity',
-					'layer': marker_cluster_certificates_of_immunity,
-					'icon': certificatesOfImmunityIcon,
-					'noun': 'Certificate of Immunity',
-				},
-				{
-					'variable_prefix': 'listedBuildings',
-					'layer': marker_cluster_listed_buildings,
-					'icon': listedBuildingsIcon,
-					'noun': 'Listed Building',
-				},
-				{
-					'variable_prefix': 'parksGardens',
-					'layer': marker_cluster_parks_and_gardens,
-					'icon': parksGardensIcon,
-					'noun': 'Park and Garden',
-				},
-				{
-					'variable_prefix': 'registeredLandscapesWales',
-					'layer': marker_cluster_registered_landscapes,
-					'icon': registeredLandscapesWalesIcon,
-					'noun': 'Registered Landscape',
-				},
-				{
-					'variable_prefix': 'protectedWreckSites',
-					'layer': marker_cluster_protected_wreck_sites,
-					'icon': protectedWreckSitesIcon,
-					'noun': 'Protected Wreck',
-				},
-				{
-					'variable_prefix': 'scheduledMonuments',
-					'layer': marker_cluster_scheduled_monuments,
-					'icon': scheduledMonumentsIcon,
-					'noun': 'Scheduled Monument',
-				},
-				{
-					'variable_prefix': 'worldHeritageSites',
-					'layer': marker_cluster_world_heritage_sites,
-					'icon': worldHeritageSitesIcon,
-					'noun': 'World Heritage Site',
-				},
-				{
-					'variable_prefix': 'deDesignated',
-					'layer': marker_cluster_de_designated,
-					'icon': deDesignatedIcon,
-					'noun': 'De-designated Site',
-				},
-			],
+			layerData,
 		);
 	}, { once: true });
 
@@ -134,7 +73,7 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 					console.log('Accessing JS variable', var_name);
 					var layerMarkerList = [];
 					addMarkers(window[var_name], layerMarkerList, layer_data.icon, layer_data.noun);
-					markerList.push(...layer_data.layer.internLayers(layerMarkerList));
+					markerList.push(...window[layer_data.layer].internLayers(layerMarkerList));
 				});
 				addedChunkIDs.push(id);
 			}
@@ -142,6 +81,11 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 
 		marker_cluster_nhle.addLayers(markerList);
 		loaded_ids.push(...addedChunkIDs);
+
+		if (markerList.length == 0) {
+			// No clustering will take place if we're not adding any new markers
+			modal.hide();
+		}
 	}).catch(function(rej) {
 		console.log('Error loading markers: ', rej);
 		alert('Error loading markers');
