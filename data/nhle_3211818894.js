@@ -16368,7 +16368,7 @@ var listedBuildings3211818894 = [
 [53.051647272993, -1.88320591754236, 1286512, "DONNITHORNE CHASE", "II", "Mon, 17 Nov 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1286512"],
 [53.4464029232863, -1.20360586378662, 1286514, "Church of St James", "II*", "Wed, 05 Jun 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1286514"],
 [53.584922302822, -1.53154323398646, 1286515, "CHURCH OF ALL SAINTS", "I", "Wed, 13 Nov 1963", "https://historicengland.org.uk/listing/the-list/list-entry/1286515"],
-[53.4210819732211, -1.34930279953698, 1286517, "59,61, MOORGATE ROAD", "II", "Wed, 19 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1286517"],
+[53.4280737562722, -1.35529247162287, 1286517, "59 AND 61, MOORGATE STREET", "II", "Wed, 19 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1286517"],
 [53.3631876878189, -1.2997306786698, 1286518, "22 AND 24, WORKSOP ROAD", "II", "Wed, 01 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1286518"],
 [53.5023592273907, -1.34460770009524, 1286521, "2,2A,2B,2C,4A,4B AND 4C, HIGH STREET", "II", "Wed, 21 Aug 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1286521"],
 [53.5984131975028, -1.06464748888531, 1286522, "CHURCH OF ST MARY", "II*", "Tue, 29 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1286522"],

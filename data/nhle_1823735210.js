@@ -54,7 +54,7 @@ var listedBuildings1823735210 = [
 [49.9936452354339, -5.18231786485234, 1328484, "SIENA AND POTTERY CRAFTS GALLERY", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328484"],
 [49.9924594733202, -5.18290938537774, 1328485, "THE HAVEN AND COTTAGE ADJOINING THE HAVEN", "II", "Wed, 10 Jul 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1328485"],
 [49.9708221827642, -5.18982216063055, 1328486, "MARINERS", "II", "Wed, 10 Jul 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1328486"],
-[49.9833705103813, -5.19497016470774, 1328487, "ANVOAZE FARMHOUSE", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328487"],
+[49.9833479363161, -5.19501135736599, 1328487, "Anvoaze Farmhouse", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328487"],
 [49.9992413608099, -5.19309927274718, 1328489, "TREVEDDON FARMHOUSE", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328489"],
 [49.9699140095922, -5.19258763856321, 1328496, "WELL HOUSE 40 METRES SOUTH-EAST OF PARISH CHURCH OF ST WINWALAUS", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328496"],
 [49.9601248267249, -5.20257207416646, 1328497, "Lizard lighthouse", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328497"],
