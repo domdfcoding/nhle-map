@@ -34,9 +34,7 @@ from typing import TYPE_CHECKING, Any
 
 # 3rd party
 import attrs
-from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
-from domdf_python_tools.typing import PathLike
 
 if TYPE_CHECKING:
 	# this package

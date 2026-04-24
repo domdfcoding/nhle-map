@@ -36,7 +36,6 @@ function load_new_markers() {
 	if (chunkIDs.length > 0) {
 		progress.addEventListener('shown.bs.modal', event => {
 			loadMarkersAllLayers(
-				// TODO: generate with jinja2 and populate from LAYERS
 				chunkIDs,
 				layerData,
 			);

@@ -34,7 +34,7 @@ from typing import Any
 
 # 3rd party
 import domdf_folium_tools.static_files
-import ujson5
+import ujson5  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
 
 # this package
