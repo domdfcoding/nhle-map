@@ -1,0 +1,38 @@
+---
+name: Update Data
+
+on:
+  schedule:
+    - cron: "0 12 * * 2"
+
+jobs:
+  tests:
+    permissions:
+      contents: read
+    name: "Update Data"
+    runs-on: "ubuntu-22.04"
+
+    steps:
+      - name: Checkout 🛎️
+        uses: "actions/checkout@v4"
+
+      - name: Setup Python 🐍
+        id: setup-python
+        uses: "actions/setup-python@v5"
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies 🔧
+        if: steps.setup-python.outcome == 'success'
+        run: |
+          python -VV
+          python -m site
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install --upgrade -r requirements.txt
+
+      - name: "Download and prepare data"
+        if: steps.setup-python.outcome == 'success'
+        run: python -m nhle_map prepare-data -d
+
+# TODO: commit changes (if any). Needs permission
+# TODO: use separate branch?
