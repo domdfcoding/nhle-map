@@ -1491,7 +1491,7 @@ var listedBuildings441311815 = [
 [52.0925741780078, 0.868396145620707, 1037128, "HALL COTTAGE", "II", "Thu, 10 Jul 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1037128"],
 [52.1070699236171, 0.798155206773688, 1037129, "THE MANOR HOUSE", "II*", "Thu, 23 Jan 1958", "https://historicengland.org.uk/listing/the-list/list-entry/1037129"],
 [52.1071344695531, 0.797765811447794, 1037130, "58, WATER STREET", "II*", "Thu, 23 Jan 1958", "https://historicengland.org.uk/listing/the-list/list-entry/1037130"],
-[52.1071861308035, 0.797363215377718, 1037131, "De Vere House", "I", "Thu, 23 Jan 1958", "https://historicengland.org.uk/listing/the-list/list-entry/1037131"],
+[52.107165462272, 0.797359125276224, 1037131, "De Vere House and 60 Water Street", "I", "Thu, 23 Jan 1958", "https://historicengland.org.uk/listing/the-list/list-entry/1037131"],
 [52.1072323124755, 0.797157608583441, 1037132, "62, WATER STREET", "II", "Thu, 10 Jul 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1037132"],
 [52.1072509713784, 0.796887934915832, 1037133, "66, WATER STREET", "II", "Thu, 23 Jan 1958", "https://historicengland.org.uk/listing/the-list/list-entry/1037133"],
 [52.1073537923857, 0.796695767740865, 1037134, "67 AND 68, WATER STREET", "I", "Thu, 23 Jan 1958", "https://historicengland.org.uk/listing/the-list/list-entry/1037134"],
@@ -16201,6 +16201,7 @@ var listedBuildings441311815 = [
 [52.202968951795, 0.124120759653492, 1493712, "K6 Telephone Kiosk, St Andrew's Street", "II", "Tue, 24 Jun 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1493712"],
 [52.4168081547144, 0.347105931850207, 1494959, "Prickwillow War Memorial", "II", "Mon, 09 Mar 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1494959"],
 [52.3104826791294, 0.292216419639351, 1495557, "Fen Cottage (also known as The Fenman's Cottage) Wicken", "II", "Wed, 25 Mar 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495557"],
+[52.5472046193294, 0.575508066406246, 1495582, "Barn at Hall Farm, Northwold", "II", "Tue, 21 Apr 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495582"],
 [52.2116575187986, 0.112467228456931, 1495713, "Castle End Mission and Working Mens Institute with attached Iron Hall", "II", "Wed, 08 Apr 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495713"],
 ]
 

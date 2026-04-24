@@ -6189,7 +6189,7 @@ var listedBuildings941008092 = [
 [54.2099135127132, -1.21392915395016, 1190653, "WAR MEMORIAL SET IN WALL APPROXIMATELY 7 METRES TO SOUTH OF CHURCHYARD SOUTH GATEWAY", "II", "Tue, 20 Dec 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1190653"],
 [54.346237812648, -1.44447881973001, 1190658, "THE MOUNT", "II", "Tue, 15 Nov 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1190658"],
 [54.0298982783647, -1.21955761460766, 1190659, "NEWTON LODGE (ENTRANCE TO BENINGBROUGH PARK)", "II", "Mon, 20 Oct 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1190659"],
-[54.4133082389682, -1.38520147646365, 1190663, "STABLES APPROXIMATELY 10 METRES TO SOUTH EAST OF THE OLD RECTORY STABLES APPROXIMATELY 10 METRES TO SOUTH EAST OF WELBURY HOUSE", "II", "Fri, 13 Nov 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1190663"],
+[54.4133082389682, -1.38520147646365, 1190663, "Stables approximately 10 metres to south-east of Welbury House", "II", "Fri, 13 Nov 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1190663"],
 [54.2083195609949, -1.21376634566349, 1190665, "BARNS ATTACHED TO KILBURN HALL ON NORTH", "II", "Thu, 01 May 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1190665"],
 [54.3075354855036, -1.39358483586146, 1190670, "CHAPEL OF EASE", "II", "Tue, 31 Mar 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1190670"],
 [54.0503914075383, -1.31714253943283, 1190673, "MANOR HOUSE GARAGE", "II", "Mon, 12 Dec 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1190673"],

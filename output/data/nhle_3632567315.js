@@ -6379,7 +6379,7 @@ var listedBuildings3632567315 = [
 [52.1393861020864, -0.47913699214869, 1128995, "126 AND 128, BROMHAM ROAD", "II", "Fri, 14 May 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1128995"],
 [52.1397276219353, -0.473557777443284, 1128996, "ST ETHELDREDA'S CHILDREN'S HOME", "II", "Fri, 14 May 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1128996"],
 [52.1326720473883, -0.464068000352473, 1128997, "11, CARDINGTON ROAD", "II", "Fri, 06 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1128997"],
-[52.1327336572249, -0.463693590494767, 1128998, "ST MARY'S HOUSE", "II*", "Fri, 06 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1128998"],
+[52.1327336572249, -0.463693590494767, 1128998, "Trinity House", "II*", "Fri, 06 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1128998"],
 [52.1330876821749, -0.462154285206051, 1128999, "ABBEY COTTAGE", "II", "Fri, 14 May 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1128999"],
 [52.1327366052576, -0.462122534376647, 1129000, "46, CARDINGTON ROAD", "II", "Fri, 06 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1129000"],
 [52.1363798281529, -0.46363370241946, 1129001, "THE BEDFORD GALLERY", "II", "Fri, 14 May 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1129001"],
@@ -18564,6 +18564,7 @@ var buildingPreservationNotices3632567315 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var certificatesOfImmunity3632567315 = [
+[52.0412518519707, -0.755224333776377, 1495772, "The Point", null, "Wed, 22 Apr 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495772"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

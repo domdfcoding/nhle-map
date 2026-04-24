@@ -1293,7 +1293,7 @@ var listedBuildings307795845 = [
 [50.9835451111994, 0.631002614864994, 1044158, "LYNDALE COTTAGE", "II", "Wed, 13 May 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1044158"],
 [50.9848722624831, 0.635566242826536, 1044159, "THE OAST", "II", "Wed, 13 May 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1044159"],
 [50.9867170336891, 0.648638282914898, 1044160, "THE COTTAGE", "II", "Wed, 13 May 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1044160"],
-[50.9829526850234, 0.625355113071103, 1044161, "CHURCH HOUSE COTTAGE", "II", "Wed, 13 May 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1044161"],
+[50.9829526850234, 0.625355113071103, 1044161, "Church Farmhouse", "II", "Wed, 13 May 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1044161"],
 [50.9829252407533, 0.628573772614387, 1044162, "WHEELWRIGHTS", "II", "Wed, 13 May 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1044162"],
 [50.9192193265475, 0.484644311870837, 1044163, "THE OLD COURT HOUSE", "II", "Thu, 03 Aug 1961", "https://historicengland.org.uk/listing/the-list/list-entry/1044163"],
 [50.9187404281074, 0.484927231922218, 1044164, "LEWINS CROFT", "II*", "Thu, 03 Aug 1961", "https://historicengland.org.uk/listing/the-list/list-entry/1044164"],
