@@ -1,4 +1,13 @@
+var loadLock = false;
+
 function load_new_markers() {
+	if (loadLock === true) {
+		return null;
+	}
+
+	loadLock = true;
+	console.log('load_new_markers() called');
+
 	const bounds = map.getBounds();
 	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1);
 	var longitides = range(Math.floor(bounds.getWest()), Math.floor(bounds.getEast()) + 1, 1);
@@ -35,6 +44,8 @@ function load_new_markers() {
 
 		console.log('Showing progressbar');
 		modal.show();
+	} else {
+		loadLock = false;
 	}
 
 	return promise;
@@ -82,14 +93,17 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 		marker_cluster_nhle.addLayers(markerList);
 		loaded_ids.push(...addedChunkIDs);
 
-		if (markerList.length == 0) {
+		if (markerList.length === 0) {
 			// No clustering will take place if we're not adding any new markers
 			modal.hide();
+			console.log('Hiding modal; nothing to add');
+			loadLock = false;
 		}
 	}).catch(function(rej) {
 		console.log('Error loading markers: ', rej);
 		alert('Error loading markers');
 		modal.hide();
+		loadLock = false;
 	});
 }
 
@@ -195,6 +209,7 @@ function updateProgressBar(processed, total, elapsed, layersArray) {
 			progressBar.style.width = '0';
 			modal.hide();
 			console.log(`Progressbar finished (${processed} out of ${total})`);
+			loadLock = false;
 		}, 500);
 	} else if (total > 0 && elapsed > 0) {
 		modal.show();
