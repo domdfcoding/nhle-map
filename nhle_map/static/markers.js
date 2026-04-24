@@ -24,15 +24,15 @@ function load_new_markers() {
 		}, { once: true });
 	});
 
-	progress.addEventListener('shown.bs.modal', event => {
-		loadMarkersAllLayers(
-			// TODO: generate with jinja2 and populate from LAYERS
-			chunkIDs,
-			layerData,
-		);
-	}, { once: true });
-
 	if (chunkIDs.length > 0) {
+		progress.addEventListener('shown.bs.modal', event => {
+			loadMarkersAllLayers(
+				// TODO: generate with jinja2 and populate from LAYERS
+				chunkIDs,
+				layerData,
+			);
+		}, { once: true });
+
 		console.log('Showing progressbar');
 		modal.show();
 	}
