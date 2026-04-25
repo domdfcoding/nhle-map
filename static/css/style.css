@@ -51,28 +51,76 @@
 	white-space: nowrap;
 }
 
-.modal table.legend tr td.layer-name, .modal table.legend tr td.expand-btn {
+.modal table.legend tr td.expand-btn {
 	width: fit-content;
 	white-space: nowrap;
 }
 
 
+.modal table.legend tr td.layer-name {
+	width: fit-content;
+
+	@media (width >= 992px) {
+		white-space: nowrap;
+	}
+}
+
+
 .description-container .description-collapse.collapse:not(.show) {
 	display: block;
-	height: 1.5rem;
 	overflow: hidden;
 }
 
-.description-container .description-collapse.collapsing {
-	height: 1.5rem;
+
+.description-container{
+	padding: unset;
 }
 
-a.description-btn.collapsed::after {
-	content: "+ More";
+@media (width < 992px) {
+	.description-container .description-collapse.collapse:not(.show) {
+		height: 4.5rem;
+	}
+
+	.description-container .description-collapse.collapsing {
+		height: 4.5rem;
+	}
+
+	.expand-btn{
+		padding-left: 0 !important;
+		padding-right: 0.25rem !important;
+	}
+
+	.layer-description, .layer-description .description-container{
+		padding-right: 0 !important;
+	}
+
+	a.description-btn.collapsed::after {
+		content: "+";
+		font-size: 24px;
+	}
+
+	a.description-btn:not(.collapsed)::after {
+		content: "−";
+		font-size: 24px;
+	}
 }
 
-a.description-btn:not(.collapsed)::after {
-	content: "− Less";
+@media (width >= 992px) {
+	.description-container .description-collapse.collapse:not(.show) {
+		height: 1.5rem;
+	}
+
+	.description-container .description-collapse.collapsing {
+		height: 1.5rem;
+	}
+
+	a.description-btn.collapsed::after {
+		content: "+ More";
+	}
+
+	a.description-btn:not(.collapsed)::after {
+		content: "− Less";
+	}
 }
 
 .description-container p {
@@ -113,4 +161,16 @@ a.description-btn:not(.collapsed)::after {
 	.results.active {
 		font-size: 14px;
 	}
+}
+
+
+@media (width <= 700px) {
+	.leaflet-control-attribution {
+		max-width: 320px;
+	}
+}
+
+
+.nhle-popup {
+	max-width: 50vw;
 }
