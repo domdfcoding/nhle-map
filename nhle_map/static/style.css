@@ -114,3 +114,10 @@ a.description-btn:not(.collapsed)::after {
 		font-size: 14px;
 	}
 }
+
+
+@media (width <= 700px) {
+	.leaflet-control-attribution {
+		max-width: 320px;
+	}
+}
