@@ -121,3 +121,8 @@ a.description-btn:not(.collapsed)::after {
 		max-width: 320px;
 	}
 }
+
+
+.nhle-popup {
+	max-width: 50vw;
+}

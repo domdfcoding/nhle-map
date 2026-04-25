@@ -115,7 +115,7 @@ function addMarkers(points, markerList, icon, noun) {
 		var date = a[5] ? `Date: <strong>${a[5]}</strong>` : '';
 		var notes = a[7] ? `<p>${a[7]}</p>` : '';
 		var popupText = `
-<div class="card border-0">
+<div class="nhle-popup card border-0">
   <div class="card-body p-0">
     <h5 class="card-title">${a[3]}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${noun}</h6>
@@ -137,7 +137,9 @@ function addMarkers(points, markerList, icon, noun) {
 			{ title: a[3], icon: icon },
 		);
 		// TODO: constants for indices rather than magic numbers
-		marker.bindPopup(popupText);
+		const popup = new L.Popup(maxWidth = '50vw');
+		popup.setContent(popupText);
+		marker.bindPopup(popup);
 		markerList.push(marker);
 	}
 }
