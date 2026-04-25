@@ -71,7 +71,7 @@
                             <p>
                                 Powered by <code>nhle-map</code>, available on GitHub at <a href="https://github.com/domdfcoding/nhle-map"><code>github.com/domdfcoding/nhle-map</code></a>
                             </p>
-
+                            {# TODO: collapse copyright section on small viewports? #}
                             <p>
                                 Uses data downloaded from the <a href="https://opendata-historicengland.hub.arcgis.com/">Historic England Open Data Hub</a>.
                                 <br>
@@ -100,7 +100,7 @@
                                                 style="background-color: {{ layer.icon.marker_colour }}"
                                                 scope="row">{{ layer.icon.layercontrol_icon }}</th>
                                             <td class="layer-name">{{ layer.name }}</td>
-                                            <td>
+                                            <td class="layer-description">
                                                 {% set description = None -%}
                                                 {% if layer.geojson_filename_stem -%}
                                                     {% set description = format_description(layers_data[layer.geojson_filename_stem]["description"]) -%}
