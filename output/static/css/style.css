@@ -168,9 +168,31 @@
 	.leaflet-control-attribution {
 		max-width: 320px;
 	}
+
+
+	.leaflet-control {
+		transition: opacity 0.5s;
+	}
+
+	.leaflet-container:has(.leaflet-popup) .leaflet-top.leaflet-left .leaflet-control {
+	opacity: 0.5;
+	}
+}
+
+@media (width <= 500px) {
+	.leaflet-control-attribution {
+		max-width: 200px;
+	}
 }
 
 
 .nhle-popup {
 	max-width: 50vw;
+}
+
+
+
+.leaflet-popup-content {
+	margin-right: calc(24px - 8px) !important;
+	/* margin-left: calc(20px - 8px) !important; */
 }
