@@ -137,7 +137,11 @@ function addMarkers(points, markerList, icon, noun) {
 			{ title: a[3], icon: icon },
 		);
 		// TODO: constants for indices rather than magic numbers
-		const popup = new L.Popup({ keepInView: true, autoPanPaddingTopLeft: [45, 0] });
+		const popup = new L.Popup({
+			keepInView: false,
+			autoPanPaddingTopLeft: [45, 0],
+			autoPanPaddingBottomRight: [65, 0],
+		});
 		popup.setContent(popupText);
 		marker.bindPopup(popup);
 		markerList.push(marker);
