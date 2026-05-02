@@ -187,12 +187,11 @@
 
 
 .nhle-popup {
-	max-width: 50vw;
+	max-width: 55vw;
 }
 
 
-
 .leaflet-popup-content {
-	margin-right: calc(24px - 8px) !important;
-	/* margin-left: calc(20px - 8px) !important; */
+	/* margin-right: calc(24px - 8px) !important; */
+	margin-left: calc(20px - 8px) !important;
 }
