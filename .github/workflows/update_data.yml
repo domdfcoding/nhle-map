@@ -2,6 +2,7 @@
 name: Update Data
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 12 * * 2"
 
@@ -34,5 +35,13 @@ jobs:
         if: steps.setup-python.outcome == 'success'
         run: python -m nhle_map prepare-data -d
 
-# TODO: commit changes (if any). Needs permission
-# TODO: use separate branch?
+      - name: "Stage changes"
+        if: steps.setup-python.outcome == 'success'  # TODO: set previous step outcome too
+        uses: EndBug/add-and-commit@v10
+        with:
+          add: 'output/data'
+          default_author: github_actions
+          message: 'Update data from Historic England and Cadw'
+          new_branch: update-data
+          pull: '--rebase --autostash'
+          push: false  # TODO
