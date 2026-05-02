@@ -51,4 +51,5 @@ jobs:
           commit-message: 'Update data from Historic England and Cadw'
           title: 'Update data from Historic England and Cadw'
           # TODO: add last updated time  body: Credit new contributors by updating AUTHORS
+          base: master
           branch: update-data
