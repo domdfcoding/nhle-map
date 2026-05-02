@@ -43,5 +43,4 @@ jobs:
           default_author: github_actions
           message: 'Update data from Historic England and Cadw'
           new_branch: update-data
-          pull: '--rebase --autostash'
-          push: false  # TODO
+          push: # TODO: '--force'
