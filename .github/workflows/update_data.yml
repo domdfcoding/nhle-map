@@ -36,11 +36,15 @@ jobs:
         if: steps.setup-python.outcome == 'success'
         run: python -m nhle_map prepare-data -d
 
+      - name: "Update map"
+        if: steps.setup-python.outcome == 'success'  # TODO: set previous step outcome too
+        run: python -m nhle_map make-map
+
       - name: "Stage changes"
         if: steps.setup-python.outcome == 'success'  # TODO: set previous step outcome too
         uses: EndBug/add-and-commit@v10
         with:
-          add: 'output/data'
+          add: 'output'
           default_author: github_actions
           message: 'Update data from Historic England and Cadw'
           new_branch: update-data
