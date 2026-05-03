@@ -2755,7 +2755,6 @@ var listedBuildings546175163 = [
 [51.2096135172645, 0.794272320078931, 1070765, "TANNER'S LODGE", "II", "Tue, 14 Feb 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1070765"],
 [51.2095948273321, 0.79463705401215, 1070766, "WILLOW COTTAGE", "II", "Tue, 14 Feb 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1070766"],
 [51.2041883780613, 0.79673206680377, 1070767, "BROOK FARM HOUSE", "II", "Fri, 10 Oct 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1070767"],
-[51.1983345587859, 0.805275588833677, 1070768, "GRANARY TO SOUTH EAST OF HARRISON'S FARMHOUSE", "II", "Fri, 10 Oct 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1070768"],
 [51.1958832029457, 0.752004113348472, 1070769, "BARNFIELD", "II", "Fri, 10 Oct 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1070769"],
 [51.1941103515188, 0.751464144012947, 1070770, "TRAM HATCH", "II*", "Fri, 10 Oct 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1070770"],
 [51.2086323789983, 0.767017893837717, 1070771, "LITTLE SWAN STREET FARMHOUSE", "II", "Fri, 10 Oct 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1070771"],
@@ -12266,7 +12265,7 @@ var listedBuildings546175163 = [
 [51.8779068294783, 0.548909423882629, 1171229, "THE BOAR'S HEAD HOTEL", "II", "Thu, 29 Nov 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1171229"],
 [51.8390219852224, 0.708554997024938, 1171251, "EASTERFORD MILL", "II*", "Thu, 21 Dec 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1171251"],
 [51.8986085322279, 0.240486439071665, 1171266, "1 AND 2, TYE GREEN", "II", "Fri, 22 Feb 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1171266"],
-[51.897230913921, 0.238123913691537, 1171270, "20, TYE GREEN", "II", "Fri, 22 Feb 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1171270"],
+[51.897230913921, 0.238123913691537, 1171270, "20 and 22, Tye Green", "II", "Fri, 22 Feb 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1171270"],
 [51.8982088198396, 0.238809458375739, 1171277, "Range of outbuildings to north of Tye Green Farmhouse", "II", "Fri, 22 Feb 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1171277"],
 [51.8232335582707, 0.493302081753733, 1171283, "CHURCH VIEW ST JOHN'S COTTAGE", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1171283"],
 [51.9063044424453, 0.139130968765722, 1171284, "KETTLEWELL COTTAGE", "II", "Fri, 22 Feb 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1171284"],
@@ -25209,7 +25208,7 @@ var listedBuildings546175163 = [
 [51.7296741377019, 0.578023909250232, 1338509, "WOODLANDS", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1338509"],
 [51.7374291477806, 0.590575076399548, 1338510, "GIBBS", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1338510"],
 [51.7738111133926, 0.496938106008059, 1338511, "BELSTEADS FARMHOUSE", "II", "Mon, 29 Dec 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1338511"],
-[51.7961388454743, 0.471936768117244, 1338512, "CHATHAM HALL", "II", "Mon, 10 Apr 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1338512"],
+[51.7961388454743, 0.471936768117244, 1338512, "Chatham Hall", "II", "Mon, 10 Apr 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1338512"],
 [51.7837337786307, 0.503206474029434, 1338513, "PEVEREL'S FARMHOUSE", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1338513"],
 [51.7849626259254, 0.47183238868625, 1338514, "LITTLE WALTHAM LODGE", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1338514"],
 [51.1154683293882, 0.427314348606064, 1338517, "Stable or animal house about 30 metres west of Elphicks", "II", "Tue, 10 Oct 1989", "https://historicengland.org.uk/listing/the-list/list-entry/1338517"],
@@ -28733,12 +28732,10 @@ var protectedWreckSites546175163 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var buildingPreservationNotices546175163 = [
-[51.7739066710982, 0.505294048717916, 1495733, "BPN - Park Farm, Little Waltham", null, "Tue, 11 Nov 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1495733"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var certificatesOfImmunity546175163 = [
-[51.6316308829712, 0.00269366978925786, 1473814, "Chingford Assembly Hall and Library", null, "Wed, 28 Apr 2021", "https://historicengland.org.uk/listing/the-list/list-entry/1473814"],
 [51.5781038143792, 0.00278658934252559, 1474370, "Buildings at Whipps Cross Hospital", null, "Thu, 03 Mar 2022", "https://historicengland.org.uk/listing/the-list/list-entry/1474370"],
 [51.2772744794121, 0.515623592059077, 1490025, "Raglan House", null, "Thu, 10 Oct 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1490025"],
 [51.9206554794548, 0.227609995297252, 1491689, "Elsenham Station House", null, "Wed, 20 Nov 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1491689"],
@@ -48619,6 +48616,7 @@ var deDesignated546175163 = [
 [51.3068565692619, 0.728462636038836, 1069276, "Broadoak Farm", null, "Fri, 25 Jan 2019", null, "Listing", []],
 [51.3377563379066, 0.766594119636216, 1069323, "BARN AT STONES FARM", null, "Fri, 11 Jan 2013", null, "Listing", []],
 [51.2123961633606, 0.39427549755629, 1070723, "ROSE AND CROWN PUBLIC HOUSE", null, "Fri, 12 Jul 2013", null, "Listing", []],
+[51.1983048333251, 0.805219542282049, 1070768, "Granary to the south-east of Harrison\u2019s Farmhouse", null, "Mon, 27 Apr 2026", null, "Listing", []],
 [51.1190223809961, 0.768070562964748, 1070818, "Inwood", null, "Wed, 13 Aug 2014", null, "Listing", []],
 [51.0410550729857, 0.643466657026691, 1070906, "The Old Forge", null, "Mon, 24 Sep 2012", null, "Listing", []],
 [51.1337006335515, 0.8945175932469, 1071099, "2, Boys Hall Road", null, "Thu, 23 Apr 2015", null, "Listing", []],

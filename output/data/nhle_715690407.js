@@ -14800,7 +14800,7 @@ var listedBuildings715690407 = [
 [52.660376662605, -1.52409081753366, 1294757, "CHURCH OF THE HOLY TRINITY", "II*", "Mon, 07 Nov 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1294757"],
 [52.8573137533325, -1.6858883303737, 1294765, "6 and 6a High Street", "II", "Wed, 17 Sep 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1294765"],
 [52.6133410900887, -1.0556505966403, 1294769, "2, CHURCH LANE", "II", "Fri, 21 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1294769"],
-[52.657736577534, -1.85536489708191, 1294770, "CHURCH OF ST JOHN", "II", "Fri, 15 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1294770"],
+[52.657736577534, -1.85536489708191, 1294770, "Church of St. John", "II", "Fri, 15 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1294770"],
 [52.4124356689593, -1.20352212149153, 1294774, "BARN ABOUT 80 METRES EAST OF SHAWELL HALL", "II", "Fri, 05 Jun 1992", "https://historicengland.org.uk/listing/the-list/list-entry/1294774"],
 [52.657862131846, -1.78904421933421, 1294790, "BARN APPROXIMATELY 50 METRES NORTH OF INGLEY HILL FARMHOUSE", "II", "Fri, 15 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1294790"],
 [52.5962200522993, -1.01434076591274, 1294797, "CHURCH OF ST JOHN THE BAPTIST", "II*", "Thu, 29 Dec 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1294797"],

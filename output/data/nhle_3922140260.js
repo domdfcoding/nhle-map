@@ -6614,7 +6614,7 @@ var listedBuildings3922140260 = [
 [52.391417587711, -2.11985831366635, 1166814, "DOUGLAS MILLS AND SULUR", "II", "Thu, 17 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1166814"],
 [52.29205312081, -2.70043682420228, 1166815, "THE PARKS", "II", "Thu, 11 Jun 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1166815"],
 [52.25999549345, -2.87985198840559, 1166816, "OLD STABLE COURT", "II", "Tue, 09 Dec 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1166816"],
-[52.3738558307946, -2.31424757944641, 1166817, "49 AND 52, HIGH STREET", "II", "Thu, 02 Oct 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1166817"],
+[52.3738558307946, -2.31424757944641, 1166817, "49 and 51, High Street", "II", "Thu, 02 Oct 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1166817"],
 [52.2595424908216, -2.71502044398787, 1166822, "MILESTONE AT SO 514627", "II", "Wed, 23 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1166822"],
 [52.3737054588348, -2.31402199035574, 1166823, "46 AND 47, HIGH STREET", "II", "Thu, 02 Oct 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1166823"],
 [52.2595108630915, -2.88214270334064, 1166832, "KITCHEN GARDEN WALLS", "II", "Thu, 11 Jun 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1166832"],

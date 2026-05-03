@@ -4108,7 +4108,7 @@ var listedBuildings2317628205 = [
 [50.9843488815037, -0.525874356157003, 1265405, "BARN AT PALLINGHAM QUAY FARM TO THE SOUTH WEST OF THE FARMHOUSE", "II", "Wed, 22 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1265405"],
 [50.9980043121142, -0.526196771465247, 1265433, "Two adjoining barns to the south west of Coldharbour Farmhouse", "II", "Wed, 22 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1265433"],
 [50.9271857819944, -0.609331486265701, 1265465, "FARRS", "II", "Wed, 22 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1265465"],
-[50.9357557287412, -0.606130902226922, 1265468, "THE HOLLOWS", "II", "Wed, 22 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1265468"],
+[50.9357557287412, -0.606130902226922, 1265468, "Sutton Hollow Cottage and Sutton Hollow Farm", "II", "Wed, 22 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1265468"],
 [50.937737006351, -0.603353261890151, 1265469, "THE OLD COTTAGE", "II", "Sun, 25 Sep 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1265469"],
 [50.9277424081315, -0.608308152459442, 1265498, "THE WHITE HORSE INN", "II", "Tue, 22 Feb 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1265498"],
 [50.9746332954312, -0.532050846696354, 1265509, "HARWOODS GREEN", "II", "Wed, 22 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1265509"],
@@ -7318,7 +7318,6 @@ var buildingPreservationNotices2317628205 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var certificatesOfImmunity2317628205 = [
-[50.8311090760118, -0.775485324836878, 1471622, "Air Raid Shelters at Chichester High School", null, "Wed, 28 Apr 2021", "https://historicengland.org.uk/listing/the-list/list-entry/1471622"],
 [50.8207280880651, -0.354780586087882, 1488702, "Roman Catholic Church of Charles Borromeo, including the presbytery and church hall", null, "Thu, 22 Aug 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1488702"],
 [50.8280633470699, -0.160944322143958, 1490704, "Hove Hebrew Congregation Synagogue", null, "Fri, 20 Sep 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1490704"],
 [50.820288394589, -0.120811504271602, 1495301, "Brighton College Preparatory School", null, "Tue, 13 Jan 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495301"],
