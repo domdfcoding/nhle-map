@@ -47,7 +47,7 @@ jobs:
           push: '--set-upstream origin update-data --force'
 
       - name: Create Pull Request
-        run: gh pr create -B master -H update-data --title 'Update data from Historic England and Cadw'
+        run: gh pr create -B master -H update-data --title 'Update data from Historic England and Cadw' --body ''
         # TODO: add last updated time  --body ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
