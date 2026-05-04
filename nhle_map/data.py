@@ -99,7 +99,7 @@ def get_chunk_js(
 		grade = item.get("Grade")
 		list_date = format_datetime(get_list_date(item), DATE_ONLY_FORMAT)
 		link = item.get("hyperlink")
-		coord = item["geometry"].bounds[:2]
+		coord = numpy.round(item["geometry"].bounds[:2], 10)
 		values = [coord[1], coord[0], number, name, grade, list_date, link]
 
 		poly_points = []
