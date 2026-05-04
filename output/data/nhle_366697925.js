@@ -18147,7 +18147,6 @@ var buildingPreservationNotices366697925 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var certificatesOfImmunity366697925 = [
-[53.3162050912, -2.2352585698, 1474076, "Royal London House", null, "Tue, 04 May 2021", "https://historicengland.org.uk/listing/the-list/list-entry/1474076"],
 [53.3678859816, -2.6822125226, 1477449, "Fiddler's Ferry Power Station", null, "Thu, 28 Oct 2021", "https://historicengland.org.uk/listing/the-list/list-entry/1477449"],
 [53.4828436459, -2.2480284013, 1482041, "One North Parade (former New Exchange Buildings)", null, "Wed, 08 Feb 2023", "https://historicengland.org.uk/listing/the-list/list-entry/1482041"],
 [53.3769820451, -2.9235799036, 1488440, "Carnatic Halls of Residence", null, "Tue, 01 Oct 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1488440"],

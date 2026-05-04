@@ -31822,7 +31822,7 @@ var listedBuildings828253910 = [
 [51.3798351228, -2.3613150916, 1394838, "45, ST JAMES'S PARADE", "II", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1394838"],
 [51.3798799026, -2.3613729199, 1394839, "46, ST JAMES'S PARADE", "II", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1394839"],
 [51.3799516123, -2.3614453297, 1394840, "THE HOBGOBLIN PUBLIC HOUSE", "II", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1394840"],
-[51.3895663399, -2.3576839636, 1394841, "NEXUS METHODIST CHURCH (WALCOT BUILDING)", "II", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1394841"],
+[51.3895663399, -2.3576839636, 1394841, "Nexus Methodist Church (Walcot Building)", "II", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1394841"],
 [51.389727087, -2.3580445131, 1394845, "FORECOURT PIERS AND WALL TO NEXUS METHODIST CHURCH (WALCOT BUILDING)", "II", "Tue, 05 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1394845"],
 [51.38869959, -2.3675216409, 1394847, "6, ST JAMES'S PLACE", "II", "Tue, 05 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1394847"],
 [51.3891001386, -2.3688182839, 1394848, "NOS 1-15 (CONSEC) AND ATTACHED RAILINGS", "I", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1394848"],

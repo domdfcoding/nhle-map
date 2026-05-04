@@ -6766,6 +6766,7 @@ var listedBuildings2603421497 = [
 [51.9755708077, 1.1556076259, 1488516, "Walled garden at Holbrook House", "II", "Tue, 20 Feb 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1488516"],
 [51.3737849826, 1.307177439, 1489855, "The Horse Trough", "II", "Sat, 02 Nov 2002", "https://historicengland.org.uk/listing/the-list/list-entry/1489855"],
 [51.3738016365, 1.3071622052, 1491457, "The Fountain", "II", "Wed, 06 Nov 2002", "https://historicengland.org.uk/listing/the-list/list-entry/1491457"],
+[51.0710940098, 1.080148424, 1493038, "Moses Drinking Fountain", "II", "Fri, 01 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1493038"],
 [51.9122947494, 1.050237471, 1493299, "Little Bromley War Memorial", "II", "Fri, 06 Jun 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1493299"],
 [51.949280134, 1.3339650507, 1494145, "Martello Tower P boundary stones and railings", "II", "Tue, 17 Feb 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1494145"],
 [51.279063258, 1.0795099615, 1494885, "40 High Street", "II", "Thu, 06 Nov 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1494885"],
