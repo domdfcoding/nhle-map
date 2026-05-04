@@ -18565,6 +18565,7 @@ var buildingPreservationNotices3632567315 = [
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var certificatesOfImmunity3632567315 = [
 [52.041251852, -0.7552243338, 1495772, "The Point", null, "Wed, 22 Apr 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495772"],
+[52.041533192, -0.7555542218, 1495772, "The Point", null, "Wed, 22 Apr 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495772"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

@@ -12894,7 +12894,7 @@ var listedBuildings849415599 = [
 [52.2073368596, 1.3621139332, 1377389, "BARN AT PARHAM HOUSE", "II", "Wed, 18 Dec 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1377389"],
 [52.2212629076, 1.3420508073, 1377390, "PARISH PUMP SITUATED BY ROADSIDE ON EAST SIDE OF ALBERT PLACE", "II", "Wed, 18 Dec 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1377390"],
 [52.2204306274, 1.3231539564, 1377391, "D'URBANS FARMHOUSE", "II", "Thu, 25 Oct 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1377391"],
-[52.1646806579, 1.3264540782, 1377392, "LETHERINGHAM LODGE", "II*", "Wed, 16 Mar 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1377392"],
+[52.1646495288, 1.3264528764, 1377392, "Letheringham Lodge", "I", "Wed, 16 Mar 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1377392"],
 [52.1795928195, 1.2734486871, 1377393, "CHURCH OF ST MARY", "II*", "Wed, 16 Mar 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1377393"],
 [52.1399367943, 1.213661175, 1377394, "CHARITY FARMHOUSE", "II", "Mon, 15 Aug 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1377394"],
 [52.1448734914, 1.3543826851, 1377395, "PETTISTREE LODGE", "II", "Wed, 16 Mar 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1377395"],

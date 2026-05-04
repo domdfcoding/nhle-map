@@ -72,7 +72,7 @@
 }
 
 
-.description-container{
+.description-container {
 	padding: unset;
 }
 
@@ -85,12 +85,12 @@
 		height: 4.5rem;
 	}
 
-	.expand-btn{
+	.expand-btn {
 		padding-left: 0 !important;
 		padding-right: 0.25rem !important;
 	}
 
-	.layer-description, .layer-description .description-container{
+	.layer-description, .layer-description .description-container {
 		padding-right: 0 !important;
 	}
 
@@ -175,7 +175,7 @@
 	}
 
 	.leaflet-container:has(.leaflet-popup) .leaflet-top.leaflet-left .leaflet-control {
-	opacity: 0.5;
+		opacity: 0.5;
 	}
 }
 
