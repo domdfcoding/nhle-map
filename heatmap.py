@@ -89,14 +89,14 @@ index = []
 
 points = []
 
-for timestamp, group in gdf.groupby(pandas.Grouper(key="ListDate", freq="ME")):
+for timestamp, group in gdf.groupby(pandas.Grouper(key="ListDate", freq="YE")):
 	points = []
 	for item in group.to_dict("records"):
 		coords = list(map(float, numpy.round(item["geometry"].bounds[:2], 10)))[::-1]
 		points.append([*coords, 0.00001])  # TODO: divide 300,000 by area of England
 	# points.extend(list(map(float, numpy.round(item["geometry"].bounds[:2], 10)))[::-1] for item in group.to_dict("records"))
 	if points:
-		index.append(timestamp.strftime("%B %Y"))
+		index.append(timestamp.strftime("%Y"))
 		heatmap_data.append(points)
 
 output_dir = PathPlus("output")
