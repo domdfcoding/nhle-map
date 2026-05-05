@@ -114,6 +114,7 @@ function addMarkers(points, markerList, icon, noun) {
 		var listingLink = a[6] ? `<a href="${a[6]}" class="card-link" target='_blank'>View list entry</a>` : '';
 		var date = a[5] ? `Date: <strong>${a[5]}</strong>` : '';
 		var notes = a[7] ? `<p>${a[7]}</p>` : '';
+		// TODO: coloured background and symbol to match marker, for when clicking polygon. Or border colour?
 		var popupText = `
 <div class="nhle-popup card border-0">
   <div class="card-body p-0">
@@ -130,7 +131,7 @@ function addMarkers(points, markerList, icon, noun) {
   </div>
 </div>
 		`;
-		// TODO: show popup when clicking polygon too, centred on the mouse pointer
+		// TODO: large polygons disappear after zooming or panning if marker way off screen
 		var marker = new L.PolyMarker(
 			L.latLng(a[0], a[1]),
 			a[8],
@@ -144,6 +145,7 @@ function addMarkers(points, markerList, icon, noun) {
 		});
 		popup.setContent(popupText);
 		marker.bindPopup(popup);
+		marker.polygonsBindPopup(popup);
 		markerList.push(marker);
 	}
 }
