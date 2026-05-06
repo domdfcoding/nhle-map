@@ -55,6 +55,7 @@
     <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_hm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_leaflet_hm.min.js"></script>
+    <script src="static/js/domdf-folium-tools.js"></script>
     <script src="static/js/heatmap.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
 </head>
@@ -115,41 +116,49 @@
                 {times : times, currentTime: new Date(1)}
             );
 
-            var heat_map_d212b2b9aafdb36c6b7ae6178a6d1881Control = new L.Control.TimeDimensionCustom(['1947', '1948', '1949', '1950', '1951', '1952', '1953', '1954', '1955', '1956', '1957', '1958', '1959', '1960', '1961', '1962', '1963', '1964', '1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975', '1976', '1977', '1978', '1979', '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'], {
-                autoPlay: false,
-                backwardButton: true,
-                displayDate: true,
-                forwardButton: true,
-                limitMinimumRange: 5,
-                limitSliders: true,
-                loopButton: true,
-                maxSpeed: 10,
-                minSpeed: 0.1,
-                playButton: true,
-                playReverseButton: true,
-                position: "bottomleft",
-                speedSlider: true,
-                speedStep: 0.1,
-                styleNS: "leaflet-control-timecontrol",
-                timeSlider: true,
-                timeSliderDragUpdate: false,
-                timeSteps: 1
-                })
-                .addTo(map_2a45e09e86e2bf254122006f68d96b6a);
+            var heat_map_d212b2b9aafdb36c6b7ae6178a6d1881Control = new L.Control.TimeDimensionHeatmap(
+                ["1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"],
+                {
+                    "autoPlay": false,
+                    "backwardButton": true,
+                    "displayDate": true,
+                    "forwardButton": true,
+                    "limitMinimumRange": 5,
+                    "limitSliders": true,
+                    "loopButton": true,
+                    "maxSpeed": 10,
+                    "minSpeed": 0.1,
+                    "playButton": true,
+                    "playReverseButton": true,
+                    "position": "bottomleft",
+                    "speedSlider": true,
+                    "speedStep": 0.1,
+                    "styleNS": "leaflet-control-timecontrol",
+                    "timeSlider": true,
+                    "timeSliderDragUpdate": false,
+                    "timeSteps": 1
+},
+            ).addTo(map_2a45e09e86e2bf254122006f68d96b6a);
 
-
-                var heat_map_d212b2b9aafdb36c6b7ae6178a6d1881 = new TDHeatmap(heatmapData,
+            var heat_map_d212b2b9aafdb36c6b7ae6178a6d1881 = new TDHeatmapCustom(
+                heatmapData,
                 {heatmapOptions: {
-                        radius: 3,
-                        blur: 0.8,
-                        minOpacity: 0,
-                        maxOpacity: 0.6,
-                        scaleRadius: true,
-                        useLocalExtrema: true,
-                        defaultWeight: 1,
-                        gradient: {0.25: 'rgb(0,0,255)', 0.55: 'rgb(0,255,0)', 0.75: 'rgb(0,255,128)', 0.99: 'yellow', 1.0: 'rgb(255,0,0)'}
-                    }
-                });
+                    "blur": 0.8,
+                    "defaultWeight": 1,
+                    "gradient": {
+                                        "0.25": "rgb(0,0,255)",
+                                        "0.55": "rgb(0,255,0)",
+                                        "0.75": "rgb(0,255,128)",
+                                        "0.99": "yellow",
+                                        "1.0": "rgb(255,0,0)"
+                    },
+                    "maxOpacity": 0.6,
+                    "minOpacity": 0,
+                    "radius": 3,
+                    "scaleRadius": true,
+                    "useLocalExtrema": true
+}},
+            );
 
 
 
