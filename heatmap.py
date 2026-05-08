@@ -14,55 +14,16 @@ import pyogrio
 from domdf_folium_tools import set_branca_random_seed
 from domdf_folium_tools.elements import render_figure, set_id
 from domdf_python_tools.paths import PathPlus
-from domdf_python_tools.stringlist import StringList
-from folium.template import Template
 from folium_zoom_state import ZoomStateJS
 
 # this package
 from nhle_map import constants
+from nhle_map.heatmap import HeatMapWithTime, make_data_js
 from nhle_map.map import Map
 from nhle_map.templates import render_template
 from nhle_map.utils import copy_static_files, format_datetime, format_description
 
 set_branca_random_seed("NHLE")
-
-
-class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):
-	default_js = domdf_folium_tools.heatmap.HeatMapWithTime.default_js[:-1] + [
-			("domdf_folium_tools_js", "static/js/domdf-folium-tools.js"),
-			("nhle_heatmap", "static/js/heatmap.js"),
-			]
-
-	_template = Template(
-			"""
-		{% macro script(this, kwargs) %}
-
-			var times = {{this.times}};
-
-			{{this._parent.get_name()}}.timeDimension = L.timeDimension(
-				{times : times, currentTime: new Date(1)}
-			);
-
-			var {{this._control_name}} = new L.Control.TimeDimensionHeatmap(
-				{{this.index | tojson}},
-				{{ this.control_options | tojson(indent=20) }},
-			).addTo({{this._parent.get_name()}});
-
-			var {{this.get_name()}} = new TDHeatmapCustom(
-				heatmapData,
-				{heatmapOptions: {{ this.heatmap_options|tojson(indent=20) }}},
-			);
-
-		{% endmacro %}
-		""".replace('\t', "    "),
-			)
-
-
-class HeatLayerWithTime(domdf_folium_tools.heatmap.HeatLayerWithTime):
-	default_js = domdf_folium_tools.heatmap.HeatLayerWithTime.default_js[:-1] + [
-			("domdf_folium_tools_js", "static/js/domdf-folium-tools.js"),
-			]
-
 
 dataset = constants.LISTED_BUILDINGS
 
@@ -92,21 +53,7 @@ output_dir = PathPlus("output")
 
 copy_static_files(output_dir / "static")
 
-
-def write_data_js():
-	heatmap_data_js = StringList("const heatmapData = [")
-	with heatmap_data_js.with_indent("    ", 1):
-		for month in heatmap_data:
-			heatmap_data_js.append('[')
-			with heatmap_data_js.with_indent_size(2):
-				for point in month:
-					heatmap_data_js.append(json.dumps(point) + ',')
-			heatmap_data_js.append("],")
-
-	heatmap_data_js.append(']')
-
-	output_dir.joinpath("data/heatmap.js").write_lines(heatmap_data_js)
-
+output_dir.joinpath("data/heatmap.js").write_clean(make_data_js(heatmap_data))
 
 # TODO: transition to markers at highest zoom levels
 
@@ -128,7 +75,7 @@ hm = HeatMapWithTime(
 				},
 		)
 
-hm2 = HeatLayerWithTime(
+hm2 = domdf_folium_tools.heatmap.HeatLayerWithTime(
 		heatmap_data,
 		data_variable="heatmapData",
 		index=index,
