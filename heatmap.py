@@ -1,7 +1,10 @@
 # stdlib
+import datetime
 import json
+from typing import Any
 
 # 3rd party
+import branca.element
 import domdf_folium_tools.heatmap
 import folium
 import geopandas
@@ -9,13 +12,17 @@ import numpy
 import pandas
 import pyogrio
 from domdf_folium_tools import set_branca_random_seed
+from domdf_folium_tools.elements import render_figure, set_id
 from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
 from folium.template import Template
+from folium_zoom_state import ZoomStateJS
 
 # this package
 from nhle_map import constants
-from nhle_map.utils import copy_static_files
+from nhle_map.map import Map
+from nhle_map.templates import render_template
+from nhle_map.utils import copy_static_files, format_datetime, format_description
 
 set_branca_random_seed("NHLE")
 
@@ -105,10 +112,13 @@ def write_data_js():
 
 hm = HeatMapWithTime(
 		heatmap_data,
-		index,
+		data_variable="heatmapData",
+		index=index,
 		use_local_extrema=True,
 		radius=3,
 		scale_radius=True,
+		speed_step=1,
+		min_speed=1,
 		gradient={
 				0.25: "rgb(0,0,255)",
 				0.55: "rgb(0,255,0)",
@@ -120,7 +130,9 @@ hm = HeatMapWithTime(
 
 hm2 = HeatLayerWithTime(
 		heatmap_data,
-		index,
+		data_variable="heatmapData",
+		index=index,
+		speed_step=1,
 		# radius=20,
 		# blur=1.0,
 		# gradient={
@@ -132,17 +144,65 @@ hm2 = HeatLayerWithTime(
 		# 		},
 		)
 
+MAX_ZOOM = 20
+
+osm_tiles = set_id(
+		folium.TileLayer(
+				tiles="OpenStreetMap",
+				name="OpenStreetMap",
+				# show=False,
+				max_zoom=MAX_ZOOM,
+				max_native_zoom=19,
+				referrerPolicy="strict-origin-when-cross-origin",
+				attr='Map &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+				),
+		"osm_carto",
+		)
+
 for heatmap, filename in [(hm, "heatmap.html"), (hm2, "heatmap2.html")]:
 
-	m = folium.Map(
+	m = Map(
 			location=(52.561928, -1.464854),
-			minZoom=7,
+			minZoom=5,
+			maxZoom=MAX_ZOOM,
 			zoom_start=7,
 			wheelPxPerZoomLevel=80,
+			tiles=osm_tiles,
 			control_scale=True,
 			)
 
 	heatmap.add_to(m)
 	m.add_js_link("heatmap_data", "data/heatmap.js")
 
-	output_dir.joinpath(filename).write_clean(m.get_root().render())
+	# TODO: to start/to end buttons for TimeDimension
+
+	ZoomStateJS(setup_basemap_state=False).add_to(m)
+	# TODO: AboutControl("aboutModal").add_to(m)
+	# TODO: OSM onlysearch_provider = MapSearchProvider(
+	# 	layer=mcg,
+	# 	map=m,
+	# 	viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
+	# 	feature_type="settlement",
+	# 	)
+
+	root: branca.element.Figure = m.get_root()  # type: ignore[assignment]
+
+	layers_data: dict[str, Any] = output_dir.joinpath("data", "meta.json").load_json()
+	layer_mod_times = [v.get("dataLastEditDate", -1) for v in layers_data.values()]
+	most_recent_modification = datetime.datetime.fromtimestamp(
+			max(layer_mod_times) / 1000,
+			tz=datetime.timezone.utc,
+			)
+
+	map_html = render_template(
+			"map.jinja2",
+			**render_figure(root)._asdict(),
+			title="England Listed Buildings Heatmap",
+			layers=[],
+			layers_data={},
+			most_recent_modification=most_recent_modification,
+			generated_date=datetime.datetime.now(tz=datetime.timezone.utc),
+			format_description=format_description,
+			format_datetime=format_datetime,
+			)
+	output_dir.joinpath(filename).write_clean(map_html)

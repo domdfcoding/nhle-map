@@ -14,6 +14,7 @@ var HMO = HeatmapOverlay.extend({
 		//   scale = (1/zoom) * 7  // 7 is default zoom; get from map settings
 		// scale = zoom / 7  // 7 is default zoom; get from map settings
 		scale = Math.pow(zoom / 7, 2); // 7 is default zoom; get from map settings
+		if (scale < 0.7) scale = 0.7;
 		console.log('Zoom:', zoom, '  Scale:', scale);
 
 		if (this._data.length == 0) {
