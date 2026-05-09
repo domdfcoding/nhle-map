@@ -46,23 +46,10 @@ class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):
 	_template = Template(
 			"""
 		{% macro script(this, kwargs) %}
-
-			var times = {{this.times}};
-
-			{{this._parent.get_name()}}.timeDimension = L.timeDimension(
-				{times : times, currentTime: new Date(1)}
-			);
-
-			var {{this._control_name}} = new L.Control.TimeDimensionHeatmap(
-				{{this.index | tojson}},
-				{{ this.control_options | tojson(indent=20) }},
-			).addTo({{this._parent.get_name()}});
-
 			var {{this.get_name()}} = new TDHeatmapCustom(
 				heatmapData,
-				{heatmapOptions: {{ this.heatmap_options|tojson(indent=20) }}},
+				{heatmapOptions: {{ this.options|tojson(indent=20) }}},
 			);
-
 		{% endmacro %}
 		""".replace('\t', "    "),
 			)

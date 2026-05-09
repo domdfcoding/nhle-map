@@ -96,7 +96,7 @@
 
 
 
-                            <small class="text-muted">Generated on Fri, 08 May 2026 14:15:07 GMT. Data last updated Mon, 04 May 2026 05:48:37 GMT</small>
+                            <small class="text-muted">Generated on Sat, 09 May 2026 07:10:14 GMT. Data last updated Mon, 04 May 2026 05:48:37 GMT</small>
 
                         </div>
                     </div>
@@ -129,10 +129,11 @@
     <script src="data/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b13/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_hm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_leaflet_hm.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b11/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="static/js/heatmap.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/leaflet/Leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
             <script>
 
@@ -191,7 +192,7 @@
                 {times : times, currentTime: new Date(1)}
             );
 
-            var heat_map_d212b2b9aafdb36c6b7ae6178a6d1881Control = new L.Control.TimeDimensionHeatmap(
+            var time_dimension_control_d212b2b9aafdb36c6b7ae6178a6d1881 = new L.Control.TimeDimensionHeatmap(
                 ["1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"],
                 {
                     "autoPlay": false,
@@ -215,7 +216,9 @@
 },
             ).addTo(map);
 
-            var heat_map_d212b2b9aafdb36c6b7ae6178a6d1881 = new TDHeatmapCustom(
+
+
+            var heat_map_3f7401ab397485e3245c09fc789366ca = new TDHeatmapCustom(
                 heatmapData,
                 {heatmapOptions: {
                     "blur": 0.8,
@@ -236,12 +239,38 @@
             );
 
 
+            heat_map_3f7401ab397485e3245c09fc789366ca.addTo(map);
 
-            heat_map_d212b2b9aafdb36c6b7ae6178a6d1881.addTo(map);
+
+            var heat_layer_2a45e09e86e2bf254122006f68d96b6a = new L.TDHeatLayer(
+                heatmapData,
+                {heatmapOptions: {"blur": 15, "minOpacity": 0.05, "radius": 25}
+            });
 
 
 
 			setupZoomState(map);
+
+
+
+            var layer_control_heatmap_layers = {
+                base_layers : {
+                    "OpenStreetMap" : tile_layer_osm_carto,
+                },
+                overlays :  {
+                    "Style 1" : heat_map_3f7401ab397485e3245c09fc789366ca,
+                    "Style 2" : heat_layer_2a45e09e86e2bf254122006f68d96b6a,
+                },
+            };
+            let layer_control_heatmap = L.control.layers(
+                layer_control_heatmap_layers.base_layers,
+                layer_control_heatmap_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map);
 
 
 
