@@ -6,6 +6,7 @@ from typing import Any
 import branca.element
 import domdf_folium_tools.heatmap
 import folium
+from folium_map_search import MapSearchControl, OpenStreetMapProvider
 import geopandas
 import numpy
 import pandas
@@ -132,12 +133,20 @@ m.add_js_link("heatmap_data", "data/heatmap.js")
 
 ZoomStateJS(setup_basemap_state=False).add_to(m)
 # TODO: AboutControl("aboutModal").add_to(m)
-# TODO: OSM onlysearch_provider = MapSearchProvider(
-# 	layer=mcg,
-# 	map=m,
-# 	viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
-# 	feature_type="settlement",
-# 	)
+search_provider = OpenStreetMapProvider(
+	viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
+	feature_type="settlement",
+	)
+MapSearchControl(
+		provider=search_provider,
+		auto_complete_delay=1000,  # Effectively turns off autocomplete to comply with Nominatum TOS
+		show_marker=False,
+		max_suggestions=15,
+		search_label="Enter town",
+		disable_enter_search=True,  # Otherwise markers don't appear 🤷
+		close_on_submit=True,
+		).add_to(m)
+
 layer_control = add_to(folium.LayerControl(), m, "heatmap")
 
 root: branca.element.Figure = m.get_root()  # type: ignore[assignment]

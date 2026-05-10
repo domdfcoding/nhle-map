@@ -18,6 +18,7 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
 
 
 
@@ -135,6 +136,8 @@
     <script src="static/js/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/leaflet/Leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
+    <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
             <script>
 
             var mapOptions = {
@@ -251,6 +254,18 @@
 
 			setupZoomState(map);
 
+
+
+				var map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63 = L.MapSearchControl({
+					provider: new GeoSearch.OpenStreetMapProvider({"featureType": "settlement", "viewbox": "-7,49,3,56"}),
+					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "showMarker": false},
+					}
+				)
+
+				// Close search box when map clicked.
+				map.on('click', map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63.close, map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63);
+
+				map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63.addTo(map);
 
 
             var layer_control_heatmap_layers = {
