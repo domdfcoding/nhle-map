@@ -11776,7 +11776,6 @@ var buildingPreservationNotices941008092 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var certificatesOfImmunity941008092 = [
-[54.0233387571, -1.5643058373, 1472003, "Three Horseshoes Public House", null, "Mon, 10 May 2021", "https://historicengland.org.uk/listing/the-list/list-entry/1472003"],
 [54.9651417477, -1.6200075065, 1488764, "Forth Banks Goods Station Undercroft, north of Pottery Lane", null, "Thu, 30 May 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1488764"],
 [54.7779831029, -1.5660820557, 1492755, "College of St Bede, Durham University", null, "Wed, 23 Apr 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1492755"],
 [54.7775581185, -1.5673641915, 1492756, "Model School (Carter House), Durham University", null, "Wed, 23 Apr 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1492756"],
