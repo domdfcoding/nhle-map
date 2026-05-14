@@ -39,7 +39,7 @@ from domdf_folium_tools.template import SubclassingTemplate
 from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
 from folium_about_button import AboutControl
-from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
+from folium_layercontrols.minimap.toggle import ToggleMinimapLayerControl
 from folium_map_search import MapSearchControl, MapSearchProvider
 from folium_map_swap_control import MapSwapControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap

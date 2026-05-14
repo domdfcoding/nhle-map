@@ -39,11 +39,9 @@ import numpy  # nodep
 import pandas  # type: ignore[import-untyped]
 from domdf_folium_tools.elements import add_to, set_id
 from domdf_python_tools.stringlist import StringList
-from folium.elements import JSCSSMixin
-from folium.map import Layer
 from folium.template import Template
-from folium.utilities import TypeJsonValue
 from folium_about_button import AboutControl
+from folium_layercontrols.grouped import GroupedLayerControl
 from folium_map_search import MapSearchControl, OpenStreetMapProvider
 from folium_map_swap_control import MapSwapControl
 from folium_zoom_state import ZoomStateJS
@@ -124,90 +122,6 @@ def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[f
 			heatmap_data.append(sorted(points))
 
 	return heatmap_data, index
-
-
-class GroupedLayerControl(JSCSSMixin, folium.LayerControl):
-	r"""
-	Creates a GroupedLayerControl object to be added to a folium map.
-
-	.. note::
-
-		The LayerControl should be added last to the map. Otherwise, the GroupedLayerControl and/or the controlled layers may not appear.
-
-	:param groups: Grouped layers to display in the control.
-	:param position: The position of the control (one of the map corners).
-		Can be 'topleft', 'topright', 'bottomleft' or 'bottomright'.
-	:param collapsed: If :py:obj:`True` the control will be collapsed into an icon and expanded on mouse hover or touch.
-	:param autoZIndex: If :py:obj:`True` the control assigns zIndexes in increasing order to all of its layers so that the order is preserved when switching them on/off.
-	:param draggable: By default the layer control has a fixed position. Set this argument to :py:obj:`True` to allow dragging the control around.
-	:param \*\*kwargs: Additional keyword arguments for the javascript class.
-	"""
-
-	_template = Template(
-			"""
-		{% macro script(this, kwargs) %}
-			var {{ this.get_name() }}_layers = {
-				base_layers : {
-					{%- for key, val in this.base_layers.items() %}
-					{{ key|tojson }} : {{val}},
-					{%- endfor %}
-				},
-				overlays :  {
-					{% for group_name, group_data in this.groups.items() %}
-						{{ group_name|tojson }}: {
-							{% for layer_name, layer in group_data.items() %}
-								{{ layer_name|tojson }}: {{ layer.get_name() }},
-							{% endfor %}
-						},
-					{% endfor %}
-				},
-			};
-
-			let {{ this.get_name() }} = new L.Control.GroupedLayers(
-				{{ this.get_name() }}_layers.base_layers,
-				{{ this.get_name() }}_layers.overlays,
-				{{ this.options|tojavascript }}
-			).addTo({{this._parent.get_name()}});
-
-			{%- if this.draggable %}
-			new L.Draggable({{ this.get_name() }}.getContainer()).enable();
-			{%- endif %}
-
-		{% endmacro %}
-		""".replace('\t', "    "),
-			)
-
-	default_js = [
-			(
-					"groupedlayercontrol-js",
-					"https://cdn.jsdelivr.net/gh/ismyrnow/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.js",
-					),
-			]
-	default_css = [
-			(
-					"groupedlayercontrol-css",
-					"https://cdn.jsdelivr.net/gh/ismyrnow/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.css",
-					),
-			]
-
-	def __init__(
-			self,
-			groups: dict[str, dict[str, Layer]],
-			position: str = "topright",
-			collapsed: bool = True,
-			autoZIndex: bool = True,
-			draggable: bool = False,
-			**kwargs: TypeJsonValue,
-			):
-		super().__init__(
-				position=position,
-				collapsed=collapsed,
-				autoZIndex=autoZIndex,
-				draggable=draggable,
-				**kwargs,
-				)
-		self._name = "GroupedLayerControl"
-		self.groups = groups
 
 
 # TODO: do away with index variable in favour of loading from JS
