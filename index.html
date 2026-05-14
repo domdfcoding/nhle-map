@@ -38,19 +38,6 @@
 				</style>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.css"/>
-
-				<style>
-					.leaflet-control-map-swap {
-						a {
-							font-size: 1.4em;
-							.leaflet-map-swap-icon {
-								color: black;
-							}
-						}
-					}
-				</style>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/control.layers.minimap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/control.layers.minimap.min.css"/>
 
@@ -127,112 +114,111 @@
                                 Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
                             </p>
 
+                            <h3 class="fs-6">Legend</h3>
 
-                                <h3 class="fs-6">Legend</h3>
+                            <table class="table table-striped legend" id="legendTable">
+                                <thead>
+                                </thead>
+                                <tbody>
 
-                                <table class="table table-striped legend" id="legendTable">
-                                    <thead>
-                                    </thead>
-                                    <tbody>
-
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: orange"
-                                                    scope="row"><img src='static/img/Challenge_Icon.svg' width='20px'></th>
-                                                <td class="layer-name">Battlefields</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="battlefieldsCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">The ‘Register’ of Historic Battlefields, established in 1995, offers protection to the sites of English battles, as well as promoting a better understanding of their historical significance. These landscapes are of vital importance, as they provide archaeological and topographical evidence of major turning points in England’s history.
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: orange"
+                                                scope="row"><img src='static/img/Challenge_Icon.svg' width='20px'></th>
+                                            <td class="layer-name">Battlefields</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="battlefieldsCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">The ‘Register’ of Historic Battlefields, established in 1995, offers protection to the sites of English battles, as well as promoting a better understanding of their historical significance. These landscapes are of vital importance, as they provide archaeological and topographical evidence of major turning points in England’s history.
 <br>
 England Only</p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#battlefieldsCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="battlefieldsCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#battlefieldsCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="battlefieldsCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: teal"
-                                                    scope="row"><i class='fa-solid fa-building-flag'></i></th>
-                                                <td class="layer-name">Building Preservation Notices</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="buildingPreservationNoticesCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">This is a form of ‘temporary’ listing. Local authorities have the power to serve a BPN on the owner of a building which is not listed, but which is of special architectural/historical interest and in danger of being demolished or altered. A BPN lasts for a period of six months and in effect makes an unlisted building subject to the same rules as if it were listed. This allows time for a formal assessment to be carried out.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: teal"
+                                                scope="row"><i class='fa-solid fa-building-flag'></i></th>
+                                            <td class="layer-name">Building Preservation Notices</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="buildingPreservationNoticesCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">This is a form of ‘temporary’ listing. Local authorities have the power to serve a BPN on the owner of a building which is not listed, but which is of special architectural/historical interest and in danger of being demolished or altered. A BPN lasts for a period of six months and in effect makes an unlisted building subject to the same rules as if it were listed. This allows time for a formal assessment to be carried out.
 <br>
 England Only</p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#buildingPreservationNoticesCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="buildingPreservationNoticesCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#buildingPreservationNoticesCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="buildingPreservationNoticesCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: tan"
-                                                    scope="row"><i class='fa-solid fa-scroll'></i></th>
-                                                <td class="layer-name">Certificates of Immunity</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="certificatesOfImmunityCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see above) on the respective property during this period.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: tan"
+                                                scope="row"><i class='fa-solid fa-scroll'></i></th>
+                                            <td class="layer-name">Certificates of Immunity</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="certificatesOfImmunityCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see above) on the respective property during this period.
 <br>
 England Only</p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#certificatesOfImmunityCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="certificatesOfImmunityCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#certificatesOfImmunityCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="certificatesOfImmunityCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: #006fb2"
-                                                    scope="row"><i class='fa-solid fa-building'></i></th>
-                                                <td class="layer-name">Listed Buildings</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="listedBuildingsCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">When a building is recognised as being of special architectural or historic interest it is added to the statutory ‘List’. This is compiled by the Department for Digital, Culture, Media and Sport (DCMS) on advice from Historic England.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: #006fb2"
+                                                scope="row"><i class='fa-solid fa-building'></i></th>
+                                            <td class="layer-name">Listed Buildings</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="listedBuildingsCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">When a building is recognised as being of special architectural or historic interest it is added to the statutory ‘List’. This is compiled by the Department for Digital, Culture, Media and Sport (DCMS) on advice from Historic England.
 <br>
 Buildings on the List are given one of three grades which denote their level of importance, Grade I being the highest and Grade II the lowest:
 <br>
@@ -245,89 +231,89 @@ Buildings on the List are given one of three grades which denote their level of 
 Structures that might not be classified as ‘buildings’  such as railings, gate piers, walls, war memorials, gravestones, post boxes and telephone boxes  can all be Listed Buildings.
 <br>
 Related to Listed Buildings are Certificates of Immunity (COI) and Building Preservation Notices (BPN).</p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#listedBuildingsCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="listedBuildingsCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#listedBuildingsCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="listedBuildingsCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: green"
-                                                    scope="row"><i class='fa-solid fa-tree'></i></th>
-                                                <td class="layer-name">Parks and Gardens</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="parksGardensCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">The 'Register’ of Historic Parks and Gardens was established in 1983, with the emphasis placed on protecting 'designed' landscapes rather than those with botanical importance.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: green"
+                                                scope="row"><i class='fa-solid fa-tree'></i></th>
+                                            <td class="layer-name">Parks and Gardens</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="parksGardensCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">The 'Register’ of Historic Parks and Gardens was established in 1983, with the emphasis placed on protecting 'designed' landscapes rather than those with botanical importance.
 <br>
 The Register safeguards a broad range of planned open spaces, including public parks, cemeteries, the grounds of private houses, and town squares. Like Listed Buildings, Parks and Gardens are assigned one of three grades to indicate their significance.</p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#parksGardensCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="parksGardensCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#parksGardensCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="parksGardensCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: purple"
-                                                    scope="row"><i class='fa-solid fa-anchor'></i></th>
-                                                <td class="layer-name">Protected Wreck Sites</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="protectedWreckSitesCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">The Government has the power to safeguard the site of any shipwreck in English territorial waters. Historic England manages the licensing scheme that enables access to the wreck sites. It is a criminal offence to interfere with a protected wreck without a licence. Wreck sites are identified as being likely to contain the remains of a vessel, or its contents, which are of historical, artistic or archaeological importance.</p>
-                                                            </div>
+                                            </td>
+                                        </tr>
 
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#protectedWreckSitesCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="protectedWreckSitesCollapse"></a>
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: purple"
+                                                scope="row"><i class='fa-solid fa-anchor'></i></th>
+                                            <td class="layer-name">Protected Wreck Sites</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="protectedWreckSitesCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">The Government has the power to safeguard the site of any shipwreck in English territorial waters. Historic England manages the licensing scheme that enables access to the wreck sites. It is a criminal offence to interfere with a protected wreck without a licence. Wreck sites are identified as being likely to contain the remains of a vessel, or its contents, which are of historical, artistic or archaeological importance.</p>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#protectedWreckSitesCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="protectedWreckSitesCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: Olive"
-                                                    scope="row"><i class='fa-solid fa-mountain'></i></th>
-                                                <td class="layer-name">Registered Landscapes</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="registeredLandscapesWalesCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">The Register of Historic Landscapes in Wales.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: Olive"
+                                                scope="row"><i class='fa-solid fa-mountain'></i></th>
+                                            <td class="layer-name">Registered Landscapes</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="registeredLandscapesWalesCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">The Register of Historic Landscapes in Wales.
 <br>
 
 <br>
@@ -338,114 +324,113 @@ It is a non-statutory, advisory register. Its primary aim is to provide informat
 Wales Only
 <br>
 </p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#registeredLandscapesWalesCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="registeredLandscapesWalesCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#registeredLandscapesWalesCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="registeredLandscapesWalesCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: #a32d2f"
-                                                    scope="row"><i class='fa-solid fa-monument'></i></th>
-                                                <td class="layer-name">Scheduled Monuments</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="scheduledMonumentsCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">Historic buildings and archaeological sites of national importance are given legal protection by being placed on a ‘Schedule’ of monuments. Historic England identifies and advises on these monuments, which are placed on the Schedule by the DCMS.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: #a32d2f"
+                                                scope="row"><i class='fa-solid fa-monument'></i></th>
+                                            <td class="layer-name">Scheduled Monuments</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="scheduledMonumentsCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">Historic buildings and archaeological sites of national importance are given legal protection by being placed on a ‘Schedule’ of monuments. Historic England identifies and advises on these monuments, which are placed on the Schedule by the DCMS.
 <br>
 Examples of Scheduled Monuments are Roman remains, burial mounds, castles, bridges, earthworks, the remains of deserted villages, and industrial sites. Scheduled Monuments can not include ecclesiastical or residential buildings (except for associated caretaker’s dwellings), and unlike Listed Buildings they are not assigned grades.</p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#scheduledMonumentsCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="scheduledMonumentsCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#scheduledMonumentsCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="scheduledMonumentsCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: grey"
-                                                    scope="row"><i class='fa-solid fa-certificate'></i></th>
-                                                <td class="layer-name">World Heritage Sites</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="worldHeritageSitesCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">World Heritage Sites are part of the World Heritage Convention, established in 1972 by UNESCO (United Nations Educational, Scientific and Cultural Organisation). They are landscapes, cities, monuments or buildings of exceptional natural or cultural value.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: grey"
+                                                scope="row"><i class='fa-solid fa-certificate'></i></th>
+                                            <td class="layer-name">World Heritage Sites</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="worldHeritageSitesCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">World Heritage Sites are part of the World Heritage Convention, established in 1972 by UNESCO (United Nations Educational, Scientific and Cultural Organisation). They are landscapes, cities, monuments or buildings of exceptional natural or cultural value.
 <br>
 The World Heritage List includes the Great Wall of China, the Pyramids, the Great Barrier Reef and the City of Venice. Sites in England include Stonehenge and Avebury, Canterbury Cathedral, the Tower of London, Hadrian’s Wall and the whole of the City of Bath.
 <br>
 Please note: this dataset represents Historic England’s interpretation of the UNESCO World Heritage Site boundaries for sites wholly in or crossing into England.</p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#worldHeritageSitesCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="worldHeritageSitesCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#worldHeritageSitesCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="worldHeritageSitesCollapse"></a>
+                                                    </div>
 
-                                            <tr>
-                                                <th class="text-center"
-                                                    style="background-color: black"
-                                                    scope="row"><i class='fa-solid fa-ban'></i></th>
-                                                <td class="layer-name">De-designated</td>
-                                                <td class="layer-description">
-                                                    <div class="container description-container">
-                                                                <p class="collapse description-collapse"
-                                                                   id="deDesignatedCollapse"
-                                                                   data-bs-parent="#legendTable"
-                                                                   aria-expanded="false">Sites removed from the National Heritage List for England because they no longer met any of the above criteria.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center"
+                                                style="background-color: black"
+                                                scope="row"><i class='fa-solid fa-ban'></i></th>
+                                            <td class="layer-name">De-designated</td>
+                                            <td class="layer-description">
+                                                <div class="container description-container">
+                                                            <p class="collapse description-collapse"
+                                                               id="deDesignatedCollapse"
+                                                               data-bs-parent="#legendTable"
+                                                               aria-expanded="false">Sites removed from the National Heritage List for England because they no longer met any of the above criteria.
 <br>
 England Only</p>
-                                                            </div>
-
-                                                    </td>
-                                                <td class="expand-btn">
-                                                    <div>
-                                                            <a role="button"
-                                                               class="collapsed description-btn"
-                                                               data-bs-toggle="collapse"
-                                                               href="#deDesignatedCollapse"
-                                                               aria-expanded="false"
-                                                               aria-controls="deDesignatedCollapse"></a>
                                                         </div>
 
                                                 </td>
-                                            </tr>
+                                            <td class="expand-btn">
+                                                <div>
+                                                        <a role="button"
+                                                           class="collapsed description-btn"
+                                                           data-bs-toggle="collapse"
+                                                           href="#deDesignatedCollapse"
+                                                           aria-expanded="false"
+                                                           aria-controls="deDesignatedCollapse"></a>
+                                                    </div>
 
-                                    </tbody>
-                                </table>
+                                            </td>
+                                        </tr>
 
+                                </tbody>
+                            </table>
 
                             <small class="text-muted">Generated on Tue, 12 May 2026 13:00:20 GMT. Data last updated Tue, 12 May 2026 05:50:32 GMT</small>
 
@@ -488,7 +473,6 @@ England Only</p>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b2/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/L.Control.Layers.Minimap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/L.Control.Layers.Minimap.Toggle.min.js"></script>
     <script src="static/js/custom_layer_control.js"></script>
@@ -755,16 +739,6 @@ England Only</p>
 				map.on('click', map_search_control_fc5f6d0a0c2523660736222c3eca3c8c.close, map_search_control_fc5f6d0a0c2523660736222c3eca3c8c);
 
 				map_search_control_fc5f6d0a0c2523660736222c3eca3c8c.addTo(map);
-
-
-				var map_swap_control_9b2eb014748c80e655b0bcc8412e387d = new MapSwapControl(
-					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-fire fa-fw\"\u003e\u003c/i\u003e Heatmap": "/heatmap.html"}}
-				)
-
-				// Close the control when map clicked.
-				map.on('click', map_swap_control_9b2eb014748c80e655b0bcc8412e387d.close, map_swap_control_9b2eb014748c80e655b0bcc8412e387d);
-
-				map_swap_control_9b2eb014748c80e655b0bcc8412e387d.addTo(map);
 
 
             var layer_control_basemap_layers = {
