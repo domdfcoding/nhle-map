@@ -197,3 +197,12 @@
 	/* margin-right: calc(24px - 8px) !important; */
 	margin-left: calc(20px - 8px) !important;
 }
+
+
+.leaflet-control-geosearch.active {
+	border-radius: 4px 0 0 4px;
+
+	a.leaflet-bar-part {
+		border-radius: 2px 0 0 2px !important;
+	}
+}
