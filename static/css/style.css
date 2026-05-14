@@ -167,11 +167,11 @@
 
 .leaflet-control-map-swap .map-swap-links {
 	font-size: 14px !important;
-	
+
 	a {
 		font-size: 14px !important;
 		white-space: nowrap;
-		min-width: 100%
+		min-width: 100%;
 	}
 }
 
