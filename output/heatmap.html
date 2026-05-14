@@ -19,6 +19,20 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.css"/>
+
+				<style>
+					.leaflet-control-map-swap {
+						a {
+							font-size: 1.4em;
+							.leaflet-map-swap-icon {
+								color: black;
+							}
+						}
+					}
+				</style>
+
 
 
 
@@ -130,7 +144,7 @@
     <script src="data/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b13/domdf_folium_tools/domdf-folium-tools.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b15/domdf_folium_tools/heatmap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_hm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_leaflet_hm.min.js"></script>
     <script src="static/js/heatmap.js"></script>
@@ -138,6 +152,7 @@
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.js"></script>
             <script>
 
             var mapOptions = {
@@ -258,7 +273,7 @@
 
 				var map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63 = L.MapSearchControl({
 					provider: new GeoSearch.OpenStreetMapProvider({"featureType": "settlement", "viewbox": "-7,49,3,56"}),
-					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "showMarker": false},
+					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "searchLabel": "Enter town", "showMarker": false},
 					}
 				)
 
@@ -287,6 +302,16 @@
 }
             ).addTo(map);
 
+
+
+				var map_swap_control_a58f874c602deeec8d2f61bb20a40e7d = new MapSwapControl(
+					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-map fa-fw\"\u003e\u003c/i\u003e Default": "/"}}
+				)
+
+				// Close the control when map clicked.
+				map.on('click', map_swap_control_a58f874c602deeec8d2f61bb20a40e7d.close, map_swap_control_a58f874c602deeec8d2f61bb20a40e7d);
+
+				map_swap_control_a58f874c602deeec8d2f61bb20a40e7d.addTo(map);
 
 
 

@@ -38,6 +38,19 @@
 				</style>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.css"/>
+
+				<style>
+					.leaflet-control-map-swap {
+						a {
+							font-size: 1.4em;
+							.leaflet-map-swap-icon {
+								color: black;
+							}
+						}
+					}
+				</style>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/control.layers.minimap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/control.layers.minimap.min.css"/>
 
@@ -473,6 +486,7 @@ England Only</p>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b2/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/L.Control.Layers.Minimap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v0.1.0a1/folium_layerscontrol_minimap/L.Control.Layers.Minimap.Toggle.min.js"></script>
     <script src="static/js/custom_layer_control.js"></script>
@@ -739,6 +753,16 @@ England Only</p>
 				map.on('click', map_search_control_fc5f6d0a0c2523660736222c3eca3c8c.close, map_search_control_fc5f6d0a0c2523660736222c3eca3c8c);
 
 				map_search_control_fc5f6d0a0c2523660736222c3eca3c8c.addTo(map);
+
+
+				var map_swap_control_9b2eb014748c80e655b0bcc8412e387d = new MapSwapControl(
+					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-fire fa-fw\"\u003e\u003c/i\u003e Heatmap": "/heatmap.html"}}
+				)
+
+				// Close the control when map clicked.
+				map.on('click', map_swap_control_9b2eb014748c80e655b0bcc8412e387d.close, map_swap_control_9b2eb014748c80e655b0bcc8412e387d);
+
+				map_swap_control_9b2eb014748c80e655b0bcc8412e387d.addTo(map);
 
 
             var layer_control_basemap_layers = {

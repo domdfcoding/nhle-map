@@ -6,7 +6,6 @@ from typing import Any
 import branca.element
 import domdf_folium_tools.heatmap
 import folium
-from folium_map_search import MapSearchControl, OpenStreetMapProvider
 import geopandas
 import numpy
 import pandas
@@ -14,6 +13,8 @@ import pyogrio
 from domdf_folium_tools import set_branca_random_seed
 from domdf_folium_tools.elements import add_to, render_figure, set_id
 from domdf_python_tools.paths import PathPlus
+from folium_map_search import MapSearchControl, OpenStreetMapProvider
+from folium_map_swap_control import MapSwapControl
 from folium_zoom_state import ZoomStateJS
 
 # this package
@@ -148,6 +149,13 @@ MapSearchControl(
 		).add_to(m)
 
 layer_control = add_to(folium.LayerControl(), m, "heatmap")
+
+MapSwapControl(
+		maps={
+				# '<i class="fa-solid fa-fire fa-fw"></i> Heatmap': "/heatmap.html",
+				'<i class="fa-solid fa-map fa-fw"></i> Default': '/',
+				},
+		).add_to(m)
 
 root: branca.element.Figure = m.get_root()  # type: ignore[assignment]
 

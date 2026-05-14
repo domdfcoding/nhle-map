@@ -165,6 +165,16 @@
 	}
 }
 
+.leaflet-control-map-swap .map-swap-links {
+	font-size: 14px !important;
+	
+	a {
+		font-size: 14px !important;
+		white-space: nowrap;
+		min-width: 100%
+	}
+}
+
 
 @media (width <= 700px) {
 	.leaflet-control-attribution {
