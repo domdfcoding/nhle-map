@@ -135,9 +135,9 @@ m.add_js_link("heatmap_data", "data/heatmap.js")
 ZoomStateJS(setup_basemap_state=False).add_to(m)
 # TODO: AboutControl("aboutModal").add_to(m)
 search_provider = OpenStreetMapProvider(
-	viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
-	feature_type="settlement",
-	)
+		viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
+		feature_type="settlement",
+		)
 MapSearchControl(
 		provider=search_provider,
 		auto_complete_delay=1000,  # Effectively turns off autocomplete to comply with Nominatum TOS
