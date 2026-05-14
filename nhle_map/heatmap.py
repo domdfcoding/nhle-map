@@ -40,6 +40,7 @@ import pandas  # type: ignore[import-untyped]
 from domdf_folium_tools.elements import add_to, set_id
 from domdf_python_tools.stringlist import StringList
 from folium.template import Template
+from folium_about_button import AboutControl
 from folium_map_search import MapSearchControl, OpenStreetMapProvider
 from folium_map_swap_control import MapSwapControl
 from folium_zoom_state import ZoomStateJS
@@ -213,7 +214,7 @@ def make_map(index: list[str]) -> folium.Map:
 
 	m.add_js_link("heatmap_data", "data/heatmap.js")
 	ZoomStateJS(setup_basemap_state=False).add_to(m)
-	# TODO: AboutControl("aboutModal").add_to(m)
+	AboutControl("aboutModal").add_to(m)
 	search_provider = OpenStreetMapProvider(
 			viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
 			feature_type="settlement",

@@ -177,12 +177,12 @@ def make_map(output_directory: str = "output") -> None:
 			"map.jinja2",
 			**render_figure(root)._asdict(),
 			title="England and Wales Listed Buildings Map",
+			description='Map showing Listed Buildings, Scheduled Monuments, Parks & Gardens, and more from the <a href="https://historicengland.org.uk/listing/the-list/">National Heritage List for England</a>.',
+			uses_welsh_data=True,
 			layers=constants.LAYERS,
 			layers_data=layers_data,
 			most_recent_modification=most_recent_modification,
 			generated_date=datetime.datetime.now(tz=datetime.timezone.utc),
-			format_description=format_description,
-			format_datetime=format_datetime,
 			)
 	output_dir.joinpath("index.html").write_clean(map_html)
 
@@ -193,12 +193,12 @@ def make_map(output_directory: str = "output") -> None:
 			"map.jinja2",
 			**render_figure(heatmap_root)._asdict(),
 			title="England Listed Buildings Heatmap",
+			description='Heatmap showing Listed Buildings from the <a href="https://historicengland.org.uk/listing/the-list/">National Heritage List for England</a>.',
+			uses_welsh_data=False,
 			layers=[],
 			layers_data={},
 			most_recent_modification=most_recent_modification,
 			generated_date=datetime.datetime.now(tz=datetime.timezone.utc),
-			format_description=format_description,
-			format_datetime=format_datetime,
 			)
 	output_dir.joinpath("heatmap.html").write_clean(heatmap_html)
 

@@ -64,9 +64,7 @@
                         </div>
                         <div class="modal-body">
                             {# TODO: render from markdown file #}
-                            <p>
-                                Map showing Listed Buildings, Scheduled Monuments, Parks & Gardens, and more from the <a href="https://historicengland.org.uk/listing/the-list/">National Heritage List for England</a>.
-                            </p>
+                            <p>{{ description | safe }}</p>
 
                             <p>
                                 Powered by <code>nhle-map</code>, available on GitHub at <a href="https://github.com/domdfcoding/nhle-map"><code>github.com/domdfcoding/nhle-map</code></a>
@@ -79,14 +77,15 @@
                                 <br>
                                 © Historic England {{ most_recent_modification.year }}. Contains Ordnance Survey data © Crown copyright and database right {{ most_recent_modification.year }}.
                             </p>
-                            <p>
-
-                                Uses data downloaded from <a href="https://cadw.gov.wales/advice-support/cof-cymru/downloads">Cof Cymru</a>.
-                                <br>
-                                Designated Historic Asset GIS Data, © The Welsh Historic Environment Service (Cadw), 2026.
-                                <br>
-                                Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
-                            </p>
+                            {%- if uses_welsh_data %}
+                                <p>
+                                    Uses data downloaded from <a href="https://cadw.gov.wales/advice-support/cof-cymru/downloads">Cof Cymru</a>.
+                                    <br>
+                                    Designated Historic Asset GIS Data, © The Welsh Historic Environment Service (Cadw), 2026.
+                                    <br>
+                                    Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
+                                </p>
+                            {% endif -%}
 
                             {% if layers %}
                                 <h3 class="fs-6">Legend</h3>
@@ -162,7 +161,7 @@
             <script>{{ script|safe }}
 
             {# TODO: hyperlink and add "crown copyright" #}
-            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England and Cadw {{ most_recent_modification.year }} (OGL)`)
+            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England{% if uses_welsh_data %} and Cadw{% endif %} {{ most_recent_modification.year }} (OGL)`)
 
             map.on('zoomend', showZoomLevel);
             showZoomLevel();
