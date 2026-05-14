@@ -2,12 +2,13 @@ arcgis>=2.4.2
 attrs>=26.1.0
 branca>=0.8.2
 consolekit>=1.13.0
-domdf-folium-tools>=0.1.0b15
+domdf-folium-tools>=0.1.0b16
 domdf-python-tools>=3.10.0
 folium>=0.20.0
 folium-about-button @ git+https://github.com/domdfcoding/folium-about-button
-folium-layerscontrol-minimap @ git+https://github.com/domdfcoding/folium-layerscontrol-minimap
+folium-layercontrols @ git+https://github.com/domdfcoding/folium-layercontrols
 folium-map-search @ git+https://github.com/domdfcoding/folium-map-search
+folium-map-swap-control @ git+https://github.com/domdfcoding/folium-map-swap-control
 folium-zoom-state @ git+https://github.com/domdfcoding/folium-zoom-state
 geopandas>=1.1.3
 jinja2>=3.1.6

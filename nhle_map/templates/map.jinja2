@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="referrer" content="strict-origin-when-cross-origin">
         {#- TODO: <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,{% filter base64_encode %}{% include "sidebar_icons/map.svg" %}{% endfilter %}"> #}
-        <title>England Listed Buildings Map</title>
+        <title>{{ title }}</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
               rel="stylesheet"
@@ -64,9 +64,7 @@
                         </div>
                         <div class="modal-body">
                             {# TODO: render from markdown file #}
-                            <p>
-                                Map showing Listed Buildings, Scheduled Monuments, Parks & Gardens, and more from the <a href="https://historicengland.org.uk/listing/the-list/">National Heritage List for England</a>.
-                            </p>
+                            <p>{{ description | safe }}</p>
 
                             <p>
                                 Powered by <code>nhle-map</code>, available on GitHub at <a href="https://github.com/domdfcoding/nhle-map"><code>github.com/domdfcoding/nhle-map</code></a>
@@ -79,57 +77,60 @@
                                 <br>
                                 © Historic England {{ most_recent_modification.year }}. Contains Ordnance Survey data © Crown copyright and database right {{ most_recent_modification.year }}.
                             </p>
-                            <p>
+                            {%- if uses_welsh_data %}
+                                <p>
+                                    Uses data downloaded from <a href="https://cadw.gov.wales/advice-support/cof-cymru/downloads">Cof Cymru</a>.
+                                    <br>
+                                    Designated Historic Asset GIS Data, © The Welsh Historic Environment Service (Cadw), 2026.
+                                    <br>
+                                    Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
+                                </p>
+                            {% endif -%}
 
-                                Uses data downloaded from <a href="https://cadw.gov.wales/advice-support/cof-cymru/downloads">Cof Cymru</a>.
-                                <br>
-                                Designated Historic Asset GIS Data, © The Welsh Historic Environment Service (Cadw), 2026.
-                                <br>
-                                Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
-                            </p>
+                            {% if layers %}
+                                <h3 class="fs-6">Legend</h3>
 
-                            <h3 class="fs-6">Legend</h3>
-
-                            <table class="table table-striped legend" id="legendTable">
-                                <thead>
-                                </thead>
-                                <tbody>
-                                    {% for layer in layers %}
-                                        <tr>
-                                            <th class="text-center"
-                                                style="background-color: {{ layer.icon.marker_colour }}"
-                                                scope="row">{{ layer.icon.layercontrol_icon }}</th>
-                                            <td class="layer-name">{{ layer.name }}</td>
-                                            <td class="layer-description">
-                                                {% set description = None -%}
-                                                {% if layer.geojson_filename_stem -%}
-                                                    {% set description = format_description(layers_data[layer.geojson_filename_stem]["description"]) -%}
+                                <table class="table table-striped legend" id="legendTable">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                        {% for layer in layers %}
+                                            <tr>
+                                                <th class="text-center"
+                                                    style="background-color: {{ layer.icon.marker_colour }}"
+                                                    scope="row">{{ layer.icon.layercontrol_icon }}</th>
+                                                <td class="layer-name">{{ layer.name }}</td>
+                                                <td class="layer-description">
+                                                    {% set description = None -%}
+                                                    {% if layer.geojson_filename_stem -%}
+                                                        {% set description = format_description(layers_data[layer.geojson_filename_stem]["description"]) -%}
+                                                        {% if description -%}
+                                                            <div class="container description-container">
+                                                                <p class="collapse description-collapse"
+                                                                   id="{{ layer.variable_prefix }}Collapse"
+                                                                   data-bs-parent="#legendTable"
+                                                                   aria-expanded="false">{{ description }}</p>
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endif -%}
+                                                </td>
+                                                <td class="expand-btn">
                                                     {% if description -%}
-                                                        <div class="container description-container">
-                                                            <p class="collapse description-collapse"
-                                                               id="{{ layer.variable_prefix }}Collapse"
-                                                               data-bs-parent="#legendTable"
-                                                               aria-expanded="false">{{ description }}</p>
+                                                        <div>
+                                                            <a role="button"
+                                                               class="collapsed description-btn"
+                                                               data-bs-toggle="collapse"
+                                                               href="#{{ layer.variable_prefix }}Collapse"
+                                                               aria-expanded="false"
+                                                               aria-controls="{{ layer.variable_prefix }}Collapse"></a>
                                                         </div>
                                                     {% endif %}
-                                                {% endif -%}
-                                            </td>
-                                            <td class="expand-btn">
-                                                {% if description -%}
-                                                    <div>
-                                                        <a role="button"
-                                                           class="collapsed description-btn"
-                                                           data-bs-toggle="collapse"
-                                                           href="#{{ layer.variable_prefix }}Collapse"
-                                                           aria-expanded="false"
-                                                           aria-controls="{{ layer.variable_prefix }}Collapse"></a>
-                                                    </div>
-                                                {% endif %}
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% endif %}
 
                             <small class="text-muted">Generated on {{ format_datetime(generated_date) }}. Data last updated {{ format_datetime(most_recent_modification) }}</small>
 
@@ -160,7 +161,7 @@
             <script>{{ script|safe }}
 
             {# TODO: hyperlink and add "crown copyright" #}
-            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England and Cadw {{ most_recent_modification.year }} (OGL)`)
+            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England{% if uses_welsh_data %} and Cadw{% endif %} {{ most_recent_modification.year }} (OGL)`)
 
             map.on('zoomend', showZoomLevel);
             showZoomLevel();

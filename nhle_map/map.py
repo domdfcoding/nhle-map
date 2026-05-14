@@ -39,8 +39,9 @@ from domdf_folium_tools.template import SubclassingTemplate
 from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
 from folium_about_button import AboutControl
-from folium_layerscontrol_minimap.toggle import ToggleMinimapLayerControl
+from folium_layercontrols.minimap.toggle import ToggleMinimapLayerControl
 from folium_map_search import MapSearchControl, MapSearchProvider
+from folium_map_swap_control import MapSwapControl
 from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
 
 # this package
@@ -252,6 +253,14 @@ def make_map() -> folium.Map:
 			disable_enter_search=True,  # Otherwise markers don't appear 🤷
 			close_on_submit=True,
 			).add_to(m)
+	MapSwapControl(
+			maps={
+					'<i class="fa-solid fa-fire fa-fw"></i> Heatmap': "heatmap.html",
+					# '<i class="fa-solid fa-map fa-fw"></i> Default': '/',
+					},
+			).add_to(m)
+
+	# TODO: track layers in URL parameters (pack into int, one bit per layer)
 
 	layer_control = add_to(LayerControl(), m, "basemap")
 	BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)

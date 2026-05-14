@@ -69,6 +69,7 @@ def copy_static_files(static_dir: PathPlus) -> None:
 			js_files=[
 					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "markers.js"),
 					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "custom_layer_control.js"),
+					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "heatmap.js"),
 					],
 			css_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "style.css")],
 			)

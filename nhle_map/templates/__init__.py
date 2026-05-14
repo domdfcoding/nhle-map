@@ -34,6 +34,9 @@ import jinja2
 from domdf_python_tools.paths import PathPlus
 from jinja2 import Environment
 
+# this package
+from nhle_map.utils import format_datetime, format_description
+
 # from jinja2_workarounds import MultiLineInclude  # type: ignore[import-untyped]
 
 __all__ = ["base64_encode", "render_template"]
@@ -60,6 +63,8 @@ templates.globals["list"] = list
 templates.globals["sorted"] = sorted
 templates.globals["enumerate"] = enumerate
 templates.globals["len"] = len
+templates.globals["format_description"] = format_description
+templates.globals["format_datetime"] = format_datetime
 
 templates.filters["base64_encode"] = base64_encode
 
