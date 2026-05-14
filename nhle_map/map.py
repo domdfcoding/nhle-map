@@ -254,12 +254,11 @@ def make_map() -> folium.Map:
 			close_on_submit=True,
 			).add_to(m)
 	MapSwapControl(
-		maps={
-				'<i class="fa-solid fa-fire fa-fw"></i> Heatmap': "/heatmap.html",
-				# '<i class="fa-solid fa-map fa-fw"></i> Default': '/',
-				},
-		).add_to(m)
-
+			maps={
+					'<i class="fa-solid fa-fire fa-fw"></i> Heatmap': "/heatmap.html",
+					# '<i class="fa-solid fa-map fa-fw"></i> Default': '/',
+					},
+			).add_to(m)
 
 	# TODO: track layers in URL parameters (pack into int, one bit per layer)
 

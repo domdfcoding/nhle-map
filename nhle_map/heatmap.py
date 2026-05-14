@@ -33,9 +33,9 @@ import json
 # 3rd party
 import domdf_folium_tools
 import domdf_folium_tools.heatmap
-import geopandas
+import geopandas  # type: ignore[import-untyped]
 import numpy
-import pandas
+import pandas  # type: ignore[import-untyped]
 from domdf_python_tools.stringlist import StringList
 from folium.template import Template
 
@@ -98,7 +98,7 @@ def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[f
 	heatmap_data = []
 	index = []
 
-	points = []
+	points: list[tuple[float, float, float]] = []
 
 	timestamp: datetime.datetime
 	for timestamp, group in gdf.groupby(pandas.Grouper(key="ListDate", freq="YE")):

@@ -55,8 +55,8 @@ def prepare_data(download: bool = False) -> None:
 	"""
 
 	# 3rd party
-	import geopandas
-	import pyogrio
+	import geopandas  # type: ignore[import-untyped]
+	import pyogrio  # type: ignore[import-untyped]
 	from domdf_python_tools.paths import PathPlus
 
 	# this package
