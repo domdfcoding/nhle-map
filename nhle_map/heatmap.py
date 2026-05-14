@@ -55,7 +55,6 @@ from nhle_map.map import Map
 __all__ = ["HeatMapWithTime", "make_data_js", "make_map", "prepare_heatmap_data"]
 
 
-# TODO: allow default_weight to be specified for domdf_folium_tools.heatmap.HeatMapWithTime
 class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):  # noqa: D101
 	default_js = domdf_folium_tools.heatmap.HeatMapWithTime.default_js + [
 			("nhle_heatmap", "static/js/heatmap.js"),
@@ -73,7 +72,7 @@ class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):  # noqa: D101
 			)
 
 
-def make_data_js(data: list[list[tuple[float, float, float]]]) -> str:
+def make_data_js(data: list[list[tuple[float, float]]]) -> str:
 	"""
 	Format the heatmap data (nested list of coordinates, grouped by year) as javascript.
 
@@ -94,7 +93,7 @@ def make_data_js(data: list[list[tuple[float, float, float]]]) -> str:
 	return str(heatmap_data_js)
 
 
-def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[float, float, float]]], list[str]]:
+def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[float, float]]], list[str]]:
 	"""
 	Take the given listed building etc. data and prepare for display in a heatmap, grouped by year.
 
@@ -111,7 +110,7 @@ def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[f
 	heatmap_data = []
 	index = []
 
-	points: list[tuple[float, float, float]] = []
+	points: list[tuple[float, float]] = []
 
 	timestamp: datetime.datetime
 	for timestamp, group in gdf.groupby(pandas.Grouper(key="ListDate", freq="YE")):
@@ -135,6 +134,7 @@ class GroupedLayerControl(JSCSSMixin, folium.LayerControl):
 
 		The LayerControl should be added last to the map. Otherwise, the GroupedLayerControl and/or the controlled layers may not appear.
 
+	:param groups: Grouped layers to display in the control.
 	:param position: The position of the control (one of the map corners).
 		Can be 'topleft', 'topright', 'bottomleft' or 'bottomright'.
 	:param collapsed: If :py:obj:`True` the control will be collapsed into an icon and expanded on mouse hover or touch.
@@ -211,12 +211,12 @@ class GroupedLayerControl(JSCSSMixin, folium.LayerControl):
 
 
 # TODO: do away with index variable in favour of loading from JS
-def make_map(index: list[str]) -> folium.Map:
+def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 	"""
 	Make the listed buildings folium heatmap.
 	"""
 
-	# TODO: option to set times and their labels from variables, and then not load the dataframe except in prepare_data
+	# TODO: option to set times and their labels from variables
 	# TODO: transition to markers at highest zoom levels
 	# TODO: to start/to end buttons for TimeDimension
 	# TODO: save year in URL params

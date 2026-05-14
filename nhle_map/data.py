@@ -535,7 +535,6 @@ def _prepare_dataset(
 		return gdf
 
 	if dataset.geojson_filename:
-		# TODO: handle no English dataset
 		gdf = read_english()
 		if dataset.welsh_geojson_filename:
 			welsh_gdf = read_welsh()

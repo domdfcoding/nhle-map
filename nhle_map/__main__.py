@@ -154,7 +154,7 @@ def make_map(output_directory: str = "output") -> None:
 	from nhle_map import constants, heatmap
 	from nhle_map.map import make_map
 	from nhle_map.templates import render_template
-	from nhle_map.utils import copy_static_files, format_datetime, format_description
+	from nhle_map.utils import copy_static_files
 
 	set_branca_random_seed("NHLE")
 
