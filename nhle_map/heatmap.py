@@ -34,7 +34,7 @@ import json
 import domdf_folium_tools
 import domdf_folium_tools.heatmap
 import geopandas  # type: ignore[import-untyped]
-import numpy
+import numpy  # nodep
 import pandas  # type: ignore[import-untyped]
 from domdf_python_tools.stringlist import StringList
 from folium.template import Template
@@ -104,7 +104,8 @@ def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[f
 	for timestamp, group in gdf.groupby(pandas.Grouper(key="ListDate", freq="YE")):
 		points = []
 		for item in group.to_dict("records"):
-			coords = tuple(map(float, numpy.round(item["geometry"].bounds[:2], 10)))[::-1]
+			bounds = numpy.round(item["geometry"].bounds[:2], 10)
+			coords: tuple[float, float] = tuple(map(float, bounds))[::-1]  # type: ignore[assignment]
 			# TODO: use default option rather than specify for every point
 			points.append((*coords, 0.00001))  # TODO: divide 300,000 by area of England
 		if points:
