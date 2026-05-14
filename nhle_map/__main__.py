@@ -151,7 +151,7 @@ def make_map(output_directory: str = "output") -> None:
 	from domdf_python_tools.paths import PathPlus
 
 	# this package
-	from nhle_map import constants
+	from nhle_map import constants, heatmap
 	from nhle_map.map import make_map
 	from nhle_map.templates import render_template
 	from nhle_map.utils import copy_static_files, format_datetime, format_description
@@ -163,15 +163,15 @@ def make_map(output_directory: str = "output") -> None:
 
 	copy_static_files(output_dir / "static")
 
-	m = make_map()
-	root: branca.element.Figure = m.get_root()  # type: ignore[assignment]
-
 	layers_data: dict[str, Any] = output_dir.joinpath("data", "meta.json").load_json()
 	layer_mod_times = [v.get("dataLastEditDate", -1) for v in layers_data.values()]
 	most_recent_modification = datetime.datetime.fromtimestamp(
 			max(layer_mod_times) / 1000,
 			tz=datetime.timezone.utc,
 			)
+
+	m = make_map()
+	root: branca.element.Figure = m.get_root()  # type: ignore[assignment]
 
 	map_html = render_template(
 			"map.jinja2",
@@ -185,6 +185,22 @@ def make_map(output_directory: str = "output") -> None:
 			format_datetime=format_datetime,
 			)
 	output_dir.joinpath("index.html").write_clean(map_html)
+
+	heatmap_m = heatmap.make_map(output_dir.joinpath("data/heatmap_index.json").load_json())
+	heatmap_root: branca.element.Figure = heatmap_m.get_root()  # type: ignore[assignment]
+
+	heatmap_html = render_template(
+			"map.jinja2",
+			**render_figure(heatmap_root)._asdict(),
+			title="England Listed Buildings Heatmap",
+			layers=[],
+			layers_data={},
+			most_recent_modification=most_recent_modification,
+			generated_date=datetime.datetime.now(tz=datetime.timezone.utc),
+			format_description=format_description,
+			format_datetime=format_datetime,
+			)
+	output_dir.joinpath("heatmap.html").write_clean(heatmap_html)
 
 
 if __name__ == "__main__":

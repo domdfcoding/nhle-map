@@ -269,26 +269,26 @@
 
 
 
-				var map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63 = L.MapSearchControl({
+				var map_search_control_b27096e00172edcd95a7c220ee7fc270 = L.MapSearchControl({
 					provider: new GeoSearch.OpenStreetMapProvider({"featureType": "settlement", "viewbox": "-7,49,3,56"}),
 					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "searchLabel": "Enter town or city", "showMarker": false},
 					}
 				)
 
 				// Close search box when map clicked.
-				map.on('click', map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63.close, map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63);
+				map.on('click', map_search_control_b27096e00172edcd95a7c220ee7fc270.close, map_search_control_b27096e00172edcd95a7c220ee7fc270);
 
-				map_search_control_3ecffdc9d652e06eb451f8b7c8d24f63.addTo(map);
+				map_search_control_b27096e00172edcd95a7c220ee7fc270.addTo(map);
 
 
-				var map_swap_control_7908fb3c55f5358700ae02d6dca41638 = new MapSwapControl(
+				var map_swap_control_18b105da465fefd68a3ee4ebb25e11e4 = new MapSwapControl(
 					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-map fa-fw\"\u003e\u003c/i\u003e Default": "/"}}
 				)
 
 				// Close the control when map clicked.
-				map.on('click', map_swap_control_7908fb3c55f5358700ae02d6dca41638.close, map_swap_control_7908fb3c55f5358700ae02d6dca41638);
+				map.on('click', map_swap_control_18b105da465fefd68a3ee4ebb25e11e4.close, map_swap_control_18b105da465fefd68a3ee4ebb25e11e4);
 
-				map_swap_control_7908fb3c55f5358700ae02d6dca41638.addTo(map);
+				map_swap_control_18b105da465fefd68a3ee4ebb25e11e4.addTo(map);
 
 
             var layer_control_heatmap_layers = {

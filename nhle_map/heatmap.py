@@ -130,6 +130,12 @@ def make_map(index: list[str]) -> folium.Map:
 	Make the listed buildings folium heatmap.
 	"""
 
+	# TODO: option to set times and their labels from variables, and then not load the dataframe except in prepare_data
+	# TODO: transition to markers at highest zoom levels
+	# TODO: to start/to end buttons for TimeDimension
+	# TODO: save year in URL params
+	# TODO: heatmap layers as radio not checkbox so one at a time, and save in URL
+
 	MAX_ZOOM = 20
 
 	osm_tiles = set_id(
