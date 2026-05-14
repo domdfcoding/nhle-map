@@ -4549,7 +4549,7 @@ var listedBuildings441311815 = [
 [52.3435818496, 0.4123921915, 1126438, "THE RISING SUN PUBLIC HOUSE", "II", "Thu, 17 Nov 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1126438"],
 [52.3433444169, 0.4125701373, 1126439, "6, SUN STREET", "II", "Thu, 17 Nov 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1126439"],
 [52.344189326, 0.4143486551, 1126440, "SUNBURY HOUSE", "II", "Thu, 17 Nov 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1126440"],
-[52.3415379962, 0.4079311678, 1126441, "12, WEST STREET", "II", "Wed, 14 Jan 1981", "https://historicengland.org.uk/listing/the-list/list-entry/1126441"],
+[52.3415379962, 0.4079311678, 1126441, "12 West Street and former Barn adjoining to west", "II", "Wed, 14 Jan 1981", "https://historicengland.org.uk/listing/the-list/list-entry/1126441"],
 [52.3584779499, 0.2682285112, 1126442, "LABURNUM HOUSE", "II", "Thu, 17 Nov 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1126442"],
 [52.3345076016, 0.3368440635, 1126443, "5, CHURCHGATE STREET", "II", "Thu, 17 Nov 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1126443"],
 [52.3340375854, 0.3374211278, 1126444, "6, CHURCHGATE STREET", "II", "Thu, 17 Nov 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1126444"],

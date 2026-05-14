@@ -2968,7 +2968,7 @@ var listedBuildings2784490156 = [
 [50.9903038449, -3.6624623172, 1106679, "WEST BOWDEN FARMHOUSE", "II", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106679"],
 [50.9951027603, -3.6715262337, 1106680, "CHURCH OF ST PETER", "II*", "Mon, 20 Feb 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1106680"],
 [50.9948750384, -3.6736128789, 1106681, "MANOR COTTAGE AND THE HUNTING", "II", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106681"],
-[50.9133598156, -3.8696518319, 1106682, "BOLBERRY COTTAGE, THE COTTAGE AND SUNNYHOLME", "II", "Wed, 29 Mar 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1106682"],
+[50.9133598156, -3.8696518319, 1106682, "Bolberry Cottage, Chelmscott and Sunnyholme", "II", "Wed, 29 Mar 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1106682"],
 [50.9136089626, -3.8698182923, 1106683, "MID DEVON HOUSE", "II", "Tue, 25 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1106683"],
 [50.9122753976, -3.8688544653, 1106684, "SUN COTTAGE", "II", "Tue, 25 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1106684"],
 [50.9122420615, -3.8689773884, 1106685, "ROCK HILL HOUSE", "II", "Tue, 25 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1106685"],

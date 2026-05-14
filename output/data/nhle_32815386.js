@@ -7509,7 +7509,7 @@ var listedBuildings32815386 = [
 [50.9523391458, -2.7132842196, 1262473, "Pool with fountain in north garden, about 60 metres north-north-west of Montacute House", "II", "Tue, 27 Oct 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1262473"],
 [50.9516932542, -2.7138385899, 1262474, "East patio, with steps and columns, to Montacute House", "II", "Tue, 27 Oct 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1262474"],
 [50.9513125473, -2.7132995881, 1262475, "North-east and south-east pavilions to east forecourt, Montacute House", "I", "Wed, 19 Apr 1961", "https://historicengland.org.uk/listing/the-list/list-entry/1262475"],
-[50.9505694595, -2.7182382733, 1262497, "35, SHOP (MONTACUTE GALLERY) AND 36, BISHOPSTON", "II", "Wed, 19 Apr 1961", "https://historicengland.org.uk/listing/the-list/list-entry/1262497"],
+[50.9505694595, -2.7182382733, 1262497, "35, The Gallery and 36, Bishopston", "II", "Wed, 19 Apr 1961", "https://historicengland.org.uk/listing/the-list/list-entry/1262497"],
 [50.9516242712, -2.7176105544, 1262522, "BAYTREE FARMHOUSE", "II", "Wed, 19 Apr 1961", "https://historicengland.org.uk/listing/the-list/list-entry/1262522"],
 [50.857389722, -2.1671633197, 1262531, "22, BRYANSTON STREET", "II", "Mon, 01 May 1995", "https://historicengland.org.uk/listing/the-list/list-entry/1262531"],
 [50.8561360031, -2.1634365681, 1262533, "WALL AND GATE PIERS ENCLOSING CHURCHYARD", "II", "Fri, 07 Sep 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1262533"],
