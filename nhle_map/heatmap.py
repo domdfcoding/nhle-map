@@ -33,13 +33,22 @@ import json
 # 3rd party
 import domdf_folium_tools
 import domdf_folium_tools.heatmap
+import folium
 import geopandas  # type: ignore[import-untyped]
 import numpy  # nodep
 import pandas  # type: ignore[import-untyped]
+from domdf_folium_tools.elements import add_to, set_id
 from domdf_python_tools.stringlist import StringList
 from folium.template import Template
+from folium_map_search import MapSearchControl, OpenStreetMapProvider
+from folium_map_swap_control import MapSwapControl
+from folium_zoom_state import ZoomStateJS
 
-__all__ = ["HeatMapWithTime", "make_data_js", "prepare_heatmap_data"]
+# this package
+from nhle_map import constants
+from nhle_map.map import Map
+
+__all__ = ["HeatMapWithTime", "make_data_js", "make_map", "prepare_heatmap_data"]
 
 
 # TODO: allow default_weight to be specified for domdf_folium_tools.heatmap.HeatMapWithTime
@@ -113,3 +122,117 @@ def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[f
 			heatmap_data.append(sorted(points))
 
 	return heatmap_data, index
+
+
+# TODO: do away with index variable in favour of loading from JS
+def make_map(index: list[str]) -> folium.Map:
+	"""
+	Make the listed buildings folium heatmap.
+	"""
+
+	MAX_ZOOM = 20
+
+	osm_tiles = set_id(
+			folium.TileLayer(
+					tiles="OpenStreetMap",
+					name="OpenStreetMap",
+					# show=False,
+					max_zoom=MAX_ZOOM,
+					max_native_zoom=19,
+					referrerPolicy="strict-origin-when-cross-origin",
+					attr='Map &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+					),
+			"osm_carto",
+			)
+
+	m = Map(
+			location=(52.561928, -1.464854),
+			minZoom=5,
+			maxZoom=MAX_ZOOM,
+			zoom_start=7,
+			wheelPxPerZoomLevel=80,
+			tiles=osm_tiles,
+			control_scale=True,
+			)
+
+	# set_id(os10k, "os10k").add_to(m)
+	# set_id(os1250, "os1250").add_to(m)
+	# set_id(os2500, "os2500").add_to(m)
+	# # set_id(os25inch, "os25inch").add_to(m)
+
+	td_control = domdf_folium_tools.heatmap.TimeDimensionControl(
+			index=index,
+			speed_step=1,
+			min_speed=1,
+			)
+	add_to(td_control, m, "heatmap")
+
+	hm = HeatMapWithTime(
+			# heatmap_data,
+			data=index,  # TODO: make this hack not needed
+			data_variable="heatmapData",
+			index=index,
+			name="Style 1",  # TODO: proper name
+			use_local_extrema=True,
+			radius=3,
+			scale_radius=True,
+			gradient={
+					0.25: "rgb(0,0,255)",
+					0.55: "rgb(0,255,0)",
+					0.75: "rgb(0,255,128)",
+					0.99: "yellow",
+					1.0: "rgb(255,0,0)",
+					},
+			)
+
+	add_to(hm, m, "style1")
+
+	hm2 = domdf_folium_tools.heatmap.HeatLayerWithTime(
+			# heatmap_data,
+			data=index,  # TODO: make this hack not needed
+			data_variable="heatmapData",
+			name="Style 2",  # TODO: proper name
+			index=index,
+			show=False,
+			# radius=20,
+			# blur=1.0,
+			# gradient={
+			# 		0.25: "rgb(0,0,255)",
+			# 		0.55: "rgb(0,255,0)",
+			# 		0.75: "rgb(0,255,128)",
+			# 		0.99: "yellow",
+			# 		1.0: "rgb(255,0,0)",
+			# 		},
+			)
+
+	add_to(hm2, m, "style2")
+
+	m.add_js_link("heatmap_data", "data/heatmap.js")
+	ZoomStateJS(setup_basemap_state=False).add_to(m)
+	# TODO: AboutControl("aboutModal").add_to(m)
+	search_provider = OpenStreetMapProvider(
+			viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
+			feature_type="settlement",
+			)
+	MapSearchControl(
+			provider=search_provider,
+			auto_complete_delay=1000,  # Effectively turns off autocomplete to comply with Nominatum TOS
+			show_marker=False,
+			max_suggestions=15,
+			search_label="Enter town or city",
+			disable_enter_search=True,  # Otherwise markers don't appear 🤷
+			close_on_submit=True,
+			).add_to(m)
+	MapSwapControl(
+			maps={
+					# '<i class="fa-solid fa-fire fa-fw"></i> Heatmap': "/heatmap.html",
+					'<i class="fa-solid fa-map fa-fw"></i> Default': '/',
+					},
+			).add_to(m)
+
+	# TODO: track layers in URL parameters (pack into int, one bit per layer)
+
+	layer_control = add_to(folium.LayerControl(), m, "heatmap")
+	# TODO: BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)
+
+	return m
