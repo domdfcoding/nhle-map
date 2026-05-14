@@ -115,8 +115,7 @@ def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[f
 		for item in group.to_dict("records"):
 			bounds = numpy.round(item["geometry"].bounds[:2], 10)
 			coords: tuple[float, float] = tuple(map(float, bounds))[::-1]  # type: ignore[assignment]
-			# TODO: use default option rather than specify for every point
-			points.append((*coords, 0.00001))  # TODO: divide 300,000 by area of England
+			points.append(coords)
 		if points:
 			index.append(timestamp.strftime("%Y"))
 			heatmap_data.append(sorted(points))
@@ -174,8 +173,7 @@ def make_map(index: list[str]) -> folium.Map:
 	add_to(td_control, m, "heatmap")
 
 	hm = HeatMapWithTime(
-			# heatmap_data,
-			data=index,  # TODO: make this hack not needed
+			data=None,
 			data_variable="heatmapData",
 			index=index,
 			name="Style 1",  # TODO: proper name
@@ -189,13 +187,13 @@ def make_map(index: list[str]) -> folium.Map:
 					0.99: "yellow",
 					1.0: "rgb(255,0,0)",
 					},
+			default_weight=0.00001,  # TODO: divide 300,000 by area of England
 			)
 
 	add_to(hm, m, "style1")
 
 	hm2 = domdf_folium_tools.heatmap.HeatLayerWithTime(
-			# heatmap_data,
-			data=index,  # TODO: make this hack not needed
+			data=None,
 			data_variable="heatmapData",
 			name="Style 2",  # TODO: proper name
 			index=index,

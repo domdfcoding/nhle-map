@@ -176,7 +176,7 @@ def make_map(output_directory: str = "output") -> None:
 	map_html = render_template(
 			"map.jinja2",
 			**render_figure(root)._asdict(),
-			title="England Listed Buildings Map",
+			title="England and Wales Listed Buildings Map",
 			layers=constants.LAYERS,
 			layers_data=layers_data,
 			most_recent_modification=most_recent_modification,
