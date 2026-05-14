@@ -776,6 +776,9 @@ England Only</p>
 			basemapFromURL("OpenStreetMap", layer_control_basemap).addTo(map);
 
 
+
+            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England and Cadw 2026 (OGL)`)
+
             map.on('zoomend', showZoomLevel);
             showZoomLevel();
 
@@ -783,8 +786,6 @@ England Only</p>
                 document.getElementById('zoom').innerHTML = map.getZoom();
             }
 
-
-            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England and Cadw 2026 (OGL)`)
             </script>
 
     </body>
