@@ -5,9 +5,7 @@
 
 #map {
 	width: 100%;
-
-	/* height: 95%; */
-	height: 100%;
+	height: 90%;
 	border: 1px solid #ccc;
 	border-radius: 10px;
 }
@@ -165,16 +163,6 @@
 	}
 }
 
-.leaflet-control-map-swap .map-swap-links {
-	font-size: 14px !important;
-	
-	a {
-		font-size: 14px !important;
-		white-space: nowrap;
-		min-width: 100%
-	}
-}
-
 
 @media (width <= 700px) {
 	.leaflet-control-attribution {
@@ -206,14 +194,4 @@
 .leaflet-popup-content {
 	/* margin-right: calc(24px - 8px) !important; */
 	margin-left: calc(20px - 8px) !important;
-}
-
-
-
-.leaflet-control-geosearch.active {
-	border-radius: 4px 0 0 4px;
-
-	a.leaflet-bar-part {
-		border-radius: 2px 0 0 2px !important;
-	}
 }
