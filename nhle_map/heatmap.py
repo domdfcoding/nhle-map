@@ -42,7 +42,8 @@ from folium.template import Template
 __all__ = ["HeatMapWithTime", "make_data_js", "prepare_heatmap_data"]
 
 
-class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):
+# TODO: allow default_weight to be specified for domdf_folium_tools.heatmap.HeatMapWithTime
+class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):  # noqa: D101
 	default_js = domdf_folium_tools.heatmap.HeatMapWithTime.default_js + [
 			("nhle_heatmap", "static/js/heatmap.js"),
 			]
@@ -60,6 +61,12 @@ class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):
 
 
 def make_data_js(data: list[list[tuple[float, float, float]]]) -> str:
+	"""
+	Format the heatmap data (nested list of coordinates, grouped by year) as javascript.
+
+	:param data:
+	"""
+
 	heatmap_data_js = StringList("const heatmapData = [")
 	with heatmap_data_js.with_indent("    ", 1):
 		for month in data:
@@ -75,6 +82,13 @@ def make_data_js(data: list[list[tuple[float, float, float]]]) -> str:
 
 
 def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[float, float, float]]], list[str]]:
+	"""
+	Take the given listed building etc. data and prepare for display in a heatmap, grouped by year.
+
+	:param gdf:
+
+	:returns: Nested list of coordinates, and a list of years.
+	"""
 
 	gdf = gdf[["ListEntry", "Grade", "ListDate", "geometry"]].set_index("ListEntry").sort_values("ListDate")
 	gdf["ListDate"] = pandas.to_datetime(gdf["ListDate"], unit="ms")
