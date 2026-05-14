@@ -18,8 +18,20 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"/>
+
+				<style>
+					.leaflet-control-about {
+						a {
+							font-size: 1.4em;
+							.leaflet-about-icon {
+								color: black;
+							}
+						}
+					}
+				</style>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.css"/>
 
 				<style>
@@ -83,9 +95,7 @@
                         </div>
                         <div class="modal-body">
 
-                            <p>
-                                Map showing Listed Buildings, Scheduled Monuments, Parks & Gardens, and more from the <a href="https://historicengland.org.uk/listing/the-list/">National Heritage List for England</a>.
-                            </p>
+                            <p>Heatmap showing Listed Buildings from the <a href="https://historicengland.org.uk/listing/the-list/">National Heritage List for England</a>.</p>
 
                             <p>
                                 Powered by <code>nhle-map</code>, available on GitHub at <a href="https://github.com/domdfcoding/nhle-map"><code>github.com/domdfcoding/nhle-map</code></a>
@@ -98,16 +108,6 @@
                                 <br>
                                 © Historic England 2026. Contains Ordnance Survey data © Crown copyright and database right 2026.
                             </p>
-                            <p>
-
-                                Uses data downloaded from <a href="https://cadw.gov.wales/advice-support/cof-cymru/downloads">Cof Cymru</a>.
-                                <br>
-                                Designated Historic Asset GIS Data, © The Welsh Historic Environment Service (Cadw), 2026.
-                                <br>
-                                Licenced under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3 (OGL)</a>
-                            </p>
-
-
 
                             <small class="text-muted">Generated on Thu, 14 May 2026 07:53:31 GMT. Data last updated Mon, 04 May 2026 05:48:37 GMT</small>
 
@@ -148,6 +148,7 @@
     <script src="static/js/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/leaflet/Leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b2/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.js"></script>
@@ -269,26 +270,31 @@
 
 
 
-				var map_search_control_b27096e00172edcd95a7c220ee7fc270 = L.MapSearchControl({
+				var about_control_b27096e00172edcd95a7c220ee7fc270 = new AboutControl(
+					{"modalID": "aboutModal"}
+				).addTo(map);
+
+
+				var map_search_control_18b105da465fefd68a3ee4ebb25e11e4 = L.MapSearchControl({
 					provider: new GeoSearch.OpenStreetMapProvider({"featureType": "settlement", "viewbox": "-7,49,3,56"}),
 					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "searchLabel": "Enter town or city", "showMarker": false},
 					}
 				)
 
 				// Close search box when map clicked.
-				map.on('click', map_search_control_b27096e00172edcd95a7c220ee7fc270.close, map_search_control_b27096e00172edcd95a7c220ee7fc270);
+				map.on('click', map_search_control_18b105da465fefd68a3ee4ebb25e11e4.close, map_search_control_18b105da465fefd68a3ee4ebb25e11e4);
 
-				map_search_control_b27096e00172edcd95a7c220ee7fc270.addTo(map);
+				map_search_control_18b105da465fefd68a3ee4ebb25e11e4.addTo(map);
 
 
-				var map_swap_control_18b105da465fefd68a3ee4ebb25e11e4 = new MapSwapControl(
+				var map_swap_control_83e0c71f2b52077b162cf331d237a3f1 = new MapSwapControl(
 					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-map fa-fw\"\u003e\u003c/i\u003e Default": "/"}}
 				)
 
 				// Close the control when map clicked.
-				map.on('click', map_swap_control_18b105da465fefd68a3ee4ebb25e11e4.close, map_swap_control_18b105da465fefd68a3ee4ebb25e11e4);
+				map.on('click', map_swap_control_83e0c71f2b52077b162cf331d237a3f1.close, map_swap_control_83e0c71f2b52077b162cf331d237a3f1);
 
-				map_swap_control_18b105da465fefd68a3ee4ebb25e11e4.addTo(map);
+				map_swap_control_83e0c71f2b52077b162cf331d237a3f1.addTo(map);
 
 
             var layer_control_heatmap_layers = {
@@ -313,7 +319,7 @@
 
 
 
-            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England and Cadw 2026 (OGL)`)
+            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)
 
             map.on('zoomend', showZoomLevel);
             showZoomLevel();
