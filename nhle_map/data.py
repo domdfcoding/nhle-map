@@ -117,9 +117,11 @@ def get_chunk_js(
 			values.append(notes or None)
 			values.append(poly_points)
 
+		as_json = json.dumps(values)
+
 		if poly_points and len(poly_points[0][0]) > 10:
 			# Nicer formatting
-			as_js = json.dumps(values)[1:] + ','
+			as_js = as_json[1:] + ','
 			split_at_square_brackets = as_js.split('[')
 			line = ''
 			indent = ''
@@ -136,7 +138,7 @@ def get_chunk_js(
 				output.append(line)
 
 		else:
-			output.append(json.dumps(values) + ',')
+			output.append(as_json + ',')
 
 	output.append(']')
 	output.blankline()
