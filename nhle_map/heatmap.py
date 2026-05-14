@@ -232,7 +232,7 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 	MapSwapControl(
 			maps={
 					# '<i class="fa-solid fa-fire fa-fw"></i> Heatmap': "/heatmap.html",
-					'<i class="fa-solid fa-map fa-fw"></i> Default': '../',
+					'<i class="fa-solid fa-map fa-fw"></i> Default': "../",
 					},
 			).add_to(m)
 
