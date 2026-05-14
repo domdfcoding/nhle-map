@@ -55,10 +55,12 @@ def prepare_data(download: bool = False) -> None:
 	"""
 
 	# 3rd party
+	import geopandas
+	import pyogrio
 	from domdf_python_tools.paths import PathPlus
 
 	# this package
-	from nhle_map import constants
+	from nhle_map import constants, heatmap
 	from nhle_map.data import chunk_data, download_data, download_welsh_data
 
 	data_directory = PathPlus("data")
@@ -123,6 +125,13 @@ Wales Only
 			}
 
 	output_dir.joinpath("data", "meta.json").dump_json(layers_data, indent=2)
+
+	dataset = constants.LISTED_BUILDINGS
+	assert dataset.geojson_filename is not None
+	gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.geojson_filename)
+	heatmap_data, index = heatmap.prepare_heatmap_data(gdf)
+	output_dir.joinpath("data", "heatmap.js").write_clean(heatmap.make_data_js(heatmap_data))
+	output_dir.joinpath("data", "heatmap_index.json").dump_json(index)
 
 
 @auto_default_option("-O", "--output-dir", "output_directory")

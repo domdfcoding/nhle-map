@@ -19,7 +19,7 @@ from folium_zoom_state import ZoomStateJS
 
 # this package
 from nhle_map import constants
-from nhle_map.heatmap import HeatMapWithTime, make_data_js
+from nhle_map.heatmap import HeatMapWithTime
 from nhle_map.map import Map
 from nhle_map.templates import render_template
 from nhle_map.utils import copy_static_files, format_datetime, format_description
@@ -28,35 +28,10 @@ from nhle_map.utils import copy_static_files, format_datetime, format_descriptio
 
 set_branca_random_seed("NHLE")
 
-dataset = constants.LISTED_BUILDINGS
-
-assert dataset.geojson_filename is not None
-gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(PathPlus("data") / dataset.geojson_filename)
-
-gdf = gdf[["ListEntry", "Grade", "ListDate", "geometry"]].set_index("ListEntry").sort_values("ListDate")
-gdf["ListDate"] = pandas.to_datetime(gdf["ListDate"], unit="ms")
-# print(gdf.columns)
-# print(gdf)
-
-heatmap_data = []
-index = []
-
-points = []
-
-for timestamp, group in gdf.groupby(pandas.Grouper(key="ListDate", freq="YE")):
-	points = []
-	for item in group.to_dict("records"):
-		coords = tuple(map(float, numpy.round(item["geometry"].bounds[:2], 10)))[::-1]
-		points.append((*coords, 0.00001))  # TODO: divide 300,000 by area of England
-	if points:
-		index.append(timestamp.strftime("%Y"))
-		heatmap_data.append(points)
-
 output_dir = PathPlus("output")
-
 copy_static_files(output_dir / "static")
 
-output_dir.joinpath("data/heatmap.js").write_clean(make_data_js(heatmap_data))
+index = output_dir.joinpath("data/heatmap_index.json").load_json()
 
 # TODO: transition to markers at highest zoom levels
 
@@ -67,7 +42,8 @@ td_control = domdf_folium_tools.heatmap.TimeDimensionControl(
 		)
 
 hm = HeatMapWithTime(
-		heatmap_data,
+		# heatmap_data,
+		data=index,  # TODO: make this hack not needed
 		data_variable="heatmapData",
 		index=index,
 		name="Style 1",  # TODO: proper name
@@ -84,7 +60,8 @@ hm = HeatMapWithTime(
 		)
 
 hm2 = domdf_folium_tools.heatmap.HeatLayerWithTime(
-		heatmap_data,
+		# heatmap_data,
+		data=index,  # TODO: make this hack not needed
 		data_variable="heatmapData",
 		name="Style 2",  # TODO: proper name
 		index=index,

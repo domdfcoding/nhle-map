@@ -27,15 +27,19 @@ Heatmap generation.
 #
 
 # stdlib
+import datetime
 import json
 
 # 3rd party
 import domdf_folium_tools
 import domdf_folium_tools.heatmap
+import geopandas
+import numpy
+import pandas
 from domdf_python_tools.stringlist import StringList
 from folium.template import Template
 
-__all__ = ["HeatMapWithTime", "make_data_js"]
+__all__ = ["HeatMapWithTime", "make_data_js", "prepare_heatmap_data"]
 
 
 class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):
@@ -55,7 +59,6 @@ class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):
 			)
 
 
-# TODO: run in prepare_data
 def make_data_js(data: list[list[tuple[float, float, float]]]) -> str:
 	heatmap_data_js = StringList("const heatmapData = [")
 	with heatmap_data_js.with_indent("    ", 1):
@@ -69,3 +72,29 @@ def make_data_js(data: list[list[tuple[float, float, float]]]) -> str:
 	heatmap_data_js.append(']')
 
 	return str(heatmap_data_js)
+
+
+def prepare_heatmap_data(gdf: geopandas.GeoDataFrame) -> tuple[list[list[tuple[float, float, float]]], list[str]]:
+
+	gdf = gdf[["ListEntry", "Grade", "ListDate", "geometry"]].set_index("ListEntry").sort_values("ListDate")
+	gdf["ListDate"] = pandas.to_datetime(gdf["ListDate"], unit="ms")
+	# print(gdf.columns)
+	# print(gdf)
+
+	heatmap_data = []
+	index = []
+
+	points = []
+
+	timestamp: datetime.datetime
+	for timestamp, group in gdf.groupby(pandas.Grouper(key="ListDate", freq="YE")):
+		points = []
+		for item in group.to_dict("records"):
+			coords = tuple(map(float, numpy.round(item["geometry"].bounds[:2], 10)))[::-1]
+			# TODO: use default option rather than specify for every point
+			points.append((*coords, 0.00001))  # TODO: divide 300,000 by area of England
+		if points:
+			index.append(timestamp.strftime("%Y"))
+			heatmap_data.append(sorted(points))
+
+	return heatmap_data, index
