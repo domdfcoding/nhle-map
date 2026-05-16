@@ -44,7 +44,7 @@ from folium_about_button import AboutControl
 from folium_layercontrols.grouped import GroupedLayerControl
 from folium_map_search import MapSearchControl, OpenStreetMapProvider
 from folium_map_swap_control import MapSwapControl
-from folium_zoom_state import ZoomStateJS, OverlayState
+from folium_zoom_state import OverlayState, ZoomStateJS
 
 # this package
 from nhle_map import constants

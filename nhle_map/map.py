@@ -42,7 +42,7 @@ from folium_about_button import AboutControl
 from folium_layercontrols.minimap.toggle import ToggleMinimapLayerControl
 from folium_map_search import MapSearchControl, MapSearchProvider
 from folium_map_swap_control import MapSwapControl
-from folium_zoom_state import BasemapState, ZoomStateJS, ZoomStateMap, OverlayState
+from folium_zoom_state import BasemapState, OverlayState, ZoomStateJS, ZoomStateMap
 
 # this package
 from nhle_map import constants
