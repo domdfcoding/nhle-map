@@ -214,7 +214,7 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 	add_to(hm2, m, "style2")
 
 	m.add_js_link("heatmap_data", "data/heatmap.js")
-	ZoomStateJS(setup_basemap_state=False).add_to(m)
+	ZoomStateJS().add_to(m)
 	AboutControl("aboutModal").add_to(m)
 	search_provider = OpenStreetMapProvider(
 			viewbox=f"{constants.MIN_LNG},{constants.MIN_LAT},{constants.MAX_LNG},{constants.MAX_LAT}",
@@ -254,6 +254,6 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 			"heatmap",
 			)
 	OverlayState(layer_control, "style").add_to(m)
-	# TODO: BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)
+	# TODO: BasemapState(osm_tiles.tile_name, layer_control).add_to(m)
 
 	return m

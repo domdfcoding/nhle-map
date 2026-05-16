@@ -42,7 +42,7 @@ from folium_about_button import AboutControl
 from folium_layercontrols.minimap.toggle import ToggleMinimapLayerControl
 from folium_map_search import MapSearchControl, MapSearchProvider
 from folium_map_swap_control import MapSwapControl
-from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap, OverlayState
+from folium_zoom_state import BasemapState, ZoomStateJS, ZoomStateMap, OverlayState
 
 # this package
 from nhle_map import constants
@@ -230,7 +230,7 @@ def make_map() -> folium.Map:
 				)
 
 	MarkerLoadingJS(layers=constants.LAYERS).add_to(m)
-	ZoomStateJS(setup_basemap_state=True).add_to(m)
+	ZoomStateJS().add_to(m)
 	LocateControl().add_to(m)
 	AboutControl("aboutModal").add_to(m)
 	search_provider = MapSearchProvider(
@@ -257,7 +257,7 @@ def make_map() -> folium.Map:
 
 	layer_control = add_to(LayerControl(), m, "basemap")
 	OverlayState(layer_control).add_to(m)
-	BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)
+	BasemapState(osm_tiles.tile_name, layer_control).add_to(m)
 
 	return m
 
