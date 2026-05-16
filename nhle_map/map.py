@@ -42,7 +42,7 @@ from folium_about_button import AboutControl
 from folium_layercontrols.minimap.toggle import ToggleMinimapLayerControl
 from folium_map_search import MapSearchControl, MapSearchProvider
 from folium_map_swap_control import MapSwapControl
-from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap
+from folium_zoom_state import BasemapFromURL, ZoomStateJS, ZoomStateMap, OverlayState
 
 # this package
 from nhle_map import constants
@@ -66,6 +66,9 @@ class Map(ZoomStateMap):
 	_template = SubclassingTemplate(
 			"""
         {% macro header(this, kwargs) %}
+			<script>
+            	const MAX_ZOOM = {{ this.options["maxZoom"] }};
+			</script>
         {% endmacro %}
         """,
 			base_template=ZoomStateMap._template,
@@ -79,15 +82,13 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 	"""
 	Adds javascript logic for marker loading and display.
 
-	:param max_zoom: The map's maximum zoom level.
 	:param layers: Data about layers to add to the map.
 	"""
 
 	# TODO: get max_zoom from the map itself?
 
-	def __init__(self, max_zoom: int, layers: Iterable[constants.Dataset]):
+	def __init__(self, layers: Iterable[constants.Dataset]):
 		super().__init__()
-		self.max_zoom = max_zoom
 		self._layers = layers
 
 	default_js = [
@@ -110,7 +111,6 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 	_template = Template(
 			"""
         {% macro script(this, kwargs) %}
-            const MAX_ZOOM = {{ this.max_zoom }};
 
             const progress = document.getElementById('progress')
             var modal = bootstrap.Modal.getOrCreateInstance(progress)
@@ -118,10 +118,6 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 
             console.log('start creating markers: ' + window.performance.now());
             {{ this._parent.get_name() }}.addLayer(marker_cluster_nhle);
-
-			{% for layer in this._layers -%}
-			{{ this._parent.get_name() }}.addLayer(marker_cluster_{{ layer.identifier }});
-			{% endfor %}
 
             var loaded_ids = [];
 
@@ -227,14 +223,13 @@ def make_map() -> folium.Map:
 		add_to(
 				MarkerGroup(
 						cluster=mcg,
-						show=False,
 						name=layer.layer_label,
 						),
 				m,
 				layer.identifier,
 				)
 
-	MarkerLoadingJS(max_zoom=MAX_ZOOM, layers=constants.LAYERS).add_to(m)
+	MarkerLoadingJS(layers=constants.LAYERS).add_to(m)
 	ZoomStateJS(setup_basemap_state=True).add_to(m)
 	LocateControl().add_to(m)
 	AboutControl("aboutModal").add_to(m)
@@ -260,9 +255,8 @@ def make_map() -> folium.Map:
 					},
 			).add_to(m)
 
-	# TODO: track layers in URL parameters (pack into int, one bit per layer)
-
 	layer_control = add_to(LayerControl(), m, "basemap")
+	OverlayState(layer_control).add_to(m)
 	BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)
 
 	return m

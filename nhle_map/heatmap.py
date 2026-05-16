@@ -44,7 +44,7 @@ from folium_about_button import AboutControl
 from folium_layercontrols.grouped import GroupedLayerControl
 from folium_map_search import MapSearchControl, OpenStreetMapProvider
 from folium_map_swap_control import MapSwapControl
-from folium_zoom_state import ZoomStateJS
+from folium_zoom_state import ZoomStateJS, OverlayState
 
 # this package
 from nhle_map import constants
@@ -253,6 +253,7 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 			m,
 			"heatmap",
 			)
+	OverlayState(layer_control, "style").add_to(m)
 	# TODO: BasemapFromURL(osm_tiles.tile_name, layer_control).add_to(m)
 
 	return m
