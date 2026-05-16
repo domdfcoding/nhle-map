@@ -16,6 +16,9 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
 
+			<script>
+            	const MAX_ZOOM = 20;
+			</script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"/>
@@ -143,12 +146,12 @@
     <script src="data/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b16/domdf_folium_tools/heatmap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b18/domdf_folium_tools/heatmap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_hm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_leaflet_hm.min.js"></script>
     <script src="static/js/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/leaflet/Leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b4/folium_zoom_state/zoom_state.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b2/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
@@ -272,31 +275,31 @@
 
 
 
-				var about_control_b27096e00172edcd95a7c220ee7fc270 = new AboutControl(
+				var about_control_ff7cd73c982901adfdfb7540653903c7 = new AboutControl(
 					{"modalID": "aboutModal"}
 				).addTo(map);
 
 
-				var map_search_control_18b105da465fefd68a3ee4ebb25e11e4 = L.MapSearchControl({
+				var map_search_control_410a78e54858afc2c907d6145efb7103 = L.MapSearchControl({
 					provider: new GeoSearch.OpenStreetMapProvider({"featureType": "settlement", "viewbox": "-7,49,3,56"}),
 					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "searchLabel": "Enter town or city", "showMarker": false},
 					}
 				)
 
 				// Close search box when map clicked.
-				map.on('click', map_search_control_18b105da465fefd68a3ee4ebb25e11e4.close, map_search_control_18b105da465fefd68a3ee4ebb25e11e4);
+				map.on('click', map_search_control_410a78e54858afc2c907d6145efb7103.close, map_search_control_410a78e54858afc2c907d6145efb7103);
 
-				map_search_control_18b105da465fefd68a3ee4ebb25e11e4.addTo(map);
+				map_search_control_410a78e54858afc2c907d6145efb7103.addTo(map);
 
 
-				var map_swap_control_83e0c71f2b52077b162cf331d237a3f1 = new MapSwapControl(
+				var map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d = new MapSwapControl(
 					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-map fa-fw\"\u003e\u003c/i\u003e Default": "../"}}
 				)
 
 				// Close the control when map clicked.
-				map.on('click', map_swap_control_83e0c71f2b52077b162cf331d237a3f1.close, map_swap_control_83e0c71f2b52077b162cf331d237a3f1);
+				map.on('click', map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d.close, map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d);
 
-				map_swap_control_83e0c71f2b52077b162cf331d237a3f1.addTo(map);
+				map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d.addTo(map);
 
 
             var grouped_layer_control_heatmap_layers = {
@@ -329,6 +332,11 @@
 }
             ).addTo(map);
 
+
+
+            const overlayState = new OverlayState(map, grouped_layer_control_heatmap, "style")
+            overlayState.fromURL("10")
+            overlayState.setup();
 
 
 

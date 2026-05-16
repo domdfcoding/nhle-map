@@ -16,6 +16,9 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
 
+			<script>
+            	const MAX_ZOOM = 20;
+			</script>
 
     <link rel="preload" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_default.png" as="image" />
 	<link rel="preload" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png" as="image" />
@@ -474,12 +477,12 @@ England Only</p>
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b16/domdf_folium_tools/domdf-folium-tools.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b18/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
     <script src="static/js/markers.js"></script>
     <script src="static/js/layer_data.js"></script>
     <script src="data/nhle_id_lookup.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b3/folium_zoom_state/zoom_state.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b4/folium_zoom_state/zoom_state.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b2/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
@@ -615,12 +618,18 @@ England Only</p>
 
 
 
+            marker_cluster_battlefields.addTo(map);
+
+
             var marker_cluster_building_preservation_notices = new L.MarkerGroup(
 				marker_cluster_nhle,
                 {
 }
             );
 
+
+
+            marker_cluster_building_preservation_notices.addTo(map);
 
 
             var marker_cluster_certificates_of_immunity = new L.MarkerGroup(
@@ -631,12 +640,18 @@ England Only</p>
 
 
 
+            marker_cluster_certificates_of_immunity.addTo(map);
+
+
             var marker_cluster_listed_buildings = new L.MarkerGroup(
 				marker_cluster_nhle,
                 {
 }
             );
 
+
+
+            marker_cluster_listed_buildings.addTo(map);
 
 
             var marker_cluster_parks_and_gardens = new L.MarkerGroup(
@@ -647,12 +662,18 @@ England Only</p>
 
 
 
+            marker_cluster_parks_and_gardens.addTo(map);
+
+
             var marker_cluster_protected_wreck_sites = new L.MarkerGroup(
 				marker_cluster_nhle,
                 {
 }
             );
 
+
+
+            marker_cluster_protected_wreck_sites.addTo(map);
 
 
             var marker_cluster_registered_landscapes = new L.MarkerGroup(
@@ -663,12 +684,18 @@ England Only</p>
 
 
 
+            marker_cluster_registered_landscapes.addTo(map);
+
+
             var marker_cluster_scheduled_monuments = new L.MarkerGroup(
 				marker_cluster_nhle,
                 {
 }
             );
 
+
+
+            marker_cluster_scheduled_monuments.addTo(map);
 
 
             var marker_cluster_world_heritage_sites = new L.MarkerGroup(
@@ -679,6 +706,9 @@ England Only</p>
 
 
 
+            marker_cluster_world_heritage_sites.addTo(map);
+
+
             var marker_cluster_de_designated = new L.MarkerGroup(
 				marker_cluster_nhle,
                 {
@@ -687,7 +717,9 @@ England Only</p>
 
 
 
-            const MAX_ZOOM = 20;
+            marker_cluster_de_designated.addTo(map);
+
+
 
             const progress = document.getElementById('progress')
             var modal = bootstrap.Modal.getOrCreateInstance(progress)
@@ -695,18 +727,6 @@ England Only</p>
 
             console.log('start creating markers: ' + window.performance.now());
             map.addLayer(marker_cluster_nhle);
-
-			map.addLayer(marker_cluster_battlefields);
-			map.addLayer(marker_cluster_building_preservation_notices);
-			map.addLayer(marker_cluster_certificates_of_immunity);
-			map.addLayer(marker_cluster_listed_buildings);
-			map.addLayer(marker_cluster_parks_and_gardens);
-			map.addLayer(marker_cluster_protected_wreck_sites);
-			map.addLayer(marker_cluster_registered_landscapes);
-			map.addLayer(marker_cluster_scheduled_monuments);
-			map.addLayer(marker_cluster_world_heritage_sites);
-			map.addLayer(marker_cluster_de_designated);
-
 
             var loaded_ids = [];
 
@@ -722,7 +742,7 @@ England Only</p>
 
 			setupZoomState(map);
 
-			setupBasemapState(map);
+			setupBasemapState(map, "basemap");
 
 
 
@@ -754,7 +774,7 @@ England Only</p>
 
 
 				var map_swap_control_9b2eb014748c80e655b0bcc8412e387d = new MapSwapControl(
-					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-fire fa-fw\"\u003e\u003c/i\u003e Heatmap": "/heatmap.html"}}
+					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-fire fa-fw\"\u003e\u003c/i\u003e Heatmap": "heatmap.html"}}
 				)
 
 				// Close the control when map clicked.
@@ -795,7 +815,12 @@ England Only</p>
 
 
 
-			basemapFromURL("OpenStreetMap", layer_control_basemap).addTo(map);
+            const overlayState = new OverlayState(map, layer_control_basemap, "overlays")
+            overlayState.fromURL("1111111111")
+            overlayState.setup();
+
+
+			basemapFromURL("OpenStreetMap", layer_control_basemap, "basemap").addTo(map);
 
 
 
