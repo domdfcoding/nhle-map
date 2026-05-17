@@ -75,12 +75,14 @@ CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 
 		var div = L.DomUtil.create('div', 'leaflet-lc-overlay-container', this._overlaysList);
 		var span = L.DomUtil.create('span', 'leaflet-all-layers-buttons pt-1', div);
-		this._toggleAllButtons.createButton(span, 'Show All', (e) => {
-			console.log('Show all overlays');
-			this._toggleAllButtons.showAll();
-			e.preventDefault();
-			e.stopPropagation();
-		});
+		// TODO: Show All triggers the double loading bar
+		// TODO: tri-state checkbox
+		// this._toggleAllButtons.createButton(span, 'Show All', (e) => {
+		// 	console.log('Show all overlays');
+		// 	this._toggleAllButtons.showAll();
+		// 	e.preventDefault();
+		// 	e.stopPropagation();
+		// });
 		this._toggleAllButtons.createButton(span, 'Show None', (e) => {
 			console.log('Hide all overlays');
 			this._toggleAllButtons.showNone();
