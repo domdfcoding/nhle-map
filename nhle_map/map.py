@@ -117,7 +117,7 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
             console.log('start creating markers: ' + window.performance.now());
             {{ this._parent.get_name() }}.addLayer(marker_cluster_nhle);
 
-            var loaded_ids = [];
+            var loadedIDs = [];
 
 			loadNewMarkers().then(function (result){
 				console.log("All markers loaded")

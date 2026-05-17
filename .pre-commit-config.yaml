@@ -127,3 +127,21 @@ repos:
    hooks:
     - id: djlint-reformat-jinja
     - id: djlint-jinja
+
+ - repo: https://github.com/pre-commit/mirrors-eslint
+   rev: v8.56.0
+   hooks:
+    - id: eslint
+      # files: \.ts$
+      files: nhle_map/.*\.js$
+      types:
+       - file
+      additional_dependencies:
+       - eslint@8.57.1
+       - eslint-config-standard@17.1.0
+       - eslint-plugin-es@4.1.0
+       - eslint-plugin-import@2.32.0
+       - eslint-plugin-n@17.21.3
+       - eslint-plugin-promise@7.2.1
+       - '@typescript-eslint/parser@8.20.0'
+       - '@typescript-eslint/eslint-plugin@8.20.0'

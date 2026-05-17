@@ -728,14 +728,14 @@ England Only</p>
             console.log('start creating markers: ' + window.performance.now());
             map.addLayer(marker_cluster_nhle);
 
-            var loaded_ids = [];
+            var loadedIDs = [];
 
-			load_new_markers().then(function (result){
+			loadNewMarkers().then(function (result){
 				console.log("All markers loaded")
 				});
 
-            // map.on('zoomend', load_new_markers);
-            map.on('moveend', load_new_markers);
+            // map.on('zoomend', loadNewMarkers);
+            map.on('moveend', loadNewMarkers);
 
 
 
