@@ -1,12 +1,12 @@
 var loadLock = false;
 
-function load_new_markers() {
+function loadNewMarkers() {
 	if (loadLock === true) {
 		return null;
 	}
 
 	loadLock = true;
-	console.log('load_new_markers() called');
+	console.log('loadNewMarkers() called');
 
 	const bounds = map.getBounds();
 	var latitudes = range(Math.floor(bounds.getSouth()), Math.floor(bounds.getNorth()) + 1, 1);
@@ -15,7 +15,7 @@ function load_new_markers() {
 
 	latitudes.forEach(function(latitude) {
 		longitides.forEach(function(longitide) {
-			var id = lookup_id(latitude, longitide);
+			var id = lookupID(latitude, longitide);
 			if (id !== null) {
 				console.log(`ID for ${latitude}N ${longitide}E is ${id}`);
 				if (loaded_ids.includes(id)) {
@@ -27,7 +27,7 @@ function load_new_markers() {
 		});
 	});
 
-	var promise = new Promise((resolve, reject) => {
+	var promise = new Promise((resolve) => {
 		progress.addEventListener('hidden.bs.modal', event => {
 			resolve();
 		}, { once: true });
@@ -106,36 +106,58 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 	});
 }
 
-function addMarkers(points, markerList, icon, noun) {
-	for (var i = 0; i < points.length; i++) {
-		var a = points[i];
-		// var popupText = "<a href='" + a[6] + "' target='_blank'>" + a[3] + '</a>';
-		var listingGrade = a[4] ? `Grade: <strong>${a[4]}</strong><br>` : '';
-		var listingLink = a[6] ? `<a href="${a[6]}" class="card-link" target='_blank'>View list entry</a>` : '';
-		var date = a[5] ? `Date: <strong>${a[5]}</strong>` : '';
-		var notes = a[7] ? `<p>${a[7]}</p>` : '';
+class MarkerData {
+	constructor(lat, lng, num, name, grade, listDate, link, notes = null, polyPoints = null) {
+		this.lat = lat;
+		this.lng = lng;
+		this.num = num;
+		this.name = name;
+		this.grade = grade;
+		this.listDate = listDate;
+		this.link = link;
+		this.notes = notes;
+		this.polyPoints = polyPoints;
+	}
+
+	formatPopup(noun) {
+		// const popupText = "<a href='" + this.link + "' target='_blank'>" + a.name + '</a>';
+
+		var listingGrade = this.grade ? `Grade: <strong>${this.grade}</strong><br>` : '';
+		var listingLink = this.link
+			? `<a href="${this.link}" class="card-link" target='_blank'>View list entry</a>`
+			: '';
+		var date = this.listDate ? `Date: <strong>${this.listDate}</strong>` : '';
+		var notes = this.notes ? `<p>${this.notes}</p>` : '';
+
 		// TODO: coloured background and symbol to match marker, for when clicking polygon. Or border colour?
-		var popupText = `
+		const popupText = `
 <div class="nhle-popup card border-0">
   <div class="card-body p-0">
-    <h5 class="card-title">${a[3]}</h5>
+    <h5 class="card-title">${this.name}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${noun}</h6>
     <p class="card-text">
 		${listingGrade}
-	    List Entry Number: <strong>${a[2]}</strong>
+	    List Entry Number: <strong>${this.num}</strong>
 		<br>
 	    ${date}
 	</p>
     ${notes}
     ${listingLink}
   </div>
-</div>
-		`;
+</div>`;
+		return popupText;
+	}
+}
+
+function addMarkers(points, markerList, icon, noun) {
+	for (let i = 0; i < points.length; i++) {
+		const a = new MarkerData(...points[i]);
+
 		// TODO: large polygons disappear after zooming or panning if marker way off screen
-		var marker = new L.PolyMarker(
-			L.latLng(a[0], a[1]),
-			a[8],
-			{ title: a[3], icon: icon },
+		const marker = new L.PolyMarker(
+			L.latLng(a.lat, a.lng),
+			a.polyPoints,
+			{ title: a.name, icon: icon },
 		);
 		// TODO: constants for indices rather than magic numbers
 		const popup = new L.Popup({
@@ -143,14 +165,14 @@ function addMarkers(points, markerList, icon, noun) {
 			autoPanPaddingTopLeft: [45, 0],
 			autoPanPaddingBottomRight: [65, 0],
 		});
-		popup.setContent(popupText);
+		popup.setContent(a.formatPopup(noun));
 		marker.bindPopup(popup);
 		marker.polygonsBindPopup(popup);
 		markerList.push(marker);
 	}
 }
 
-function lookup_id(latitude, longitide) {
+function lookupID(latitude, longitide) {
 	var lat_lookup = nhleIDLookup[latitude];
 	if (lat_lookup === undefined) {
 		return null;
