@@ -71,7 +71,7 @@ def copy_static_files(static_dir: PathPlus) -> None:
 					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "heatmap.js"),
 					],
 			css_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "style.css")],
-			img_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "Challenge_Icon.svg")]
+			img_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "Challenge_Icon.svg")],
 			)
 
 	layers = constants.LAYERS

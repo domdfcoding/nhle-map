@@ -176,10 +176,10 @@
 }
 
 .leaflet-control-map-swap .map-swap-links {
-	font-size: 14px !important;
+	font-size: 14px;
 
 	a {
-		font-size: 14px !important;
+		font-size: 14px;
 		white-space: nowrap;
 		min-width: 100%;
 	}
@@ -214,8 +214,8 @@
 
 
 .leaflet-popup-content {
-	/* margin-right: calc(24px - 8px) !important; */
-	margin-left: calc(20px - 8px) !important;
+	/* margin-right: calc(24px - 8px); */
+	margin-left: calc(20px - 8px);
 }
 
 
@@ -223,6 +223,6 @@
 	border-radius: 4px 0 0 4px;
 
 	a.leaflet-bar-part {
-		border-radius: 2px 0 0 2px !important;
+		border-radius: 2px 0 0 2px;
 	}
 }
