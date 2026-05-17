@@ -63,7 +63,6 @@ def copy_static_files(static_dir: PathPlus) -> None:
 	:param static_dir:
 	"""
 
-	# TODO: add img to domdf_folium_tools
 	domdf_folium_tools.static_files.copy_static_files(
 			static_dir=static_dir,
 			js_files=[
@@ -72,17 +71,7 @@ def copy_static_files(static_dir: PathPlus) -> None:
 					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "heatmap.js"),
 					],
 			css_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "style.css")],
-			)
-
-	img_dir = static_dir / "img"
-
-	img_dir.maybe_make(parents=True)
-
-	domdf_folium_tools.static_files._copy_files(
-			[
-					domdf_folium_tools.static_files.PythonResource("nhle_map.static", "Challenge_Icon.svg"),
-					],
-			img_dir,
+			img_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "Challenge_Icon.svg")]
 			)
 
 	layers = constants.LAYERS

@@ -85,8 +85,6 @@ class MarkerLoadingJS(folium.elements.JSCSSMixin, branca.element.MacroElement):
 	:param layers: Data about layers to add to the map.
 	"""
 
-	# TODO: get max_zoom from the map itself?
-
 	def __init__(self, layers: Iterable[constants.Dataset]):
 		super().__init__()
 		self._layers = layers
@@ -216,7 +214,6 @@ def make_map() -> folium.Map:
 	add_to(mcg, m, "nhle")
 
 	# TODO: for BPN and COI, show polygon on click. Or always show?
-	# TODO: make layer dialog wider to show full names
 	layer: constants.Dataset
 	for layer in constants.LAYERS:
 

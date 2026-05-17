@@ -236,8 +236,6 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 					},
 			).add_to(m)
 
-	# TODO: track layers in URL parameters (pack into int, one bit per layer)
-
 	layer_control = add_to(
 			GroupedLayerControl(
 					groups={
