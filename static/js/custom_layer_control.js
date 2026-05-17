@@ -22,24 +22,25 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
+const CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 	initialize(baseLayers, overlays, options) {
 		L.Control.Layers.MinimapToggle.prototype.initialize.call(this, baseLayers, overlays, options);
 		this._toggleAllButtons = new ToggleAllButtons(this);
 	},
 
 	_addItem: function(obj) {
-		var container = obj.overlay ? this._overlaysList : this._baseLayersList;
+		const container = obj.overlay ? this._overlaysList : this._baseLayersList;
 
+		let labelClass;
 		if (obj.overlay) {
-			var labelClass = 'leaflet-lc-overlay-container';
+			labelClass = 'leaflet-lc-overlay-container';
 		} else {
-			var labelClass = 'leaflet-minimap-container';
+			labelClass = 'leaflet-minimap-container';
 		}
 
-		var label = L.DomUtil.create('label', labelClass, container);
+		const label = L.DomUtil.create('label', labelClass, container);
 		label._layerName = obj.name;
-		var checked = this._map.hasLayer(obj.layer);
+		const checked = this._map.hasLayer(obj.layer);
 
 		if (!obj.overlay) {
 			label._minimap = this._createMinimap(
@@ -48,8 +49,8 @@ CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 				obj.overlay,
 			);
 		}
-		var span = L.DomUtil.create('span', 'leaflet-minimap-label', label);
-		var input;
+		const span = L.DomUtil.create('span', 'leaflet-minimap-label', label);
+		let input;
 		if (obj.overlay) {
 			input = document.createElement('input');
 			input.type = 'checkbox';
@@ -64,7 +65,7 @@ CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 
 		L.DomEvent.on(label, 'click', this._onInputClick, this);
 
-		var name = L.DomUtil.create('span', '', span);
+		const name = L.DomUtil.create('span', '', span);
 		name.innerHTML = ' ' + obj.name;
 
 		return label;
@@ -73,14 +74,16 @@ CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 	_update: function() {
 		L.Control.Layers.MinimapToggle.prototype._update.call(this);
 
-		var div = L.DomUtil.create('div', 'leaflet-lc-overlay-container', this._overlaysList);
-		var span = L.DomUtil.create('span', 'leaflet-all-layers-buttons pt-1', div);
-		this._toggleAllButtons.createButton(span, 'Show All', (e) => {
-			console.log('Show all overlays');
-			this._toggleAllButtons.showAll();
-			e.preventDefault();
-			e.stopPropagation();
-		});
+		const div = L.DomUtil.create('div', 'leaflet-lc-overlay-container', this._overlaysList);
+		const span = L.DomUtil.create('span', 'leaflet-all-layers-buttons pt-1', div);
+		// TODO: Show All triggers the double loading bar
+		// TODO: tri-state checkbox
+		// this._toggleAllButtons.createButton(span, 'Show All', (e) => {
+		// 	console.log('Show all overlays');
+		// 	this._toggleAllButtons.showAll();
+		// 	e.preventDefault();
+		// 	e.stopPropagation();
+		// });
 		this._toggleAllButtons.createButton(span, 'Show None', (e) => {
 			console.log('Hide all overlays');
 			this._toggleAllButtons.showNone();
@@ -97,7 +100,7 @@ class ToggleAllButtons {
 	}
 
 	createButton(parent, label, callback) {
-		var input = L.DomUtil.create(
+		const input = L.DomUtil.create(
 			'input',
 			'leaflet-control-layers-selector btn btn-outline-secondary px-2 py-0 me-1 mt-0 rounded-0',
 			parent,
@@ -109,7 +112,7 @@ class ToggleAllButtons {
 
 	showAll() {
 		const lc = this._layerControl;
-		for (var i in lc._layers) {
+		for (const i in lc._layers) {
 			if (lc._layers[i].overlay) {
 				if (!lc._map.hasLayer(lc._layers[i].layer)) {
 					lc._map.addLayer(lc._layers[i].layer);
@@ -117,9 +120,10 @@ class ToggleAllButtons {
 			}
 		}
 	}
+
 	showNone() {
 		const lc = this._layerControl;
-		for (var i in lc._layers) {
+		for (const i in lc._layers) {
 			if (lc._layers[i].overlay) {
 				if (lc._map.hasLayer(lc._layers[i].layer)) {
 					lc._map.removeLayer(lc._layers[i].layer);
@@ -129,6 +133,7 @@ class ToggleAllButtons {
 	}
 }
 
-customlayercontrol = function(baseLayers, overlays, options) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function customlayercontrol(baseLayers, overlays, options) {
 	return new CustomLayerControl(baseLayers, overlays, options);
-};
+}

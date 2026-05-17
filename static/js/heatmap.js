@@ -3,38 +3,38 @@
 *  MIT Licenced
 */
 
-var HMO = HeatmapOverlay.extend({
+/* global HeatmapOverlay */
+const HMO = HeatmapOverlay.extend({
 	_update: function() {
-		var bounds, zoom, scale;
-		var generatedData = { max: this._max, min: this._min, data: [] };
+		const generatedData = { max: this._max, min: this._min, data: [] };
+		const bounds = this._map.getBounds();
+		const zoom = this._map.getZoom();
 
-		bounds = this._map.getBounds();
-		zoom = this._map.getZoom();
-		// scale = Math.pow(2, zoom);
-		//   scale = (1/zoom) * 7  // 7 is default zoom; get from map settings
-		// scale = zoom / 7  // 7 is default zoom; get from map settings
-		scale = Math.pow(zoom / 7, 2); // 7 is default zoom; get from map settings
+		// let scale = Math.pow(2, zoom);
+		// let scale = (1/zoom) * 7  // 7 is default zoom; get from map settings
+		// let scale = zoom / 7  // 7 is default zoom; get from map settings
+		let scale = Math.pow(zoom / 7, 2); // 7 is default zoom; get from map settings
 		if (scale < 0.7) scale = 0.7;
 		console.log('Zoom:', zoom, '  Scale:', scale);
 
-		if (this._data.length == 0) {
+		if (this._data.length === 0) {
 			if (this._heatmap) {
 				this._heatmap.setData(generatedData);
 			}
 			return;
 		}
 
-		var latLngPoints = [];
-		var radiusMultiplier = this.cfg.scaleRadius ? scale : 1;
-		var localMax = 0;
-		var localMin = 0;
-		var valueField = this.cfg.valueField;
-		var len = this._data.length;
+		const latLngPoints = [];
+		const radiusMultiplier = this.cfg.scaleRadius ? scale : 1;
+		let localMax = 0;
+		let localMin = 0;
+		const valueField = this.cfg.valueField;
+		let len = this._data.length;
 
 		while (len--) {
-			var entry = this._data[len];
-			var value = entry[valueField];
-			var latlng = entry.latlng;
+			const entry = this._data[len];
+			const value = entry[valueField];
+			const latlng = entry.latlng;
 
 			// we don't wanna render points that are not even on the map ;-)
 			if (!bounds.contains(latlng)) {
@@ -44,12 +44,11 @@ var HMO = HeatmapOverlay.extend({
 			localMax = Math.max(value, localMax);
 			localMin = Math.min(value, localMin);
 
-			var point = this._map.latLngToContainerPoint(latlng);
-			var latlngPoint = { x: Math.round(point.x), y: Math.round(point.y) };
+			const point = this._map.latLngToContainerPoint(latlng);
+			const latlngPoint = { x: Math.round(point.x), y: Math.round(point.y) };
 			latlngPoint[valueField] = value;
 
-			var radius;
-
+			let radius;
 			if (entry.radius) {
 				radius = entry.radius * radiusMultiplier;
 			} else {
@@ -69,12 +68,13 @@ var HMO = HeatmapOverlay.extend({
 	},
 });
 
-var TDHeatmapCustom = L.TDHeatmap.extend({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const TDHeatmapCustom = L.TDHeatmap.extend({
 	initialize: function(data, options) {
 		const heatmapCfg = {
 			radius: 15,
 			blur: 0.8,
-			maxOpacity: 1.,
+			maxOpacity: 1.0,
 			scaleRadius: false,
 			useLocalExtrema: false,
 			latField: 'lat',
