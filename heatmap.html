@@ -50,7 +50,7 @@
 				</style>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0.post1/folium_map_swap_control/map_swap_control.min.css"/>
 
 				<style>
 					.leaflet-control-map-swap {
@@ -162,16 +162,16 @@
     <script src="data/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b21/domdf_folium_tools/heatmap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b25/domdf_folium_tools/heatmap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_hm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_leaflet_hm.min.js"></script>
     <script src="static/js/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/leaflet/Leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b5/folium_zoom_state/zoom_state.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b2/folium_about_button/about_button.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0/folium_zoom_state/zoom_state.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.2.0/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0.post1/folium_map_swap_control/map_swap_control.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ismyrnow/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.js"></script>
             <script>
 
@@ -284,8 +284,12 @@
 
             var heat_layer_style2 = new L.TDHeatLayer(
                 heatmapData,
-                {heatmapOptions: {"blur": 15, "minOpacity": 0.05, "radius": 25}
-            });
+                {heatmapOptions: {
+                    "blur": 15,
+                    "minOpacity": 0.05,
+                    "radius": 25
+}},
+            );
 
 
 
@@ -355,6 +359,11 @@
             const overlayState = new OverlayState(map, grouped_layer_control_heatmap, "style")
             overlayState.fromURL("10")
             overlayState.setup();
+
+
+            const timeDimensionState = new L.TimeDimensionState(map, time_dimension_control_heatmap.index, "year")
+            timeDimensionState.fromURL(1947)
+            timeDimensionState.setup();
 
 
 
