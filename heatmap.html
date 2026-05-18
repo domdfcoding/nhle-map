@@ -63,6 +63,19 @@
 					}
 				</style>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-reset-control@v0.1.0b1/folium_reset_control/reset_control.min.css"/>
+
+				<style>
+					.leaflet-control-reset-view {
+						a {
+							font-size: 1.4em;
+							.leaflet-reset-view-icon {
+								color: black;
+							}
+						}
+					}
+				</style>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ismyrnow/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.css"/>
         <link rel="stylesheet" href="static/css/style.css" />
 
@@ -172,6 +185,7 @@
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0.post1/folium_map_swap_control/map_swap_control.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-reset-control@v0.1.0b1/folium_reset_control/reset_control.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ismyrnow/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.js"></script>
             <script>
 
@@ -322,6 +336,11 @@
 				map.on('click', map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d.close, map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d);
 
 				map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d.addTo(map);
+
+
+				var reset_view_control_5c82144b9e718e834cf8863087750389 = new ResetViewControl(
+					{"centre": [52.561928, -1.464854], "icon": "fa-solid fa-arrow-rotate-left", "zoom": 7}
+				).addTo(map);
 
 
             var grouped_layer_control_heatmap_layers = {
