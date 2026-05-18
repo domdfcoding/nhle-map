@@ -226,3 +226,9 @@
 		border-radius: 2px 0 0 2px;
 	}
 }
+
+.leaflet-bar-timecontrol div.timecontrol-date {
+	min-width: unset;
+	padding-left: 20px;
+	padding-right: 20px;
+}

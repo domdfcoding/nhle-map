@@ -29,6 +29,7 @@ Heatmap generation.
 # stdlib
 import datetime
 import json
+from typing import Optional, cast
 
 # 3rd party
 import domdf_folium_tools
@@ -40,6 +41,7 @@ import pandas  # type: ignore[import-untyped]
 from domdf_folium_tools.elements import add_to, set_id
 from domdf_python_tools.stringlist import StringList
 from folium.template import Template
+from folium.utilities import TypePosition
 from folium_about_button import AboutControl
 from folium_layercontrols.grouped import GroupedLayerControl
 from folium_map_search import MapSearchControl, OpenStreetMapProvider
@@ -167,10 +169,16 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 	# set_id(os2500, "os2500").add_to(m)
 	# # set_id(os25inch, "os25inch").add_to(m)
 
-	td_control = domdf_folium_tools.heatmap.TimeDimensionControl(
+	class HeatmapControl(domdf_folium_tools.heatmap.TimeDimensionControl):
+		control_class_name = "new HeatmapControl"
+
+	td_control = HeatmapControl(
 			index=index,
 			speed_step=1,
 			min_speed=1,
+			play_reverse_button=False,
+			to_end_button=True,
+			to_start_button=True,
 			)
 	add_to(td_control, m, "heatmap")
 
