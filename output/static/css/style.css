@@ -12,6 +12,22 @@
 	border-radius: 10px;
 }
 
+@supports (height: 100dvh) {
+
+	.map-container {
+		height: 100dvh;
+	}
+
+}
+
+@supports (height: 100svh) {
+
+	.map-container {
+		height: 100svh;
+	}
+
+}
+
 .leaflet-popup-close-button {
 	margin-right: 4px;
 	margin-top: 4px;
