@@ -43,6 +43,7 @@ from folium_about_button import AboutControl
 from folium_layercontrols.grouped import GroupedLayerControl
 from folium_map_search import MapSearchControl, OpenStreetMapProvider
 from folium_map_swap_control import MapSwapControl
+from folium_reset_control import ResetViewControl
 from folium_zoom_state import OverlayState, ZoomStateJS
 
 # this package
@@ -228,6 +229,7 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 					'<i class="fa-solid fa-map fa-fw"></i> Default': "../",
 					},
 			).add_to(m)
+	ResetViewControl(centre=m.location, zoom=m.options["zoom"]).add_to(m)
 
 	layer_control = add_to(
 			GroupedLayerControl(
