@@ -93,3 +93,23 @@ const TDHeatmapCustom = L.TDHeatmap.extend({
 		this.defaultWeight = heatmapCfg.defaultWeight || 1;
 	},
 });
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const HeatmapControl = L.Control.TimeDimensionHeatmap.extend({
+	onAdd: function(map) {
+		const container = L.Control.TimeDimensionHeatmap.prototype.onAdd.call(this, map);
+
+		this._buttonBackward.title = 'Previous';
+		this._buttonForward.title = 'Next';
+
+		// this._displayDate = L.DomUtil.create('div', this.options.styleNS + ' timecontrol-date', container);
+		const newDisplayDate = L.DomUtil.create('div', this.options.styleNS + ' timecontrol-date', container);
+		this._displayDate.replaceWith(newDisplayDate);
+		this._displayDate = newDisplayDate;
+
+		return container;
+	},
+
+	_buttonDateClicked: function() {
+	},
+});
