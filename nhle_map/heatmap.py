@@ -29,7 +29,6 @@ Heatmap generation.
 # stdlib
 import datetime
 import json
-from typing import Optional, cast
 
 # 3rd party
 import domdf_folium_tools
@@ -40,8 +39,6 @@ import numpy  # nodep
 import pandas  # type: ignore[import-untyped]
 from domdf_folium_tools.elements import add_to, set_id
 from domdf_python_tools.stringlist import StringList
-from folium.template import Template
-from folium.utilities import TypePosition
 from folium_about_button import AboutControl
 from folium_layercontrols.grouped import GroupedLayerControl
 from folium_map_search import MapSearchControl, OpenStreetMapProvider
@@ -60,16 +57,7 @@ class HeatMapWithTime(domdf_folium_tools.heatmap.HeatMapWithTime):  # noqa: D101
 			("nhle_heatmap", "static/js/heatmap.js"),
 			]
 
-	_template = Template(
-			"""
-		{% macro script(this, kwargs) %}
-			var {{this.get_name()}} = new TDHeatmapCustom(
-				heatmapData,
-				{heatmapOptions: {{ this.options|tojson(indent=20) }}},
-			);
-		{% endmacro %}
-		""".replace('\t', "    "),
-			)
+	layer_class_name = "new TDHeatmapCustom"
 
 
 def make_data_js(data: list[list[tuple[float, float]]]) -> str:
@@ -134,9 +122,6 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 
 	# TODO: option to set times and their labels from variables
 	# TODO: transition to markers at highest zoom levels
-	# TODO: to start/to end buttons for TimeDimension
-	# TODO: save year in URL params
-	# TODO: heatmap layers as radio not checkbox so one at a time, and save in URL
 
 	MAX_ZOOM = 20
 
@@ -260,6 +245,7 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 			"heatmap",
 			)
 	OverlayState(layer_control, "style").add_to(m)
+	domdf_folium_tools.heatmap.TimeDimensionState(td_control, param_name="year").add_to(m)
 	# TODO: BasemapState(osm_tiles.tile_name, layer_control).add_to(m)
 
 	return m
