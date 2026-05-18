@@ -268,7 +268,11 @@ class LocateControl(FoliumLocateControl):
 			] + FoliumLocateControl.default_css
 
 	def __init__(self):
-		super().__init__(icon="fa-solid fa-location-crosshairs")
+		super().__init__(
+				icon="fa-solid fa-location-crosshairs",
+				keepCurrentZoomLevel=[13, 18],
+				locateOptions={"enableHighAccuracy": True, "maxZoom": 16},
+				)
 
 	def get_name(self) -> str:
 		return "locate_control"
