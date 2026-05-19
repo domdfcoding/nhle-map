@@ -122,7 +122,6 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 	"""
 
 	# TODO: option to set times and their labels from variables
-	# TODO: transition to markers at highest zoom levels
 
 	MAX_ZOOM = 20
 

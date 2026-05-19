@@ -546,7 +546,6 @@ def _prepare_dataset(
 	return get_data_chunks(gdf, lat_range, lng_range)
 
 
-# TODO: optional tqdm progress bar
 def chunk_data(
 		data: list[tuple[Dataset, bool]],
 		lat_range: Iterable[float],
