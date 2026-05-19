@@ -2294,7 +2294,7 @@ var listedBuildings32815386 = [
 [50.8004165404, -2.3422360838, 1119103, "NORTHFIELD COTTAGE", "II", "Thu, 26 Jan 1956", "https://historicengland.org.uk/listing/the-list/list-entry/1119103"],
 [50.7954896962, -2.3387804914, 1119104, "CHURCHYARD CROSS", "II", "Tue, 10 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1119104"],
 [50.8085666548, -2.3751760293, 1119105, "Lyscombe Chapel and west boundary wall", "II*", "Thu, 26 Jan 1956", "https://historicengland.org.uk/listing/the-list/list-entry/1119105"],
-[50.8084708785, -2.3752649486, 1119106, "LYSCOMBE COTTAGE IMMEDIATELY SOUTH WEST OF LYSCOMBE CHAPEL", "II", "Thu, 26 Jan 1956", "https://historicengland.org.uk/listing/the-list/list-entry/1119106"],
+[50.8084984714, -2.375298222, 1119106, "Ruins of house south-west of Lyscombe Chapel", "II", "Thu, 26 Jan 1956", "https://historicengland.org.uk/listing/the-list/list-entry/1119106"],
 [50.7827198008, -2.319822008, 1119107, "CHURCH OF ALL SAINTS", "II*", "Thu, 26 Jan 1956", "https://historicengland.org.uk/listing/the-list/list-entry/1119107"],
 [50.7828802218, -2.3203479468, 1119108, "ENTRANCE GATE PIERS, BOUNDARY AND GARDEN WALLS NORTH OF MANOR FARM HOUSE", "II", "Tue, 10 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1119108"],
 [50.7778509194, -2.3276463971, 1119109, "GATE PIERS AT ENTRANCE TO DEWLISH HOUSE", "II", "Tue, 10 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1119109"],

@@ -32289,7 +32289,7 @@ var listedBuildings828253910 = [
 [51.3707756945, -2.3628525949, 1395335, "1, 2 AND 3, DEVONSHIRE PLACE", "II", "Tue, 05 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1395335"],
 [51.3766606419, -2.331046273, 1395336, "THE ROUND HOUSE", "II", "Fri, 11 Aug 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1395336"],
 [51.3596407788, -2.3470306583, 1395337, "ISABELLA HOUSE", "II", "Tue, 05 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1395337"],
-[51.3780673451, -2.3572205946, 1395338, "ARGYLE HOTEL", "II", "Tue, 05 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1395338"],
+[51.3780673451, -2.3572205946, 1395338, "Argyle Hotel", "II", "Tue, 05 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1395338"],
 [51.3874723955, -2.3660315845, 1395339, "NO. 11 AND ATTACHED RAILINGS", "II", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1395339"],
 [51.3602954736, -2.3466262821, 1395341, "NOS 1 AND 2 PARK PLACE: PARK HOUSE (1) AND ARCLANE (2)", "II", "Tue, 05 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1395341"],
 [51.3874093647, -2.3660598235, 1395342, "NO. 12 AND ATTACHED RAILINGS", "II", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1395342"],
@@ -33802,10 +33802,14 @@ var listedBuildings828253910 = [
 [51.3523581249, -2.9808511431, 1492397, "Churchyard Cross at the Church of St John", "II", "Thu, 03 Jul 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1492397"],
 [51.3522913243, -2.9811195439, 1492402, "War Memorial at the Church of St John the Baptist", "II", "Thu, 17 Jul 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1492402"],
 [51.4527619185, -2.6363838547, 1492935, "Lychgate at Church of St Mary the Virgin", "II", "Mon, 23 Jun 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1492935"],
+[51.8183959049, -2.1761804199, 1494575, "Former coach house, stabling and associated domestic accommodation", "II", "Thu, 14 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1494575"],
+[51.82367042, -2.1867184404, 1494577, "Lower Lodge and gateway to Prinknash Park", "II", "Thu, 14 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1494577"],
 [51.8200662114, -2.1756677125, 1494836, "Walled Garden at Prinknash Park", "II", "Wed, 15 Oct 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1494836"],
 [51.3261496003, -2.2272916367, 1495111, "Milestone on west side of A363, opposite 6, Trowle", "II", "Thu, 06 Nov 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1495111"],
 [51.3983354263, -2.306263174, 1495698, "Bathford War Memorial", "II", "Fri, 20 Feb 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495698"],
 [51.195634345, -2.0130714374, 1495700, "Chitterne War Memorial", "II", "Thu, 29 Jan 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495700"],
+[51.8184756373, -2.1764759486, 1495896, "Power house at Prinknash Park", "II", "Thu, 14 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495896"],
+[51.7520773547, -2.2545284727, 1496078, "The Bank", "II", "Thu, 14 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1496078"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

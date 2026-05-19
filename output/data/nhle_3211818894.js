@@ -17566,7 +17566,7 @@ var listedBuildings3211818894 = [
 [53.5992281487, -1.7368454477, 1313315, "CLOUGH COTTAGES", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1313315"],
 [53.6497634897, -1.6931589165, 1313316, "GREGORY FARMHOUSE", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1313316"],
 [53.6181828085, -1.712691946, 1313317, "HIGHBURTON CROSS", "II", "Wed, 23 Jun 1965", "https://historicengland.org.uk/listing/the-list/list-entry/1313317"],
-[53.6086723356, -1.7021889028, 1313318, "CHURCH OF ALL HALLOWS", "I", "Wed, 23 Jun 1965", "https://historicengland.org.uk/listing/the-list/list-entry/1313318"],
+[53.6086723356, -1.7021889028, 1313318, "Church of All Hallows", "I", "Wed, 23 Jun 1965", "https://historicengland.org.uk/listing/the-list/list-entry/1313318"],
 [53.5970712543, -1.6881912804, 1313319, "SHELLEY HALL", "II*", "Wed, 23 Jun 1965", "https://historicengland.org.uk/listing/the-list/list-entry/1313319"],
 [53.6352104032, -1.6997067623, 1313320, "Principal barn at Thorne's Farm, to west of group", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1313320"],
 [53.6427254811, -1.726411033, 1313321, "2-8, LASCELLES HALL ROAD", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1313321"],

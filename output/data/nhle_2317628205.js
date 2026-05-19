@@ -1727,7 +1727,7 @@ var listedBuildings2317628205 = [
 [50.8060070928, -0.539584557, 1027807, "CHURCH OF ST CATHERINE (ROMAN CATHOLIC)", "II", "Thu, 21 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1027807"],
 [50.809223241, -0.5385898753, 1027808, "GRAVESTONE TO ROBERT BUSHBY IN PARISH CHURCHYARD TO THE NORTH OF THE CHURCH", "II", "Thu, 21 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1027808"],
 [50.8096351424, -0.5395388451, 1027809, "7 AND 9, CHURCH STREET", "II", "Wed, 11 May 1949", "https://historicengland.org.uk/listing/the-list/list-entry/1027809"],
-[50.80964501, -0.5393408455, 1027810, "FUSHCIA COTTAGE REGENCY COTTAGE", "II", "Thu, 21 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1027810"],
+[50.80964501, -0.5393408455, 1027810, "No 11 (Fuchsia Cottage) No 13 (Regency Cottage ) No 15 Church Street", "II", "Thu, 21 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1027810"],
 [50.8097140014, -0.5390003519, 1027811, "FRIENDS' MEETING HOUSE", "II", "Thu, 21 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1027811"],
 [50.8093770249, -0.5393799179, 1027812, "MANOR HOUSE", "II", "Thu, 21 Aug 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1027812"],
 [50.8242771654, -0.5544757316, 1027813, "COURT WICK PARK", "II", "Wed, 11 May 1949", "https://historicengland.org.uk/listing/the-list/list-entry/1027813"],
