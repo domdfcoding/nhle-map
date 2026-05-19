@@ -229,7 +229,7 @@ def make_map(index: list[str]) -> folium.Map:  # noqa: PRM002  # TODO
 					'<i class="fa-solid fa-map fa-fw"></i> Default': "../",
 					},
 			).add_to(m)
-	ResetViewControl(centre=m.location, zoom=m.options["zoom"]).add_to(m)
+	ResetViewControl.from_map(m).add_to(m)
 
 	layer_control = add_to(
 			GroupedLayerControl(
