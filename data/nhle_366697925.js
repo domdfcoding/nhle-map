@@ -1565,7 +1565,7 @@ var listedBuildings366697925 = [
 [53.3653037546, -2.9183940937, 1068443, "STANLAWE GRANGE THE GRANARY", "II*", "Tue, 23 Feb 1960", "https://historicengland.org.uk/listing/the-list/list-entry/1068443"],
 [53.5139117283, -2.4675552645, 1068444, "Drinking Fountain", "II", "Mon, 27 Jul 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1068444"],
 [53.4952147517, -2.4467374142, 1068445, "ASTLEY GREEN MUSEUM WINDING TOWER", "II", "Mon, 27 Jul 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1068445"],
-[53.4986167836, -2.4479580212, 1068446, "MANOR HOUSE FARMHOUSE", "II", "Mon, 27 Jul 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1068446"],
+[53.4986167836, -2.4479580212, 1068446, "Former Manor House Farmhouse", "II", "Mon, 27 Jul 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1068446"],
 [53.4837292475, -2.4656494743, 1068447, "SALES HOUSE", "II", "Mon, 27 Jul 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1068447"],
 [53.5136006549, -2.4463731609, 1068448, "7, SALE LANE", "II", "Mon, 18 Jul 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1068448"],
 [53.5134712282, -2.4706808999, 1068449, "Stone-built portico of St Georges School", "II", "Mon, 27 Jul 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1068449"],
@@ -18135,6 +18135,8 @@ var listedBuildings366697925 = [
 [53.2982744465, -2.3514030396, 1494789, "Booths Hall", "II", "Thu, 29 Jan 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1494789"],
 [53.3891074001, -2.3507647728, 1495433, "Former Orange Tree Inn", "II", "Thu, 29 Jan 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495433"],
 [53.2975465838, -2.3515030433, 1495686, "Icehouse approximately 57m south of Booths Hall", "II", "Thu, 29 Jan 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495686"],
+[53.1956132459, -2.9103506889, 1495822, "Milepost to Chester Cross, Sealand Road", "II", "Fri, 15 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495822"],
+[53.2003149813, -2.9046482532, 1495931, "Milepost to Chester Cross, Saughall Road", "II", "Fri, 15 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495931"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

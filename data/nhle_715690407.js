@@ -9130,7 +9130,7 @@ var listedBuildings715690407 = [
 [52.5212546147, -1.030166133, 1188155, "SUNNYDALE FARMHOUSE", "II", "Wed, 18 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1188155"],
 [52.5128288052, -1.0832547196, 1188157, "Yeoman Cottage, Shearsby", "II", "Tue, 11 Jan 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1188157"],
 [52.7333377689, -1.2022849875, 1188159, "THE HOLT", "II", "Thu, 15 Mar 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1188159"],
-[52.7334607242, -1.2018532677, 1188161, "VILLAGE WELLHOUSE", "II", "Wed, 01 Jun 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1188161"],
+[52.7334650623, -1.2018686899, 1188161, "VILLAGE WELLHOUSE", "II", "Wed, 01 Jun 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1188161"],
 [52.6688691706, -1.8658717217, 1188163, "PIPE HILL FARMHOUSE", "II", "Fri, 15 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1188163"],
 [52.7348617858, -1.2003170358, 1188164, "271 AND 273, FOREST ROAD", "II", "Wed, 01 Jun 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1188164"],
 [52.6237523463, -1.7683789644, 1188166, "CHURCH OF ST BARTHOLOMEW", "II", "Thu, 27 Feb 1964", "https://historicengland.org.uk/listing/the-list/list-entry/1188166"],
@@ -21699,6 +21699,7 @@ var listedBuildings715690407 = [
 [52.1028473081, -1.8257661247, 1495121, "Honeybourne Grove House", "II", "Fri, 28 Nov 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1495121"],
 [52.3047938952, -1.9408560769, 1495744, "Milward Square including mosaic murals", "II", "Fri, 27 Feb 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495744"],
 [52.5888771109, -1.9833716783, 1495986, "Two former leather goods works, Wisemore", "II", "Wed, 11 Mar 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495986"],
+[52.818877585, -1.7600532892, 1496140, "Former RAF Tatenhill Air Ministry Laboratory (AML) Bombing Teacher and Turret Gunnery Trainer building", "II", "Tue, 12 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1496140"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
@@ -21707,7 +21708,7 @@ var protectedWreckSites715690407 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var buildingPreservationNotices715690407 = [
-[52.7949000414, -1.194300164, 1496523, "BPN: Five Oaks Farm Main Street", null, null, "https://historicengland.org.uk/listing/the-list/list-entry/1496523"],
+[52.7949000414, -1.194300164, 1496523, "BPN: Five Oaks Farm Main Street", null, "Tue, 03 Mar 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1496523"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

@@ -9243,7 +9243,7 @@ var listedBuildings185270852 = [
 [50.372933552, -4.2934061532, 1329158, "PAIR OF MONUMENTS TO THE STEPHENS FAMILY IN THE CHURCHYARD ABOUT 6 METRES SOUTH OF CHURCH OF ST MARY", "II", "Mon, 26 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1329158"],
 [50.3728906341, -4.2933503331, 1329159, "BEE BOLES TO REAR OF NO 1 CHURCH ROW", "II", "Mon, 26 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1329159"],
 [50.3724853694, -4.207367727, 1329160, "CARBEAL MILL", "II", "Wed, 19 Nov 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1329160"],
-[50.3759263661, -4.1956986344, 1329161, "VERA'S", "II", "Mon, 26 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1329161"],
+[50.3759263661, -4.1956986344, 1329161, "60, Fore Street", "II", "Mon, 26 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1329161"],
 [50.37174303, -4.1944405503, 1329162, "BALLAST POND", "II", "Mon, 26 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1329162"],
 [50.3326633091, -4.2010179131, 1329163, "SEA WALL OF THE OLD SCHOOL HOUSE", "II", "Tue, 17 Nov 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1329163"],
 [50.4173253621, -4.3182067135, 1329164, "BOUNDARY STONE AT SX 354600", "II", "Fri, 09 Oct 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1329164"],

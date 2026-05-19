@@ -6072,7 +6072,7 @@ var listedBuildings3922140260 = [
 [52.9972622569, -2.7555146551, 1130571, "SHIPPON AND STABLE AT WIGLAND HALL FARM", "II", "Wed, 28 Aug 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1130571"],
 [52.9873222435, -2.753702566, 1130572, "BANK FARMHOUSE", "II", "Wed, 01 Mar 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1130572"],
 [52.9970694772, -2.7660006619, 1130573, "WYCHOUGH HILL FARMHOUSE", "II", "Wed, 28 Aug 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1130573"],
-[52.9988833929, -2.7201697045, 1130606, "L SHAPED RANGE OF FARM BUILDING ATTACHED BY WALL TO HIGH ASH FARMHOUSE", "II", "Wed, 28 Aug 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1130606"],
+[52.9988833929, -2.7201697045, 1130606, "L-shaped range of farm buildings attached by wall to High Ash Farmhouse", "II", "Wed, 28 Aug 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1130606"],
 [52.9997556074, -2.7066098176, 1130607, "TUSHINGHAM HOUSE", "II", "Wed, 01 Mar 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1130607"],
 [52.990756112, -2.7306265675, 1130615, "AGDEN HOUSE FARMHOUSE", "II", "Wed, 28 Aug 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1130615"],
 [52.9936248631, -2.7304515208, 1130616, "STABLES AND BARN FORMING WEST SIDE OF AGDEN HALL FARMYARD AND SHIPPON FORMING NORTH SIDE OF YARD", "II", "Wed, 28 Aug 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1130616"],
