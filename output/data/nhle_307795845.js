@@ -5026,6 +5026,7 @@ var listedBuildings307795845 = [
 [50.8966174149, 0.5518598485, 1488990, "Lady Mary Montgomerie Monument at Beauport Park, Hastings", "II", "Fri, 02 Aug 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1488990"],
 [50.9906434032, 0.1200853537, 1491179, "Harrock House Lodge including gate pier", "II", "Wed, 11 Dec 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1491179"],
 [50.83787856, 0.4767021025, 1494199, "Bexhill War Memorial", "II", "Thu, 11 Sep 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1494199"],
+[50.9318650322, 0.0640241834, 1495693, "Barn at Boathouse Farm", "II", "Fri, 15 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495693"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

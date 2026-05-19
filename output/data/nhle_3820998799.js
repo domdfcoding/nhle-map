@@ -16721,7 +16721,7 @@ var listedBuildings3820998799 = [
 [51.7489491288, -0.4024822056, 1175175, "BARN AND COWSHED IMMEDIATELY SOUTH WEST OF WESTWICK HALL", "II", "Thu, 27 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1175175"],
 [51.8304373134, -0.2155365911, 1175176, "29, HIGH STREET", "II", "Fri, 09 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1175176"],
 [51.1379454149, -0.9315945617, 1175182, "OLD HOUSE FARMHOUSE", "II", "Sun, 01 May 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1175182"],
-[51.9538862805, -0.0538239574, 1175183, "HOLY TIRNITY CHURCH (CHURCH OF ENGLAND)", "II*", "Wed, 22 Feb 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1175183"],
+[51.9538862805, -0.0538239574, 1175183, "Holy Trinity Church (Church of England)", "II*", "Wed, 22 Feb 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1175183"],
 [51.9253854659, -0.2634590904, 1175184, "ST IBBS BUSH", "II", "Mon, 27 May 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1175184"],
 [51.8929876415, -0.3457284337, 1175185, "EAST BARN AT TANKARDS FARM (80 METRES TO EAST SOUTH EAST OF HOUSE)", "II", "Mon, 24 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1175185"],
 [51.758624604, -0.3880130395, 1175187, "DAIRY, IMMEDIATELY NORTH OF GORHAMBURY HOUSE", "II", "Thu, 27 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1175187"],
@@ -31241,7 +31241,7 @@ var listedBuildings3820998799 = [
 [51.4983352603, -0.2524504994, 1293888, "40 AND 42, PRIORY AVENUE W4", "II", "Mon, 02 Feb 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1293888"],
 [51.1630595409, -0.4572334857, 1293898, "BARN OPPOSITE RAPSLEY FARM HOUSE", "II", "Mon, 28 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1293898"],
 [51.1856041586, -0.6137529082, 1293899, "80 High Street", "II*", "Thu, 18 Dec 1947", "https://historicengland.org.uk/listing/the-list/list-entry/1293899"],
-[51.185681154, -0.6140626683, 1293904, "HARRISON AND PARTNERS, PHOTOLAB, VAN TONGEREN HOUSE", "II", "Fri, 01 Feb 1991", "https://historicengland.org.uk/listing/the-list/list-entry/1293904"],
+[51.185681154, -0.6140626683, 1293904, "84, 84A, 84B, 86, High Street and 1, 2, 3 and 4, Moss Lane", "II", "Fri, 01 Feb 1991", "https://historicengland.org.uk/listing/the-list/list-entry/1293904"],
 [51.4978993954, -0.2533748312, 1293909, "27 AND 29, PRIORY AVENUE W4", "II", "Mon, 02 Feb 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1293909"],
 [51.4984063214, -0.2529952607, 1293911, "37 AND 39, PRIORY AVENUE W4", "II", "Mon, 02 Feb 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1293911"],
 [51.4986825742, -0.2528262115, 1293913, "43 AND 45, PRIORY AVENUE W4", "II", "Mon, 02 Feb 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1293913"],
@@ -35358,7 +35358,7 @@ var listedBuildings3820998799 = [
 [51.8559179709, -0.1090831232, 1341471, "130, HIGH STREET", "II", "Wed, 11 Jun 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1341471"],
 [51.8541600595, -0.0832508695, 1341472, "GARDEN WALLS AND GARDEN HOUSE", "II", "Wed, 11 Jun 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1341472"],
 [51.8152137657, -0.0966345642, 1341473, "LYCH GATE AND CHURCHYARD WALL TO CHURCH OF ST MICHAEL AND ALL ANGELS", "II", "Wed, 11 Jun 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1341473"],
-[51.8187450038, -0.0991037739, 1341474, "NUMBER 44 HGH ROAD, A602", "II", "Wed, 11 Jun 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1341474"],
+[51.8187450038, -0.0991037739, 1341474, "44, High Road", "II", "Wed, 11 Jun 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1341474"],
 [51.8248506729, -0.0985421265, 1341475, "MILESTONE", "II", "Wed, 11 Jun 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1341475"],
 [51.8154919019, -0.0934736421, 1341476, "WILLOW COTTAGE", "II", "Wed, 11 Jun 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1341476"],
 [51.8125666461, -0.1618205574, 1341477, "CHURCH OF ST PETER", "I", "Thu, 24 Nov 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1341477"],
@@ -44676,7 +44676,7 @@ var protectedWreckSites3820998799 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var buildingPreservationNotices3820998799 = [
-[51.8001042778, -0.8013868264, 1496213, "BPN Stoke Mandeville Huts", null, null, "https://historicengland.org.uk/listing/the-list/list-entry/1496213"],
+[51.8001042778, -0.8013868264, 1496213, "BPN Stoke Mandeville Huts", null, "Thu, 15 Jan 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1496213"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

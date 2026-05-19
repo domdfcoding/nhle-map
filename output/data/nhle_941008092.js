@@ -5273,7 +5273,7 @@ var listedBuildings941008092 = [
 [54.135766987, -1.5249132953, 1174072, "4 AND 5, HIGH SKELLGATE", "II", "Mon, 19 Mar 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1174072"],
 [54.1561000317, -1.6533566931, 1174073, "LAVERTON GRANGE", "II", "Thu, 25 Jun 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1174073"],
 [54.1014408697, -1.7900004638, 1174082, "HEATHFIELD GRANGE", "II", "Thu, 25 Jun 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1174082"],
-[54.0595278644, -1.4458719212, 1174085, "BARN TO REAR OF GRANGE AND LINKING BUILDING", "II", "Wed, 19 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1174085"],
+[54.0598107203, -1.4459742666, 1174085, "BARN TO REAR OF GRANGE AND LINKING BUILDING", "II", "Wed, 19 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1174085"],
 [54.1341271356, -1.8182845614, 1174098, "REMAINS OF ST MARY'S CHAPEL IN CHURCHYARD OF ST MARY THE VIRGIN", "II", "Mon, 06 Mar 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1174098"],
 [54.0586425644, -1.4468461373, 1174107, "MANOR HOUSE AND MANOR COTTAGE", "II", "Wed, 19 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1174107"],
 [54.040578739, -1.5697825975, 1174114, "STABLES, COACH HOUSES AND SERVICE BUILDINGS TO NORTH AND EAST OF COURTYARD AT RIPLEY CASTLE WITH SOUTH WALL TO GATE HOUSE", "II*", "Mon, 18 May 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1174114"],

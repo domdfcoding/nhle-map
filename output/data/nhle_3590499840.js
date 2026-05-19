@@ -7251,7 +7251,7 @@ var listedBuildings3590499840 = [
 [54.4733663508, -2.3483062104, 1326927, "SHOP TO NORTH OF MITRE HOUSE", "II", "Tue, 06 Feb 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1326927"],
 [54.4732117491, -2.3489375575, 1326928, "Shop to south west corner", "II", "Tue, 06 Feb 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1326928"],
 [54.4735618747, -2.3490639856, 1326929, "36, MARKET SQUARE", "II", "Fri, 21 Oct 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1326929"],
-[54.4728899204, -2.3483484534, 1326930, "BARCLAYS BANK AND AREA RAILINGS TO FRONT", "II", "Fri, 21 Oct 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1326930"],
+[54.4728899204, -2.3483484534, 1326930, "Former Barclay's Bank and area railings to front", "II", "Fri, 21 Oct 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1326930"],
 [54.4729779602, -2.3489818591, 1326931, "28, MARKET STREET", "II", "Tue, 06 Feb 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1326931"],
 [54.4726457634, -2.3488710167, 1326932, "BLACK BULL HOTEL", "II", "Fri, 21 Oct 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1326932"],
 [54.471909208, -2.3487413051, 1326933, "FORECOURT GATES AND RAILINGS TO FLETCHER HOUSE", "II", "Fri, 21 Oct 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1326933"],
@@ -8884,6 +8884,7 @@ var protectedWreckSites3590499840 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var buildingPreservationNotices3590499840 = [
+[54.3691338809, -2.9003656203, 1497176, "BPN Low Lickbarrow Farm", null, "Wed, 13 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1497176"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
