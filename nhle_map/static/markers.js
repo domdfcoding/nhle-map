@@ -206,6 +206,11 @@ function _setupPopupButtonHandlers(marker, popup) {
 }
 
 const Popup = L.Popup.extend({
+	_initLayout() {
+		L.Popup.prototype._initLayout.call(this);
+		this._wrapper.style = `outline-color: ${this.options.borderColor}`;
+	},
+
 	openOn: function(map) {
 		const ret = L.Popup.prototype.openOn.call(this, map);
 		this.fire('shewn');
@@ -237,6 +242,7 @@ function addMarkers(points, markerList, icon, noun) {
 			autoPanPaddingTopLeft: [45, 0],
 			autoPanPaddingBottomRight: [65, 0],
 			closeOnClick,
+			borderColor: icon.options.markerColor,
 		});
 
 		popup.setContent(a.formatPopup(noun));
