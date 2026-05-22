@@ -141,7 +141,6 @@ class MarkerData {
 			? `<a role="button" class="card-link" id="highlightButton">${highlightButtonText}</a>`
 			: '';
 
-		// TODO: coloured background and symbol to match marker, for when clicking polygon. Or border colour?
 		const popupText = `
 <div class="nhle-popup card border-0">
   <div class="card-body p-0">
