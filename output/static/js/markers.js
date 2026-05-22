@@ -136,6 +136,10 @@ class MarkerData {
 			: '';
 		const date = this.listDate ? `Date: <strong>${this.listDate}</strong>` : '';
 		const notes = this.notes ? `<p>${this.notes}</p>` : '';
+		const highlightButtonText = this.polyPoints.length > 1 ? 'Highlight Polygons' : 'Highlight Polygon';
+		const highlightButton = this.polyPoints.length
+			? `<a role="button" class="card-link" id="highlightButton">${highlightButtonText}</a>`
+			: '';
 
 		// TODO: coloured background and symbol to match marker, for when clicking polygon. Or border colour?
 		const popupText = `
@@ -151,6 +155,7 @@ class MarkerData {
 	</p>
     ${notes}
     ${listingLink}
+    ${highlightButton}
   </div>
 </div>`;
 		return popupText;
@@ -169,6 +174,44 @@ function _popupOnClick(e) {
 		this.openPopup(e.latlng);
 	}
 }
+
+function resetMarkerPolygons(marker) {
+	marker.polygonsSetStyle({ dashArray: null });
+	marker.polygonsHighlighted = false;
+}
+
+function _setupPopupOnClick(layer) {
+	layer.off('click', layer._openPopup);
+	layer.on('click', _popupOnClick, layer);
+	map.on('click', (_e) => {
+		layer.closePopup();
+	});
+}
+
+function _setupPopupButtonHandlers(marker, popup) {
+	console.log('Popup added', window.performance);
+	const button = popup.getElement().querySelector('#highlightButton');
+	if (!button.dataset.setup) {
+		button.addEventListener('click', (_e) => {
+			if (marker.polygonsHighlighted) {
+				resetMarkerPolygons(marker);
+			} else {
+				marker.polygonsSetStyle({ dashArray: '10, 10' });
+				map.fire('polygonhighlight', marker);
+				marker.polygonsHighlighted = true;
+			}
+		});
+		button.dataset.setup = true;
+	}
+}
+
+const Popup = L.Popup.extend({
+	openOn: function(map) {
+		const ret = L.Popup.prototype.openOn.call(this, map);
+		this.fire('shewn');
+		return ret;
+	},
+});
 
 function addMarkers(points, markerList, icon, noun) {
 	const markerClickClosePopup = false;
@@ -189,7 +232,7 @@ function addMarkers(points, markerList, icon, noun) {
 			closeOnClick = a.polyPoints.length === 0;
 		}
 
-		const popup = new L.Popup({
+		const popup = new Popup({
 			keepInView: false,
 			autoPanPaddingTopLeft: [45, 0],
 			autoPanPaddingBottomRight: [65, 0],
@@ -200,21 +243,25 @@ function addMarkers(points, markerList, icon, noun) {
 		marker.bindPopup(popup);
 		marker.polygonsBindPopup(popup);
 		marker._polygons.forEach((p) => {
-			p.off('click', p._openPopup);
-			p.on('click', _popupOnClick, p);
-			map.on('click', (_e) => {
-				p.closePopup();
-			});
+			_setupPopupOnClick(p);
 		});
 
 		if (markerClickClosePopup) {
-			marker.off('click', marker._openPopup);
-			marker.on('click', _popupOnClick, marker);
-			map.on('click', (_e) => {
-				marker.closePopup();
-			});
+			_setupPopupOnClick(marker);
 		}
 		markerList.push(marker);
+
+		if (a.polyPoints.length) {
+			popup.on('shewn', (_e) => {
+				_setupPopupButtonHandlers(marker, popup);
+			});
+			map.on('polygonhighlight', (e) => {
+				// TODO: why can't markers be compared directly (not equal)
+				if (e._leaflet_id !== marker._leaflet_id) {
+					resetMarkerPolygons(marker);
+				}
+			});
+		}
 	}
 }
 
