@@ -119,7 +119,12 @@ class MarkerData {
 		this.listDate = listDate;
 		this.link = link;
 		this.notes = notes;
-		this.polyPoints = polyPoints;
+
+		if (polyPoints === null || polyPoints === undefined) {
+			this.polyPoints = [];
+		} else {
+			this.polyPoints = polyPoints;
+		}
 	}
 
 	formatPopup(noun) {
@@ -131,6 +136,10 @@ class MarkerData {
 			: '';
 		const date = this.listDate ? `Date: <strong>${this.listDate}</strong>` : '';
 		const notes = this.notes ? `<p>${this.notes}</p>` : '';
+		const highlightButtonText = this.polyPoints.length > 1 ? 'Highlight Polygons' : 'Highlight Polygon';
+		const highlightButton = this.polyPoints.length
+			? `<a role="button" class="card-link" id="highlightButton">${highlightButtonText}</a>`
+			: '';
 
 		// TODO: coloured background and symbol to match marker, for when clicking polygon. Or border colour?
 		const popupText = `
@@ -146,13 +155,68 @@ class MarkerData {
 	</p>
     ${notes}
     ${listingLink}
+    ${highlightButton}
   </div>
 </div>`;
 		return popupText;
 	}
 }
 
+function _popupOnClick(e) {
+	if (!this._popup || !this._map) {
+		return;
+	}
+	L.DomEvent.stop(e);
+
+	if (this._map.hasLayer(this._popup)) {
+		this.closePopup();
+	} else {
+		this.openPopup(e.latlng);
+	}
+}
+
+function resetMarkerPolygons(marker) {
+	marker.polygonsSetStyle({ dashArray: null });
+	marker.polygonsHighlighted = false;
+}
+
+function _setupPopupOnClick(layer) {
+	layer.off('click', layer._openPopup);
+	layer.on('click', _popupOnClick, layer);
+	map.on('click', (_e) => {
+		layer.closePopup();
+	});
+}
+
+function _setupPopupButtonHandlers(marker, popup) {
+	console.log('Popup added', window.performance);
+	const button = popup.getElement().querySelector('#highlightButton');
+	if (!button.dataset.setup) {
+		button.addEventListener('click', (_e) => {
+			if (marker.polygonsHighlighted) {
+				resetMarkerPolygons(marker);
+			} else {
+				marker.polygonsSetStyle({ dashArray: '10, 10' });
+				map.fire('polygonhighlight', marker);
+				marker.polygonsHighlighted = true;
+			}
+		});
+		button.dataset.setup = true;
+	}
+}
+
+const Popup = L.Popup.extend({
+	openOn: function(map) {
+		const ret = L.Popup.prototype.openOn.call(this, map);
+		this.fire('shewn');
+		return ret;
+	},
+});
+
 function addMarkers(points, markerList, icon, noun) {
+	const markerClickClosePopup = false;
+	// const markerClickClosePopup = true;
+
 	for (let i = 0; i < points.length; i++) {
 		const a = new MarkerData(...points[i]);
 
@@ -162,16 +226,42 @@ function addMarkers(points, markerList, icon, noun) {
 			a.polyPoints,
 			{ title: a.name, icon },
 		);
-		// TODO: constants for indices rather than magic numbers
-		const popup = new L.Popup({
+
+		let closeOnClick = false;
+		if (!markerClickClosePopup) {
+			closeOnClick = a.polyPoints.length === 0;
+		}
+
+		const popup = new Popup({
 			keepInView: false,
 			autoPanPaddingTopLeft: [45, 0],
 			autoPanPaddingBottomRight: [65, 0],
+			closeOnClick,
 		});
+
 		popup.setContent(a.formatPopup(noun));
 		marker.bindPopup(popup);
 		marker.polygonsBindPopup(popup);
+		marker._polygons.forEach((p) => {
+			_setupPopupOnClick(p);
+		});
+
+		if (markerClickClosePopup) {
+			_setupPopupOnClick(marker);
+		}
 		markerList.push(marker);
+
+		if (a.polyPoints.length) {
+			popup.on('shewn', (_e) => {
+				_setupPopupButtonHandlers(marker, popup);
+			});
+			map.on('polygonhighlight', (e) => {
+				// TODO: why can't markers be compared directly (not equal)
+				if (e._leaflet_id !== marker._leaflet_id) {
+					resetMarkerPolygons(marker);
+				}
+			});
+		}
 	}
 }
 
