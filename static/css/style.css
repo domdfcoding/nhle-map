@@ -244,3 +244,9 @@
 	padding-left: 20px;
 	padding-right: 20px;
 }
+
+
+.leaflet-popup-content-wrapper {
+	outline-style: solid;
+	outline-width: 0.2vw;
+}
