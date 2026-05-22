@@ -110,7 +110,7 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 }
 
 class MarkerData {
-	constructor(lat, lng, num, name, grade, listDate, link, notes = null, polyPoints = null) {
+	constructor(lat, lng, num, name, grade, listDate, link, notes = null, polyPoints = null, showPoly = true) {
 		this.lat = lat;
 		this.lng = lng;
 		this.num = num;
@@ -119,6 +119,7 @@ class MarkerData {
 		this.listDate = listDate;
 		this.link = link;
 		this.notes = notes;
+		this.showPoly = showPoly;
 
 		if (polyPoints === null || polyPoints === undefined) {
 			this.polyPoints = [];
@@ -136,9 +137,10 @@ class MarkerData {
 			: '';
 		const date = this.listDate ? `Date: <strong>${this.listDate}</strong>` : '';
 		const notes = this.notes ? `<p>${this.notes}</p>` : '';
-		const highlightButtonText = this.polyPoints.length > 1 ? 'Highlight Polygons' : 'Highlight Polygon';
+		const polygonsText = this.polyPoints.length > 1 ? 'Polygons' : 'Polygon';
+		const highlightText = this.showPoly ? 'Highlight' : 'Show';
 		const highlightButton = this.polyPoints.length
-			? `<a role="button" class="card-link" id="highlightButton">${highlightButtonText}</a>`
+			? `<a role="button" class="card-link" id="highlightButton">${highlightText} ${polygonsText}</a>`
 			: '';
 
 		const popupText = `
@@ -195,6 +197,7 @@ function _setupPopupButtonHandlers(marker, popup) {
 			if (marker.polygonsHighlighted) {
 				resetMarkerPolygons(marker);
 			} else {
+				// TODO: if has hidden polygon show the poly instead (and hide on 2nd click)
 				marker.polygonsSetStyle({ dashArray: '10, 10' });
 				map.fire('polygonhighlight', marker);
 				marker.polygonsHighlighted = true;
@@ -227,7 +230,7 @@ function addMarkers(points, markerList, icon, noun) {
 		// TODO: large polygons disappear after zooming or panning if marker way off screen
 		const marker = new L.PolyMarker(
 			L.latLng(a.lat, a.lng),
-			a.polyPoints,
+			a.showPoly ? a.polyPoints : [],
 			{ title: a.name, icon },
 		);
 
