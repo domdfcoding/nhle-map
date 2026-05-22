@@ -201,7 +201,6 @@ def make_map() -> folium.Map:
 	preloads.add_preload("https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png", "image")
 	preloads.add_to(m)
 
-	# TODO: layer selection background colours to match pins/polygons
 	# TODO: handle polygons
 
 	mcg = markercluster.MarkerCluster(
@@ -216,15 +215,12 @@ def make_map() -> folium.Map:
 	# TODO: for BPN and COI, show polygon on click. Or always show?
 	layer: constants.Dataset
 	for layer in constants.LAYERS:
-
-		add_to(
-				MarkerGroup(
-						cluster=mcg,
-						name=layer.layer_label,
-						),
-				m,
-				layer.identifier,
+		marker_group = MarkerGroup(
+				cluster=mcg,
+				name=layer.layer_label,
+				layer_control_colour=layer.icon.marker_colour,
 				)
+		add_to(marker_group, m, layer.identifier)
 
 	MarkerLoadingJS(layers=constants.LAYERS).add_to(m)
 	ZoomStateJS().add_to(m)
