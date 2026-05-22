@@ -119,7 +119,12 @@ class MarkerData {
 		this.listDate = listDate;
 		this.link = link;
 		this.notes = notes;
-		this.polyPoints = polyPoints;
+
+		if (polyPoints === null || polyPoints === undefined) {
+			this.polyPoints = [];
+		} else {
+			this.polyPoints = polyPoints;
+		}
 	}
 
 	formatPopup(noun) {
@@ -152,7 +157,23 @@ class MarkerData {
 	}
 }
 
+function _popupOnClick(e) {
+	if (!this._popup || !this._map) {
+		return;
+	}
+	L.DomEvent.stop(e);
+
+	if (this._map.hasLayer(this._popup)) {
+		this.closePopup();
+	} else {
+		this.openPopup(e.latlng);
+	}
+}
+
 function addMarkers(points, markerList, icon, noun) {
+	const markerClickClosePopup = false;
+	// const markerClickClosePopup = true;
+
 	for (let i = 0; i < points.length; i++) {
 		const a = new MarkerData(...points[i]);
 
@@ -162,15 +183,37 @@ function addMarkers(points, markerList, icon, noun) {
 			a.polyPoints,
 			{ title: a.name, icon },
 		);
-		// TODO: constants for indices rather than magic numbers
+
+		let closeOnClick = false;
+		if (!markerClickClosePopup) {
+			closeOnClick = a.polyPoints.length === 0;
+		}
+
 		const popup = new L.Popup({
 			keepInView: false,
 			autoPanPaddingTopLeft: [45, 0],
 			autoPanPaddingBottomRight: [65, 0],
+			closeOnClick,
 		});
+
 		popup.setContent(a.formatPopup(noun));
 		marker.bindPopup(popup);
 		marker.polygonsBindPopup(popup);
+		marker._polygons.forEach((p) => {
+			p.off('click', p._openPopup);
+			p.on('click', _popupOnClick, p);
+			map.on('click', (_e) => {
+				p.closePopup();
+			});
+		});
+
+		if (markerClickClosePopup) {
+			marker.off('click', marker._openPopup);
+			marker.on('click', _popupOnClick, marker);
+			map.on('click', (_e) => {
+				marker.closePopup();
+			});
+		}
 		markerList.push(marker);
 	}
 }
