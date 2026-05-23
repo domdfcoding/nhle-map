@@ -549,14 +549,14 @@ def _prepare_dataset(
 
 	def read_english() -> geopandas.GeoDataFrame:
 		assert dataset.geojson_filename is not None
-		
+
 		gdf = _read_gdf(dataset.geojson_filename)
 
 		if dataset.polygons_geojson_filename:
 			poly_gdf = _read_gdf(dataset.polygons_geojson_filename)
 			gdf["polygon"] = poly_gdf["geometry"]
 
-		return gdf.reset_index() 
+		return gdf.reset_index()
 
 	def read_welsh() -> geopandas.GeoDataFrame:
 		assert dataset.welsh_geojson_filename is not None

@@ -142,7 +142,6 @@ class MarkerData {
 		const highlightButton = this.polyPoints.length
 			? `<a role="button" class="card-link" id="highlightButton">${highlightText} ${polygonsText}</a>`
 			: '';
-		// TODO: make "Show Polygon" "Hide Polygon" when already visible
 		// TODO: clicking "Hide Polygon" makes the popup disappear as well.
 
 		const popupText = `
@@ -209,7 +208,6 @@ function _setupPopupButtonHandlers(marker, popup, defaultShowPoly) {
 				if (marker.polygonsHighlighted) {
 					resetMarkerPolygons(marker);
 				} else {
-					// TODO: if has hidden polygon show the poly instead (and hide on 2nd click)
 					marker.polygonsSetStyle({ dashArray: '10, 10' });
 					map.fire('polygonhighlight', marker);
 					marker.polygonsHighlighted = true;
@@ -222,7 +220,6 @@ function _setupPopupButtonHandlers(marker, popup, defaultShowPoly) {
 					marker.addPolygons();
 					marker.showPolygons = true;
 					marker.closePopup(); // To match unintended behaviour when clicking Hide Polygon
-					// map.fire('polygonhighlight', marker);
 				}
 			}
 		});
