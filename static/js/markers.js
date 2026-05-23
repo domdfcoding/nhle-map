@@ -109,12 +109,8 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 	});
 }
 
-function _polygonPlural(polygons) {
-	return polygons.length > 1 ? 'Polygons' : 'Polygon'; // TODO: handle single poly with gaps
-}
-
 class MarkerData {
-	constructor(lat, lng, num, name, grade, listDate, link, notes = null, polyPoints = null, showPoly = true) {
+	constructor(lat, lng, num, name, grade, listDate, link, notes = null, polyPoints = null) {
 		this.lat = lat;
 		this.lng = lng;
 		this.num = num;
@@ -123,7 +119,6 @@ class MarkerData {
 		this.listDate = listDate;
 		this.link = link;
 		this.notes = notes;
-		this.showPoly = showPoly;
 
 		if (polyPoints === null || polyPoints === undefined) {
 			this.polyPoints = [];
@@ -141,10 +136,9 @@ class MarkerData {
 			: '';
 		const date = this.listDate ? `Date: <strong>${this.listDate}</strong>` : '';
 		const notes = this.notes ? `<p>${this.notes}</p>` : '';
-		const polygonsText = _polygonPlural(this.polyPoints);
-		const highlightText = this.showPoly ? 'Highlight' : 'Show';
+		const highlightButtonText = this.polyPoints.length > 1 ? 'Highlight Polygons' : 'Highlight Polygon';
 		const highlightButton = this.polyPoints.length
-			? `<a role="button" class="card-link" id="highlightButton">${highlightText} ${polygonsText}</a>`
+			? `<a role="button" class="card-link" id="highlightButton">${highlightButtonText}</a>`
 			: '';
 
 		const popupText = `
@@ -193,34 +187,17 @@ function _setupPopupOnClick(layer) {
 	});
 }
 
-function _setupPopupButtonHandlers(marker, popup, defaultShowPoly) {
+function _setupPopupButtonHandlers(marker, popup) {
 	console.log('Popup added', window.performance);
 	const button = popup.getElement().querySelector('#highlightButton');
-
-	if (!defaultShowPoly && marker.showPolygons) {
-		button.innerHTML = `Hide ${_polygonPlural(marker._polygons)}`;
-	}
-
 	if (!button.dataset.setup) {
 		button.addEventListener('click', (_e) => {
-			if (defaultShowPoly) {
-				if (marker.polygonsHighlighted) {
-					resetMarkerPolygons(marker);
-				} else {
-					marker.polygonsSetStyle({ dashArray: '10, 10' });
-					map.fire('polygonhighlight', marker);
-					marker.polygonsHighlighted = true;
-				}
+			if (marker.polygonsHighlighted) {
+				resetMarkerPolygons(marker);
 			} else {
-				if (marker.showPolygons) {
-					marker.removePolygons();
-					marker.showPolygons = false;
-					marker.closePopup(); // If the popup is associated with the polygon it will go with the polygon. This ensures consistent behaviour.
-				} else {
-					marker.addPolygons();
-					marker.showPolygons = true;
-					marker.closePopup(); // To match behaviour when clicking Hide Polygon
-				}
+				marker.polygonsSetStyle({ dashArray: '10, 10' });
+				map.fire('polygonhighlight', marker);
+				marker.polygonsHighlighted = true;
 			}
 		});
 		button.dataset.setup = true;
@@ -252,8 +229,6 @@ function addMarkers(points, markerList, icon, noun) {
 			L.latLng(a.lat, a.lng),
 			a.polyPoints,
 			{ title: a.name, icon },
-			{},
-			a.showPoly,
 		);
 
 		let closeOnClick = false;
@@ -283,7 +258,7 @@ function addMarkers(points, markerList, icon, noun) {
 
 		if (a.polyPoints.length) {
 			popup.on('shewn', (_e) => {
-				_setupPopupButtonHandlers(marker, popup, a.showPoly);
+				_setupPopupButtonHandlers(marker, popup);
 			});
 			map.on('polygonhighlight', (e) => {
 				// TODO: why can't markers be compared directly (not equal)
