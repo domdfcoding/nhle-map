@@ -54,7 +54,10 @@ var listedBuildings1823735210 = [
 [49.9936452354, -5.1823178649, 1328484, "SIENA AND POTTERY CRAFTS GALLERY", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328484"],
 [49.9924594733, -5.1829093854, 1328485, "THE HAVEN AND COTTAGE ADJOINING THE HAVEN", "II", "Wed, 10 Jul 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1328485"],
 [49.9708221828, -5.1898221606, 1328486, "MARINERS", "II", "Wed, 10 Jul 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1328486"],
-[49.9833479363, -5.1950113574, 1328487, "Anvoaze Farmhouse", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328487"],
+[49.9833479363, -5.1950113574, 1328487, "Anvoaze Farmhouse", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328487", null, [[[[49.9834661469223, -5.19497855454041],
+    [49.9834230808238, -5.19494365154993], [49.9834360618047, -5.19490451095924], [49.9833762649143, -5.19485450499185], [49.9833203577906, -5.19502241128887], [49.9832390759807, -5.19495549422797], [49.9832153330762, -5.19502702977463],
+    [49.9832312402161, -5.19504002727985], [49.9832184533109, -5.19507767370369], [49.9832562764992, -5.19510858758998], [49.9832690723948, -5.19507094174119], [49.9833483612178, -5.19513574571115], [49.9833522317756, -5.19513893225434],
+    [49.9833746130918, -5.19507763094441], [49.9834063650587, -5.19510066408461], [49.9834288999047, -5.19503379197537], [49.9834435337413, -5.19504565872029], [49.9834661469223, -5.19497855454041]]]], false],
 [49.9992413608, -5.1930992727, 1328489, "TREVEDDON FARMHOUSE", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328489"],
 [49.9699140096, -5.1925876386, 1328496, "WELL HOUSE 40 METRES SOUTH-EAST OF PARISH CHURCH OF ST WINWALAUS", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328496"],
 [49.9601248267, -5.2025720742, 1328497, "Lizard lighthouse", "II", "Tue, 09 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1328497"],
@@ -65,7 +68,7 @@ var listedBuildings1823735210 = [
 [49.9877871902, -5.1787635669, 1328510, "THE VINES", "II", "Wed, 10 Jul 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1328510"],
 [49.9877808912, -5.1793212916, 1328511, "SMYRNA", "II", "Wed, 10 Jul 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1328511"],
 [49.9635130396, -5.1919583506, 1390884, "LIZARD WIRELESS STATION INCLUDING BASE OF AERIAL MAST TO NORTH [FORMERLY KNOWN AS MARCONI BUNGALOW]", "II", "Thu, 17 Jun 2004", "https://historicengland.org.uk/listing/the-list/list-entry/1390884"],
-[49.9877511104, -5.1806760442, 1488605, "Church of St Mary", "II", "Thu, 15 Feb 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1488605"],
+[49.9877511104, -5.1806760442, 1488605, "Church of St Mary", "II", "Thu, 15 Feb 2024", "https://historicengland.org.uk/listing/the-list/list-entry/1488605", null, [[[[49.9877800922578, -5.18074742681985], [49.9877995390326, -5.18070098934941], [49.987805122, -5.18068768339208], [49.9877294164652, -5.18061068666928], [49.9877224291896, -5.18061943481279], [49.9877145000002, -5.18061333008861], [49.9877001127065, -5.18064586888999], [49.9877079654601, -5.18065475927024], [49.9877021188179, -5.18067111756919], [49.9877800922578, -5.18074742681985]]]], false],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
