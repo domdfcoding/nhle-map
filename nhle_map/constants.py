@@ -131,6 +131,7 @@ LISTED_BUILDINGS = Dataset(
 		noun="Listed Building",
 		icon=FontawesomeLayerIcon(icon="building", marker_colour="#006fb2", svg_marker=True),
 		geojson_filename="Listed Building points.geojson",
+		polygons_geojson_filename="Listed Building polygons.geojson",
 		welsh_geojson_filename="Welsh Listed Buildings.geojson",
 		welsh_api_typename="inspire-wg:Cadw_ListedBuildings",
 		)

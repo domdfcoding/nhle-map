@@ -74,7 +74,7 @@ def prepare_data(download: bool = False) -> None:
 	output_dir.maybe_make()
 
 	data = [
-			(constants.LISTED_BUILDINGS, False, False),
+			(constants.LISTED_BUILDINGS, False, True),
 			(constants.PROTECTED_WRECK_SITES, True, False),
 			(constants.BUILDING_PRESERVATION_NOTICES, False, True),
 			(constants.CERTIFICATES_OF_IMMUNITY, False, True),

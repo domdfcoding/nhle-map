@@ -108,12 +108,16 @@ def get_chunk_js(
 		if include_polygon:
 			polygon = item["polygon"]
 			if isinstance(polygon, Polygon):
-				poly_points.append(_get_poly_points(polygon))
+				this_poly_points = _get_poly_points(polygon)
+				if this_poly_points:
+					poly_points.append(this_poly_points)
 			elif isinstance(polygon, MultiPolygon):
 				for sub_poly in polygon.geoms:
 					if not isinstance(sub_poly, Polygon):
 						raise NotImplementedError(sub_poly)
-					poly_points.append(_get_poly_points(sub_poly))
+					this_poly_points = _get_poly_points(sub_poly)
+					if this_poly_points:
+						poly_points.append(this_poly_points)
 
 		if notes and not poly_points:
 			values.append(notes)
@@ -177,13 +181,20 @@ def _get_notes(list_entry: dict[str, Any]) -> str | None:
 
 
 def _get_poly_points(sub_poly: Polygon) -> list[list[tuple[float, float]]]:
-	this_poly_points = []
-	this_poly_points.append([(lat, lng) for (lng, lat) in sub_poly.exterior.coords])
+	poly_points = []
+	outer_poly = [(lat, lng) for (lng, lat) in sub_poly.exterior.coords]
+
+	if len(outer_poly) <= 4:
+		# Trianglular polygon; ignore
+		return []
+
+	poly_points.append(outer_poly)
 
 	for hole in sub_poly.interiors:
-		this_poly_points.append([(lat, lng) for (lng, lat) in hole.coords])
+		if len(hole.coords) >= 4:
+			poly_points.append([(lat, lng) for (lng, lat) in hole.coords])
 
-	return this_poly_points
+	return poly_points
 
 
 def get_data_chunks(
@@ -529,15 +540,23 @@ def _prepare_dataset(
 		data_directory: PathPlus,
 		) -> Chunks:
 
+	def _read_gdf(filename: str) -> geopandas.GeoDataFrame:
+		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / filename)
+		if "ARTICLEUID" in gdf:
+			return gdf.set_index("ARTICLEUID")
+		else:
+			return gdf.set_index("ListEntry")
+
 	def read_english() -> geopandas.GeoDataFrame:
 		assert dataset.geojson_filename is not None
-		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.geojson_filename)
-		return gdf
-	
-	def read_english_polygons() -> geopandas.GeoDataFrame:
-		assert dataset.polygons_geojson_filename is not None
-		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.polygons_geojson_filename)
-		return gdf
+		
+		gdf = _read_gdf(dataset.geojson_filename)
+
+		if dataset.polygons_geojson_filename:
+			poly_gdf = _read_gdf(dataset.polygons_geojson_filename)
+			gdf["polygon"] = poly_gdf["geometry"]
+
+		return gdf.reset_index() 
 
 	def read_welsh() -> geopandas.GeoDataFrame:
 		assert dataset.welsh_geojson_filename is not None
@@ -546,9 +565,6 @@ def _prepare_dataset(
 
 	if dataset.geojson_filename:
 		gdf = read_english()
-		if dataset.polygons_geojson_filename:
-			poly_gdf = read_english_polygons()
-			gdf["polygon"] = poly_gdf["geometry"]
 		if dataset.welsh_geojson_filename:
 			welsh_gdf = read_welsh()
 			gdf = pandas.concat((gdf, welsh_gdf), ignore_index=True)
