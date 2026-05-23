@@ -74,16 +74,16 @@ def prepare_data(download: bool = False) -> None:
 	output_dir.maybe_make()
 
 	data = [
-			(constants.LISTED_BUILDINGS, False),
-			(constants.PROTECTED_WRECK_SITES, True),
-			(constants.BUILDING_PRESERVATION_NOTICES, False),
-			(constants.CERTIFICATES_OF_IMMUNITY, False),
-			(constants.PARKS_AND_GARDENS, True),
-			(constants.BATTLEFIELDS, True),
-			(constants.SCHEDULED_MONUMENTS, True),
-			(constants.DE_DESIGNATED, False),
-			(constants.WORLD_HERITAGE_SITES, True),
-			(constants.REGISTERED_LANDSCAPES_WALES, True),
+			(constants.LISTED_BUILDINGS, False, False),
+			(constants.PROTECTED_WRECK_SITES, True, False),
+			(constants.BUILDING_PRESERVATION_NOTICES, False, True),
+			(constants.CERTIFICATES_OF_IMMUNITY, False, False),
+			(constants.PARKS_AND_GARDENS, True, False),
+			(constants.BATTLEFIELDS, True, False),
+			(constants.SCHEDULED_MONUMENTS, True, False),
+			(constants.DE_DESIGNATED, False, False),
+			(constants.WORLD_HERITAGE_SITES, True, False),
+			(constants.REGISTERED_LANDSCAPES_WALES, True, False),
 			]
 
 	chunk_data(

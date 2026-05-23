@@ -71,6 +71,7 @@ def get_chunk_js(
 		chunk_id: str | int,
 		variable_prefix: str = LISTED_BUILDINGS.variable_prefix,
 		include_polygon: bool = False,
+		hidden_polygon: bool = False,
 		) -> str:
 	"""
 	Returns the javascript array for the given features chunk.
@@ -79,6 +80,7 @@ def get_chunk_js(
 	:param chunk_id:
 	:param variable_prefix: String to prefix javascript variables with.
 	:param include_polygon: Include the outline polygon points (from the ``polygon`` column) and not merely the central coordinates.
+	:param hidden_polygon: Whether the polygon should be hidden by default (e.g. for listed buildings)
 	"""
 
 	output = StringList()
@@ -91,7 +93,7 @@ def get_chunk_js(
 		notes = _get_notes(item)
 
 		if notes and "Buffer Zone" in notes:
-			# TODO: find a way to indicate this still
+			# TODO: Button in popup to display this
 			continue
 
 		number = _get_list_entry_no(item)
@@ -118,6 +120,7 @@ def get_chunk_js(
 		elif poly_points:
 			values.append(notes or None)
 			values.append(poly_points)
+			values.append(not hidden_polygon)
 
 		as_json = json.dumps(values)
 
@@ -530,6 +533,11 @@ def _prepare_dataset(
 		assert dataset.geojson_filename is not None
 		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.geojson_filename)
 		return gdf
+	
+	def read_english_polygons() -> geopandas.GeoDataFrame:
+		assert dataset.polygons_geojson_filename is not None
+		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.polygons_geojson_filename)
+		return gdf
 
 	def read_welsh() -> geopandas.GeoDataFrame:
 		assert dataset.welsh_geojson_filename is not None
@@ -538,6 +546,9 @@ def _prepare_dataset(
 
 	if dataset.geojson_filename:
 		gdf = read_english()
+		if dataset.polygons_geojson_filename:
+			poly_gdf = read_english_polygons()
+			gdf["polygon"] = poly_gdf["geometry"]
 		if dataset.welsh_geojson_filename:
 			welsh_gdf = read_welsh()
 			gdf = pandas.concat((gdf, welsh_gdf), ignore_index=True)
@@ -573,8 +584,8 @@ def chunk_data(
 	output_dir.maybe_make(parents=True)
 
 	datasets: list[tuple[Chunks, Dataset, bool]] = []
-	for (dataset, polygon) in data:
-		datasets.append((_prepare_dataset(dataset, lat_range, lng_range, data_dir), dataset, polygon))
+	for (dataset, polygon, hidden_polygon) in data:
+		datasets.append((_prepare_dataset(dataset, lat_range, lng_range, data_dir), dataset, polygon, hidden_polygon))
 
 	id_lookup: dict[float, dict[float, int]] = defaultdict(dict)
 
@@ -584,7 +595,7 @@ def chunk_data(
 			chunk_buffer = [f"// Lat: {latitude} — {longitude}, Lng: {latitude+1} — {longitude+1}, "]
 			data_for_chunk: bool = False
 
-			for chunks, dataset, polygon in datasets:
+			for chunks, dataset, polygon, hidden_polygon in datasets:
 				subset = chunks.get(latitude, {}).get(longitude)
 
 				if subset is None:
@@ -603,7 +614,8 @@ def chunk_data(
 							subset.to_dict("records"),
 							chunk_id=chunk_id,
 							variable_prefix=dataset.variable_prefix,
-							include_polygon=polygon,
+							include_polygon=polygon or hidden_polygon,
+							hidden_polygon=hidden_polygon,
 							)
 
 				chunk_buffer.append(chunk_js)

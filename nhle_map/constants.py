@@ -67,8 +67,10 @@ class Dataset(NamedTuple):
 
 	icon: "LayerIcon"
 	geojson_filename: str | None = None
+	polygons_geojson_filename: str | None = None
 	welsh_geojson_filename: str | None = None
 	welsh_api_typename: str | None = None
+	# TODO: Welsh polygons?
 
 	@property
 	def layer_label(self) -> str:
@@ -109,6 +111,7 @@ BUILDING_PRESERVATION_NOTICES = Dataset(
 		noun="Building Preservation Notice",
 		icon=FontawesomeLayerIcon(icon="building-flag", marker_colour="teal", svg_marker=True),
 		geojson_filename="Building Preservation Notice points.geojson",
+		polygons_geojson_filename="Building Preservation Notices polygons.geojson",
 		)
 
 CERTIFICATES_OF_IMMUNITY = Dataset(
