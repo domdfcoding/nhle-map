@@ -124,7 +124,9 @@ def get_chunk_js(
 		elif poly_points:
 			values.append(notes or None)
 			values.append(poly_points)
-			values.append(not hidden_polygon)
+
+			if hidden_polygon:
+				values.append(False)
 
 		as_json = json.dumps(values)
 
