@@ -109,6 +109,10 @@ function loadMarkersAllLayers(chunkIDs, layers) {
 	});
 }
 
+function _polygonPlural(polygons) {
+	return polygons.length > 1 ? 'Polygons' : 'Polygon'; // TODO: handle single poly with gaps
+}
+
 class MarkerData {
 	constructor(lat, lng, num, name, grade, listDate, link, notes = null, polyPoints = null, showPoly = true) {
 		this.lat = lat;
@@ -137,7 +141,7 @@ class MarkerData {
 			: '';
 		const date = this.listDate ? `Date: <strong>${this.listDate}</strong>` : '';
 		const notes = this.notes ? `<p>${this.notes}</p>` : '';
-		const polygonsText = this.polyPoints.length > 1 ? 'Polygons' : 'Polygon';
+		const polygonsText = _polygonPlural(this.polyPoints);
 		const highlightText = this.showPoly ? 'Highlight' : 'Show';
 		const highlightButton = this.polyPoints.length
 			? `<a role="button" class="card-link" id="highlightButton">${highlightText} ${polygonsText}</a>`
@@ -195,11 +199,7 @@ function _setupPopupButtonHandlers(marker, popup, defaultShowPoly) {
 	const button = popup.getElement().querySelector('#highlightButton');
 
 	if (!defaultShowPoly && marker.showPolygons) {
-		if (marker._polygons.length > 1) {
-			button.innerHTML = 'Hide Polygons';
-		} else {
-			button.innerHTML = 'Hide Polygon';
-		}
+		button.innerHTML = `Hide ${_polygonPlural(marker._polygons)}`
 	}
 
 	if (!button.dataset.setup) {
