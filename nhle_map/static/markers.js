@@ -146,7 +146,6 @@ class MarkerData {
 		const highlightButton = this.polyPoints.length
 			? `<a role="button" class="card-link" id="highlightButton">${highlightText} ${polygonsText}</a>`
 			: '';
-		// TODO: clicking "Hide Polygon" makes the popup disappear as well.
 
 		const popupText = `
 <div class="nhle-popup card border-0">
@@ -199,7 +198,7 @@ function _setupPopupButtonHandlers(marker, popup, defaultShowPoly) {
 	const button = popup.getElement().querySelector('#highlightButton');
 
 	if (!defaultShowPoly && marker.showPolygons) {
-		button.innerHTML = `Hide ${_polygonPlural(marker._polygons)}`
+		button.innerHTML = `Hide ${_polygonPlural(marker._polygons)}`;
 	}
 
 	if (!button.dataset.setup) {
@@ -216,10 +215,11 @@ function _setupPopupButtonHandlers(marker, popup, defaultShowPoly) {
 				if (marker.showPolygons) {
 					marker.removePolygons();
 					marker.showPolygons = false;
+					marker.closePopup(); // If the popup is associated with the polygon it will go with the polygon. This ensures consistent behaviour.
 				} else {
 					marker.addPolygons();
 					marker.showPolygons = true;
-					marker.closePopup(); // To match unintended behaviour when clicking Hide Polygon
+					marker.closePopup(); // To match behaviour when clicking Hide Polygon
 				}
 			}
 		});
