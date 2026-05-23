@@ -67,8 +67,16 @@ class Dataset(NamedTuple):
 
 	icon: "LayerIcon"
 	geojson_filename: str | None = None
+	polygons_geojson_filename: str | None = None
 	welsh_geojson_filename: str | None = None
 	welsh_api_typename: str | None = None
+	# TODO: Welsh polygons?
+
+	#: Whether the dataset is polygon data or points.
+	polygonal: bool = False
+
+	#: Whether the polygons should be shown by defaul (e.g. Scheduled Monument) or hidden (Listed Buildings)
+	hidden_polygons: bool = False
 
 	@property
 	def layer_label(self) -> str:
@@ -99,6 +107,7 @@ BATTLEFIELDS = Dataset(
 		noun="Battlefield",
 		icon=SVGLayerIcon(filename="static/img/Challenge_Icon.svg", marker_colour="orange"),
 		geojson_filename="Battlefields.geojson",
+		polygonal=True,
 		)
 
 # Alternative BPN/immunity icon   # fa-sign-hanging
@@ -109,6 +118,8 @@ BUILDING_PRESERVATION_NOTICES = Dataset(
 		noun="Building Preservation Notice",
 		icon=FontawesomeLayerIcon(icon="building-flag", marker_colour="teal", svg_marker=True),
 		geojson_filename="Building Preservation Notice points.geojson",
+		polygons_geojson_filename="Building Preservation Notices polygons.geojson",
+		hidden_polygons=True,
 		)
 
 CERTIFICATES_OF_IMMUNITY = Dataset(
@@ -118,6 +129,8 @@ CERTIFICATES_OF_IMMUNITY = Dataset(
 		noun="Certificate of Immunity",
 		icon=FontawesomeLayerIcon(icon="scroll", marker_colour="tan", svg_marker=True),
 		geojson_filename="Certificate of Immunity points.geojson",
+		polygons_geojson_filename="Certificate of Immunity polygons.geojson",
+		hidden_polygons=True,
 		)
 
 LISTED_BUILDINGS = Dataset(
@@ -127,8 +140,10 @@ LISTED_BUILDINGS = Dataset(
 		noun="Listed Building",
 		icon=FontawesomeLayerIcon(icon="building", marker_colour="#006fb2", svg_marker=True),
 		geojson_filename="Listed Building points.geojson",
+		polygons_geojson_filename="Listed Building polygons.geojson",
 		welsh_geojson_filename="Welsh Listed Buildings.geojson",
 		welsh_api_typename="inspire-wg:Cadw_ListedBuildings",
+		hidden_polygons=True,
 		)
 
 PARKS_AND_GARDENS = Dataset(
@@ -140,6 +155,7 @@ PARKS_AND_GARDENS = Dataset(
 		geojson_filename="Parks and Gardens.geojson",
 		welsh_geojson_filename="Welsh Parks and Gardens.geojson",
 		welsh_api_typename="geonode:cadw_rhpg_registeredareas",
+		polygonal=True,
 		)
 
 PROTECTED_WRECK_SITES = Dataset(
@@ -151,6 +167,7 @@ PROTECTED_WRECK_SITES = Dataset(
 		geojson_filename="Protected Wreck Sites.geojson",
 		welsh_geojson_filename="Welsh Protected Wreck Sites.geojson",
 		welsh_api_typename="inspire-wg:Cadw_DesignatedWrecks",
+		polygonal=True,
 		)
 
 SCHEDULED_MONUMENTS = Dataset(
@@ -162,6 +179,7 @@ SCHEDULED_MONUMENTS = Dataset(
 		geojson_filename="Scheduled Monuments.geojson",
 		welsh_geojson_filename="Welsh Scheduled Monuments.geojson",
 		welsh_api_typename="inspire-wg:Cadw_SAM",
+		polygonal=True,
 		)
 
 WORLD_HERITAGE_SITES = Dataset(
@@ -173,6 +191,7 @@ WORLD_HERITAGE_SITES = Dataset(
 		geojson_filename="World Heritage Sites.geojson",
 		welsh_geojson_filename="Welsh World Heritage Sites.geojson",
 		welsh_api_typename="inspire-wg:vGeoServer_WorldHeritageSites_Public",
+		polygonal=True,
 		)
 
 DE_DESIGNATED = Dataset(
@@ -192,6 +211,7 @@ REGISTERED_LANDSCAPES_WALES = Dataset(
 		icon=FontawesomeLayerIcon(icon="mountain", marker_colour="Olive", svg_marker=True),
 		welsh_geojson_filename="Welsh Registered Landscapes.geojson",
 		welsh_api_typename="inspire-wg:Cadw_HistoricLandscapes",
+		polygonal=True,
 		)
 
 LAYERS = (

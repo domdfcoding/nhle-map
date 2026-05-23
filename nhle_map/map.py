@@ -201,8 +201,6 @@ def make_map() -> folium.Map:
 	preloads.add_preload("https://unpkg.com/leaflet-extra-markers@1.2.2/dist/img/markers_shadow.png", "image")
 	preloads.add_to(m)
 
-	# TODO: handle polygons
-
 	mcg = markercluster.MarkerCluster(
 			chunkedLoading=True,
 			chunk_progress_function="updateProgressBar",
@@ -212,7 +210,6 @@ def make_map() -> folium.Map:
 			)
 	add_to(mcg, m, "nhle")
 
-	# TODO: for BPN and COI, show polygon on click. Or always show?
 	layer: constants.Dataset
 	for layer in constants.LAYERS:
 		marker_group = MarkerGroup(

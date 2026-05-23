@@ -71,6 +71,7 @@ def get_chunk_js(
 		chunk_id: str | int,
 		variable_prefix: str = LISTED_BUILDINGS.variable_prefix,
 		include_polygon: bool = False,
+		hidden_polygon: bool = False,
 		) -> str:
 	"""
 	Returns the javascript array for the given features chunk.
@@ -79,6 +80,7 @@ def get_chunk_js(
 	:param chunk_id:
 	:param variable_prefix: String to prefix javascript variables with.
 	:param include_polygon: Include the outline polygon points (from the ``polygon`` column) and not merely the central coordinates.
+	:param hidden_polygon: Whether the polygon should be hidden by default (e.g. for listed buildings)
 	"""
 
 	output = StringList()
@@ -91,7 +93,7 @@ def get_chunk_js(
 		notes = _get_notes(item)
 
 		if notes and "Buffer Zone" in notes:
-			# TODO: find a way to indicate this still
+			# TODO: Button in popup to display this
 			continue
 
 		number = _get_list_entry_no(item)
@@ -106,18 +108,25 @@ def get_chunk_js(
 		if include_polygon:
 			polygon = item["polygon"]
 			if isinstance(polygon, Polygon):
-				poly_points.append(_get_poly_points(polygon))
+				this_poly_points = _get_poly_points(polygon)
+				if this_poly_points:
+					poly_points.append(this_poly_points)
 			elif isinstance(polygon, MultiPolygon):
 				for sub_poly in polygon.geoms:
 					if not isinstance(sub_poly, Polygon):
 						raise NotImplementedError(sub_poly)
-					poly_points.append(_get_poly_points(sub_poly))
+					this_poly_points = _get_poly_points(sub_poly)
+					if this_poly_points:
+						poly_points.append(this_poly_points)
 
 		if notes and not poly_points:
 			values.append(notes)
 		elif poly_points:
 			values.append(notes or None)
 			values.append(poly_points)
+
+			if hidden_polygon:
+				values.append(False)
 
 		as_json = json.dumps(values)
 
@@ -174,13 +183,20 @@ def _get_notes(list_entry: dict[str, Any]) -> str | None:
 
 
 def _get_poly_points(sub_poly: Polygon) -> list[list[tuple[float, float]]]:
-	this_poly_points = []
-	this_poly_points.append([(lat, lng) for (lng, lat) in sub_poly.exterior.coords])
+	poly_points = []
+	outer_poly = [(lat, lng) for (lng, lat) in sub_poly.exterior.coords]
+
+	if len(outer_poly) <= 4:
+		# Trianglular polygon; ignore
+		return []
+
+	poly_points.append(outer_poly)
 
 	for hole in sub_poly.interiors:
-		this_poly_points.append([(lat, lng) for (lng, lat) in hole.coords])
+		if len(hole.coords) >= 4:
+			poly_points.append([(lat, lng) for (lng, lat) in hole.coords])
 
-	return this_poly_points
+	return poly_points
 
 
 def get_data_chunks(
@@ -526,10 +542,23 @@ def _prepare_dataset(
 		data_directory: PathPlus,
 		) -> Chunks:
 
+	def _read_gdf(filename: str) -> geopandas.GeoDataFrame:
+		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / filename)
+		if "ARTICLEUID" in gdf:
+			return gdf.set_index("ARTICLEUID")
+		else:
+			return gdf.set_index("ListEntry")
+
 	def read_english() -> geopandas.GeoDataFrame:
 		assert dataset.geojson_filename is not None
-		gdf: geopandas.GeoDataFrame = pyogrio.read_dataframe(data_directory / dataset.geojson_filename)
-		return gdf
+
+		gdf = _read_gdf(dataset.geojson_filename)
+
+		if dataset.polygons_geojson_filename:
+			poly_gdf = _read_gdf(dataset.polygons_geojson_filename)
+			gdf["polygon"] = poly_gdf["geometry"]
+
+		return gdf.reset_index()
 
 	def read_welsh() -> geopandas.GeoDataFrame:
 		assert dataset.welsh_geojson_filename is not None
@@ -549,7 +578,7 @@ def _prepare_dataset(
 
 
 def chunk_data(
-		data: list[tuple[Dataset, bool]],
+		data: list[Dataset],
 		lat_range: Iterable[float],
 		lng_range: Iterable[float],
 		data_directory: PathLike,
@@ -572,9 +601,9 @@ def chunk_data(
 	output_dir = PathPlus(output_directory)
 	output_dir.maybe_make(parents=True)
 
-	datasets: list[tuple[Chunks, Dataset, bool]] = []
-	for (dataset, polygon) in data:
-		datasets.append((_prepare_dataset(dataset, lat_range, lng_range, data_dir), dataset, polygon))
+	datasets: list[tuple[Chunks, Dataset]] = []
+	for dataset in data:
+		datasets.append((_prepare_dataset(dataset, lat_range, lng_range, data_dir), dataset))
 
 	id_lookup: dict[float, dict[float, int]] = defaultdict(dict)
 
@@ -584,7 +613,7 @@ def chunk_data(
 			chunk_buffer = [f"// Lat: {latitude} — {longitude}, Lng: {latitude+1} — {longitude+1}, "]
 			data_for_chunk: bool = False
 
-			for chunks, dataset, polygon in datasets:
+			for chunks, dataset in datasets:
 				subset = chunks.get(latitude, {}).get(longitude)
 
 				if subset is None:
@@ -596,14 +625,15 @@ def chunk_data(
 				else:
 					data_for_chunk = True
 					subset = subset.copy()
-					if polygon:
+					if dataset.polygonal:
 						subset = set_polygon_marker(subset)
 
 					chunk_js = get_chunk_js(
 							subset.to_dict("records"),
 							chunk_id=chunk_id,
 							variable_prefix=dataset.variable_prefix,
-							include_polygon=polygon,
+							include_polygon=dataset.polygonal or dataset.hidden_polygons,
+							hidden_polygon=dataset.hidden_polygons,
 							)
 
 				chunk_buffer.append(chunk_js)
