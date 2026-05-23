@@ -576,7 +576,7 @@ def _prepare_dataset(
 
 
 def chunk_data(
-		data: list[tuple[Dataset, bool]],
+		data: list[Dataset],
 		lat_range: Iterable[float],
 		lng_range: Iterable[float],
 		data_directory: PathLike,
@@ -599,9 +599,9 @@ def chunk_data(
 	output_dir = PathPlus(output_directory)
 	output_dir.maybe_make(parents=True)
 
-	datasets: list[tuple[Chunks, Dataset, bool]] = []
-	for (dataset, polygon, hidden_polygon) in data:
-		datasets.append((_prepare_dataset(dataset, lat_range, lng_range, data_dir), dataset, polygon, hidden_polygon))
+	datasets: list[tuple[Chunks, Dataset]] = []
+	for dataset in data:
+		datasets.append((_prepare_dataset(dataset, lat_range, lng_range, data_dir), dataset))
 
 	id_lookup: dict[float, dict[float, int]] = defaultdict(dict)
 
@@ -611,7 +611,7 @@ def chunk_data(
 			chunk_buffer = [f"// Lat: {latitude} — {longitude}, Lng: {latitude+1} — {longitude+1}, "]
 			data_for_chunk: bool = False
 
-			for chunks, dataset, polygon, hidden_polygon in datasets:
+			for chunks, dataset in datasets:
 				subset = chunks.get(latitude, {}).get(longitude)
 
 				if subset is None:
@@ -623,15 +623,15 @@ def chunk_data(
 				else:
 					data_for_chunk = True
 					subset = subset.copy()
-					if polygon:
+					if dataset.polygonal:
 						subset = set_polygon_marker(subset)
 
 					chunk_js = get_chunk_js(
 							subset.to_dict("records"),
 							chunk_id=chunk_id,
 							variable_prefix=dataset.variable_prefix,
-							include_polygon=polygon or hidden_polygon,
-							hidden_polygon=hidden_polygon,
+							include_polygon=dataset.polygonal or dataset.hidden_polygons,
+							hidden_polygon=dataset.hidden_polygons,
 							)
 
 				chunk_buffer.append(chunk_js)
