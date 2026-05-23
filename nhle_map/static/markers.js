@@ -194,6 +194,15 @@ function _setupPopupOnClick(layer) {
 function _setupPopupButtonHandlers(marker, popup, defaultShowPoly) {
 	console.log('Popup added', window.performance);
 	const button = popup.getElement().querySelector('#highlightButton');
+
+	if (!defaultShowPoly && marker.showPolygons) {
+		if (marker._polygons.length > 1) {
+			button.innerHTML = 'Hide Polygons';
+		} else {
+			button.innerHTML = 'Hide Polygon';
+		}
+	}
+
 	if (!button.dataset.setup) {
 		button.addEventListener('click', (_e) => {
 			if (defaultShowPoly) {
