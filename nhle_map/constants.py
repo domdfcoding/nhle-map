@@ -121,6 +121,7 @@ CERTIFICATES_OF_IMMUNITY = Dataset(
 		noun="Certificate of Immunity",
 		icon=FontawesomeLayerIcon(icon="scroll", marker_colour="tan", svg_marker=True),
 		geojson_filename="Certificate of Immunity points.geojson",
+		polygons_geojson_filename="Certificate of Immunity polygons.geojson",
 		)
 
 LISTED_BUILDINGS = Dataset(

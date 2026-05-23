@@ -77,7 +77,7 @@ def prepare_data(download: bool = False) -> None:
 			(constants.LISTED_BUILDINGS, False, False),
 			(constants.PROTECTED_WRECK_SITES, True, False),
 			(constants.BUILDING_PRESERVATION_NOTICES, False, True),
-			(constants.CERTIFICATES_OF_IMMUNITY, False, False),
+			(constants.CERTIFICATES_OF_IMMUNITY, False, True),
 			(constants.PARKS_AND_GARDENS, True, False),
 			(constants.BATTLEFIELDS, True, False),
 			(constants.SCHEDULED_MONUMENTS, True, False),
