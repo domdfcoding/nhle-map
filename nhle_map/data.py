@@ -113,7 +113,9 @@ def get_chunk_js(
 						raise NotImplementedError(sub_poly)
 					poly_points.append(_get_poly_points(sub_poly))
 
-		if poly_points or notes:
+		if notes and not poly_points:
+			values.append(notes)
+		elif poly_points:
 			values.append(notes or None)
 			values.append(poly_points)
 
