@@ -2,62 +2,62 @@
   "De-designated sites": {
     "description": "Sites removed from the National Heritage List for England because they no longer met any of the above criteria.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779163233500
+    "dataLastEditDate": 1779768027044
   },
   "Listed Building points": {
     "description": "When a building is recognised as being of special architectural or historic interest it is added to the statutory \u2018List\u2019. This is compiled by the Department for Digital, Culture, Media and Sport (DCMS) on advice from Historic England. \nBuildings on the List are given one of three grades which denote their level of importance, Grade I being the highest and Grade II the lowest:\n \u2022 Grade I (one) \u00ac of exceptional interest \n\u2022 Grade II* (two star) \u00ac particularly important \n\u2022 Grade II (two) \u00ac of special interest \nStructures that might not be classified as \u2018buildings\u2019 \u00ac such as railings, gate piers, walls, war memorials, gravestones, post boxes and telephone boxes \u00ac can all be Listed Buildings. \nRelated to Listed Buildings are Certificates of Immunity (COI) and Building Preservation Notices (BPN).",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779168929775
+    "dataLastEditDate": 1779774576114
   },
   "Building Preservation Notice points": {
     "description": "This is a form of \u2018temporary\u2019 listing. Local authorities have the power to serve a BPN on the owner of a building which is not listed, but which is of special architectural/historical interest and in danger of being demolished or altered. A BPN lasts for a period of six months and in effect makes an unlisted building subject to the same rules as if it were listed. This allows time for a formal assessment to be carried out.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779168929838
+    "dataLastEditDate": 1779774576364
   },
   "Certificate of Immunity points": {
     "description": "A COI is a legal guarantee which prevents a building from being listed during a specified five year period. The issue of a certificate also prevents the local authority from serving a Building Preservation Notice (see below) on the respective property during this period.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779168929932
+    "dataLastEditDate": 1779774576614
   },
   "Listed Building polygons": {
     "description": "",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779169002457
+    "dataLastEditDate": 1779774662138
   },
   "Building Preservation Notices polygons": {
     "description": "",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779169002536
+    "dataLastEditDate": 1779774662216
   },
   "Certificate of Immunity polygons": {
     "description": "",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779169002740
+    "dataLastEditDate": 1779774662420
   },
   "Scheduled Monuments": {
     "description": "Historic buildings and archaeological sites of national importance are given legal protection by being placed on a \u2018Schedule\u2019 of monuments. Historic England identifies and advises on these monuments, which are placed on the Schedule by the DCMS. \nExamples of Scheduled Monuments are Roman remains, burial mounds, castles, bridges, earthworks, the remains of deserted villages, and industrial sites. Scheduled Monuments can not include ecclesiastical or residential buildings (except for associated caretaker\u2019s dwellings), and unlike Listed Buildings they are not assigned grades.",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779169011737
+    "dataLastEditDate": 1779774671424
   },
   "Parks and Gardens": {
     "description": "The 'Register\u2019 of Historic Parks and Gardens was established in 1983, with the emphasis placed on protecting 'designed' landscapes rather than those with botanical importance. \nThe Register safeguards a broad range of planned open spaces, including public parks, cemeteries, the grounds of private houses, and town squares. Like Listed Buildings, Parks and Gardens are assigned one of three grades to indicate their significance.",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779169013851
+    "dataLastEditDate": 1779774673920
   },
   "Battlefields": {
     "description": "The \u2018Register\u2019 of Historic Battlefields, established in 1995, offers protection to the sites of English battles, as well as promoting a better understanding of their historical significance. These landscapes are of vital importance, as they provide archaeological and topographical evidence of major turning points in England\u2019s history.\nEngland Only",
     "copyrightText": "\u00a9 Crown Copyright 2026. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2026. Released under OGL.",
-    "dataLastEditDate": 1779169014024
+    "dataLastEditDate": 1779774674108
   },
   "Protected Wreck Sites": {
     "description": "The Government has the power to safeguard the site of any shipwreck in English territorial waters. Historic England manages the licensing scheme that enables access to the wreck sites. It is a criminal offence to interfere with a protected wreck without a licence. Wreck sites are identified as being likely to contain the remains of a vessel, or its contents, which are of historical, artistic or archaeological importance.",
     "copyrightText": "\u00a9 Crown Copyright 2026. Released under OGL.",
-    "dataLastEditDate": 1779169014149
+    "dataLastEditDate": 1779774674249
   },
   "World Heritage Sites": {
     "description": "World Heritage Sites are part of the World Heritage Convention, established in 1972 by UNESCO (United Nations Educational, Scientific and Cultural Organisation). They are landscapes, cities, monuments or buildings of exceptional natural or cultural value. \nThe World Heritage List includes the Great Wall of China, the Pyramids, the Great Barrier Reef and the City of Venice. Sites in England include Stonehenge and Avebury, Canterbury Cathedral, the Tower of London, Hadrian\u2019s Wall and the whole of the City of Bath. \nPlease note: this dataset represents Historic England\u2019s interpretation of the UNESCO World Heritage Site boundaries for sites wholly in or crossing into England.",
     "copyrightText": "\u00a9 Historic England",
-    "dataLastEditDate": 1779169014963
+    "dataLastEditDate": 1779774675566
   },
   "Welsh Registered Landscapes": {
     "description": "The Register of Historic Landscapes in Wales.\n\nIt is a non-statutory, advisory register. Its primary aim is to provide information and raise awareness of an initial selection of the most important and significant historic landscape areas in Wales in order to aid their protection and conservation. This information is intended to help owners, Government, statutory bodies, Local Authorities, developers and all those who are involved with land management and protection to make better-informed decisions about areas on the Register.\n\nWales Only\n"
