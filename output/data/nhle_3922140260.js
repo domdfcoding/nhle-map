@@ -13586,7 +13586,7 @@ var listedBuildings3922140260 = [
 [52.4305633907, -2.83089943, 1269938, "CHEST TOMB APPROXIMATELY 15 METRES SOUTH EAST OF CHANCEL OF CHURCH OF ST JOHN THE BAPTIST", "II", "Fri, 21 Jun 1996", "https://historicengland.org.uk/listing/the-list/list-entry/1269938"],
 [52.430325417, -2.8315186713, 1269939, "STOKESAY CASTLE AND GATEHOUSE INCLUDING MOAT RETAINING WALLS", "I", "Fri, 12 Nov 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1269939"],
 [52.4298230385, -2.8268842833, 1269940, "THE OLD VICARAGE", "II", "Fri, 21 Jun 1996", "https://historicengland.org.uk/listing/the-list/list-entry/1269940"],
-[52.4315227551, -2.8280927641, 1269941, "WEIR ON RIVER TEME INCLUDING ATTACHED SLUICE, RETAINING WALLS AND CULVERT", "II", "Fri, 21 Jun 1996", "https://historicengland.org.uk/listing/the-list/list-entry/1269941"],
+[52.4315227551, -2.8280927641, 1269941, "Weir on River Onny including attached sluice, retaining walls and culvert", "II", "Fri, 21 Jun 1996", "https://historicengland.org.uk/listing/the-list/list-entry/1269941"],
 [52.4359197976, -2.8228355537, 1269942, "BARN APPROXIMATELY 200 METRES EAST OF WHETTLETON FARMHOUSE (FARMHOUSE NOT INCLUDED)", "II", "Fri, 21 Jun 1996", "https://historicengland.org.uk/listing/the-list/list-entry/1269942"],
 [52.2266038241, -2.7388370202, 1270259, "9 South Street", "II", "Fri, 09 Jul 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1270259"],
 [52.2258742439, -2.7391857701, 1270260, "24 AND 26, SOUTH STREET", "II", "Fri, 09 Feb 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1270260"],
