@@ -19182,7 +19182,7 @@ var listedBuildings715690407 = [
 [52.4609797997, -1.9180611439, 1343380, "LODGE TO EDGBASTON GOLF CLUB", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1343380"],
 [52.4607815256, -1.9173550615, 1343381, "MONUMENTS TO WILLIAM HODDINOTT, JANE BELLIS, CATHERINE CHAVASSE AND J A CHATWIN APPROXIMATELY 30 FEET NORTH WEST OF CHURCH OF ST BARTHOLOMEW IN THE CHURCHYARD", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1343381"],
 [52.4124030297, -1.9645623532, 1343382, "VILLAGE POUND", "II", "Fri, 25 Apr 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1343382"],
-[52.5261444777, -1.9009607022, 1343383, "GATES AND GATEPIERS TO THE CHURCH OF ST JOHN THE EVANGELIST", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1343383"],
+[52.5261282501, -1.9009781517, 1343383, "GATES AND GATEPIERS TO THE CHURCH OF ST JOHN THE EVANGELIST", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1343383"],
 [52.4600908456, -1.7784668651, 1343384, "151 AND 153, CHURCH ROAD B26", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1343384"],
 [52.4744380376, -1.8026300283, 1343385, "CHURCH OF ST EDBURGHA", "I", "Fri, 25 Apr 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1343385"],
 [52.4745903501, -1.803186966, 1343386, "PENNY COTTAGE", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1343386"],

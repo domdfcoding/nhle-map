@@ -7694,7 +7694,7 @@ var listedBuildings1389770266 = [
 [51.0131961146, -3.6218098872, 1106671, "CRUWYS BALL", "II", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106671"],
 [51.038919685, -3.6033511735, 1106672, "EAST LISCOMBE FARMHOUSE INCLUDING OUTBUILDING ATTACHED AT WEST END", "II", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106672"],
 [51.0365909872, -3.6163646186, 1106673, "RHYLL MANOR", "II", "Mon, 20 Feb 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1106673"],
-[51.0264281449, -3.6370594594, 1106674, "DUSNLEY FARMHOUSE", "II*", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106674"],
+[51.0264281449, -3.6370594594, 1106674, "Dunsley Farmhouse", "II*", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106674"],
 [51.02391228, -3.6149398858, 1106675, "BARTON HOUSE AND FARMHOUSE", "II", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106675"],
 [51.0268493211, -3.6165107356, 1106676, "TWIN HEADSTONE CIRCA 1 METRE SOUTH OF EAST END OF NAVE OF CHURCH OF ST MICHAEL", "II", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106676"],
 [51.0322023264, -3.6157128216, 1106677, "WADDICOMBE FARMHOUSE", "II", "Tue, 15 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1106677"],
