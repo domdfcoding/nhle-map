@@ -123,7 +123,7 @@ def get_chunk_js(
 			values.append(notes)
 		elif poly_points:
 			values.append(notes or None)
-			values.append(poly_points)
+			values.append(sorted(poly_points))
 
 			if hidden_polygon:
 				values.append(False)
