@@ -29,7 +29,9 @@ Data preparation.
 # stdlib
 import datetime
 import json
+import pprint
 import re
+import textwrap
 from collections import defaultdict
 from collections.abc import Iterable
 from typing import Any, TypeVar, cast, overload
@@ -44,7 +46,7 @@ from arcgis.features import FeatureLayer, FeatureSet  # type: ignore[import-unty
 from arcgis.gis import GIS, ContentManager  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
-from domdf_python_tools.typing import PathLike
+from domdf_python_tools.typing import PathLike, String
 from shapely import MultiPolygon, Polygon
 
 # this package
@@ -64,6 +66,15 @@ __all__ = [
 		]
 
 Chunks = dict[float, dict[float, geopandas.GeoDataFrame]]
+
+
+class _PrettyPrinter(pprint.PrettyPrinter):
+
+	def __init__(self):
+		super().__init__(width=240, compact=True)
+
+	def pformat(self, object):
+		return super().pformat(object).rstrip().translate({ord('('): '[', ord(')'): ']'})
 
 
 def get_chunk_js(
@@ -123,33 +134,19 @@ def get_chunk_js(
 			values.append(notes)
 		elif poly_points:
 			values.append(notes or None)
-			values.append(sorted(poly_points))
+
+		json_values = [json.dumps(v) for v in values]
+
+		if poly_points:
+			if (len(poly_points) > 1 or len(poly_points[0][0]) > 10):
+				json_values.append('\n' + textwrap.indent(_PrettyPrinter().pformat(poly_points), ' '))
+			else:
+				json_values.append(json.dumps(poly_points))
 
 			if hidden_polygon:
-				values.append(False)
+				json_values.append("false")
 
-		as_json = json.dumps(values)
-
-		if poly_points and len(poly_points[0][0]) > 10:
-			# Nicer formatting
-			as_js = as_json[1:] + ','
-			split_at_square_brackets = as_js.split('[')
-			line = ''
-			indent = ''
-
-			for line_chunk in split_at_square_brackets:
-				line += f"{indent}[{line_chunk}"
-				indent = ''
-				if len(line) > 200:
-					output.append(line)
-					line = ''
-					indent = "    "
-
-			if line:
-				output.append(line)
-
-		else:
-			output.append(as_json + ',')
+		output.append('[' + ", ".join(json_values) + "],")
 
 	output.append(']')
 	output.blankline()
