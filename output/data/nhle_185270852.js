@@ -10686,7 +10686,7 @@ var listedBuildings185270852 = [
 [50.3176914701, -4.7791462042, 1379451, "STABLE BLOCK TO PENRICE", "II", "Mon, 08 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1379451"],
 [50.2889823943, -4.8047128634, 1379452, "PERUPPA FARMHOUSE", "II", "Mon, 08 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1379452"],
 [50.3452737723, -4.7435274383, 1379453, "MILESTONE AT SX0489853085", "II", "Mon, 08 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1379453"],
-[50.3386136505, -4.7953083536, 1379454, "THE GENERAL WOLFE PUBLIC HOUSE", "II", "Mon, 08 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1379454"],
+[50.3385569434, -4.7952430762, 1379454, "Former General Wolfe Public House", "II", "Mon, 08 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1379454", null, [[[[50.3384641728505, -4.79524316839043], [50.3385279507875, -4.79531149908248], [50.3385664336165, -4.79522459507383], [50.3386447789923, -4.79540869353289], [50.3386679238326, -4.79538437080973], [50.3385839014913, -4.79518010954052], [50.3385212124892, -4.79511391749227], [50.3384641728505, -4.79524316839043]]]], false],
 [50.3330909592, -4.758803794, 1379455, "ANNAS WORKSHOP", "II", "Mon, 08 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1379455"],
 [50.3353050014, -4.7602714911, 1379456, "62 AND 64, CHARLESTOWN ROAD", "II", "Mon, 08 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1379456"],
 [50.3351760092, -4.7615029105, 1379458, "151, CHARLESTOWN ROAD", "II", "Mon, 08 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1379458"],

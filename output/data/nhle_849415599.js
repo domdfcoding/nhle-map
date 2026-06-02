@@ -5031,7 +5031,7 @@ var listedBuildings849415599 = [
 [52.5655398774, 1.0779278404, 1152214, "THE GRANGE", "II", "Tue, 02 Oct 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1152214"],
 [52.3972641273, 1.1861115515, 1152218, "COTTAGES OCCUPIED BY MR FAIRWEATHER, MISS FEWING AND MR TAYLOR", "II", "Fri, 04 Mar 1977", "https://historicengland.org.uk/listing/the-list/list-entry/1152218"],
 [52.3965045516, 1.1852628981, 1152221, "CHURCH VIEW", "II", "Fri, 04 Mar 1977", "https://historicengland.org.uk/listing/the-list/list-entry/1152221"],
-[52.574595186, 1.0672256038, 1152223, "St George's School", "II", "Mon, 15 Aug 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1152223"],
+[52.574595186, 1.0672256038, 1152223, "Forehoe Hundred House of Industry", "II", "Mon, 15 Aug 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1152223"],
 [52.396229845, 1.1851107887, 1152226, "CROWN PUBLIC HOUSE", "II", "Fri, 04 Mar 1977", "https://historicengland.org.uk/listing/the-list/list-entry/1152226"],
 [52.6603120839, 1.6068413664, 1152228, "NO NAME FARMHOUSE", "II", "Fri, 04 Dec 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1152228"],
 [52.7612361101, 1.378003408, 1152229, "Three Horseshoes House", "II", "Sat, 16 Apr 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1152229"],
