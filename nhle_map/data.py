@@ -46,7 +46,7 @@ from arcgis.features import FeatureLayer, FeatureSet  # type: ignore[import-unty
 from arcgis.gis import GIS, ContentManager  # type: ignore[import-untyped]
 from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.stringlist import StringList
-from domdf_python_tools.typing import PathLike, String
+from domdf_python_tools.typing import PathLike
 from shapely import MultiPolygon, Polygon
 
 # this package
@@ -73,7 +73,7 @@ class _PrettyPrinter(pprint.PrettyPrinter):
 	def __init__(self):
 		super().__init__(width=240, compact=True)
 
-	def pformat(self, object):
+	def pformat(self, object: object) -> str:  # noqa: A002  # pylint: disable=redefined-builtin
 		return super().pformat(object).rstrip().translate({ord('('): '[', ord(')'): ']'})
 
 
