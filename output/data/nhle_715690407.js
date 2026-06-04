@@ -4919,7 +4919,7 @@ var listedBuildings715690407 = [
 [52.6720433756, -1.1888201203, 1074664, "CHURCH OF ST MARY", "II", "Wed, 01 Jun 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1074664"],
 [52.6719422759, -1.188496642, 1074665, "HEARD FAMILY TOMBS IN CHURCHYARD OF ST MARY", "II", "Thu, 15 Mar 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1074665"],
 [52.6722301219, -1.1885208838, 1074666, "WALL AT CHURCH OF ST MARY", "II", "Thu, 15 Mar 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1074666"],
-[52.6718465553, -1.1929202311, 1074667, "102, BRADGATE ROAD", "II", "Mon, 12 Feb 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1074667"],
+[52.6718247399, -1.1929606799, 1074667, "102, BRADGATE ROAD", "II", "Mon, 12 Feb 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1074667"],
 [52.6726258287, -1.1898593425, 1074668, "55, CHURCH LANE", "II", "Thu, 15 Mar 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1074668"],
 [52.673209368, -1.1857963186, 1074669, "OUTBUILDING C 6 METRES SOUTH WEST OF NO 22", "II", "Fri, 21 Nov 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1074669"],
 [52.6717632791, -1.191250649, 1074670, "1, GROBY ROAD", "II", "Wed, 19 Nov 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1074670"],
@@ -9068,7 +9068,7 @@ var listedBuildings715690407 = [
 [52.5526445064, -1.1363465938, 1177087, "10, ORCHARD LANE", "II", "Mon, 03 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1177087"],
 [52.6709587046, -1.1853353716, 1177116, "PACK HORSE BRIDGE", "II*", "Wed, 01 Jun 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1177116"],
 [52.6492327981, -1.2070240638, 1177117, "RUINS OF OLD CHURCH OF ST PETER", "II", "Mon, 07 Oct 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1177117"],
-[52.6738029485, -1.1910946516, 1177130, "WAR MEMORIAL", "II", "Thu, 15 Mar 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1177130"],
+[52.6739935919, -1.1912617944, 1177130, "WAR MEMORIAL", "II", "Thu, 15 Mar 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1177130"],
 [52.5555284441, -1.161099009, 1177133, "BOILERHOUSE AND WATER TOWER", "II", "Mon, 21 Sep 1981", "https://historicengland.org.uk/listing/the-list/list-entry/1177133"],
 [52.5554565325, -1.159831919, 1177142, "9, THE DRIVE", "II", "Mon, 21 Sep 1981", "https://historicengland.org.uk/listing/the-list/list-entry/1177142"],
 [52.5495036558, -1.1116169223, 1177157, "CHURCH OF ST BARTHOLOMEW", "II*", "Mon, 07 Oct 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1177157"],
@@ -16623,7 +16623,6 @@ var listedBuildings715690407 = [
 [52.4872097456, -1.9106875889, 1290161, "29, WARSTONE LANE B18", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1290161"],
 [52.4873273916, -1.9146445089, 1290165, "160, WARSTONE LANE B18 (See details for further address information)", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1290165"],
 [52.4909448092, -1.9117197795, 1290183, "71 AND 72, VYSE STREET B18", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1290183"],
-[52.481485021, -1.8675184049, 1290196, "THE QUEEN'S HEAD PUBLIC HOUSE", "II", "Thu, 08 Jul 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1290196"],
 [52.4994892557, -1.9127605807, 1290197, "VILLA PLACE", "II", "Thu, 05 Nov 1981", "https://historicengland.org.uk/listing/the-list/list-entry/1290197"],
 [52.4568295358, -1.200794928, 1290203, "THE MANSE", "II", "Tue, 25 Apr 1989", "https://historicengland.org.uk/listing/the-list/list-entry/1290203"],
 [52.4554254794, -1.2018945887, 1290220, "35-39, CHURCH STREET", "II", "Tue, 11 Jan 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1290220"],
@@ -35519,6 +35518,7 @@ var protectedWreckSites715690407 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var buildingPreservationNotices715690407 = [
+[52.7949000414, -1.194300164, 1496523, "BPN: Five Oaks Farm Main Street", null, "Tue, 03 Mar 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1496523", null, [[[[52.7951334858577, -1.19408360317199], [52.7950967709875, -1.19403572013183], [52.7950450687948, -1.19413755548569], [52.7950805201684, -1.19418643922793], [52.7951334858577, -1.19408360317199]], [[52.7949550111682, -1.19391205390401], [52.7948471300256, -1.19371541682931], [52.7948070839412, -1.19377547944232], [52.7948177277722, -1.19379801848969], [52.7948089091377, -1.19381289641856], [52.7948253817279, -1.19384442802387], [52.794815677183, -1.19386282236656], [52.7948964742068, -1.19401481313874], [52.7948708003373, -1.19405242338638], [52.7949194197588, -1.19414478653951], [52.7949697161034, -1.19407372768289], [52.794994887049, -1.19412753652622], [52.7950079386091, -1.19410226561626], [52.7950095738876, -1.19408715987923], [52.7950050888507, -1.19407428643982], [52.794988688547, -1.19403988351927], [52.7949367818036, -1.19394438053367], [52.7949550111682, -1.19391205390401]], [[52.7950298784752, -1.19428056055012], [52.7949631015136, -1.19418642763302], [52.7949478827192, -1.19421066622007], [52.7949111174993, -1.19416224436238], [52.7948937062006, -1.19418065929279], [52.7949671888887, -1.19429459946041], [52.7949138427633, -1.19440619058485], [52.7949478906409, -1.1944493563142], [52.7950298784752, -1.19428056055012]]]], false],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
@@ -57388,6 +57388,7 @@ var deDesignated715690407 = [
 [52.8192684714, -1.435413439, 1281435, "MELBOURNE ARMS", null, "Tue, 09 Apr 2013", null, "Listing"],
 [52.4735349837, -1.9641036188, 1289866, "431 Hagley Road, Birmingham", null, "Fri, 23 Dec 2016", null, "Listing"],
 [52.4719800507, -1.9292138053, 1289884, "ST PHILIP'S GRAMMAR SCHOOL", null, "Fri, 15 Apr 2016", null, "Listing"],
+[52.4814785125, -1.8675368299, 1290196, "The Queen's Head Public House", null, "Fri, 29 May 2026", null, "Listing"],
 [52.4777116151, -1.9164732822, 1290725, "The Albion Public House", null, "Tue, 26 Sep 2017", null, "Listing"],
 [52.6136003796, -1.6910184851, 1294777, "FAZELEY BRIDGE (THAT PART IN FAZELEY CIVIL PARISH)", null, "Tue, 26 Jul 2016", null, "Listing"],
 [52.6337522682, -1.1319892257, 1300506, "Rear elevation of former Picture House", null, "Fri, 01 Nov 2019", null, "Listing"],
