@@ -1356,7 +1356,7 @@ var listedBuildings849415599 = [
 [52.3432044855, 1.1342780255, 1032564, "STONE COTTAGE", "II", "Tue, 19 Jul 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1032564"],
 [52.3415836021, 1.1345034354, 1032565, "MILL HOUSE", "II", "Thu, 14 Apr 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1032565"],
 [52.3430653972, 1.0064608872, 1032608, "THE PRIORY WITH ATTACHED OUTBUILDINGS AND GARDEN WALLS", "II*", "Fri, 29 Jul 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1032608"],
-[52.3435583198, 1.0047616503, 1032641, "BOXTREE COTTAGE LINDEN COTTAGE", "II", "Wed, 16 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1032641"],
+[52.3435583198, 1.0047616503, 1032641, "Boxtree Cottage and Camomile Cottage", "II", "Wed, 16 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1032641"],
 [52.3357112655, 1.0232710307, 1032642, "BOTESDALE LODGE", "II", "Fri, 29 Jul 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1032642"],
 [52.3426133987, 1.0047856758, 1032643, "PREMISES OCCUPIED BY CHILVERS (DRAPERY STORES)", "II", "Fri, 29 Jul 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1032643"],
 [52.3426432252, 1.0049737626, 1032644, "RAILINGS TO FRONT OF HONISTER HOUSE", "II", "Wed, 16 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1032644"],
