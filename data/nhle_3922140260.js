@@ -2769,7 +2769,7 @@ var listedBuildings3922140260 = [
 [52.9025218247, -2.4861640494, 1056086, "55, SHROPSHIRE STREET", "II", "Fri, 05 Jun 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1056086"],
 [52.9029511301, -2.4860231131, 1056087, "POYNTON HOUSE", "II", "Wed, 07 May 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1056087"],
 [52.908698079, -2.4725380313, 1056088, "BRIDGE NUMBER 63, BETTON ROAD BRIDGE", "II", "Fri, 05 Jun 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1056088"],
-[52.9046944958, -2.4834917065, 1056089, "TUDOR CAFE", "II", "Fri, 05 Jun 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1056089"],
+[52.9046944958, -2.4834917065, 1056089, "9, Stafford Street", "II", "Fri, 05 Jun 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1056089"],
 [52.9051248996, -2.4823627879, 1056090, "35, STAFFORD STREET", "II", "Wed, 07 May 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1056090"],
 [52.9059817217, -2.4790987593, 1056091, "73, STAFFORD STREET", "II", "Wed, 07 May 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1056091"],
 [52.9051781756, -2.481226812, 1056092, "38 Stafford Street", "II", "Fri, 20 Aug 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1056092", null, [[[[52.9052471680716, -2.48121869365452], [52.9051174642592, -2.48112670877363], [52.9051153123229, -2.48112534678656], [52.9050980274016, -2.48119815640778], [52.905099641805, -2.4811990663961], [52.9051836198143, -2.4812614028154], [52.9051722644133, -2.48131286849858], [52.9052191641384, -2.48134119210041], [52.9052471680716, -2.48121869365452]]]], false],

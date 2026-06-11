@@ -4509,7 +4509,7 @@ var listedBuildings3590499840 = [
 [54.0453716267, -2.7811048146, 1195061, "THE PALM HOUSE", "II", "Wed, 18 Feb 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1195061"],
 [54.0435050608, -2.7847959402, 1195062, "LODGE TO WILLIAMSON PARK", "II", "Mon, 13 Mar 1995", "https://historicengland.org.uk/listing/the-list/list-entry/1195062"],
 [54.0424067229, -2.7840181121, 1195063, "GOLGOTHA WITH ATTACHED GARDEN WALLS", "II", "Wed, 18 Feb 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1195063"],
-[54.0450812798, -2.7992883333, 1195065, "Alexandra Hotel", "II", "Tue, 11 Sep 1990", "https://historicengland.org.uk/listing/the-list/list-entry/1195065"],
+[54.0451979039, -2.7993607643, 1195065, "Alexandra Hotel and 103 and 105 Penny Street", "II", "Tue, 11 Sep 1990", "https://historicengland.org.uk/listing/the-list/list-entry/1195065"],
 [54.0461320087, -2.7994154546, 1195066, "CHURCH OF ST THOMAS", "II", "Mon, 13 Mar 1995", "https://historicengland.org.uk/listing/the-list/list-entry/1195066"],
 [54.0449709002, -2.799668011, 1195067, "FARMERS ARMS HOTEL FARMER'S ARMS HOTEL", "II", "Mon, 13 Mar 1995", "https://historicengland.org.uk/listing/the-list/list-entry/1195067"],
 [54.050723234, -2.8054967821, 1195068, "PRIORY AND PARISH CHURCH OF ST MARY", "I", "Tue, 22 Dec 1953", "https://historicengland.org.uk/listing/the-list/list-entry/1195068"],
