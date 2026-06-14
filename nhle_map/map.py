@@ -34,9 +34,8 @@ import branca.element
 import folium
 import folium.elements
 from domdf_folium_tools import markercluster
-from domdf_folium_tools.elements import Preload, add_to, set_id
+from domdf_folium_tools.elements import LocateControl, Preload, add_to, set_id
 from domdf_folium_tools.template import SubclassingTemplate
-from folium.plugins import LocateControl as FoliumLocateControl
 from folium.template import Template
 from folium_about_button import AboutControl
 from folium_layercontrols.minimap.toggle import ToggleMinimapLayerControl
@@ -250,22 +249,3 @@ def make_map() -> folium.Map:
 	BasemapState(osm_tiles.tile_name, layer_control).add_to(m)
 
 	return m
-
-
-class LocateControl(FoliumLocateControl):
-	default_css = [
-			(
-					"fontawesome_css",
-					"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css",
-					),
-			] + FoliumLocateControl.default_css
-
-	def __init__(self):
-		super().__init__(
-				icon="fa-solid fa-location-crosshairs",
-				keepCurrentZoomLevel=[13, 18],
-				locateOptions={"enableHighAccuracy": True, "maxZoom": 16},
-				)
-
-	def get_name(self) -> str:
-		return "locate_control"

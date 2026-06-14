@@ -28,8 +28,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/css/leaflet.extra-markers.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.90.0/dist/L.Control.Locate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+
+                <style>
+                    .leaflet-control-locate {
+                        a {
+                            font-size: 1.4em;
+                            .leaflet-locate-icon {
+                                color: black
+                            }
+                        }
+                    }
+                </style>
+
 
 				<style>
 					.leaflet-control-about {
@@ -480,13 +492,13 @@ England Only</p>
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b30/domdf_folium_tools/domdf-folium-tools.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b33/domdf_folium_tools/domdf-folium-tools.min.js"></script>
     <script src="https://unpkg.com/leaflet-extra-markers@1.2.2/dist/js/leaflet.extra-markers.js"></script>
     <script src="static/js/markers.js"></script>
     <script src="static/js/layer_data.js"></script>
     <script src="data/nhle_id_lookup.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0/folium_zoom_state/zoom_state.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.90.0/dist/L.Control.Locate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.2.0/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
@@ -757,9 +769,9 @@ England Only</p>
 
 
 
-            var locate_control = L.control.locate(
-                {"icon": "fa-solid fa-location-crosshairs", "keepCurrentZoomLevel": [13, 18], "locateOptions": {"enableHighAccuracy": true, "maxZoom": 16}}
-            ).addTo(map);
+                var locate_control = L.control.locate(
+                    {"icon": "fa-solid fa-location-crosshairs", "keepCurrentZoomLevel": [13, 18], "locateOptions": {"enableHighAccuracy": true, "maxZoom": 16}}
+                ).addTo(map);
 
 
 
