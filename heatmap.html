@@ -178,7 +178,7 @@
     <script src="data/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b30/domdf_folium_tools/heatmap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b33/domdf_folium_tools/heatmap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_hm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_leaflet_hm.min.js"></script>
     <script src="static/js/heatmap.js"></script>
@@ -314,34 +314,34 @@
 
 
 
-				var about_control_ff7cd73c982901adfdfb7540653903c7 = new AboutControl(
+				var about_control_410a78e54858afc2c907d6145efb7103 = new AboutControl(
 					{"modalID": "aboutModal"}
 				).addTo(map);
 
 
-				var map_search_control_410a78e54858afc2c907d6145efb7103 = L.MapSearchControl({
+				var map_search_control_01d257e7876e37fe8a5cdebbdc776a9d = L.MapSearchControl({
 					provider: new GeoSearch.OpenStreetMapProvider({"featureType": "settlement", "viewbox": "-7,49,3,56"}),
 					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "searchLabel": "Enter town or city", "showMarker": false},
 					}
 				)
 
 				// Close search box when map clicked.
-				map.on('click', map_search_control_410a78e54858afc2c907d6145efb7103.close, map_search_control_410a78e54858afc2c907d6145efb7103);
+				map.on('click', map_search_control_01d257e7876e37fe8a5cdebbdc776a9d.close, map_search_control_01d257e7876e37fe8a5cdebbdc776a9d);
 
-				map_search_control_410a78e54858afc2c907d6145efb7103.addTo(map);
+				map_search_control_01d257e7876e37fe8a5cdebbdc776a9d.addTo(map);
 
 
-				var map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d = new MapSwapControl(
+				var map_swap_control_5c82144b9e718e834cf8863087750389 = new MapSwapControl(
 					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-map fa-fw\"\u003e\u003c/i\u003e Default": "../"}}
 				)
 
 				// Close the control when map clicked.
-				map.on('click', map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d.close, map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d);
+				map.on('click', map_swap_control_5c82144b9e718e834cf8863087750389.close, map_swap_control_5c82144b9e718e834cf8863087750389);
 
-				map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d.addTo(map);
+				map_swap_control_5c82144b9e718e834cf8863087750389.addTo(map);
 
 
-				var reset_view_control_5c82144b9e718e834cf8863087750389 = new ResetViewControl(
+				var reset_view_control_56915911183feda913d54a667ee33c46 = new ResetViewControl(
 					{"centre": [52.561928, -1.464854], "icon": "fa-solid fa-arrow-rotate-left", "zoom": 7}
 				).addTo(map);
 
