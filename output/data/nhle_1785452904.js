@@ -6535,7 +6535,7 @@ var listedBuildings1785452904 = [
 [50.3177723088, -5.1978056943, 1328709, "WHEAL KITTY ENGINE HOUSE (SARA'S SHAFT) AT SW724512", "II", "Mon, 31 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1328709"],
 [50.262289944, -5.1957980643, 1328710, "NORTH TRESKERBY ENGINE HOUSE (AT SW723451)", "II", "Tue, 30 May 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1328710"],
 [50.3107606473, -5.1262647408, 1328711, "K6 TELEPHONE KIOSK OUTSIDE FORMER POST OFFICE", "II", "Thu, 11 Oct 1990", "https://historicengland.org.uk/listing/the-list/list-entry/1328711"],
-[50.31500506, -5.0602717894, 1328712, "CROSS IN CHURCHYARD APPROXIMATELY 4 METRES SOUTH OF TOWER, CHURCH OF ST ALLEN", "II", "Tue, 30 May 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1328712"],
+[50.31500506, -5.0602717894, 1328712, "Cross in churchyard approximately 4 metres south of tower, Church of St. Allen", "II", "Tue, 30 May 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1328712"],
 [50.3156651897, -5.0596229644, 1328713, "OLD RECTORY", "II", "Wed, 16 Nov 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1328713"],
 [50.2989665086, -5.069266471, 1328714, "GWARNICK MANOR", "II", "Wed, 16 Nov 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1328714"],
 [50.3074430374, -5.0552303437, 1328715, "LANNER FARM. CART SHED AND ANIMAL PENS", "II", "Wed, 16 Nov 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1328715"],
