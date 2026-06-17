@@ -6948,7 +6948,7 @@ var listedBuildings32815386 = [
 [50.7539864356, -2.8547426882, 1228175, "DETACHED COW HOUSE STALL AT COTHAYS FARM", "II", "Thu, 07 Aug 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1228175"],
 [50.7545458148, -2.8583651161, 1228176, "CANDIDA HOUSE, ATTACHED COTTAGE AND COACH HOUSE AT REAR", "II", "Tue, 10 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1228176"],
 [50.7544531864, -2.8580521956, 1228177, "CRINKLE-CRANKLE WALL TO REAR OF CANDIDA HOUSE", "II", "Tue, 10 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1228177"],
-[50.9351115859, -2.4079485555, 1228191, "BRUNSELL'S FARMHOUSE", "II", "Tue, 04 Oct 1960", "https://historicengland.org.uk/listing/the-list/list-entry/1228191"],
+[50.9351115859, -2.4079485555, 1228191, "Brownshall", "II", "Tue, 04 Oct 1960", "https://historicengland.org.uk/listing/the-list/list-entry/1228191"],
 [50.9335317263, -2.4071378288, 1228197, "TROOPER COTTAGE", "II", "Tue, 04 Oct 1960", "https://historicengland.org.uk/listing/the-list/list-entry/1228197"],
 [50.7548576995, -2.8577582625, 1228199, "VILLAGE WELL HOUSE", "II", "Tue, 07 Dec 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1228199"],
 [50.7548489869, -2.8573311763, 1228200, "SUNNYSIDE AND SADLER'S COTTAGE", "II", "Tue, 10 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1228200"],

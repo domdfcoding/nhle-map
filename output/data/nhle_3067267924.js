@@ -8529,7 +8529,7 @@ var listedBuildings3067267924 = [
 [51.0486707253, -1.4924838083, 1093799, "CARTSHED GRANARY 100 METRES NORTH WEST OF LOWER ELDON FARMHOUSE", "II", "Fri, 07 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1093799"],
 [51.0767572512, -1.4855057329, 1093800, "Austin Cross Cottage", "II", "Wed, 29 May 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1093800"],
 [51.0723496091, -1.5071860513, 1093801, "HORSEBRIDGE HOUSE", "II", "Fri, 07 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1093801"],
-[51.0706768468, -1.5093885093, 1093802, "STADDLE BARN AT HORSEBRIDGE FARM 75 METRES SOUTH WEST OF FARM COTTAGES", "II", "Fri, 07 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1093802"],
+[51.0704622142, -1.5096220769, 1093802, "STADDLE BARN AT HORSEBRIDGE FARM 75 METRES SOUTH WEST OF FARM COTTAGES", "II", "Fri, 07 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1093802"],
 [51.1005426334, -1.4920744975, 1093803, "Marsh Court", "I", "Wed, 29 May 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1093803"],
 [51.1009173208, -1.4923084328, 1093804, "MOAT IN FRONT OF FORECOURT OF MARSH COURT TO THE NORTH", "II", "Fri, 07 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1093804"],
 [51.1007744967, -1.4925811747, 1093805, "STEPS AND BENCH AT SOUTH END OF LONG WALK ON WEST SIDE OF MARSH COURT", "II", "Fri, 07 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1093805"],
