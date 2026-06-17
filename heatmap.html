@@ -5,9 +5,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="referrer" content="strict-origin-when-cross-origin">
-        <link rel="icon"
-              type="image/svg+xml"
-              href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIiBmaWxsPSIjNDc4NmVkIj4KCTwhLS0hRm9udCBBd2Vzb21lIEZyZWUgdjcuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgKEljb25zOiBDQyBCWSA0LjAsIEZvbnRzOiBTSUwgT0ZMIDEuMSwgQ29kZTogTUlUIExpY2Vuc2UpIENvcHlyaWdodCAyMDI2IEZvbnRpY29ucywgSW5jLi0tPgoJPHBhdGggZD0iTTY0IDBDMjguNyAwIDAgMjguNyAwIDY0TDAgNDQ4YzAgMzUuMyAyOC43IDY0IDY0IDY0bDI1NiAwYzM1LjMgMCA2NC0yOC43IDY0LTY0bDAtMzg0YzAtMzUuMy0yOC43LTY0LTY0LTY0TDY0IDB6TTE3NiAzNTJsMzIgMGMxNy43IDAgMzIgMTQuMyAzMiAzMmwwIDgwLTk2IDAgMC04MGMwLTE3LjcgMTQuMy0zMiAzMi0zMnpNOTYgMTEyYzAtOC44IDcuMi0xNiAxNi0xNmwzMiAwYzguOCAwIDE2IDcuMiAxNiAxNmwwIDMyYzAgOC44LTcuMiAxNi0xNiAxNmwtMzIgMGMtOC44IDAtMTYtNy4yLTE2LTE2bDAtMzJ6TTI0MCA5NmwzMiAwYzguOCAwIDE2IDcuMiAxNiAxNmwwIDMyYzAgOC44LTcuMiAxNi0xNiAxNmwtMzIgMGMtOC44IDAtMTYtNy4yLTE2LTE2bDAtMzJjMC04LjggNy4yLTE2IDE2LTE2ek05NiAyNDBjMC04LjggNy4yLTE2IDE2LTE2bDMyIDBjOC44IDAgMTYgNy4yIDE2IDE2bDAgMzJjMCA4LjgtNy4yIDE2LTE2IDE2bC0zMiAwYy04LjggMC0xNi03LjItMTYtMTZsMC0zMnptMTQ0LTE2bDMyIDBjOC44IDAgMTYgNy4yIDE2IDE2bDAgMzJjMCA4LjgtNy4yIDE2LTE2IDE2bC0zMiAwYy04LjggMC0xNi03LjItMTYtMTZsMC0zMmMwLTguOCA3LjItMTYgMTYtMTZ6Ii8+Cjwvc3ZnPg==">
         <title>England Listed Buildings Heatmap</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -25,22 +22,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"/>
 
-        <style>
-            .leaflet-bar-timecontrol .leaflet-control-timecontrol::before {
-                font-family: unset;
-            }
-
-            .timecontrol-speed::before {
-                font-family: "Font Awesome 6 Free" !important;
-                content: var(--fa);
-            }
-
-            .fa-flipx::before {
-                transform: rotate(180deg);
-            }
-        </style>
-
-
 				<style>
 					.leaflet-control-about {
 						a {
@@ -53,26 +34,13 @@
 				</style>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0.post1/folium_map_swap_control/map_swap_control.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.css"/>
 
 				<style>
 					.leaflet-control-map-swap {
 						a {
 							font-size: 1.4em;
 							.leaflet-map-swap-icon {
-								color: black;
-							}
-						}
-					}
-				</style>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-reset-control@v0.1.0b3/folium_reset_control/reset_control.min.css"/>
-
-				<style>
-					.leaflet-control-reset-view {
-						a {
-							font-size: 1.4em;
-							.leaflet-reset-view-icon {
 								color: black;
 							}
 						}
@@ -145,7 +113,7 @@
                                 © Historic England 2026. Contains Ordnance Survey data © Crown copyright and database right 2026.
                             </p>
 
-                            <small class="text-muted">Generated on Tue, 16 Jun 2026 14:08:38 GMT. Data last updated Tue, 16 Jun 2026 05:50:37 GMT</small>
+                            <small class="text-muted">Generated on Thu, 14 May 2026 07:53:31 GMT. Data last updated Mon, 04 May 2026 05:48:37 GMT</small>
 
                         </div>
                     </div>
@@ -178,17 +146,16 @@
     <script src="data/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b33/domdf_folium_tools/heatmap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/domdf-folium-tools@v0.1.0b18/domdf_folium_tools/heatmap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_hm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/pa7_leaflet_hm.min.js"></script>
     <script src="static/js/heatmap.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/leaflet/Leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0/folium_zoom_state/zoom_state.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.2.0/folium_about_button/about_button.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-zoom-state@v0.1.0b5/folium_zoom_state/zoom_state.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.1.0b2/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0.post1/folium_map_swap_control/map_swap_control.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-reset-control@v0.1.0b3/folium_reset_control/reset_control.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0b2/folium_map_swap_control/map_swap_control.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ismyrnow/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.js"></script>
             <script>
 
@@ -247,7 +214,7 @@
                 {times : times, currentTime: new Date(1)}
             );
 
-            var time_dimension_control_heatmap = new HeatmapControl(
+            var time_dimension_control_heatmap = new L.Control.TimeDimensionHeatmap(
                 ["1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"],
                 {
                     "autoPlay": false,
@@ -260,16 +227,14 @@
                     "maxSpeed": 10,
                     "minSpeed": 1,
                     "playButton": true,
-                    "playReverseButton": false,
+                    "playReverseButton": true,
                     "position": "bottomleft",
                     "speedSlider": true,
                     "speedStep": 1,
                     "styleNS": "leaflet-control-timecontrol",
                     "timeSlider": true,
                     "timeSliderDragUpdate": false,
-                    "timeSteps": 1,
-                    "toEndButton": true,
-                    "toStartButton": true
+                    "timeSteps": 1
 },
             ).addTo(map);
 
@@ -301,12 +266,8 @@
 
             var heat_layer_style2 = new L.TDHeatLayer(
                 heatmapData,
-                {heatmapOptions: {
-                    "blur": 15,
-                    "minOpacity": 0.05,
-                    "radius": 25
-}},
-            );
+                {heatmapOptions: {"blur": 15, "minOpacity": 0.05, "radius": 25}
+            });
 
 
 
@@ -314,36 +275,31 @@
 
 
 
-				var about_control_410a78e54858afc2c907d6145efb7103 = new AboutControl(
+				var about_control_ff7cd73c982901adfdfb7540653903c7 = new AboutControl(
 					{"modalID": "aboutModal"}
 				).addTo(map);
 
 
-				var map_search_control_01d257e7876e37fe8a5cdebbdc776a9d = L.MapSearchControl({
+				var map_search_control_410a78e54858afc2c907d6145efb7103 = L.MapSearchControl({
 					provider: new GeoSearch.OpenStreetMapProvider({"featureType": "settlement", "viewbox": "-7,49,3,56"}),
 					...{"autoCompleteDelay": 1000, "closeOnSubmit": true, "disableEnterSearch": true, "maxSuggestions": 15, "searchLabel": "Enter town or city", "showMarker": false},
 					}
 				)
 
 				// Close search box when map clicked.
-				map.on('click', map_search_control_01d257e7876e37fe8a5cdebbdc776a9d.close, map_search_control_01d257e7876e37fe8a5cdebbdc776a9d);
+				map.on('click', map_search_control_410a78e54858afc2c907d6145efb7103.close, map_search_control_410a78e54858afc2c907d6145efb7103);
 
-				map_search_control_01d257e7876e37fe8a5cdebbdc776a9d.addTo(map);
+				map_search_control_410a78e54858afc2c907d6145efb7103.addTo(map);
 
 
-				var map_swap_control_5c82144b9e718e834cf8863087750389 = new MapSwapControl(
+				var map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d = new MapSwapControl(
 					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-map fa-fw\"\u003e\u003c/i\u003e Default": "../"}}
 				)
 
 				// Close the control when map clicked.
-				map.on('click', map_swap_control_5c82144b9e718e834cf8863087750389.close, map_swap_control_5c82144b9e718e834cf8863087750389);
+				map.on('click', map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d.close, map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d);
 
-				map_swap_control_5c82144b9e718e834cf8863087750389.addTo(map);
-
-
-				var reset_view_control_56915911183feda913d54a667ee33c46 = new ResetViewControl(
-					{"centre": [52.561928, -1.464854], "icon": "fa-solid fa-arrow-rotate-left", "zoom": 7}
-				).addTo(map);
+				map_swap_control_01d257e7876e37fe8a5cdebbdc776a9d.addTo(map);
 
 
             var grouped_layer_control_heatmap_layers = {
@@ -381,11 +337,6 @@
             const overlayState = new OverlayState(map, grouped_layer_control_heatmap, "style")
             overlayState.fromURL("10")
             overlayState.setup();
-
-
-            const timeDimensionState = new L.TimeDimensionState(map, time_dimension_control_heatmap.index, "year")
-            timeDimensionState.fromURL(1947)
-            timeDimensionState.setup();
 
 
 

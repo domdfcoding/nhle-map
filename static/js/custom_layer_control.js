@@ -68,13 +68,6 @@ const CustomLayerControl = L.Control.Layers.MinimapToggle.extend({
 		const name = L.DomUtil.create('span', '', span);
 		name.innerHTML = ' ' + obj.name;
 
-		if (obj.overlay) {
-			const colourLegend = document.createElement('span');
-			colourLegend.classList.add('colour-legend');
-			colourLegend.style = `background-color: ${obj.layer.options.layerControlColour}`;
-			name.prepend(colourLegend);
-		}
-
 		return label;
 	},
 
