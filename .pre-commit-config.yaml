@@ -84,9 +84,12 @@ repos:
     - id: forbid-crlf
 
  - repo: https://github.com/python-formate/snippet-fmt
-   rev: v0.1.5
+   rev: v0.2.0
    hooks:
     - id: snippet-fmt
+      additional_dependencies:
+       - formate-trailing-commas>=0.1.1
+       - formate-js>=0.1.0
 
  - repo: https://github.com/python-formate/formate
    rev: v1.2.1
@@ -132,7 +135,6 @@ repos:
    rev: v8.56.0
    hooks:
     - id: eslint
-      # files: \.ts$
       files: nhle_map/.*\.js$
       types:
        - file
