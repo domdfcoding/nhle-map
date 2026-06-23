@@ -9487,7 +9487,7 @@ var listedBuildings828253910 = [
 [51.0049624063, -2.197124313, 1108736, "13, GOLD HILL", "II", "Fri, 20 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1108736"],
 [51.0047581737, -2.1973211838, 1108737, "16 AND 17, GOLD HILL", "II", "Fri, 20 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1108737"],
 [51.0025418943, -2.1926959705, 1108739, "HILLSIDE", "II", "Mon, 15 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1108739"],
-[51.0058519722, -2.1977635552, 1108740, "11 AND 13, HIGH STREET", "II", "Mon, 15 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1108740"],
+[51.0058519722, -2.1977635552, 1108740, "11 and 13, High Street and 1 Church Lane", "II", "Mon, 15 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1108740"],
 [51.0056038962, -2.1970819295, 1108741, "TOWN HALL", "II", "Fri, 20 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1108741"],
 [51.005580133, -2.1972182841, 1108742, "STONE SETTS WITHIN CURTILAGE OF TOWN HALL ON SOUTH EAST AND SOUTH WEST SIDES", "II", "Mon, 15 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1108742"],
 [51.0056944664, -2.1969860655, 1108743, "SETTS WITHIN CURTILAGE OF CHURCH OF ST PETER IN PASSAGEWAY TO WEST OF CHURCH", "II", "Mon, 15 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1108743"],

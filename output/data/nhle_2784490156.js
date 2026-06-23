@@ -15226,7 +15226,7 @@ var listedBuildings2784490156 = [
 [50.903911261, -3.4915971226, 1384773, "NUMBERS 1-4 INCLUDING AREA RAILING AND GATES ON NORTH AND SOUTH AND WEST SIDES", "II", "Mon, 10 Apr 2000", "https://historicengland.org.uk/listing/the-list/list-entry/1384773"],
 [50.9028144731, -3.4908651715, 1384774, "THE WHITE BALL PUBLIC HOUSE", "II", "Thu, 14 Dec 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1384774"],
 [50.9028937413, -3.4909957051, 1384775, "10, BRIDGE STREET", "II", "Thu, 14 Dec 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1384775"],
-[50.9028893789, -3.4910976307, 1384776, "THE SQUARE MEAL CAFE", "II", "Thu, 14 Dec 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1384776"],
+[50.9028893789, -3.4910976307, 1384776, "The Square Meal Cafe", "II", "Thu, 14 Dec 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1384776"],
 [50.903256774, -3.4907370773, 1384777, "1-4, BRIDGE TERRACE", "II", "Thu, 14 Dec 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1384777"],
 [50.8987922712, -3.4676558556, 1384778, "BINGWELL", "II", "Tue, 12 Feb 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1384778"],
 [50.9018063833, -3.4753792799, 1384779, "CANAL BASIN LIME KILNS AT NGR SS 9638 1241", "II", "Mon, 01 Mar 1993", "https://historicengland.org.uk/listing/the-list/list-entry/1384779"],
