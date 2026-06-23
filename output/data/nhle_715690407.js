@@ -22254,7 +22254,7 @@ var listedBuildings715690407 = [
 [52.290084765, -1.5357155284, 1381425, "98-104, PARADE", "II", "Tue, 30 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1381425"],
 [52.2896078857, -1.5356178861, 1381426, "112-120, PARADE", "II", "Thu, 10 Sep 1992", "https://historicengland.org.uk/listing/the-list/list-entry/1381426"],
 [52.2894460634, -1.5356195773, 1381427, "122 AND 124, PARADE", "II", "Mon, 18 Aug 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1381427"],
-[52.2893381244, -1.5356060447, 1381428, "MIDLAND BANK", "II", "Mon, 18 Aug 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1381428"],
+[52.2893381244, -1.5356060447, 1381428, "HSBC Bank", "II", "Mon, 18 Aug 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1381428"],
 [52.289140169, -1.5355641318, 1381429, "132, PARADE", "II", "Tue, 30 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1381429"],
 [52.2890772381, -1.5355647896, 1381430, "134 AND 136, PARADE", "II", "Mon, 18 Aug 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1381430"],
 [52.2889873368, -1.5355657292, 1381431, "138, PARADE", "II", "Tue, 30 Nov 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1381431"],
