@@ -1,6 +1,6 @@
 {
   "extends": "stylelint-config-standard",
-  "ignoreFiles": ["**/*.min.css", "node_modules/", "scss/bootstrap/"],
+  "ignoreFiles": ["**/*.min.css", "node_modules/", "scss/bootstrap/", "output/"],
   "rules": {
     "indentation": ["tab", {}],
     "max-empty-lines": [2, {}],
