@@ -240,7 +240,8 @@ def make_map() -> folium.Map:
 	MapSwapControl(
 			maps={
 					'<i class="fa-solid fa-fire fa-fw"></i> Heatmap': "heatmap.html",
-					# '<i class="fa-solid fa-map fa-fw"></i> Default': '/',
+					"🇫🇷 France": "https://domdfcoding.github.io/monuments-historiques/",
+					'<i class="fa-solid fa-map fa-fw"></i> More': "https://domdfcoding.github.io/maps/",
 					},
 			).add_to(m)
 
