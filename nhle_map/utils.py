@@ -41,7 +41,14 @@ from domdf_python_tools.paths import PathPlus
 from nhle_map import constants
 from nhle_map.icons import make_icons_js
 
-__all__ = ["copy_static_files", "format_datetime", "format_description", "from_iso_zulu", "get_id"]
+__all__ = [
+		"copy_static_files",
+		"format_datetime",
+		"format_description",
+		"from_iso_zulu",
+		"get_id",
+		"write_layer_data",
+		]
 
 rng = random.Random("NHLE")
 DATE_FORMAT = "%a, %d %b %Y %H:%M:%S GMT"
@@ -74,7 +81,15 @@ def copy_static_files(static_dir: PathPlus) -> None:
 			img_files=[domdf_folium_tools.static_files.PythonResource("nhle_map.static", "Challenge_Icon.svg")],
 			)
 
-	layers = constants.LAYERS
+
+def write_layer_data(layers: Iterable[constants.Dataset], static_dir: PathPlus) -> None:
+	"""
+	Write JavaScript file containing layer and icon data.
+
+	:param layers:
+	:param static_dir:
+	"""
+
 	icons_js = make_icons_js(layers)
 	layer_data = []
 

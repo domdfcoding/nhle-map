@@ -154,7 +154,7 @@ def make_map(output_directory: str = "output") -> None:
 	from nhle_map import constants, heatmap
 	from nhle_map.map import make_map
 	from nhle_map.templates import render_template
-	from nhle_map.utils import copy_static_files
+	from nhle_map.utils import copy_static_files, write_layer_data
 
 	set_branca_random_seed("NHLE")
 
@@ -162,6 +162,7 @@ def make_map(output_directory: str = "output") -> None:
 	output_dir.maybe_make()
 
 	copy_static_files(output_dir / "static")
+	write_layer_data(constants.LAYERS, output_dir / "static")
 
 	layers_data: dict[str, Any] = output_dir.joinpath("data", "meta.json").load_json()
 	layer_mod_times = [v.get("dataLastEditDate", -1) for v in layers_data.values()]
