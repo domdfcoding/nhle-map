@@ -2,18 +2,19 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="referrer" content="strict-origin-when-cross-origin">
-        <link rel="icon"
-              type="image/svg+xml"
-              href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIiBmaWxsPSIjNDc4NmVkIj4KCTwhLS0hRm9udCBBd2Vzb21lIEZyZWUgdjcuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgKEljb25zOiBDQyBCWSA0LjAsIEZvbnRzOiBTSUwgT0ZMIDEuMSwgQ29kZTogTUlUIExpY2Vuc2UpIENvcHlyaWdodCAyMDI2IEZvbnRpY29ucywgSW5jLi0tPgoJPHBhdGggZD0iTTY0IDBDMjguNyAwIDAgMjguNyAwIDY0TDAgNDQ4YzAgMzUuMyAyOC43IDY0IDY0IDY0bDI1NiAwYzM1LjMgMCA2NC0yOC43IDY0LTY0bDAtMzg0YzAtMzUuMy0yOC43LTY0LTY0LTY0TDY0IDB6TTE3NiAzNTJsMzIgMGMxNy43IDAgMzIgMTQuMyAzMiAzMmwwIDgwLTk2IDAgMC04MGMwLTE3LjcgMTQuMy0zMiAzMi0zMnpNOTYgMTEyYzAtOC44IDcuMi0xNiAxNi0xNmwzMiAwYzguOCAwIDE2IDcuMiAxNiAxNmwwIDMyYzAgOC44LTcuMiAxNi0xNiAxNmwtMzIgMGMtOC44IDAtMTYtNy4yLTE2LTE2bDAtMzJ6TTI0MCA5NmwzMiAwYzguOCAwIDE2IDcuMiAxNiAxNmwwIDMyYzAgOC44LTcuMiAxNi0xNiAxNmwtMzIgMGMtOC44IDAtMTYtNy4yLTE2LTE2bDAtMzJjMC04LjggNy4yLTE2IDE2LTE2ek05NiAyNDBjMC04LjggNy4yLTE2IDE2LTE2bDMyIDBjOC44IDAgMTYgNy4yIDE2IDE2bDAgMzJjMCA4LjgtNy4yIDE2LTE2IDE2bC0zMiAwYy04LjggMC0xNi03LjItMTYtMTZsMC0zMnptMTQ0LTE2bDMyIDBjOC44IDAgMTYgNy4yIDE2IDE2bDAgMzJjMCA4LjgtNy4yIDE2LTE2IDE2bC0zMiAwYy04LjggMC0xNi03LjItMTYtMTZsMC0zMmMwLTguOCA3LjItMTYgMTYtMTZ6Ii8+Cjwvc3ZnPg==">
-        <title>England Listed Buildings Heatmap</title>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-              rel="stylesheet"
-              integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-              crossorigin="anonymous">
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="referrer" content="strict-origin-when-cross-origin">
+            <link rel="icon"
+                  type="image/svg+xml"
+                  href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIiBmaWxsPSIjNDc4NmVkIj4KCTwhLS0hRm9udCBBd2Vzb21lIEZyZWUgdjcuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgKEljb25zOiBDQyBCWSA0LjAsIEZvbnRzOiBTSUwgT0ZMIDEuMSwgQ29kZTogTUlUIExpY2Vuc2UpIENvcHlyaWdodCAyMDI2IEZvbnRpY29ucywgSW5jLi0tPgoJPHBhdGggZD0iTTY0IDBDMjguNyAwIDAgMjguNyAwIDY0TDAgNDQ4YzAgMzUuMyAyOC43IDY0IDY0IDY0bDI1NiAwYzM1LjMgMCA2NC0yOC43IDY0LTY0bDAtMzg0YzAtMzUuMy0yOC43LTY0LTY0LTY0TDY0IDB6TTE3NiAzNTJsMzIgMGMxNy43IDAgMzIgMTQuMyAzMiAzMmwwIDgwLTk2IDAgMC04MGMwLTE3LjcgMTQuMy0zMiAzMi0zMnpNOTYgMTEyYzAtOC44IDcuMi0xNiAxNi0xNmwzMiAwYzguOCAwIDE2IDcuMiAxNiAxNmwwIDMyYzAgOC44LTcuMiAxNi0xNiAxNmwtMzIgMGMtOC44IDAtMTYtNy4yLTE2LTE2bDAtMzJ6TTI0MCA5NmwzMiAwYzguOCAwIDE2IDcuMiAxNiAxNmwwIDMyYzAgOC44LTcuMiAxNi0xNiAxNmwtMzIgMGMtOC44IDAtMTYtNy4yLTE2LTE2bDAtMzJjMC04LjggNy4yLTE2IDE2LTE2ek05NiAyNDBjMC04LjggNy4yLTE2IDE2LTE2bDMyIDBjOC44IDAgMTYgNy4yIDE2IDE2bDAgMzJjMCA4LjgtNy4yIDE2LTE2IDE2bC0zMiAwYy04LjggMC0xNi03LjItMTYtMTZsMC0zMnptMTQ0LTE2bDMyIDBjOC44IDAgMTYgNy4yIDE2IDE2bDAgMzJjMCA4LjgtNy4yIDE2LTE2IDE2bC0zMiAwYy04LjggMC0xNi03LjItMTYtMTZsMC0zMmMwLTguOCA3LjItMTYgMTYtMTZ6Ii8+Cjwvc3ZnPg==">
+            <title>England Listed Buildings Heatmap</title>
+
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+                  rel="stylesheet"
+                  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+                  crossorigin="anonymous">
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
@@ -53,7 +54,7 @@
 				</style>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@4.4.0/dist/geosearch.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0.post1/folium_map_swap_control/map_swap_control.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.2.0.post1/folium_map_swap_control/map_swap_control.min.css"/>
 
 				<style>
 					.leaflet-control-map-swap {
@@ -80,7 +81,8 @@
 				</style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ismyrnow/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.css"/>
-        <link rel="stylesheet" href="static/css/style.css" />
+            <link rel="stylesheet" href="static/css/style.css" />
+
 
 
 
@@ -187,7 +189,7 @@
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-about-button@v0.2.0/folium_about_button/about_button.min.js"></script>
     <script src="https://unpkg.com/leaflet-geosearch@4.4.0/dist/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-search@v0.1.0b6/folium_map_search/folium-map-search.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.1.0.post1/folium_map_swap_control/map_swap_control.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-map-swap-control@v0.2.0.post1/folium_map_swap_control/map_swap_control.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/domdfcoding/folium-reset-control@v0.1.0b3/folium_reset_control/reset_control.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ismyrnow/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.js"></script>
             <script>
@@ -332,7 +334,7 @@
 
 
 				var map_swap_control_5c82144b9e718e834cf8863087750389 = new MapSwapControl(
-					{"icon": "fa-solid fa-map", "maps": {"\u003ci class=\"fa-solid fa-map fa-fw\"\u003e\u003c/i\u003e Default": "../"}}
+					{"maps": {"\u003ci class=\"fa-solid fa-map fa-fw\"\u003e\u003c/i\u003e Default": "../"}, "icon": "fa-solid fa-map"}
 				)
 
 				// Close the control when map clicked.
@@ -389,7 +391,9 @@
 
 
 
-            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)
+
+                map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England 2026 (OGL)`)
+
 
             map.on('zoomend', showZoomLevel);
             showZoomLevel();
