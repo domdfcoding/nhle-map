@@ -552,7 +552,7 @@ def _prepare_dataset(
 		gdf = _read_gdf(dataset.geojson_filename)
 
 		if dataset.polygons_geojson_filename:
-			poly_gdf = _read_gdf(dataset.polygons_geojson_filename)
+			poly_gdf = _read_gdf(dataset.polygons_geojson_filename).drop_duplicates()
 			gdf["polygon"] = poly_gdf["geometry"]
 
 		return gdf.reset_index()
