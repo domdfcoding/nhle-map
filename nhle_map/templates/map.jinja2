@@ -2,23 +2,25 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="referrer" content="strict-origin-when-cross-origin">
-        <link rel="icon"
-              type="image/svg+xml"
-              href="data:image/svg+xml;base64,{% filter base64_encode %}{% include "Building_Icon.svg" %}{% endfilter %}">
-        <title>{{ title }}</title>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="referrer" content="strict-origin-when-cross-origin">
+            <link rel="icon"
+                type="image/svg+xml"
+                href="data:image/svg+xml;base64,{% filter base64_encode %}{% include "Building_Icon.svg" %}{% endfilter %}">
+            <title>{{ title }}</title>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-              rel="stylesheet"
-              integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-              crossorigin="anonymous">
-        {{ header|safe }}
-        <link rel="stylesheet" href="static/css/style.css" />
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+                integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+                crossorigin="anonymous">
+            {{ header|safe }}
+            <link rel="stylesheet" href="static/css/style.css" />
 
-        {% block extrahead %}
-        {% endblock extrahead %}
+            {% block extrahead %}
+            {% endblock extrahead %}
+        {% endblock head %}
     </head>
 
     <body>
@@ -162,8 +164,10 @@
             {{ scripts|safe }}
             <script>{{ script|safe }}
 
-            {# TODO: hyperlink and add "crown copyright" #}
-            map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England{% if uses_welsh_data %} and Cadw{% endif %} {{ most_recent_modification.year }} (OGL)`)
+            {% block attribution %}
+                {# TODO: hyperlink and add "crown copyright" #}
+                map.attributionControl.setPrefix(`<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">🇺🇦 Leaflet</a> | Data © Historic England{% if uses_welsh_data %} and Cadw{% endif %} {{ most_recent_modification.year }} (OGL)`)
+            {% endblock attribution %}
 
             map.on('zoomend', showZoomLevel);
             showZoomLevel();
