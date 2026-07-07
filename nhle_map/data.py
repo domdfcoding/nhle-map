@@ -268,7 +268,7 @@ def download_data(output_directory: PathLike) -> dict[str, Any]:
 
 			print(repr(query))
 
-			if query.features:  # If no features (e.g. no preservation notices at this time) dont proceed
+			if query.features:  # If no features (e.g. no preservation notices at this time) don't proceed
 				(output_dir / f"{layer.properties.name}.geojson").write_clean(to_geojson(query))
 
 	output_dir.joinpath("meta.json").dump_json(meta, indent=2)
