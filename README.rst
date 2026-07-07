@@ -9,7 +9,8 @@ nhle-map
 .. end short_desc
 
 .. figure:: https://domdfcoding.github.io/assets/img/nhle_map_screenshot.png
-   :scale: 25 %
+   :width: 500px
+   :height: 500px
    :alt: Screenshot of the map
 
    `View The Map`_
