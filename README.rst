@@ -8,12 +8,20 @@ nhle-map
 
 .. end short_desc
 
+.. figure:: https://domdfcoding.github.io/assets/img/nhle_map_screenshot.png
+   :scale: 50 %
+   :alt: Screenshot of the map
+
+   `View The Map`_
+
+
 -----
 
 | Dataset downloaded from the `Historic England Open Data Hub`_.
 | © Historic England 2026.  Contains Ordnance Survey data © Crown copyright and database right 2026.
 | Licenced under the `Open Government Licence v3 (OGL)`_.
 
+.. _View The map: https://domdfcoding.github.io/nhle-map/
 .. _Historic England Open Data Hub: https://opendata-historicengland.hub.arcgis.com/
 .. _Open Government Licence v3 (OGL): https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 
