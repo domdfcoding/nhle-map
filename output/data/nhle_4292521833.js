@@ -113,7 +113,7 @@ var listedBuildings4292521833 = [
 [53.4680813487, 0.0474216251, 1063125, "NORMAN COTTAGE", "II", "Thu, 30 Jan 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1063125"],
 [53.4852288594, 0.0335360735, 1063126, "CHURCH OF ST NICHOLAS", "II*", "Sat, 09 Sep 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1063126"],
 [53.3713810636, 0.0024219902, 1063202, "LOUTH RAILWAY STATION", "II", "Mon, 18 Feb 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1063202"],
-[53.3689440786, 0.0034274072, 1063220, "Mausoleum and Gothic Ruin at The Priory", "II", "Mon, 18 Feb 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1063220", null, [[[[53.3689664546913, 0.00393282065258078], [53.3689350947131, 0.00393721215237334], [53.3689321528255, 0.00387679849209331], [53.3689635128019, 0.00387240694810666], [53.3689664546913, 0.00393282065258078]], [[53.3689639248533, 0.00341846001974261], [53.368962105972, 0.00343826000751029], [53.368924968143, 0.00343651874323085], [53.3689253015106, 0.00341664912275835], [53.3689639248533, 0.00341846001974261]]]], false],
+[53.3689440786, 0.0034274072, 1063220, "Mausoleum and Gothic Ruin at The Priory", "II", "Mon, 18 Feb 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1063220"],
 [53.0431708965, 0.015109091, 1063530, "THE WINDMILL", "II", "Thu, 17 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1063530"],
 [53.0406211855, 0.0154228418, 1063531, "SIBSEY HOUSE", "II", "Thu, 17 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1063531"],
 [53.0339320495, 0.0138283988, 1063532, "THE AVENUE", "II", "Thu, 17 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1063532"],
