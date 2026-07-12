@@ -640,5 +640,5 @@ def chunk_data(
 
 				output_dir.joinpath(f"nhle_{chunk_id}.js").write_lines(chunk_buffer)
 
-	id_lookup_js = f"nhleIDLookup = {json.dumps(id_lookup, indent=4)}"
+	id_lookup_js = f"const nhleIDLookup = {json.dumps(id_lookup, indent=4)}"
 	output_dir.joinpath("nhle_id_lookup.js").write_clean(id_lookup_js)
