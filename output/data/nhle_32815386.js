@@ -3176,7 +3176,7 @@ var listedBuildings32815386 = [
 [50.737250557, -2.2466023778, 1120426, "THROOP COTTAGE", "II", "Tue, 02 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1120426"],
 [50.7367915407, -2.2467841906, 1120427, "BOUNDARY WALL NORTH OF NO 3", "II", "Tue, 02 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1120427"],
 [50.7402829458, -2.2414172004, 1120428, "BARNS SOUTH-EAST OF TONERSPUDDLE FARM HOUSE", "II", "Fri, 20 Nov 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1120428"],
-[50.7383730694, -2.2342366999, 1120429, "BOUNDARY WALL TO ROAD SOUTH OF DAIRY HOUSE", "II", "Tue, 02 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1120429"],
+[50.738432275, -2.2341068341, 1120429, "BOUNDARY WALL TO ROAD SOUTH OF DAIRY HOUSE", "II", "Tue, 02 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1120429"],
 [50.6262394251, -2.2518058181, 1120430, "LYCH GATE TO PARISH CHURCH", "II", "Tue, 02 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1120430"],
 [50.634823991, -2.2346634762, 1120431, "61 AND 62", "II", "Tue, 02 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1120431"],
 [50.6343740088, -2.2343208308, 1120432, "MAIN BARN AT BURNGATE FARM, ATTACHED TO HOUSE", "II", "Tue, 02 Oct 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1120432"],

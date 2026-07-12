@@ -1553,7 +1553,7 @@ var listedBuildings1283952549 = [
 [54.0038280929, -0.8613950101, 1161847, "HOUSE ADJACENT TO THE COTTAGE TO THE EAST", "II", "Tue, 14 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1161847"],
 [54.0055997508, -0.8574456632, 1161856, "CHURCH OF SAINT MARY", "II*", "Thu, 26 Jan 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1161856"],
 [54.0085945133, -0.4423618825, 1161859, "62, MIDDLE STREET NORTH", "II", "Fri, 25 Jan 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1161859"],
-[54.0071348944, -0.4407073178, 1161880, "BURNSIDE", "II", "Thu, 06 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1161880"],
+[54.0071348944, -0.4407073178, 1161880, "Burnside", "II", "Thu, 06 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1161880"],
 [54.0069766378, -0.4361354339, 1161883, "6, NEW ROAD", "II", "Fri, 25 Jan 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1161883"],
 [54.0077309943, -0.4352866983, 1161893, "Nos. 31 and 32 New Road", "II", "Mon, 21 Jan 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1161893"],
 [54.0016279246, -0.4321671292, 1161896, "LINDERHOF", "II", "Fri, 25 Jan 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1161896"],
@@ -2683,7 +2683,7 @@ var listedBuildings1283952549 = [
 [54.2804006385, -0.4056814198, 1243682, "PAIR OF K6 TELEPHONE KIOSKS OUTSIDE ODEON CINEMA", "II", "Fri, 08 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1243682"],
 [54.2823701732, -0.4050831907, 1243689, "Albemarle Baptist Church Cottage", "II", "Fri, 12 Jan 1990", "https://historicengland.org.uk/listing/the-list/list-entry/1243689"],
 [54.2684097414, -0.3934446033, 1243700, "BRACKENCLIFFE", "II", "Tue, 16 Jul 1991", "https://historicengland.org.uk/listing/the-list/list-entry/1243700"],
-[54.0112229107, -0.4405698007, 1244864, "HIGH FIELD COUNTRY CLUB", "II", "Wed, 12 Nov 1997", "https://historicengland.org.uk/listing/the-list/list-entry/1244864"],
+[54.0112229107, -0.4405698007, 1244864, "High Field Country Club", "II", "Wed, 12 Nov 1997", "https://historicengland.org.uk/listing/the-list/list-entry/1244864"],
 [54.4854644768, -0.6167031726, 1244949, "CHURCH OF ST JOHN THE EVANGELIST", "II", "Mon, 20 Oct 1997", "https://historicengland.org.uk/listing/the-list/list-entry/1244949"],
 [54.4854262636, -0.6172910542, 1244951, "CHURCH OF ST HILDA (ROMAN CATHOLIC)", "II", "Mon, 20 Oct 1997", "https://historicengland.org.uk/listing/the-list/list-entry/1244951"],
 [54.0329697053, -0.8846783729, 1245923, "THE OLD RECTORY", "II", "Mon, 02 Jul 2001", "https://historicengland.org.uk/listing/the-list/list-entry/1245923"],
@@ -5439,6 +5439,7 @@ var listedBuildings1283952549 = [
     [54.2906074556097, -0.404834886556412], [54.2906042824102, -0.404830439836531], [54.2905834757578, -0.404899859880457], [54.2905813288418, -0.404903699239134], [54.290520293048, -0.405091631305866],
     [54.2904612277336, -0.405277154507148], [54.2904567840134, -0.405291112008339]],
    [[54.2904464967467, -0.405323424389606], [54.2904182862275, -0.405411361911039], [54.2904219914332, -0.405417095587857], [54.2904504494973, -0.40532707592412], [54.2904464967467, -0.405323424389606]]]], false],
+[54.4883417754, -0.615790916, 1494480, "45 Cliff Street", "II", "Thu, 25 Jun 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1494480", null, [[[[54.4883622458893, -0.615695200971114], [54.488354619931, -0.615696384704642], [54.4883564007206, -0.615742020329476], [54.4883107295088, -0.615748656684012], [54.4883162819482, -0.615848968900059], [54.4883163982911, -0.615851280633128], [54.4883599009367, -0.615843636956822], [54.4883706695958, -0.615842192780034], [54.4883648334894, -0.61574065498814], [54.4883622458893, -0.615695200971114]]]], false],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
