@@ -1921,7 +1921,7 @@ var listedBuildings1355059502 = [
 [53.8120404833, -0.1932844835, 1083446, "GARDENERS COTTAGE APPROXIMATELY 25 METRES TO SOUTH-EAST OF BURTON CONSTABLE HALL", "II", "Thu, 24 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1083446"],
 [53.8129289755, -0.2039700069, 1083447, "THE MENAGERIE APPROXIMATELY 45 METRES TO WEST OF BURTON CONSTABLE HALL", "II*", "Fri, 16 Dec 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1083447"],
 [53.8073005592, -0.2014920322, 1083448, "BRIDGE OVER THE LAKE APPROXIATELY 35 METRES TO SOUTH-WEST OF BURTON CONSTABLE HALL", "II", "Fri, 16 Dec 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1083448"],
-[53.8305608936, -0.1946453522, 1083449, "CHURCH OF THE MOST HOLY SACREMENT", "II", "Thu, 24 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1083449"],
+[53.8305608936, -0.1946453522, 1083449, "Church of the Most Holy Sacrament", "II", "Thu, 24 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1083449"],
 [53.6827957475, -0.0096000726, 1083450, "CHURCH OF ST PATRICK", "I", "Fri, 16 Dec 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1083450"],
 [53.6977013898, -0.0336455368, 1083451, "THE OLD RECTORY AND COACH-HOUSE ADJOINING TO EAST", "II", "Tue, 04 Mar 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1083451"],
 [53.6982264046, -0.0333181065, 1083452, "URN APPROXIMATELY 40 METRES NORTH OF THE OLD RECTORY", "II", "Fri, 27 Feb 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1083452"],
