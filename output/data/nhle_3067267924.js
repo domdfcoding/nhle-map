@@ -27278,7 +27278,7 @@ var listedBuildings3067267924 = [
 [51.9934436296, -1.2515960559, 1371798, "HEADSTONE TO SARAH DAUGHTER OF JOHN DRY 1699 ON CHURCHYARD WALL APPROXIMATELY 20 METRES SOUTH EAST OF SOUTH AISLE OF CHURCH OF ST MICHAEL", "II", "Mon, 18 Mar 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1371798"],
 [51.9950827874, -1.2530520827, 1371799, "6, THE SQUARE", "II", "Mon, 18 Mar 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1371799"],
 [51.9948328681, -1.2528492356, 1371800, "THE CLOCKSHOP", "II", "Tue, 04 Feb 1969", "https://historicengland.org.uk/listing/the-list/list-entry/1371800"],
-[51.9975521038, -1.204785963, 1371801, "GATE PIERS AT ENTRANCE TO CROUGHTON HOUSE", "II", "Mon, 18 Mar 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1371801"],
+[51.9975529933, -1.2047974567, 1371801, "GATE PIERS AT ENTRANCE TO CROUGHTON HOUSE", "II", "Mon, 18 Mar 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1371801"],
 [51.9959832738, -1.254199254, 1371809, "15, 17 AND 19, BLACKSMITHS HILL", "II", "Mon, 18 Mar 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1371809"],
 [51.7625781038, -1.2639175534, 1372273, "71-79, WOODSTOCK ROAD", "II", "Tue, 12 Jan 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1372273"],
 [51.7607296976, -1.2616582474, 1372274, "ROYAL OAK PUBLIC HOUSE", "II", "Tue, 12 Jan 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1372274"],
