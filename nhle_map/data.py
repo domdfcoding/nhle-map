@@ -165,7 +165,7 @@ def _get_notes(list_entry: dict[str, Any]) -> str | None:
 			list_entry.get("HERITAGECATEGORYDESCRIPTION"),
 			]:
 		if item:
-			assert isinstance(item, str)
+			assert isinstance(item, str), item
 			item = item.strip().replace('\r', '')
 			item = re.sub(r"[.0-9] *\n+", ".\n<br>\n", item)
 			item = re.sub(r" +\n+([ A-Za-z0-9])", r" \1", item)
