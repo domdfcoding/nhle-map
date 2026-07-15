@@ -1,4 +1,4 @@
-nhleIDLookup = {
+const nhleIDLookup = {
     "49": {
         "-7": 3115455186,
         "-6": 1823735210
