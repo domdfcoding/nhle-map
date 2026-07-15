@@ -15875,7 +15875,7 @@ var listedBuildings441311815 = [
 [52.7932280646, 0.7755709972, 1373759, "24-28, THE STREET", "II", "Tue, 24 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1373759"],
 [52.8380792699, 0.7334322992, 1373760, "1,2,3, THE STREET", "II", "Tue, 24 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1373760"],
 [52.8461611079, 0.9174298238, 1373761, "K6 TELEPHONE KIOSK IMMEDIATELY NORTH NORTH WEST OF HALL", "II", "Wed, 21 Aug 1991", "https://historicengland.org.uk/listing/the-list/list-entry/1373761"],
-[52.8040559622, 0.7697280848, 1373769, "61, BUCK YARD", "II", "Tue, 24 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1373769"],
+[52.8040559622, 0.7697280848, 1373769, "61 and 63, Buck Yard", "II", "Tue, 24 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1373769"],
 [52.8085872055, 0.7681103949, 1373770, "VALLEY FARMHOUSE", "II", "Tue, 24 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1373770"],
 [52.8262636515, 0.8409751808, 1373771, "THE BELL INN", "II", "Tue, 24 Jan 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1373771"],
 [52.8704322803, 0.9403885191, 1373779, "VILLAGE HALL", "II", "Tue, 06 Mar 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1373779"],
