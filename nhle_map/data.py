@@ -567,9 +567,10 @@ def _prepare_dataset(
 		if dataset.welsh_geojson_filename:
 			welsh_gdf = read_welsh()
 			gdf = pandas.concat((gdf, welsh_gdf), ignore_index=True)
-			gdf = gdf.where(gdf.notnull(), None).replace({float("nan"): None})
 	else:
 		gdf = read_welsh()
+
+	gdf = gdf.where(gdf.notnull(), None).replace({float("nan"): None})
 
 	return get_data_chunks(gdf, lat_range, lng_range)
 
