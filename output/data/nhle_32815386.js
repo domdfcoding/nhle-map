@@ -1693,7 +1693,7 @@ var listedBuildings32815386 = [
 [50.9466623153, -2.5160775831, 1110825, "GATES AND GATE PIERS AT NORTH EAST END OF ABBEY CLOSE", "II", "Thu, 04 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1110825"],
 [50.9463689705, -2.5165343848, 1110826, "DIGBY MEMORIAL", "II", "Thu, 04 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1110826"],
 [50.9459217429, -2.5170964036, 1110827, "Former Hospital of Saints John the Baptist and John the Evangelist", "I", "Tue, 28 Nov 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1110827"],
-[50.9461846638, -2.5173555149, 1110828, "PREMISES OCCUPIED BY BARTLETT AND SON, SOLICITORS", "II", "Tue, 28 Nov 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1110828"],
+[50.9461846638, -2.5173555149, 1110828, "Keepers Cottage, The Cobbles and Melmoth House", "II", "Tue, 28 Nov 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1110828"],
 [50.9464161299, -2.5176119025, 1110829, "THE COTTAGE", "II", "Tue, 28 Nov 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1110829"],
 [50.9465949571, -2.5178166194, 1110830, "ABBEY CLOSE COTTAGE", "II", "Tue, 28 Nov 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1110830"],
 [50.9478030485, -2.5178737719, 1110831, "THE BURSARY TO SHERBORNE SCHOOL", "II", "Tue, 28 Nov 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1110831"],

@@ -1869,7 +1869,7 @@ var listedBuildings2247108127 = [
 [52.05448183, -4.65898959, 14527, "Penybryn Baptist Chapel", "II", "Fri, 15 Apr 1994", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=14527"],
 [52.04217651, -4.6169727, 14528, "Penwenallt", "II", "Fri, 15 Apr 1994", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=14528", "Situated down track of about 1km running NE from the Rhosygilwen gates."],
 [52.03474282, -4.62005236, 14529, "Rhosygilwen", "II", "Fri, 15 Apr 1994", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=14529", "Situated off Cilgerran-Rhos Hill road, down drive leading off lane running E from Ty Rhos chapel."],
-[52.0348971, -4.62281722, 14530, "The Coach House", "II", "Fri, 15 Apr 1994", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=14530", "Situated some 150m W of Rhosygilwen mansion."],
+[52.03544255, -4.62156235, 14530, "The Coach House", "II", "Fri, 15 Apr 1994", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=14530", "Situated some 150m W of Rhosygilwen mansion."],
 [52.0365135, -4.62614901, 14531, "Gatepiers and Gates to Rhosygilwen Driveway", "II", "Fri, 15 Apr 1994", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=14531", "Situated at the entrance to the drive to Rhosygilwen, by Rhosygilwen Lodge."],
 [52.03658387, -4.63306487, 14532, "Ty Rhos Chapel", "II", "Fri, 15 Apr 1994", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=14532", "Situated on W side of road from Cilgerran to Rhos Hill, some 2km S of Cilgerran."],
 [52.04696792, -4.66039558, 14533, "Church of Saint David", "II", "Wed, 16 Jan 1952", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=14533", "Situated on W side of A478 some 800m S of Penybryn."],
@@ -17033,6 +17033,12 @@ var scheduledMonuments2247108127 = [
     [52.02920277, -4.66963527], [52.02920097, -4.66963904], [52.02920008, -4.66964111], [52.02917934, -4.66969119], [52.02917859, -4.66969308], [52.02917711, -4.6696972], [52.02917598, -4.66970084], [52.02916319, -4.66974498],
     [52.02916301, -4.66974561], [52.02916188, -4.66975], [52.02916165, -4.66975101], [52.02915215, -4.6697933], [52.02915142, -4.66979681], [52.02915077, -4.66980062], [52.02914275, -4.66985277], [52.02914263, -4.66985356],
     [52.02914204, -4.66985823], [52.02914165, -4.66986296], [52.02914162, -4.66986344], [52.02913783, -4.66992766]]]]],
+[52.0033425762, -4.9895101103, "PE577", "Wreck on Goodwick Beach 200m NE of Ocean Lab Building", null, null, "http://cadwpublic-api.azurewebsites.net/reports/sam/FullReport?lang=en&id=4463", "Post Medieval",
+ [[[[52.00352215, -4.98952209], [52.0035207, -4.98947139], [52.00351385, -4.98942186], [52.00350179, -4.98937502], [52.00348489, -4.98933228], [52.00346366, -4.98929494], [52.00343876, -4.98926414], [52.00341094, -4.98924081],
+    [52.00338104, -4.98922567], [52.00334997, -4.98921917], [52.00331868, -4.98922151], [52.00328811, -4.98923262], [52.00325919, -4.98925217], [52.00323282, -4.98927955], [52.00320977, -4.98931393], [52.00319076, -4.98935428],
+    [52.00317637, -4.98939936], [52.00316702, -4.9894478], [52.00316301, -4.98949815], [52.00316445, -4.98954885], [52.00317131, -4.98959838], [52.00318337, -4.98964522], [52.00320027, -4.98968796], [52.00322149, -4.9897253],
+    [52.00324639, -4.9897561], [52.00327422, -4.98977942], [52.00330412, -4.98979457], [52.00333519, -4.98980107], [52.00336648, -4.98979873], [52.00339705, -4.98978762], [52.00342596, -4.98976808], [52.00345234, -4.9897407],
+    [52.00347539, -4.98970631], [52.00349439, -4.98966596], [52.00350879, -4.98962088], [52.00351814, -4.98957244], [52.00352215, -4.98952209]]]]],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
