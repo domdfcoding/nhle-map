@@ -2138,7 +2138,7 @@ var listedBuildings2317628205 = [
 [50.8436929823, -0.9659382351, 1154443, "CHURCH OF ST THOMAS-A-BECKET", "I", "Fri, 16 May 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1154443"],
 [50.8434884573, -0.965464062, 1154459, "Gravewatcher's Hut (20 yards south-east of church)", "II", "Fri, 16 May 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1154459"],
 [50.8446284658, -0.9671514225, 1154471, "WARBLINGTON CASTLE COTTAGE", "II", "Wed, 26 May 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1154471"],
-[50.8448797802, -0.9659851217, 1154484, "WARBLINGTON CASTLE", "II*", "Fri, 16 May 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1154484"],
+[50.8448955344, -0.9659196187, 1154484, "WARBLINGTON CASTLE", "II*", "Fri, 16 May 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1154484"],
 [50.8509897448, -0.979425804, 1154546, "MAGNOLIA HOUSE", "II", "Mon, 21 Jul 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1154546"],
 [50.8511859956, -0.981100725, 1154554, "4 AND 6, EAST STREET", "II", "Mon, 06 Feb 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1154554"],
 [50.8508978299, -0.9802253698, 1154588, "22 AND 24, EAST STREET", "II", "Mon, 21 Jul 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1154588"],
