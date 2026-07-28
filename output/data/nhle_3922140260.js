@@ -15609,7 +15609,7 @@ var listedBuildings3922140260 = [
 [52.6335145251, -2.1041040426, 1298757, "MOSELEY HALL", "II*", "Sat, 16 Jul 1949", "https://historicengland.org.uk/listing/the-list/list-entry/1298757"],
 [52.0575233882, -2.7208286948, 1298761, "ELIZABETH PLACE", "II", "Fri, 02 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1298761"],
 [52.7753701575, -2.5747031914, 1298763, "BAXTER MONUMENT", "II", "Fri, 08 Apr 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1298763"],
-[52.56732611, -2.073965078, 1298778, "POLICE STATION", "II", "Tue, 31 Mar 1992", "https://historicengland.org.uk/listing/the-list/list-entry/1298778"],
+[52.56732611, -2.073965078, 1298778, "The Old Police Station", "II", "Tue, 31 Mar 1992", "https://historicengland.org.uk/listing/the-list/list-entry/1298778"],
 [52.0536843576, -2.7119874597, 1298785, "COLLINGWOOD HOUSE", "II", "Tue, 10 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1298785"],
 [52.0544700834, -2.7114019768, 1298790, "ACORN VIDEO CHANDOS HOUSE CHANDOS PHARMACY", "II", "Tue, 10 Jun 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1298790"],
 [52.7513479454, -2.605982618, 1298794, "VICARAGE COTTAGE", "II", "Fri, 08 Apr 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1298794"],

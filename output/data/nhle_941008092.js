@@ -1652,7 +1652,7 @@ var listedBuildings941008092 = [
 [54.6367606736, -1.5320849509, 1121503, "FORMER CHAPEL, ADJOINING WEST RETURN OF GREAT ISLE FARMHOUSE", "II", "Tue, 09 Jan 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1121503"],
 [54.6368504175, -1.5320529369, 1121504, "STABLE, ADJOINING TO NORTH OF FORMER CHAPEL", "II", "Mon, 24 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1121504"],
 [54.6496201982, -1.4896297072, 1121505, "ROAD BRIDGE, 15 METRES SOUTH OF THE FORMER SEDGEFIELD RAILWAY STATION", "II", "Mon, 24 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1121505"],
-[54.6339509791, -1.5145964625, 1121506, "SAWN CARR FARMHOUSE", "II", "Mon, 24 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1121506"],
+[54.6339509791, -1.5145964625, 1121506, "Swan Carr Farmhouse", "II", "Mon, 24 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1121506"],
 [54.5937242226, -1.5637622556, 1121507, "HODGSON CHEST TOMB, 5 M. SOUTH OF SOUTH PORCH OF CHURCH OF ST. ANDREW", "II", "Mon, 24 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1121507"],
 [54.5966032458, -1.5621683363, 1121508, "3, THE GREEN", "II", "Mon, 24 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1121508"],
 [54.5963107043, -1.5632858466, 1121509, "OAKLES FARMHOUSE", "II", "Mon, 24 Feb 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1121509"],

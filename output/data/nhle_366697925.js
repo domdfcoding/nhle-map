@@ -15222,7 +15222,7 @@ var listedBuildings366697925 = [
 [53.3520892871, -2.5305999811, 1329740, "BOOTHS FARM FARMHOUSE", "II", "Fri, 23 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1329740"],
 [53.3512135293, -2.5192318079, 1329741, "BARLEYCASTLE FARMHOUSE", "II", "Fri, 23 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1329741"],
 [53.3670310527, -2.5802290469, 1329742, "FORMER CANAL WAREHOUSE", "II", "Fri, 23 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1329742"],
-[53.3670296313, -2.579393003, 1329743, "BRIDGE COTTAGE", "II", "Fri, 23 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1329743"],
+[53.3670296313, -2.579393003, 1329743, "Bridge Cottage, 166, London Road, and 168 London Road", "II", "Fri, 23 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1329743"],
 [53.3563520309, -2.5538510999, 1329744, "WRIGHTS GREEN HOUSE", "II", "Thu, 08 Jan 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1329744"],
 [53.3462601818, -2.5533144713, 1329745, "CROSS COTTAGES", "II", "Fri, 23 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1329745"],
 [53.4057466609, -2.5782596633, 1329746, "BARN TO EAST OF ORFORD GREEN FARMHOUSE", "II", "Fri, 04 Apr 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1329746"],

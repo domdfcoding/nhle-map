@@ -22875,7 +22875,7 @@ var listedBuildings828253910 = [
 [51.3435759224, -2.1490294409, 1252388, "HIGHFIELD HOUSE WITH RAILINGS AND GATE", "II", "Fri, 29 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1252388"],
 [51.3447857644, -2.1272382542, 1252390, "Littleton Mill", "II", "Fri, 29 Oct 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1252390"],
 [51.3523222344, -2.1726088075, 1252391, "REDMAN MONUMENT IN THE CHURCHYARD ABOUT 3.5 METRES NORTH OF LONG CHAPEL AT CHURCH OF ST MARY", "II", "Fri, 29 Oct 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1252391"],
-[51.3125861922, -2.1353857353, 1252393, "1 3, CHURCH STREET", "II", "Fri, 29 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1252393"],
+[51.3125861922, -2.1353857353, 1252393, "1-3, Church Street", "II", "Fri, 29 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1252393"],
 [51.3116037297, -2.1352174109, 1252394, "15 17, CHURCH STREET", "II", "Fri, 29 Jan 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1252394"],
 [51.3130601719, -2.135586913, 1252395, "CHURCH OF ST MARY THE VIRGIN", "I", "Wed, 11 Sep 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1252395"],
 [51.2245986762, -2.9109688907, 1252396, "WAINBRIDGE FARMHOUSE", "II", "Fri, 31 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1252396"],

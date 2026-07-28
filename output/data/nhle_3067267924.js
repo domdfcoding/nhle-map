@@ -12424,7 +12424,7 @@ var listedBuildings3067267924 = [
 [51.6447805671, -1.0045304341, 1180972, "52, COUCHING STREET", "II", "Thu, 18 Jul 1963", "https://historicengland.org.uk/listing/the-list/list-entry/1180972"],
 [51.7971401974, -1.1860636633, 1180985, "CHEST TOMB APPROXIMATELY 5 METRES SOUTH OF CHURCH OF THE ASSUMPTION OF THE BLESSED VIRGIN MARY", "II", "Wed, 05 Jun 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1180985"],
 [51.7973418069, -1.1856813881, 1180989, "GRAVEBOARD APPROXIMATELY 10 METRES EAST OF CHURCH OF THE ASSUMPTION OF THE BLESSED VIRGIN MARY", "II", "Wed, 05 Jun 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1180989"],
-[51.6262229742, -1.1286514933, 1180994, "MILESTONE APPROXIMATELY 800 METRES SOUTH EAST OF JUNCTION WITH A329", "II", "Wed, 14 May 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1180994"],
+[51.6262229742, -1.1286514933, 1180994, "Milestone approximately 800 metres south east of junction with A329", "II", "Wed, 14 May 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1180994"],
 [51.3432344884, -1.7036981671, 1181001, "THE COTTAGE", "II", "Mon, 13 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1181001"],
 [51.7167603213, -1.0192882409, 1181008, "MILESTONE AT SP 6786 0246", "II", "Wed, 05 Aug 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1181008"],
 [51.7983554848, -1.1862738191, 1181014, "LINDUM COTTAGE", "II", "Wed, 05 Jun 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1181014"],
