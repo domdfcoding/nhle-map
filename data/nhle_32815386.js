@@ -6309,7 +6309,7 @@ var listedBuildings32815386 = [
 [50.7831501677, -2.7503708224, 1216046, "STABLES 10 METRES NORTH OF SLAPE MANOR", "II", "Tue, 31 Jul 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1216046"],
 [50.7833650731, -2.7928999577, 1216047, "SOUTH BOWOOD DAIRY FARMHOUSE", "II", "Tue, 04 Dec 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1216047"],
 [50.7839717431, -2.7911341999, 1216048, "EAST AND WEST COTTAGE", "II", "Tue, 31 Jul 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1216048"],
-[50.7329074066, -2.751993547, 1216051, "WALL FROM EAST END OF NO 115 AS FAR EAST AS BRIDGE OVER RIVER ASHER", "II", "Wed, 30 Oct 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1216051"],
+[50.7329074066, -2.751993547, 1216051, "Wall from east end of No 115 as far east as bridge over River Asker", "II", "Wed, 30 Oct 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1216051"],
 [50.7333206296, -2.7574316597, 1216053, "12, EAST STREET", "II", "Fri, 19 Sep 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1216053"],
 [50.7332925838, -2.7571163589, 1216065, "18 AND 20, EAST STREET", "II", "Fri, 19 Sep 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1216065"],
 [50.9155842556, -2.3961844172, 1216067, "CHURCH OF ST BARNABAS", "II", "Tue, 04 Oct 1960", "https://historicengland.org.uk/listing/the-list/list-entry/1216067"],
