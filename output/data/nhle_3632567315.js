@@ -8120,7 +8120,7 @@ var listedBuildings3632567315 = [
 [52.7902164325, -0.4894446222, 1147122, "5-9, PARK ROAD", "II", "Mon, 15 Dec 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1147122"],
 [52.7901666632, -0.4897726046, 1147131, "4 AND 6, PARK ROAD", "II", "Mon, 15 Dec 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1147131"],
 [52.8069425695, -0.6209618991, 1147201, "OLD RECTORY", "II", "Mon, 24 Sep 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1147201"],
-[52.7996514535, -0.0632275913, 1147210, "2, BELL LANE", "II", "Mon, 03 Mar 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1147210"],
+[52.7996062423, -0.0632049372, 1147210, "2, BELL LANE", "II", "Mon, 03 Mar 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1147210"],
 [52.7981616813, -0.0639464106, 1147237, "HARRINGTON HOUSE", "II", "Mon, 07 Dec 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1147237"],
 [52.8069439833, -0.6211439768, 1147249, "CHEST TOMB AT EAST END OF CHURCH OF ST JOHN THE BAPTIST", "II", "Fri, 09 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1147249"],
 [52.7999169746, -0.0607681323, 1147257, "THE GODDARDS", "II", "Tue, 07 Feb 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1147257"],
