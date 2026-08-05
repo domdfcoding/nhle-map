@@ -8767,7 +8767,7 @@ var listedBuildings849415599 = [
 [52.0034746643, 1.3524266664, 1243876, "GOSEFORD HALL", "II", "Mon, 02 Sep 1991", "https://historicengland.org.uk/listing/the-list/list-entry/1243876"],
 [52.5654120033, 1.1178548309, 1244672, "K6 TELEPHONE KIOSK", "II", "Fri, 25 Feb 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1244672"],
 [52.3021821735, 1.3147378014, 1244937, "BARN EAST OF WILBY HALL", "II", "Fri, 29 Jan 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1244937"],
-[52.2206937676, 1.2628794007, 1244938, "COBBOLDS ROW", "II", "Fri, 29 Jan 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1244938"],
+[52.2206937676, 1.2628794007, 1244938, "Cobbolds Row", "II", "Fri, 29 Jan 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1244938"],
 [52.556497625, 1.0656085404, 1244940, "STANLEY VILLA AND EMILY COTTAGES", "II", "Fri, 21 May 1999", "https://historicengland.org.uk/listing/the-list/list-entry/1244940"],
 [52.5027292907, 1.3657876827, 1245289, "WOODTON PARK HOUSE", "II", "Wed, 10 Jan 1996", "https://historicengland.org.uk/listing/the-list/list-entry/1245289"],
 [52.6265147364, 1.2944523722, 1245291, "13, RED LION STREET (See details for further address information)", "II", "Wed, 10 Jan 1996", "https://historicengland.org.uk/listing/the-list/list-entry/1245291"],
