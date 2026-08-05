@@ -9570,7 +9570,7 @@ var listedBuildings3922140260 = [
 [52.0613497933, -2.7081124235, 1196776, "BARR'S COURT RAILWAY STATION", "II", "Mon, 22 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1196776"],
 [52.0541486225, -2.7213723811, 1196777, "2, BARTON ROAD", "II", "Wed, 27 Jul 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1196777"],
 [52.0539001222, -2.7229428109, 1196778, "TURNPIKE HOUSE", "II", "Wed, 27 Jul 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1196778"],
-[52.0538751538, -2.7234534696, 1196779, "26, 26 AND 28, BARTON ROAD", "II", "Wed, 27 Jul 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1196779"],
+[52.0538751538, -2.7234534696, 1196779, "24, 26 and 28, Barton Road", "II", "Wed, 27 Jul 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1196779"],
 [52.0538123541, -2.7233143038, 1196780, "CAST IRON RAILINGS FRONTING NUMBERS 20 TO 28", "II", "Wed, 27 Jul 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1196780"],
 [52.0477950349, -2.722392952, 1196781, "64, BELMONT ROAD", "II", "Wed, 27 Jul 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1196781"],
 [52.0557047127, -2.7194369863, 1196782, "44, BERRINGTON STREET", "II", "Mon, 22 Oct 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1196782"],

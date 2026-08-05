@@ -22050,7 +22050,7 @@ var listedBuildings715690407 = [
 [52.2920988261, -1.5403715157, 1381239, "12, CLARENDON PLACE", "II", "Thu, 19 Nov 1953", "https://historicengland.org.uk/listing/the-list/list-entry/1381239"],
 [52.2919729074, -1.5403581568, 1381240, "SOMERSET HOUSE AND ATTACHED RAILINGS", "II", "Wed, 25 Mar 1970", "https://historicengland.org.uk/listing/the-list/list-entry/1381240"],
 [52.2929349654, -1.5403775264, 1381241, "BETHANY CHRISTADELPHIAN HOME", "II", "Thu, 19 Nov 1953", "https://historicengland.org.uk/listing/the-list/list-entry/1381241"],
-[52.2932980872, -1.5389662228, 1381242, "ROFE HOUSE (NUMBERS 3 AND 4 AND 5) AND NAPOLEAN HOUSE (NUMBERS 6 AND 6A)", "II", "Thu, 19 Nov 1953", "https://historicengland.org.uk/listing/the-list/list-entry/1381242"],
+[52.2932980872, -1.5389662228, 1381242, "Rofe House and Napoleon House", "II", "Thu, 19 Nov 1953", "https://historicengland.org.uk/listing/the-list/list-entry/1381242"],
 [52.2932636678, -1.5393624522, 1381243, "NUMBERS 7-10 AND ATTACHED RAILINGS", "II", "Thu, 19 Nov 1953", "https://historicengland.org.uk/listing/the-list/list-entry/1381243"],
 [52.2933036178, -1.5403883741, 1381244, "NUMBERS 23 AND 25 AND ATTACHED RAILINGS", "II", "Thu, 19 Nov 1953", "https://historicengland.org.uk/listing/the-list/list-entry/1381244"],
 [52.2935015145, -1.5404156506, 1381245, "NUMBERS 12 AND 13 AND 14 AND ATTACHED RAILINGS", "II", "Thu, 19 Nov 1953", "https://historicengland.org.uk/listing/the-list/list-entry/1381245"],
