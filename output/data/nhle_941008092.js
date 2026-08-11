@@ -7212,7 +7212,7 @@ var listedBuildings941008092 = [
 [54.905836852, -1.381224283, 1208224, "21 AND 22, FAWCETT STREET", "II", "Fri, 10 Nov 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1208224"],
 [54.906261137, -1.3819696515, 1208231, "BARCLAYS BANK", "II", "Fri, 10 Nov 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1208231"],
 [54.9073208185, -1.3822716717, 1208244, "Elephant Tea Warehouse and Grocers", "II", "Fri, 10 Nov 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1208244", null, [[[[54.9072703784404, -1.3821036409692], [54.9072367270046, -1.38246833477839], [54.9073037546235, -1.3824836854401], [54.9073217806794, -1.3823165265736], [54.9074176183588, -1.38234235365087], [54.9074103298426, -1.3821451684853], [54.9072703784404, -1.3821036409692]]]], false],
-[54.904963526, -1.3777698431, 1208287, "NUMBER 13 AND ATTACHED RAILINGS", "II", "Fri, 10 Nov 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1208287"],
+[54.904963526, -1.3777698431, 1208287, "19 Borough Road and attached railings", "II", "Fri, 10 Nov 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1208287"],
 [54.9052178105, -1.3783007159, 1208293, "15-25, FOYLE STREET", "II", "Fri, 10 Nov 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1208293"],
 [54.905108199, -1.3788580634, 1208314, "NUMBERS 32-42 WITH STEPS AND RAILINGS ATTACHED", "II", "Fri, 10 Nov 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1208314"],
 [54.907334111, -1.3875812762, 1208328, "MAGISTRATES' COURT", "II", "Fri, 10 Nov 1978", "https://historicengland.org.uk/listing/the-list/list-entry/1208328"],
