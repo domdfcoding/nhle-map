@@ -2658,7 +2658,7 @@ var listedBuildings3922140260 = [
 [52.9692109562, -2.6797417537, 1055979, "TALBOT HOUSE", "II", "Tue, 01 May 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1055979"],
 [52.96906982, -2.6793209903, 1055980, "FORMER STABLE APPROXIMATELY 5 METRES TO SOUTH OF NUMBER 58 (WESTON HOUSE)", "II", "Tue, 01 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1055980"],
 [52.9690729075, -2.6833165676, 1055981, "LIVERPOOL HOUSE", "II", "Thu, 22 Dec 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1055981"],
-[52.9692005195, -2.6835023043, 1055982, "BARCLAYS BANK AND BARCLAYS BANK CHAMBERS", "II", "Tue, 01 May 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1055982"],
+[52.9692005195, -2.6835023043, 1055982, "Old Town Hall", "II", "Tue, 01 May 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1055982"],
 [52.9695124387, -2.6839593262, 1055983, "19 AND 19A, BLUEGATES", "II", "Tue, 01 May 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1055983"],
 [52.9696426312, -2.6840648023, 1055984, "25, HIGH STREET", "II", "Tue, 01 May 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1055984"],
 [52.9701445001, -2.6846014168, 1055985, "35 INCLUDING 35A AND 35B, HIGH STREET", "II", "Tue, 01 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1055985"],

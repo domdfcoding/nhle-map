@@ -3015,7 +3015,7 @@ var listedBuildings2317628205 = [
 [50.8919980867, -0.0098895187, 1221887, "CHURCH OF ST PETER", "II", "Thu, 27 Sep 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1221887"],
 [50.9807311873, -0.9148151003, 1221889, "HURST BARN", "II", "Tue, 22 Jan 1991", "https://historicengland.org.uk/listing/the-list/list-entry/1221889"],
 [50.8915953385, -0.0105323334, 1221895, "2, 3 and 4 Offham Cottages", "II", "Thu, 27 Sep 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1221895"],
-[50.8918797499, -0.0108614875, 1221899, "7-10", "II", "Fri, 20 Aug 1965", "https://historicengland.org.uk/listing/the-list/list-entry/1221899"],
+[50.8918797499, -0.0108614875, 1221899, "7-10, Offham Cottages", "II", "Fri, 20 Aug 1965", "https://historicengland.org.uk/listing/the-list/list-entry/1221899"],
 [50.8918112707, -0.0105373556, 1221902, "The Old Post House", "II", "Thu, 12 Jul 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1221902"],
 [50.9622392518, -0.7381570857, 1221904, "BEX BARN", "II", "Thu, 31 Jan 1991", "https://historicengland.org.uk/listing/the-list/list-entry/1221904"],
 [50.8929960587, -0.0114538414, 1221907, "16", "II", "Thu, 27 Sep 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1221907"],
