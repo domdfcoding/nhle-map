@@ -252,7 +252,7 @@ var listedBuildings1283952549 = [
 [54.005927664, -0.2553679551, 1083826, "CHURCH OF ST JAMES", "II", "Thu, 30 Jun 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1083826"],
 [54.0115473436, -0.8210095825, 1083831, "FREESTONE HOUSE", "II", "Tue, 14 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1083831"],
 [54.0170164382, -0.7677138047, 1083837, "Church of All Saints", "I", "Tue, 14 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1083837"],
-[54.0139344152, -0.7609622299, 1083838, "BEECH FARMHOUSE", "II", "Tue, 14 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1083838"],
+[54.0140567306, -0.7608601747, 1083838, "BEECH FARMHOUSE", "II", "Tue, 14 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1083838"],
 [54.0033492261, -0.8632271742, 1083839, "SKIRPENBECK HOUSE", "II", "Thu, 26 Jan 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1083839"],
 [54.0053500796, -0.8583090632, 1083840, "THE RECTORY", "II", "Thu, 26 Jan 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1083840"],
 [54.0031476012, -0.8626823385, 1083847, "COWHOUSE IMMEDIATELY TO SOUTH EAST OF STABLE BLOCK AT SKIRPENBECK HOUSE", "II", "Fri, 04 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1083847"],

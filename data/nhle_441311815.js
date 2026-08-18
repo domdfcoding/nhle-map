@@ -8383,7 +8383,7 @@ var listedBuildings441311815 = [
 [52.3398682941, 0.9079011761, 1194023, "YEW COTTAGE", "II", "Thu, 27 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1194023"],
 [52.0901979219, 0.6319048288, 1194030, "PEACOCKS LEY", "II", "Mon, 20 May 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1194030"],
 [52.0433710024, 0.9520802078, 1194031, "Deanery Tower", "I", "Wed, 26 Apr 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1194031"],
-[52.1512606483, 0.8733973574, 1194034, "COCK FARMHOUSE", "II", "Thu, 10 Jul 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1194034"],
+[52.1509353769, 0.8732475863, 1194034, "COCK FARMHOUSE", "II", "Thu, 10 Jul 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1194034"],
 [52.1566910079, 0.86089484, 1194042, "WALNUT TREE COTTAGE", "II", "Thu, 10 Jul 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1194042"],
 [52.0431649244, 0.9527666846, 1194046, "GUILDHALL", "I", "Wed, 26 Apr 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1194046"],
 [52.1500294612, 0.8752039517, 1194047, "CHURCH FARMHOUSE", "II", "Thu, 23 Jan 1958", "https://historicengland.org.uk/listing/the-list/list-entry/1194047"],
