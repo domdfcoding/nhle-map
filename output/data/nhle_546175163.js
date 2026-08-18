@@ -15427,7 +15427,7 @@ var listedBuildings546175163 = [
 [51.9652504098, 0.8681031541, 1222768, "BARN TO SOUTH OF THRIFTS FARMHOUSE", "II", "Wed, 27 Jan 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1222768"],
 [51.9652644723, 0.8682642021, 1222769, "OUTBUILDING TO EAST OF BARN TO SOUTH OF THRIFTS FARMHOUSE", "II", "Wed, 27 Jan 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1222769"],
 [51.9362706483, 0.8585866133, 1222770, "KNIGHTS FARMHOUSE", "II", "Wed, 27 Jan 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1222770"],
-[51.9424545942, 0.8578203853, 1222771, "KNOWLES COTTAGE", "II", "Wed, 27 Jan 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1222771"],
+[51.9424564845, 0.8578265574, 1222771, "KNOWLES COTTAGE", "II", "Wed, 27 Jan 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1222771"],
 [51.9416470421, 0.8549560798, 1222772, "KNOWLES FARMHOUSE", "II", "Wed, 27 Jan 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1222772"],
 [51.9324247927, 0.8536283089, 1222774, "SPRING HOUSE", "II", "Wed, 27 Jan 1982", "https://historicengland.org.uk/listing/the-list/list-entry/1222774"],
 [51.2760392168, 0.5204592094, 1222803, "Maidstone Museum and Bentlif Art Gallery (Chillington House)", "II*", "Mon, 30 Jul 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1222803"],
