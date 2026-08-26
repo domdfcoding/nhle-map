@@ -4098,7 +4098,7 @@ var listedBuildings307795845 = [
 [50.7728081435, 0.2669184322, 1293765, "ST MARY'S HOUSE", "II", "Mon, 17 May 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1293765"],
 [50.7754111606, 0.2648739735, 1293778, "24A, ST MARY'S ROAD", "II", "Mon, 17 May 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1293778"],
 [50.7588224745, 0.2687666806, 1293819, "MEADS PLACE", "II", "Fri, 27 May 1949", "https://historicengland.org.uk/listing/the-list/list-entry/1293819"],
-[50.7676607003, 0.2923684053, 1293825, "BELLE VUE HOTEL MIRAMAR HOTEL QUEEN'S MANSIONS", "II", "Mon, 17 May 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1293825"],
+[50.7676607003, 0.2923684053, 1293825, "The Pier Hotel, Miramar House and Queens Mansions", "II", "Mon, 17 May 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1293825"],
 [50.8573667263, 0.5938936211, 1293832, "54, ALL SAINTS STREET", "II", "Tue, 14 Sep 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1293832"],
 [50.8571555471, 0.5936829621, 1293833, "59, ALL SAINTS STREET", "II", "Fri, 19 Jan 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1293833"],
 [50.8737866499, 0.0079268634, 1293841, "CASTLE PRECINCTS COTTAGE", "II", "Tue, 29 Oct 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1293841"],
