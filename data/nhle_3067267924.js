@@ -2112,7 +2112,7 @@ var listedBuildings3067267924 = [
 [51.9819086016, -1.3235965968, 1046354, "OSBORNE HOUSE", "II", "Thu, 05 May 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1046354"],
 [51.9796286744, -1.2443222455, 1046395, "VILLAGE PUMP", "II", "Mon, 03 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1046395"],
 [51.9791624858, -1.2396100092, 1046396, "HIGHLAND COTTAGE AND ABOVE THE WELL COTTAGE", "II", "Mon, 03 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1046396"],
-[51.9795571371, -1.2401883867, 1046397, "PLUMB COTTAGE", "II", "Mon, 03 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1046397"],
+[51.9795571371, -1.2401883867, 1046397, "Pond Cottage", "II", "Mon, 03 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1046397"],
 [51.9793702233, -1.2404827463, 1046398, "GREAT HOUSE CLOSE", "II", "Wed, 07 Dec 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1046398"],
 [51.9444699181, -1.1858161961, 1046399, "FARM OFFICE AND ATTACHED COTTAGE AT SWIFT'S HOUSE", "II", "Mon, 03 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1046399"],
 [51.9604392213, -1.2030352964, 1046400, "BARN AT SP 5487 2940", "II", "Mon, 03 Oct 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1046400"],

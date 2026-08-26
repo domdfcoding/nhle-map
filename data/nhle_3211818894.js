@@ -61744,6 +61744,7 @@ var deDesignated3211818894 = [
 [53.7994830967, -1.8124528009, 1314151, "Rhodesway Secondary School", null, "Mon, 14 Dec 2020", null, "Listing"],
 [53.8060399531, -1.8953304422, 1314156, "Sunday School to Denholme United Reformed Church", null, "Thu, 17 Dec 2020", null, "Listing"],
 [53.9248814387, -1.8368048969, 1314224, "Outbuilding to north west of Heathcote", null, "Fri, 12 Dec 2014", null, "Listing"],
+[53.9239460132, -1.8362907924, 1314225, "Steps, piers and sundial in garden south of Heathcote", null, "Fri, 12 Dec 2014", null, "Listing"],
 [53.8022681412, -1.8297083408, 1314317, "THE OLD KING'S HEAD PUBLIC HOUSE", null, "Wed, 19 Jun 2013", null, "Listing"],
 [53.8538286326, -1.7378731239, 1314384, "GILL BECK BRIDGE", null, "Fri, 15 May 2015", null, "Listing"],
 [53.8127720955, -1.7142708323, 1314385, "Cherry Tree Farmhouse and adjoining barn", null, "Tue, 23 Apr 2024", null, "Listing"],

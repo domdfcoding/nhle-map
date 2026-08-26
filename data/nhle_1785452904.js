@@ -1019,7 +1019,7 @@ var listedBuildings1785452904 = [
 [50.0956551778, -5.2407623387, 1142094, "BRIDGE AT SW 683267", "II", "Fri, 17 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1142094"],
 [50.0943056234, -5.21327568, 1142095, "COTTAGE AT APPROXIMATELY 60 METRES EAST OF BROOKSIDE, INCLUDING FRONT GARDEN WALLS, GATE PIERS AND GATE", "II", "Fri, 17 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1142095"],
 [50.1179640121, -5.2130132579, 1142096, "MERTHER UNY MILLHOUSE", "II", "Fri, 17 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1142096"],
-[50.1053441001, -5.1122829988, 1142097, "BOSLOE HOUSE", "II", "Fri, 17 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1142097"],
+[50.1053441001, -5.1122829988, 1142097, "Bosloe House", "II", "Fri, 17 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1142097"],
 [50.1107940524, -5.1360681969, 1142098, "GLEN AVON", "II", "Fri, 17 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1142098"],
 [50.1235423766, -5.1276943485, 1142099, "LOWER TREGARNE MILL", "II", "Fri, 17 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1142099"],
 [50.1174697938, -5.0984167019, 1142100, "MEUDON", "II", "Fri, 17 Jun 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1142100"],
