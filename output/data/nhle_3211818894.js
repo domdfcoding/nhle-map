@@ -9052,7 +9052,7 @@ var listedBuildings3211818894 = [
 [53.3770732915, -1.1553379796, 1192713, "7 AND 9, BARKER HADES ROAD", "II", "Fri, 29 Jul 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1192713"],
 [53.5847882392, -1.5316999225, 1192714, "MILNS GRAVESLAB APPROXIMATELY 5 METRES SOUTH OF PORCH OF CHURCH OF ALL SAINTS", "II", "Mon, 23 Nov 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1192714"],
 [53.5985404066, -1.065110923, 1192719, "CHURCH COTTAGE", "II", "Tue, 29 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1192719"],
-[53.4287882912, -1.3548141542, 1192720, "FEOFFEES", "II", "Fri, 19 Oct 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1192720"],
+[53.4287882912, -1.3548141542, 1192720, "The Blue Coat (Former Charity School)", "II", "Fri, 19 Oct 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1192720"],
 [53.5981302973, -1.0643108438, 1192721, "THE OLD RECTORY", "II", "Tue, 29 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1192721"],
 [53.3293422498, -1.1796889358, 1192722, "BRANCLIFFE GRANGE FARMHOUSE", "II", "Wed, 15 Oct 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1192722"],
 [53.6143632208, -1.0528262962, 1192727, "WOOD END FARMHOUSE", "II", "Tue, 29 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1192727"],

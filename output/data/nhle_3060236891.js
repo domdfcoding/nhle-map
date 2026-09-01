@@ -6375,7 +6375,7 @@ var listedBuildings3060236891 = [
 [50.76555866, -1.3022359517, 1273577, "CASTLE MOUNT MONTAGUE HOUSE", "II", "Thu, 09 Aug 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1273577"],
 [50.7556101052, -1.2854851661, 1273597, "FRANK JAMES MEMORIAL HOSPITAL", "II", "Thu, 09 Aug 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1273597"],
 [50.7332791983, -1.2588309079, 1273598, "OLD ALVERSTONE COTTAGES", "II", "Fri, 17 Aug 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1273598"],
-[50.7244182266, -1.9385818359, 1273602, "CHURCH OF ST OSMUND", "II*", "Mon, 30 Jun 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1273602"],
+[50.7244182266, -1.9385818359, 1273602, "St Dunstan of Canterbury Orthodox Church", "II*", "Mon, 30 Jun 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1273602"],
 [50.7215978081, -1.1150905599, 1273650, "BY THE WAY THE SPRAT", "II", "Wed, 23 Nov 1977", "https://historicengland.org.uk/listing/the-list/list-entry/1273650"],
 [50.7246968375, -1.2228677257, 1273687, "KITEHILL FARMHOUSE", "II", "Tue, 24 Oct 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1273687"],
 [50.7282117097, -1.1566275992, 1273720, "GOTHIC COTTAGE", "II", "Thu, 18 May 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1273720"],

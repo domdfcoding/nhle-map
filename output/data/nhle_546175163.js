@@ -57386,7 +57386,6 @@ var deDesignated546175163 = [
 [51.6908953874, 0.419526015, 1122030, "The Spread Eagle Inn", null, "Mon, 13 Mar 2023", null, "Listing"],
 [51.5896017755, 0.5019936784, 1122238, "Barn to north-east of the Rectory", null, "Fri, 16 Oct 2020", null, "Listing"],
 [51.8059834952, 0.6374247849, 1122604, "THE GRANGE, no.4 Chipping Hill, Witham", null, "Wed, 27 Mar 2013", null, "Listing"],
-[51.8061499658, 0.6374663863, 1122604, "THE GRANGE, no.4 Chipping Hill, Witham", null, "Wed, 27 Mar 2013", null, "Listing"],
 [51.994244093, 0.6664509367, 1123033, "Oak Farm Barn, approximately 30m east of house", null, "Wed, 07 Jun 2023", null, "Listing"],
 [51.9903175648, 0.6949356083, 1123276, "Clarke's Farmhouse", null, "Wed, 11 Sep 2019", null, "Listing"],
 [51.8929338735, 0.8960086636, 1123561, "NEW MARKET TAVERN", null, "Tue, 12 Jul 2016", null, "Listing"],
