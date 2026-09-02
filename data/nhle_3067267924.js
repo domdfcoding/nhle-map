@@ -26870,7 +26870,7 @@ var listedBuildings3067267924 = [
 [51.7640197552, -1.2116699761, 1369367, "9, THE CROFT", "II", "Wed, 28 Jun 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1369367"],
 [51.7661329603, -1.2170819153, 1369368, "THE MANOR FARMHOUSE", "II", "Tue, 12 Jan 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1369368"],
 [51.7661636971, -1.2149511607, 1369369, "THE ROOKERY (RUSKIN COLLEGE)", "II", "Tue, 12 Jan 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1369369"],
-[51.7460416097, -1.2565671676, 1369370, "FOLLY HOUSE", "II", "Mon, 29 Jan 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1369370"],
+[51.7460416097, -1.2565671676, 1369370, "Caudwells Castle", "II", "Mon, 29 Jan 1968", "https://historicengland.org.uk/listing/the-list/list-entry/1369370"],
 [51.7838030213, -1.2896378063, 1369371, "67, GODSTOW ROAD", "II", "Wed, 28 Jun 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1369371"],
 [51.7800577317, -1.2993216828, 1369372, "TROUT INN", "II", "Tue, 12 Jan 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1369372"],
 [51.7795210604, -1.2997938465, 1369373, "GODSTOW BRIDGE", "II", "Tue, 12 Jan 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1369373"],
