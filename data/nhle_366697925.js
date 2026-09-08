@@ -17970,7 +17970,7 @@ var listedBuildings366697925 = [
 [53.1889399029, -2.8908105241, 1376104, "NUMBER 57 STREET NUMBERS 63 AND 65 ROW", "II*", "Mon, 10 Jan 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1376104"],
 [53.1888235085, -2.8907482469, 1376105, "61 Bridge Street and 71 and 73 Bridge Street Row East", "II", "Thu, 28 Jul 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1376105"],
 [53.188760258, -2.890791834, 1376106, "63 Bridge Street and 75 Bridge Street Row East", "II", "Thu, 28 Jul 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1376106"],
-[53.1886895858, -2.8906257426, 1376107, "HERTAGE CENTRE", "II", "Thu, 28 Jul 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1376107"],
+[53.1886895858, -2.8906257426, 1376107, "Heritage Centre", "II", "Thu, 28 Jul 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1376107"],
 [53.1872608886, -2.8917484797, 1376108, "11-17, BUNCE STREET", "II", "Fri, 04 Mar 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1376108"],
 [53.1848757675, -2.8933451112, 1376109, "MODEL OF THE GROSVENOR BRIDGE", "II", "Mon, 10 Jan 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1376109"],
 [53.1855468604, -2.8901565588, 1376110, "RETAINING WALL TO BANK OF RIVER DEE OPPOSITE COUNTY HALL (NOT INCLUDED)", "II", "Thu, 06 Aug 1998", "https://historicengland.org.uk/listing/the-list/list-entry/1376110"],

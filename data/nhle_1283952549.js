@@ -4336,7 +4336,7 @@ var listedBuildings1283952549 = [
 [54.0517251822, -0.3139092863, 1346455, "FORMER METHODIST CHURCH", "II", "Mon, 09 Jan 1956", "https://historicengland.org.uk/listing/the-list/list-entry/1346455"],
 [54.0684951217, -0.2794609145, 1346457, "HAISTHORPE HALL", "II", "Mon, 14 Apr 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1346457"],
 [54.0165252083, -0.7690737398, 1346462, "The Manor House", "II", "Thu, 26 Jan 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1346462"],
-[54.021381313, -0.7641670032, 1346463, "MANOR HOUSE", "II", "Tue, 14 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1346463"],
+[54.021381313, -0.7641670032, 1346463, "Manor House", "II", "Tue, 14 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1346463"],
 [54.0037642618, -0.8617884842, 1346464, "THE COTTAGE", "II", "Tue, 14 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1346464"],
 [54.0714294752, -0.5770837822, 1346467, "CARTHOUSE AND STABLES APPROXIMATELY 5 METRES TO EAST OF TRITON COTTAGE", "II", "Wed, 07 Sep 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1346467"],
 [54.0714424574, -0.575142426, 1346468, "THE VILLA", "II", "Mon, 07 Sep 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1346468"],
