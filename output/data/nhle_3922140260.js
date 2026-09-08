@@ -10434,7 +10434,7 @@ var listedBuildings3922140260 = [
 [52.3659129296, -2.7225612107, 1210429, "20 AND 21, DINHAM", "II", "Mon, 09 Aug 1993", "https://historicengland.org.uk/listing/the-list/list-entry/1210429"],
 [52.3658736552, -2.722736793, 1210446, "CHAPEL HOUSE", "II*", "Thu, 15 Apr 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1210446"],
 [52.9667706916, -2.1979215948, 1210451, "MAUSOLEUM", "I", "Wed, 19 Apr 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1210451"],
-[52.3664497125, -2.7215089943, 1210473, "DINHAM HALL HOTEL AND ATTACHED WALL AND GATES", "II", "Thu, 15 Apr 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1210473"],
+[52.3664497125, -2.7215089943, 1210473, "Dinham Hall and attached wall and gates", "II", "Thu, 15 Apr 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1210473"],
 [52.3662934548, -2.7232281636, 1210491, "DINHAM HOUSE", "II*", "Thu, 15 Apr 1954", "https://historicengland.org.uk/listing/the-list/list-entry/1210491"],
 [52.3665626541, -2.7144498865, 1210527, "3 AND 4, FRIARS WALK", "II", "Mon, 09 Aug 1993", "https://historicengland.org.uk/listing/the-list/list-entry/1210527"],
 [52.9967617326, -2.1909668966, 1210534, "1 AND 2, THE VILLAS", "II", "Mon, 15 Mar 1993", "https://historicengland.org.uk/listing/the-list/list-entry/1210534"],
