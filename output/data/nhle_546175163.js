@@ -9038,7 +9038,7 @@ var listedBuildings546175163 = [
 [51.7147921197, 0.5037087848, 1122151, "FRIARS HALL", "II", "Wed, 04 Aug 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1122151"],
 [51.7145799516, 0.5040199269, 1122152, "MEADS", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1122152"],
 [51.7141491325, 0.5049840184, 1122153, "BADDOW PLACE", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1122153"],
-[51.7136399647, 0.5056652607, 1122154, "47 and 49, Church Street", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1122154"],
+[51.7136399647, 0.5056652607, 1122154, "47, Church Street", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1122154"],
 [51.7153489322, 0.5005911781, 1122155, "GOWERS", "II", "Thu, 19 Jun 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1122155"],
 [51.7145454042, 0.5003151986, 1122156, "BADDOW HOUSE", "II", "Tue, 26 Nov 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1122156"],
 [51.7181467349, 0.4992832325, 1122157, "6, HIGH STREET", "II", "Fri, 19 Mar 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1122157"],
