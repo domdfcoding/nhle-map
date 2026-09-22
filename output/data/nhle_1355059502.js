@@ -7936,7 +7936,7 @@ var listedBuildings1355059502 = [
 [53.0009030279, -0.3636914409, 1360592, "CHURCH OF ST DENYS", "II*", "Wed, 01 Feb 1967", "https://historicengland.org.uk/listing/the-list/list-entry/1360592"],
 [53.0985492989, -0.5370186555, 1360596, "THE LODGE", "II", "Thu, 04 Apr 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1360596"],
 [53.0983251765, -0.5374966931, 1360597, "BARN IN THEAKER'S YARD", "II", "Thu, 04 Apr 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1360597"],
-[53.0813377037, -0.4222457891, 1360598, "2 AND 4, MAIN STREET", "II", "Thu, 08 May 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1360598"],
+[53.0813377037, -0.4222457891, 1360598, "The Fort", "II", "Thu, 08 May 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1360598"],
 [53.0818070034, -0.4251619007, 1360599, "26 AND 28, MAIN STREET", "II", "Mon, 15 Sep 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1360599"],
 [53.0850146839, -0.4297262642, 1360600, "STABLE BLOCK TO THE NORTH OF ASHBY HALL", "II", "Mon, 07 Dec 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1360600"],
 [53.0308748227, -0.2578699446, 1360601, "THE MANOR", "II", "Fri, 23 Nov 1990", "https://historicengland.org.uk/listing/the-list/list-entry/1360601"],
