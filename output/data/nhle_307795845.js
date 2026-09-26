@@ -1753,7 +1753,7 @@ var listedBuildings307795845 = [
 [50.8513767634, 0.5547587264, 1190918, "1 AND 2, EAST ASCENT", "II", "Fri, 19 Jan 1951", "https://historicengland.org.uk/listing/the-list/list-entry/1190918"],
 [50.8728732342, 0.014482812, 1190941, "6A, FRIAR'S WALK", "II", "Tue, 29 Oct 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1190941"],
 [50.872748153, 0.0144347792, 1190950, "8 AND 9, FRIAR'S WALK", "II", "Tue, 29 Oct 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1190950"],
-[50.8556112451, 0.5891070687, 1190959, "6, EAST PARADE", "II", "Tue, 14 Sep 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1190959"],
+[50.8556112451, 0.5891070687, 1190959, "6, East Parade and 32 West Street", "II", "Tue, 14 Sep 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1190959"],
 [50.8721927631, 0.0137854429, 1190962, "19, FRIAR'S WALK", "II", "Tue, 29 Oct 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1190962"],
 [50.8556716078, 0.5892240883, 1190965, "8, EAST PARADE", "II", "Tue, 14 Sep 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1190965"],
 [50.8720805896, 0.0135105522, 1190974, "24, FRIAR'S WALK", "II", "Tue, 29 Oct 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1190974"],
