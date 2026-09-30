@@ -25654,7 +25654,7 @@ var listedBuildings828253910 = [
 [51.4538826874, -2.6041633729, 1282279, "ROYAL COLONNADE", "II*", "Thu, 08 Jan 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1282279"],
 [51.4534037439, -2.6041819904, 1282280, "NUMBER 25 AND ATTACHED FRONT AREA RAILINGS AND REAR GARDEN WALLS", "II*", "Thu, 08 Jan 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1282280"],
 [51.4699051632, -2.613893121, 1282281, "8 AND 9, GROVE ROAD", "II", "Fri, 04 Mar 1977", "https://historicengland.org.uk/listing/the-list/list-entry/1282281"],
-[51.4702560896, -2.6142674565, 1282282, "ST VINCENT'S COTTAGES", "II", "Thu, 13 Dec 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1282282"],
+[51.4702560896, -2.6142674565, 1282282, "St Vincent's Cottage and Pineapple Cottage", "II", "Thu, 13 Dec 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1282282"],
 [51.4631496221, -2.6182312965, 1282284, "EMANUEL COURT", "II", "Fri, 06 Feb 1976", "https://historicengland.org.uk/listing/the-list/list-entry/1282284"],
 [51.5070712301, -2.6354872278, 1282285, "BLAISE HAMLET, DIAMOND COTTAGE", "I", "Thu, 08 Jan 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1282285"],
 [51.4621061185, -2.6028000311, 1282286, "COTHAM CHURCH", "II*", "Tue, 01 Nov 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1282286"],

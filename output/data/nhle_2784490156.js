@@ -11723,7 +11723,7 @@ var listedBuildings2784490156 = [
 [50.7875046677, -3.6534968168, 1297328, "4-9, PARK STREET", "II", "Wed, 11 Oct 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1297328"],
 [50.4365203645, -3.5714717877, 1298224, "86, 88, 88A and 90, Winner Street", "II", "Fri, 10 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1298224"],
 [50.4365892394, -3.5716993903, 1298225, "155, WINNER STREET", "II", "Fri, 10 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1298225"],
-[50.4196612346, -3.6014341534, 1298226, "HIGHER YALBERTON FARMHOUSE AND ATTACHED OUTBUILDING TO EAST", "II", "Fri, 10 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1298226"],
+[50.4200708388, -3.6010212229, 1298226, "HIGHER YALBERTON FARMHOUSE AND ATTACHED OUTBUILDING TO EAST", "II", "Fri, 10 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1298226"],
 [50.4205190704, -3.5952970667, 1298227, "YALBERTON FARMHOUSE", "II", "Fri, 10 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1298227"],
 [50.4163250566, -3.6013919737, 1298228, "WEST, EAST AND NORTH RANGES OF FARM BUILDINGS TO WEST FARMYARD AT LOWER YALBERTON FARM", "II", "Fri, 10 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1298228"],
 [50.4361788165, -3.6070066329, 1298229, "LOWER BLAGDON HOUSE", "II", "Fri, 10 Jan 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1298229"],
