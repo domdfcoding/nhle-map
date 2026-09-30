@@ -3292,7 +3292,7 @@ var listedBuildings2317628205 = [
 [50.9878844241, -0.610340697, 1225924, "THE OLD ESTATE OFFICE", "II", "Tue, 22 Feb 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1225924"],
 [50.9925370022, -0.6092138866, 1225987, "THE STONEMASONS INN", "II", "Wed, 22 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1225987"],
 [50.9881535404, -0.6110053234, 1225989, "PETWORTH HOUSE", "I", "Tue, 22 Feb 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1225989"],
-[50.9882681846, -0.6101952525, 1226045, "THE SERVANT'S WING", "II*", "Tue, 22 Feb 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1226045"],
+[50.9882681846, -0.6101952525, 1226045, "The Servants' wing", "II*", "Tue, 22 Feb 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1226045"],
 [50.9876578167, -0.6101907369, 1226048, "THE PEDESTRIAN ENTRANCE TO PETWORTH HOUSE THE VISITORS' ENTRANCE TO PETWORTH HOUSE, CHURCH STREET, AND THE LEDGE ADJOINING", "II", "Wed, 22 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1226048"],
 [50.9873160277, -0.6105033671, 1226050, "THE STABLES OF PETWORTH HOUSE THE STABLES OF PETWORTH HOUSE, EAST WING", "II*", "Tue, 22 Feb 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1226050"],
 [50.9870081181, -0.6130312658, 1226051, "THE GATE TO THE SOUTH WEST OF PETWORTH HOUSE LEADING FROM THE GARDEN INTO THE PARK", "II", "Tue, 22 Feb 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1226051"],
