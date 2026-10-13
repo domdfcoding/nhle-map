@@ -5244,7 +5244,7 @@ var listedBuildings2603421497 = [
 [51.3588460294, 1.442744738, 1274242, "22, ALBION STREET", "II", "Fri, 20 Sep 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1274242"],
 [51.1617232063, 1.0052050763, 1276723, "BARN ABOUT 10 METRES NORTH EAST OF COURT LODGE", "II", "Thu, 16 Feb 1989", "https://historicengland.org.uk/listing/the-list/list-entry/1276723"],
 [51.1359149336, 1.0053631208, 1276893, "GROUP OF 4 HEADSTONES 10 TO 15 METRES NORTH WEST OF CHURCH OF ST MARY", "II", "Thu, 16 Feb 1989", "https://historicengland.org.uk/listing/the-list/list-entry/1276893"],
-[51.1366117806, 1.0033914308, 1276894, "BARN ABOUT 50 METRES SOUTH WEST OF COURT LODGE (TR 102 418)", "II", "Thu, 16 Feb 1989", "https://historicengland.org.uk/listing/the-list/list-entry/1276894"],
+[51.1366117806, 1.0033914308, 1276894, "Court Lodge Barn", "II", "Thu, 16 Feb 1989", "https://historicengland.org.uk/listing/the-list/list-entry/1276894"],
 [51.1365843747, 1.0050198228, 1276929, "COURTYARD AND BUILDING IMMEDIATELY TO EAST OF AND ADJOINING COURT LODGE", "II", "Thu, 16 Feb 1989", "https://historicengland.org.uk/listing/the-list/list-entry/1276929"],
 [51.136115171, 1.0057477632, 1276930, "COQUET LODGE", "II", "Wed, 27 Nov 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1276930"],
 [51.1361243337, 1.005578186, 1276931, "GATES AND RAILINGS TO BRABOURNE CHURCHYARD BETWEEN COQUET LODGE AND CHURCH FARMHOUSE", "II", "Thu, 16 Feb 1989", "https://historicengland.org.uk/listing/the-list/list-entry/1276931"],
@@ -14554,6 +14554,8 @@ var scheduledMonuments2603421497 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var deDesignated2603421497 = [
+[51.3311560891, 1.418333517, 1031843, "INNER BASIN WALLS, BOLLARDS, SLIPWAY AND STEPS", null, "Fri, 28 Apr 2023", null, "Listing"],
+[51.3282913491, 1.4186710719, 1038294, "THE WEST PIER, BOLLARDS, IRON CRANE AND FAIRLEADS", null, "Fri, 28 Apr 2023", null, "Listing"],
 [51.0855869723, 1.0355457946, 1061067, "The Royal Oak Public House", null, "Tue, 03 Dec 2024", null, "Listing"],
 [51.0917625831, 1.1201044016, 1061088, "Longport", null, "Mon, 21 Oct 2024", null, "Listing"],
 [51.0726988698, 1.136747328, 1061174, "No. 32, The Esplanade", null, "Wed, 23 Apr 2014", null, "Listing"],
@@ -14568,7 +14570,9 @@ var deDesignated2603421497 = [
 [51.3618389502, 1.024359776, 1084915, "STORE TO EAST OF SEA VIEW BUNGALOW", null, "Tue, 15 Jan 2013", null, "Listing"],
 [51.3588422346, 1.0748438004, 1084918, "Bodkin Farmhouse", null, "Thu, 07 Jun 2018", null, "Listing"],
 [51.3394488603, 1.4329443714, 1086074, "Rock Garden about 30 metres east of Sunshelter", null, "Fri, 26 Jun 2020", null, "Listing"],
+[51.3313689659, 1.4233607558, 1086088, "EAST PIER, NO 1 SLIPWAY, BOLLARDS AND VICTORIA OR DOVER STAIRS", null, "Fri, 28 Apr 2023", null, "Listing"],
 [51.3865910313, 1.3823074788, 1094630, "47 and 48 Hawley Square", null, "Fri, 10 Oct 2014", null, "Listing"],
+[51.7999053363, 1.0741714812, 1111460, "ST OSYTH'S PRIORY COTTAGE ADJOINING OUTBUILDING QV 15/189", null, "Mon, 01 Sep 2014", null, "Listing"],
 [51.7997670792, 1.0755193621, 1111465, "ST OSYTH'S PRIORY WALL BETWEEN SOUTHERN WING OF CONVALESCENT HOME QV 15/197 AND DARCY TOWER QV 15/199", null, "Mon, 01 Sep 2014", null, "Listing"],
 [51.799450076, 1.0759474796, 1111467, "ST OSYTH'S PRIORY GARDEN WALL ATTACHED TO DARCY TOWER TO NORTH AND PRECINCT WALL TO SOUTH", null, "Mon, 01 Sep 2014", null, "Listing"],
 [51.8484916994, 1.2722490934, 1111506, "Barker's Marine Hotel", null, "Wed, 26 Jan 2022", null, "Listing"],
