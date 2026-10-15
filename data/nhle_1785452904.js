@@ -26331,6 +26331,7 @@ var deDesignated1785452904 = [
 [50.147918168, -5.6834068114, 1143253, "Del Oro Cottage", null, "Tue, 14 Jul 2015", null, "Listing"],
 [50.1879290452, -5.4369988089, 1143404, "Church Cottage", null, "Tue, 29 May 2018", null, "Listing"],
 [50.1281150747, -5.4805607365, 1143629, "Marazion Old Bridge and Boundary Stone", null, "Fri, 20 Oct 2017", null, "Listing"],
+[50.1891855961, -5.4233135268, 1143676, "Bridge approximately 50m north-west of Custom House", null, "Thu, 04 Oct 2018", null, "Listing"],
 [50.1158215345, -5.5911360073, 1143818, "SKIMMEL BRIDGE", null, "Fri, 13 Oct 2017", null, "Listing"],
 [50.1847020097, -5.5838109572, 1144329, "Bos Hen", null, "Mon, 16 Sep 2024", null, "Listing"],
 [50.1849153068, -5.5838514624, 1144334, "Old Boswednack Farm", null, "Wed, 27 Jun 2012", null, "Listing"],

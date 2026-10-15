@@ -10740,6 +10740,7 @@ var deDesignated2268460373 = [
 [54.7404337159, -3.0217308396, 1145566, "HESKET BRIDGE", null, "Fri, 15 May 2015", null, "Listing"],
 [54.5313049756, -3.568830387, 1207481, "THE DISTRESSED SAILOR", null, "Tue, 16 Aug 2016", null, "Listing"],
 [54.5395152872, -3.5768080909, 1207576, "19, 20 & 20a Foxhouses Road", null, "Wed, 27 Aug 2025", null, "Listing"],
+[54.5475689093, -3.5878693249, 1207834, "Oddfellows Hall", null, "Thu, 08 Aug 2013", null, "Listing"],
 [54.5481534778, -3.5867017824, 1207945, "127-131 QUEEN STREET", null, "Thu, 27 Oct 2016", null, "Listing"],
 [54.5469484616, -3.5889509413, 1208074, "16 Roper Street", null, "Thu, 27 Oct 2016", null, "Listing"],
 [54.8451778986, -3.1785246483, 1213213, "METHODIST CHAPEL", null, "Mon, 10 Sep 2012", null, "Listing"],
