@@ -820,7 +820,7 @@ var listedBuildings2422489461 = [
 [55.2956609642, -1.7104687945, 1042137, "THE NORTHUMBERLAND ARMS AND ADJOINING STABLES", "II", "Mon, 20 Oct 1969", "https://historicengland.org.uk/listing/the-list/list-entry/1042137"],
 [55.2957685293, -1.7103577716, 1042138, "COACH HOUSE TO EAST OF NORTHUMBERLAND ARMS", "II", "Mon, 20 Oct 1969", "https://historicengland.org.uk/listing/the-list/list-entry/1042138"],
 [55.2954826698, -1.7110685306, 1042139, "PETH FOOT", "II", "Mon, 20 Oct 1969", "https://historicengland.org.uk/listing/the-list/list-entry/1042139"],
-[55.2958605454, -1.7074908751, 1042140, "THIRSTON HOUSE WITH ATTACHED OUTBUILDINGS AND COURTYARD WALL", "II", "Mon, 20 Oct 1969", "https://historicengland.org.uk/listing/the-list/list-entry/1042140"],
+[55.2958605454, -1.7074908751, 1042140, "Thirston House with attached outbuildings and courtyard wall", "II", "Mon, 20 Oct 1969", "https://historicengland.org.uk/listing/the-list/list-entry/1042140"],
 [55.2957080554, -1.7076022367, 1042141, "SUNDIAL 10 METRES WEST OF THIRSTON HOUSE", "II", "Wed, 18 Dec 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1042141"],
 [55.230093949, -1.5480301973, 1042143, "SCREEN WALL ATTACHED TO SOUTH EAST CORNER OF STABLE BLOCK", "II", "Wed, 18 Dec 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1042143"],
 [55.220475037, -1.5373245727, 1042144, "HOME FARMHOUSE", "II", "Wed, 18 Dec 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1042144"],
