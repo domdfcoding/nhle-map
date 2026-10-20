@@ -6075,7 +6075,7 @@ var listedBuildings3922140260 = [
 [52.4142073761, -2.1008070826, 1100126, "GLEN COTTAGE", "II", "Thu, 17 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1100126"],
 [52.4065017967, -2.1020389725, 1100127, "BARN AND STABLES ADJPINING WALTON FARMHOUSE TO THE EAST SIDE", "II", "Thu, 17 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1100127"],
 [52.4110837703, -2.1054308646, 1100128, "CLENT HALL", "II", "Thu, 17 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1100128"],
-[52.4157166852, -2.1210269337, 1100129, "COTTAGE BELONGING TO MRS WARTON ABOUT 10 YARDS WEST OF IVY COTTAGE", "II", "Thu, 17 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1100129"],
+[52.4157166852, -2.1210269337, 1100129, "The Cottage", "II", "Thu, 17 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1100129"],
 [52.3368724076, -2.1061187219, 1100130, "BUNGAY LAKE FARMHOUSE", "II", "Thu, 17 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1100130"],
 [52.3207268672, -2.0907347497, 1100131, "GRAFTON MANOR AND CHAPEL ADJOINING TO SOUTH WEST", "II*", "Wed, 23 Apr 1952", "https://historicengland.org.uk/listing/the-list/list-entry/1100131"],
 [52.320207029, -2.0912532226, 1100132, "THE TITHE BARN AND ADJACENT GARDEN WALLS ABOUT 10 YARDS SOUTH-WEST OF GRAFTON MANOR AND ADJOINING CHAPEL", "II", "Thu, 17 Jul 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1100132"],
