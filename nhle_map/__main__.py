@@ -30,14 +30,15 @@ Map showing places on the National Heritage List for England.
 from typing import Any
 
 # 3rd party
-from consolekit import CONTEXT_SETTINGS, SuggestionGroup, click_group
+from consolekit import CONTEXT_SETTINGS, click_group
+from consolekit.commands import UnderscoreCommandGroup
 from consolekit.options import auto_default_option
 
 __all__ = ["main", "make_map", "prepare_data"]
 
 
 @click_group(
-		cls=SuggestionGroup,
+		cls=UnderscoreCommandGroup,
 		invoke_without_command=False,
 		context_settings={**CONTEXT_SETTINGS, "show_default": True},
 		)
