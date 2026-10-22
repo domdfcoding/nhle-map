@@ -1,4 +1,4 @@
-// Lat: 53 — -1, Lng: 54 — 0,
+// Lat: 53 — 54, Lng: -1 — 0,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings1355059502 = [
 [53.73675374, -0.3580318159, 1025257, "FORMER PUBLIC BENEFIT SHOE COMPANY SHOP AT CORNER OF COLTMAN STREET", "II", "Fri, 21 Jan 1994", "https://historicengland.org.uk/listing/the-list/list-entry/1025257"],

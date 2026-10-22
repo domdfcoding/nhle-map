@@ -1,4 +1,4 @@
-// Lat: 51 — -2, Lng: 52 — -1,
+// Lat: 51 — 52, Lng: -2 — -1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3067267924 = [
 [51.5631727756, -1.9685817295, 1022207, "BOX BUSH HOUSE", "II", "Thu, 16 Jul 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1022207"],

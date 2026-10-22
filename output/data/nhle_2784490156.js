@@ -1,4 +1,4 @@
-// Lat: 50 — -4, Lng: 51 — -3,
+// Lat: 50 — 51, Lng: -4 — -3,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings2784490156 = [
 [50.7908352467, -3.6583533534, 1025261, "2, MARKET STREET", "II", "Wed, 11 Oct 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1025261"],

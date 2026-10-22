@@ -1,4 +1,4 @@
-// Lat: 53 — -3, Lng: 54 — -2,
+// Lat: 53 — 54, Lng: -3 — -2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings366697925 = [
 [53.10005755, -2.9576509, 9, "Holly Cottage", "II", "Mon, 02 Jul 1962", "http://cadwpublic-api.azurewebsites.net/reports/listedbuilding/FullReport?lang=en&id=9", "Situated on the E side of Marford Hill close to the centre of the village."],

@@ -1,4 +1,4 @@
-// Lat: 54 — -3, Lng: 55 — -2,
+// Lat: 54 — 55, Lng: -3 — -2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3590499840 = [
 [54.0752748317, -2.8613701617, 1025254, "336, MARINE ROAD CENTRAL", "II", "Fri, 06 Apr 1979", "https://historicengland.org.uk/listing/the-list/list-entry/1025254"],

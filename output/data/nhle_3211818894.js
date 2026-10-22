@@ -1,4 +1,4 @@
-// Lat: 53 — -2, Lng: 54 — -1,
+// Lat: 53 — 54, Lng: -2 — -1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3211818894 = [
 [53.6570633211, -1.3349447043, 1024985, "Lychgate to church of St Cuthbert", "II", "Wed, 11 May 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1024985"],

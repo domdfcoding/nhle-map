@@ -1,4 +1,4 @@
-// Lat: 55 — -2, Lng: 56 — -1,
+// Lat: 55 — 56, Lng: -2 — -1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings2422489461 = [
 [55.0380612348, -1.6226835041, 1024712, "NORTH LODGE", "II", "Mon, 30 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1024712"],

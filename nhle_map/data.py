@@ -608,7 +608,7 @@ def chunk_data(
 	for latitude in lat_range:
 		for longitude in lng_range:
 			chunk_id = get_id()
-			chunk_buffer = [f"// Lat: {latitude} — {longitude}, Lng: {latitude+1} — {longitude+1}, "]
+			chunk_buffer = [f"// Lat: {latitude} — {latitude+1}, Lng: {longitude} — {longitude+1}, "]
 			data_for_chunk: bool = False
 
 			for chunks, dataset in datasets:

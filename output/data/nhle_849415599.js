@@ -1,4 +1,4 @@
-// Lat: 52 — 1, Lng: 53 — 2,
+// Lat: 52 — 53, Lng: 1 — 2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings849415599 = [
 [52.6455972525, 1.3038960518, 1024994, "LIME KILN AT MOUSEHOLD COURT", "II", "Tue, 10 Aug 1971", "https://historicengland.org.uk/listing/the-list/list-entry/1024994"],

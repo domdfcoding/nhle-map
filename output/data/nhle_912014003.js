@@ -1,4 +1,4 @@
-// Lat: 55 — -4, Lng: 56 — -3,
+// Lat: 55 — 56, Lng: -4 — -3,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings912014003 = [
 [55.0029775793, -3.0118451873, 1087505, "MILESTONE SOUTH OF MOSS WOOD AT NGR 353 680", "II", "Fri, 15 Jun 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1087505"],
