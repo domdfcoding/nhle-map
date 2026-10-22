@@ -1,4 +1,4 @@
-// Lat: 53 — 0, Lng: 54 — 1,
+// Lat: 53 — 54, Lng: 0 — 1,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings4292521833 = [
 [53.0315574283, 0.097699452, 1062034, "LYCHGATE", "II", "Wed, 26 Aug 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1062034"],

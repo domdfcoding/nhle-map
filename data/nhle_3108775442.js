@@ -1,4 +1,4 @@
-// Lat: 55 — -3, Lng: 56 — -2,
+// Lat: 55 — 56, Lng: -3 — -2,
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var listedBuildings3108775442 = [
 [55.2312980088, -2.1037815653, 1041230, "TOWNFOOT AND ATTACHED KENNEL", "II", "Fri, 29 May 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1041230"],
