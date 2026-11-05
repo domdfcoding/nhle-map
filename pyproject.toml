@@ -65,4 +65,4 @@ ignore = "H029,H031,H006,H030,H025,H013,J018,T028,J004"
 max_attribute_length = 80
 
 [tool.dep_checker]
-allowed_unused = [ "fiona",]
+allowed_unused = [ "fiona", "six",]
