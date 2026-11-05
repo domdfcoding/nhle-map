@@ -5317,7 +5317,7 @@ var listedBuildings32815386 = [
 [50.886533827, -2.7852994136, 1202951, "Lodge to Townsend Cemetery", "II", "Mon, 06 Dec 1993", "https://historicengland.org.uk/listing/the-list/list-entry/1202951"],
 [50.8822404329, -2.7956868565, 1202965, "THE HERMITAGE AND RETREAT AND ATTACHED ARCH AND SOUTH GARDEN WALL", "II", "Fri, 06 Sep 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1202965"],
 [50.8848377678, -2.7959868464, 1202966, "1 AND 3, MARKET SQUARE (See details for further address information)", "II", "Fri, 06 Sep 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1202966"],
-[50.8850847467, -2.7959177789, 1202967, "7, 9 AND 11, MARKET SQUARE", "II", "Fri, 06 Sep 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1202967"],
+[50.8850847467, -2.7959177789, 1202967, "9, 9a and 11  Market Square", "II", "Fri, 06 Sep 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1202967"],
 [50.8852065192, -2.795978928, 1202968, "OSCARS", "II*", "Mon, 12 Jun 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1202968"],
 [50.8854179776, -2.7953001599, 1202969, "21, MARKET SQUARE", "II", "Fri, 06 Sep 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1202969"],
 [50.8852362767, -2.7951095478, 1202970, "27A, MARKET SQUARE", "II", "Fri, 06 Sep 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1202970"],
