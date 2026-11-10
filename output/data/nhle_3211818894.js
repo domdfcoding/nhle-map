@@ -1615,7 +1615,7 @@ var listedBuildings3211818894 = [
 [53.0569736992, -1.3961467815, 1109013, "BUTTERLEY HALL", "II", "Wed, 25 May 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1109013"],
 [53.0483548316, -1.4065329202, 1109014, "MILEPOST ADJACENT TO NUMBER 8", "II", "Wed, 25 May 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1109014"],
 [53.0667552153, -1.4649578117, 1109015, "CROMFORD CANAL EMBANKMENT", "II", "Wed, 25 May 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1109015"],
-[53.0530704267, -1.454062553, 1109016, "HEAGE WINDMILL", "II*", "Mon, 29 Nov 1965", "https://historicengland.org.uk/listing/the-list/list-entry/1109016"],
+[53.0530704267, -1.454062553, 1109016, "Heage Windmill", "II*", "Mon, 29 Nov 1965", "https://historicengland.org.uk/listing/the-list/list-entry/1109016"],
 [53.0538692136, -1.4633186531, 1109017, "4, GUN LANE", "II", "Wed, 25 May 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1109017"],
 [53.0559009121, -1.4659179218, 1109018, "FARM DWELLING AT GUN LANE FARM", "II", "Mon, 11 Nov 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1109018"],
 [53.0551018853, -1.4580527801, 1109019, "BARN TO SOUTH OF HEAGE HALL", "II", "Wed, 25 May 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1109019"],
@@ -30930,6 +30930,10 @@ var listedBuildings3211818894 = [
 [53.1310619145, -1.7699661069, 1494485, "Biggin-by-Hartington War Memorial", "II", "Mon, 15 Sep 2025", "https://historicengland.org.uk/listing/the-list/list-entry/1494485", null, [[[[53.1310608223448, -1.76995355541811], [53.1310543654307, -1.76996792252769], [53.1310630065726, -1.76997865838052], [53.131069463488, -1.76996429126966], [53.1310608223448, -1.76995355541811]]]], false],
 [53.8065546944, -1.4709443062, 1495451, "K8 Public Telephone Kiosk (Mark 2), Seacroft Hospital", "II", "Fri, 13 Mar 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1495451", null, [[[[53.8065601848306, -1.47093889678649], [53.8065514924303, -1.47093503063992], [53.8065492039167, -1.47094971561766], [53.8065578963166, -1.47095358176715], [53.8065601848306, -1.47093889678649]]]], false],
 [53.2118999594, -1.6810161445, 1497883, "Former Blacksmith's Workshop", "II", "Fri, 16 Oct 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1497883", null, [[[[53.2118673861754, -1.68107937544016], [53.2119349860766, -1.68106579400563], [53.2119266826851, -1.68094670411169], [53.2118759579102, -1.68095574314378], [53.2118792318085, -1.68100162415826], [53.2118623200242, -1.68100589896822], [53.2118673861754, -1.68107937544016]]]], false],
+[53.3065893094, -1.1234574127, 1498462, "Waddington", "II", "Thu, 05 Nov 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1498462", null,
+ [[[[53.3065264887445, -1.12342354139354], [53.3065710030511, -1.12354794038459], [53.3065955769158, -1.12361346919715], [53.3066071724702, -1.12360122624372], [53.306602124127, -1.12358707270339], [53.306613292417, -1.12357783991771],
+    [53.3066188012101, -1.12359348475906], [53.3066308516802, -1.12358198284611], [53.3066325690105, -1.12354668082621], [53.3066354588441, -1.12347533756553], [53.3066186681127, -1.12333161217035], [53.3065979299374, -1.12332303224639],
+    [53.3065198792717, -1.12340491770023], [53.3065264887445, -1.12342354139354]]]], false],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

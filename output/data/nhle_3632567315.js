@@ -7546,7 +7546,7 @@ var listedBuildings3632567315 = [
 [52.3710737842, -0.4488245933, 1130139, "PARISH CHURCH OF ST LAWRENCE", "II*", "Tue, 28 Jan 1958", "https://historicengland.org.uk/listing/the-list/list-entry/1130139"],
 [52.3668665559, -0.4413488805, 1130140, "MILESTONE CIRCA 10 METRES TO WEST OF THE COTTAGE", "II", "Thu, 09 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1130140"],
 [52.3697304359, -0.4499145673, 1130141, "WHITE HART PUBLIC HOUSE", "II", "Thu, 09 Apr 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1130141"],
-[52.3994010061, -0.1840269697, 1130142, "MANOR COTTAGE", "II", "Mon, 02 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1130142"],
+[52.3994010061, -0.1840269697, 1130142, "Oakwood Cottage", "II", "Mon, 02 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1130142"],
 [52.3989556403, -0.1825459319, 1130143, "POND COTTAGE", "II", "Mon, 02 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1130143"],
 [52.3990596312, -0.1822917716, 1130144, "COTTAGE 20 YARDS NORTH EAST OF POND COTTAGE", "II", "Mon, 02 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1130144"],
 [52.3986997434, -0.1822771621, 1130145, "CORNER COTTAGE", "II", "Mon, 02 Mar 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1130145"],
