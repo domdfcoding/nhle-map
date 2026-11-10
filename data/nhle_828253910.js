@@ -25044,7 +25044,7 @@ var listedBuildings828253910 = [
 [51.2048827484, -2.5188454539, 1275309, "BARN IN FARMYARD TO WEST OF BEACON FARMHOUSE", "II", "Thu, 25 Feb 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1275309"],
 [51.1235989713, -2.5369819347, 1275468, "THE GREEN AND GREENWAYS", "II", "Thu, 25 Feb 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1275468"],
 [51.1233185724, -2.5392935281, 1275470, "THE PRIORY", "II*", "Thu, 25 Feb 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1275470"],
-[51.1253740571, -2.5361879743, 1275484, "DITCHEAT HOUSE OR DITCHEAT MANOR", "II*", "Fri, 02 Jun 1961", "https://historicengland.org.uk/listing/the-list/list-entry/1275484"],
+[51.1253740571, -2.5361879743, 1275484, "The Manor House", "II*", "Fri, 02 Jun 1961", "https://historicengland.org.uk/listing/the-list/list-entry/1275484"],
 [51.1248688882, -2.5365393732, 1275505, "CHURCHYARD CROSS IN CHURCHYARD, CHURCH OF ST MARY MAGDALENE", "II", "Thu, 25 Feb 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1275505"],
 [51.1932517788, -2.454273337, 1275634, "PAIR OF GATE PIERS ON ROADSIDE AT NGR ST 6835 5389", "II", "Thu, 25 Feb 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1275634"],
 [51.1517625349, -2.4633885285, 1275783, "WESTCOMBE COTTAGE", "II", "Thu, 25 Feb 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1275783"],
