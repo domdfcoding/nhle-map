@@ -17831,7 +17831,7 @@ var listedBuildings715690407 = [
 [52.138284826, -1.9227554984, 1301397, "THE GRANGE", "II", "Thu, 30 Jul 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1301397"],
 [52.1393799437, -1.9206083128, 1301400, "DREAM COTTAGE", "II", "Fri, 09 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1301400"],
 [52.0897350902, -1.8160724403, 1301404, "PODEN", "II", "Fri, 09 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1301404"],
-[52.0920143314, -1.8641519316, 1301413, "Upper End Farmhouse and Upper End House", "II", "Thu, 30 Jul 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1301413"],
+[52.0920143314, -1.8641519316, 1301413, "The Farmhouse and Upper End House", "II", "Thu, 30 Jul 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1301413"],
 [52.0914083616, -1.8634296901, 1301415, "BRETFOTON HOUSE", "II", "Thu, 30 Jul 1959", "https://historicengland.org.uk/listing/the-list/list-entry/1301415"],
 [52.0927139584, -1.8671854211, 1301444, "CIDER HOUSE ABOUT 15 METRES SOUTH OF THE MANOR HOUSE", "II", "Fri, 09 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1301444"],
 [52.0938775313, -1.8684872656, 1301453, "32 Main Street and attached garage", "II", "Fri, 09 Jan 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1301453"],

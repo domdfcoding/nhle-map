@@ -13412,7 +13412,7 @@ var listedBuildings3632567315 = [
 [52.8885226423, -0.4508046148, 1253330, "RECTORY COTTAGE", "II", "Thu, 20 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1253330"],
 [52.8908384665, -0.4578136103, 1253333, "THE OLD HALL FARM HOUSE", "II", "Thu, 20 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1253333"],
 [52.8939328701, -0.5248056061, 1253351, "CROWN HILL FARM", "II", "Thu, 20 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1253351"],
-[52.9322339207, -0.5502847642, 1253411, "CHURCH OF ST BARTHOLOMEW", "I", "Tue, 20 Sep 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1253411"],
+[52.9322339207, -0.5502847642, 1253411, "Church of St.Bartholomew", "I", "Tue, 20 Sep 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1253411"],
 [52.9339094713, -0.5508698454, 1253418, "THE LAURELS", "II", "Thu, 20 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1253418"],
 [52.9332662684, -0.5497307715, 1253421, "LORDSHIP FARM HOUSE", "II", "Thu, 20 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1253421"],
 [52.9330870411, -0.5527274166, 1253422, "THE CHESTNUTS FARMHOUSE AND CONSERVATORY", "II", "Thu, 20 Sep 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1253422"],

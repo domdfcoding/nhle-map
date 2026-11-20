@@ -19746,7 +19746,6 @@ var listedBuildings3067267924 = [
 [51.3161289609, -1.895341605, 1284589, "GABLE THATCH", "II", "Fri, 25 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1284589"],
 [51.6941214153, -1.2447009579, 1284590, "BARN APPROXIMATELY 20 METRES SOUTH EAST OF PARK END", "II", "Wed, 24 Jun 1987", "https://historicengland.org.uk/listing/the-list/list-entry/1284590"],
 [51.3168466098, -1.8954978202, 1284592, "BARN AT CHIRTON FARM", "II", "Fri, 25 Mar 1988", "https://historicengland.org.uk/listing/the-list/list-entry/1284592"],
-[51.6757390785, -1.4478242944, 1284599, "Lamb and Flag House", "II", "Wed, 15 Jan 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1284599"],
 [51.6440815075, -1.2744080126, 1284601, "BARN APPROXIMATELY 50 METRES EAST NORTH EAST OF THE MANOR HOUSE", "II", "Wed, 09 Feb 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1284601"],
 [51.4429447355, -1.7338304016, 1284602, "WELL COTTAGE", "II", "Tue, 02 Sep 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1284602"],
 [51.691989097, -1.4467967248, 1284604, "LONGWORTH MANOR, BARN APPROXIMATELY 25 METRES SOUTH", "II", "Mon, 21 Nov 1966", "https://historicengland.org.uk/listing/the-list/list-entry/1284604"],
@@ -76050,6 +76049,7 @@ var deDesignated3067267924 = [
 [51.3801012919, -1.6262345979, 1421247, "23 Stokke Common", null, "Wed, 06 May 2020", null, "Listing"],
 [51.6283724348, -1.9111888197, 1436883, "War memorial outside All Saints' Church, The Leigh", null, "Thu, 22 Jun 2017", null, "Listing"],
 [51.078362384, -1.9507684345, -1, "Horse Shoe Bridge", null, "Tue, 10 Jun 2025", null, "Listing"],
+[51.6756882147, -1.4479603585, -1, "Lamb and Flag House and the Old Stables", null, "Mon, 16 Nov 2026", null, "Listing"],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
