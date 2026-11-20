@@ -1519,7 +1519,10 @@ var listedBuildings3590499840 = [
 [54.8759564459, -2.9864051666, 1087741, "MAXWELL COTTAGE", "II", "Thu, 22 Sep 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1087741"],
 [54.868199231, -2.9886508507, 1087742, "MILESTONE (EAST OF NEWBY CROSS FARM)", "II", "Thu, 22 Sep 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1087742"],
 [54.8668477364, -2.8918071017, 1087743, "5, BRISCO VIEW", "II", "Thu, 22 Sep 1983", "https://historicengland.org.uk/listing/the-list/list-entry/1087743"],
-[54.8674029982, -2.9327206583, 1087744, "Blackwell House and stables", "II", "Mon, 01 Apr 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1087744"],
+[54.8673411563, -2.9328210671, 1087744, "Blackwell House and attached barn", "II", "Mon, 01 Apr 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1087744", null,
+ [[[[54.8672696692336, -2.93286825459963], [54.8672360701436, -2.93297203056922], [54.8673199317646, -2.93305187310833], [54.8673803361372, -2.93286301751059], [54.8673809623304, -2.9328610531137], [54.8673884405859, -2.93283749509555],
+    [54.8674267452709, -2.93271777826322], [54.8674453608549, -2.93265759574977], [54.8674455727794, -2.93265691505324], [54.8674028824353, -2.9326187527943], [54.8673667343824, -2.93258644434843], [54.8673126942512, -2.93276578663868],
+    [54.8673051107499, -2.93275860002185], [54.8672696692336, -2.93286825459963]]]], false],
 [54.8594868604, -2.9009209466, 1087745, "ST NINIAN'S WELL", "II", "Mon, 01 Apr 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1087745"],
 [54.8541872445, -2.8961098253, 1087746, "BRISCO HILL", "II", "Mon, 01 Apr 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1087746"],
 [54.8588267533, -2.9046067948, 1087747, "BRISCO HALL", "II", "Mon, 01 Apr 1957", "https://historicengland.org.uk/listing/the-list/list-entry/1087747"],
@@ -12451,7 +12454,6 @@ var protectedWreckSites3590499840 = [
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,
 var buildingPreservationNotices3590499840 = [
-[54.3691338809, -2.9003656203, 1497176, "BPN Low Lickbarrow Farm", null, "Wed, 13 May 2026", "https://historicengland.org.uk/listing/the-list/list-entry/1497176", null, [[[[54.3691101107831, -2.90027387447787], [54.3690524792414, -2.90036380449636], [54.3691167505381, -2.9004903362846], [54.3692211728714, -2.90032508312645], [54.3691845115604, -2.9002599510186], [54.3691319799015, -2.90033019985443], [54.3691101107831, -2.90027387447787]]]], false],
 ]
 
 // Lat,Lng,Number,Name,Grade,ListDate,Link,Notes?, Polygon Points?,

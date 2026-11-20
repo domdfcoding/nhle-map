@@ -7606,7 +7606,7 @@ var listedBuildings2603421497 = [
 [51.0717773554, 1.1039511589, 1393476, "THE BLACK COTTAGE", "II", "Fri, 09 Oct 2009", "https://historicengland.org.uk/listing/the-list/list-entry/1393476"],
 [51.2565036075, 1.3480842686, 1393477, "WORTH WAR MEMORIAL", "II", "Fri, 09 Oct 2009", "https://historicengland.org.uk/listing/the-list/list-entry/1393477"],
 [51.3868732121, 1.3730854185, 1393490, "Nayland Rock promenade shelter", "II", "Fri, 09 Oct 2009", "https://historicengland.org.uk/listing/the-list/list-entry/1393490"],
-[51.1159806874, 1.3136967929, 1393603, "FORMER CUSTOMS WATCH HOUSE", "II", "Wed, 16 Dec 2009", "https://historicengland.org.uk/listing/the-list/list-entry/1393603"],
+[51.1159806874, 1.3136967929, 1393603, "Former Customs Watch House", "II", "Wed, 16 Dec 2009", "https://historicengland.org.uk/listing/the-list/list-entry/1393603"],
 [51.1257059538, 1.3429487557, 1393604, "EASTERN ARM, DOVER HARBOUR", "II", "Wed, 16 Dec 2009", "https://historicengland.org.uk/listing/the-list/list-entry/1393604", null,
  [[[[51.1311675605091, 1.34314250806999], [51.1311532177852, 1.34315648220702], [51.1311453221377, 1.34316520392118], [51.1311272462862, 1.34312100949105], [51.1311167802494, 1.34309380547788], [51.1311037639895, 1.34306141356722],
     [51.1310987655902, 1.34304747113082], [51.1310894420013, 1.34302749770704], [51.1310797307843, 1.34300535188085], [51.1310648579031, 1.34297497023234], [51.1310554730824, 1.34295713680713], [51.1310439460685, 1.34293557457831],
