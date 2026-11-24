@@ -6021,7 +6021,7 @@ var listedBuildings32815386 = [
 [50.7033742914, -2.7280088576, 1214390, "LITTLE THATCHERS", "II", "Mon, 05 Sep 1960", "https://historicengland.org.uk/listing/the-list/list-entry/1214390"],
 [50.736841057, -2.5805876539, 1214456, "COMPTON VALENCE HOUSE", "II", "Mon, 20 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1214456"],
 [50.7366505371, -2.572933979, 1214471, "MANOR FARMHOUSE", "II", "Mon, 20 May 1985", "https://historicengland.org.uk/listing/the-list/list-entry/1214471"],
-[50.703099377, -2.7288259638, 1214502, "MANOR FARMHOUSE", "II", "Wed, 19 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1214502"],
+[50.7025600624, -2.728267329, 1214502, "MANOR FARMHOUSE", "II", "Wed, 19 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1214502"],
 [50.7037773512, -2.7282699792, 1214503, "THE RETREAT", "II", "Wed, 19 Dec 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1214503"],
 [50.703340449, -2.7276684662, 1214504, "NO 53 (POUND HOUSE) AND ATTACHED FRONT WALL", "II", "Mon, 17 Apr 1972", "https://historicengland.org.uk/listing/the-list/list-entry/1214504"],
 [50.702722014, -2.7273332272, 1214505, "73, HIGH STREET", "II", "Mon, 05 Sep 1960", "https://historicengland.org.uk/listing/the-list/list-entry/1214505"],
