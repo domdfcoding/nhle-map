@@ -10121,7 +10121,7 @@ var listedBuildings1389770266 = [
 [51.0118529598, -3.102529263, 1344749, "NUMBERS 24A TO 29 AND NUMBERS 1 TO 6 VIVARY APARTMENTS", "II", "Fri, 04 Jul 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1344749"],
 [51.0157291513, -3.1034336479, 1344750, "5, NORTH STREET", "II", "Fri, 04 Jul 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1344750"],
 [51.0164351455, -3.1036137136, 1344751, "NO 16 AND MIDLAND BANK", "II", "Fri, 04 Jul 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1344751"],
-[51.0166198989, -3.1023071368, 1344752, "CONGREGATIONAL CHURCH", "II", "Mon, 17 Dec 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1344752"],
+[51.0166198989, -3.1023071368, 1344752, "Congregational Church", "II", "Mon, 17 Dec 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1344752"],
 [51.0135087889, -3.109702824, 1344753, "21-25, PARK STREET", "II", "Fri, 04 Jul 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1344753"],
 [51.0150115663, -3.1024677719, 1344754, "33, FORE STREET (See details for further address information)", "II", "Fri, 04 Jul 1975", "https://historicengland.org.uk/listing/the-list/list-entry/1344754"],
 [51.0140019124, -3.1032138193, 1344755, "2-4, HIGH STREET", "II", "Mon, 17 Dec 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1344755"],
