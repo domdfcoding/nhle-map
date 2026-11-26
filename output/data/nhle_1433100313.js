@@ -5198,7 +5198,7 @@ var listedBuildings1433100313 = [
 [53.3953174934, -3.0534558192, 1282510, "CASTELLATED LODGE", "II", "Thu, 28 Mar 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1282510"],
 [53.3650322124, -3.0514766654, 1282511, "PRENTON HALL (WEST)", "II", "Thu, 28 Mar 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1282511"],
 [53.3691024348, -3.0414470391, 1282512, "CHURCH OF ST STEPHEN", "II", "Thu, 28 Mar 1974", "https://historicengland.org.uk/listing/the-list/list-entry/1282512"],
-[53.3970402047, -3.0238711113, 1282513, "FORMER DOCK ENTRANCE TO MEYSEY ROAD TUNNEL", "II", "Mon, 10 Aug 1992", "https://historicengland.org.uk/listing/the-list/list-entry/1282513"],
+[53.3970402047, -3.0238711113, 1282513, "Former Dock Entrance to Mersey Road Tunnel", "II", "Mon, 10 Aug 1992", "https://historicengland.org.uk/listing/the-list/list-entry/1282513"],
 [53.3719227101, -3.0029175628, 1282514, "THE ROFT", "II", "Mon, 10 Aug 1992", "https://historicengland.org.uk/listing/the-list/list-entry/1282514"],
 [53.3719552992, -3.0001076294, 1282515, "8 9, ROCK PARK", "II", "Tue, 13 Mar 1973", "https://historicengland.org.uk/listing/the-list/list-entry/1282515"],
 [53.404197288, -3.0797874117, 1282537, "STONE FARMHOUSE", "II", "Sat, 29 Jul 1950", "https://historicengland.org.uk/listing/the-list/list-entry/1282537"],

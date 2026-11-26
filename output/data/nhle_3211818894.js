@@ -5689,7 +5689,7 @@ var listedBuildings3211818894 = [
 [53.5904711771, -1.752611045, 1135315, "SMALL FORMER BARN NOW ADJOINING NUMBER 5 UPPER FOLD FARMHOUSE", "II", "Wed, 10 Dec 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1135315"],
 [53.6347179781, -1.7114607763, 1135316, "3.25 MILES POST IN FRONT OF FOOTBALL GROUND", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1135316"],
 [53.5903275224, -1.7526874163, 1135317, "PRINCIPAL BARN 50 YARDS TO SOUTH WEST OF UPPER FOLD FARMHOUSE", "II", "Wed, 10 Dec 1980", "https://historicengland.org.uk/listing/the-list/list-entry/1135317"],
-[53.6372903599, -1.639135966, 1135318, "6.25 MILES POST, 0.25 MILE WEST OF JUNCTION WITH GRANGE LANE", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1135318"],
+[53.6372903599, -1.639135966, 1135318, "6.25 Miles post, 0.25 mile west of junction with Grange Lane", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1135318"],
 [53.6249117051, -1.7387878182, 1135319, "WOOD FARMHOUSE", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1135319"],
 [53.6256267843, -1.7210631723, 1135320, "WOODSOME BRIDGE", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1135320"],
 [53.625426712, -1.727868307, 1135321, "FUEL STORE 200 YARDS SOUTH EAST OF WOODSOME HALL", "II", "Wed, 16 May 1984", "https://historicengland.org.uk/listing/the-list/list-entry/1135321"],

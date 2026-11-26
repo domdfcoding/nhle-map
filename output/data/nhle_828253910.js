@@ -7560,7 +7560,7 @@ var listedBuildings828253910 = [
 [51.7597228999, -2.3721516505, 1090529, "CHURCH END HOUSE AND STABLE ADJOINING ON NORTH WEST CORNER", "II", "Tue, 09 Dec 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1090529"],
 [51.7584829702, -2.3747059165, 1090530, "SPLATT BRIDGE HOUSE", "II", "Tue, 09 Dec 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1090530"],
 [51.7599863913, -2.3712844777, 1090531, "BARN AT TANHOUSE FARM, ABOUT 60M NORTH EAST OF CHURCH END HOUSE", "II*", "Tue, 09 Dec 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1090531"],
-[51.7636360432, -2.3357262677, 1090532, "FROMEBRIDGE MILL", "II", "Tue, 09 Dec 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1090532"],
+[51.7636360432, -2.3357262677, 1090532, "Fromebridge Mill", "II", "Tue, 09 Dec 1986", "https://historicengland.org.uk/listing/the-list/list-entry/1090532"],
 [51.7707320737, -2.3623293616, 1090533, "FRAMPTON LODGE", "II", "Mon, 10 Jan 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1090533"],
 [51.7681456486, -2.3642360464, 1090534, "DOVECOTE AT FRAMPTON COURT", "II", "Mon, 10 Jan 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1090534"],
 [51.7670210184, -2.3667397685, 1090535, "NASTFIELD COTTAGE", "II", "Mon, 10 Jan 1955", "https://historicengland.org.uk/listing/the-list/list-entry/1090535"],
